@@ -1,0 +1,17 @@
+{
+  "name": "adaptive-quiz-practice-platform",
+  "version": "1.0.0",
+  "description": "Adaptive Quiz and Practice Tool for local school students in Mathematics & Science",
+  "scripts": {
+    "build": "npm run build --prefix client",
+    "install-all": "npm install --prefix server && npm install --prefix client",
+    "postinstall": "npm install --prefix server && npm install --prefix client",
+    "seed": "npm run seed --prefix server",
+    "server": "npm run dev --prefix server",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

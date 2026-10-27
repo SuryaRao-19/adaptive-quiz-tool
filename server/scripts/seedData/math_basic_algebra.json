@@ -1,0 +1,562 @@
+[
+  {
+    "subject": "Math",
+    "topic": "Basic Algebra",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Solve for x: x + 7 = 15.",
+    "options": [
+      "x = 8",
+      "x = 22",
+      "x = 10",
+      "x = 7"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Subtract 7 from both sides: x = 15 - 7 = 8.",
+    "steps": [
+      {
+        "step": "Step 1: Apply Inverse Operation",
+        "desc": "Subtract 7 from both sides to isolate x.",
+        "math": "x + 7 - 7 = 15 - 7"
+      },
+      {
+        "step": "Step 2: Simplify",
+        "desc": "15 - 7 = 8.",
+        "math": "x = 8"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Use inverse operations to isolate the variable on one side of the equation.",
+        "math": "Result = x = 8"
+      }
+    ],
+    "conceptSummary": "Use inverse operations to isolate the variable on one side of the equation.",
+    "misconception": "Adding 7 to both sides instead of subtracting (15 + 7 = 22).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Basic Algebra",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Solve for y: 3y = 27.",
+    "options": [
+      "y = 9",
+      "y = 24",
+      "y = 30",
+      "y = 81"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Divide both sides by 3: y = 27 ÷ 3 = 9.",
+    "steps": [
+      {
+        "step": "Step 1: Apply Inverse Operation",
+        "desc": "Divide both sides by coefficient 3.",
+        "math": "3y / 3 = 27 / 3"
+      },
+      {
+        "step": "Step 2: Simplify",
+        "desc": "27 ÷ 3 = 9.",
+        "math": "y = 9"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Undo multiplication by dividing both sides by the variable's coefficient.",
+        "math": "Result = y = 9"
+      }
+    ],
+    "conceptSummary": "Undo multiplication by dividing both sides by the variable's coefficient.",
+    "misconception": "Subtracting 3 instead of dividing (27 - 3 = 24).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Basic Algebra",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Evaluate the algebraic expression 2a + 5 when a = 4.",
+    "options": [
+      "13",
+      "29",
+      "18",
+      "11"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Substitute a = 4: 2(4) + 5 = 8 + 5 = 13.",
+    "steps": [
+      {
+        "step": "Step 1: Substitute Variable",
+        "desc": "Replace a with 4 in 2a + 5.",
+        "math": "2(4) + 5"
+      },
+      {
+        "step": "Step 2: Multiply First",
+        "desc": "2 × 4 = 8.",
+        "math": "8 + 5"
+      },
+      {
+        "step": "Step 3: Add",
+        "desc": "8 + 5 = 13.",
+        "math": "13"
+      }
+    ],
+    "conceptSummary": "Substitute the numerical value for the variable and follow standard order of operations.",
+    "misconception": "Concatenating 2 and 4 to form 24, then 24 + 5 = 29.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Basic Algebra",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Combine like terms to simplify: 4x + 3y - x + 2y.",
+    "options": [
+      "3x + 5y",
+      "7xy",
+      "5x + 5y",
+      "3x + y"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Group like variables: (4x - x) + (3y + 2y) = 3x + 5y.",
+    "steps": [
+      {
+        "step": "Step 1: Group x Terms",
+        "desc": "4x - 1x = 3x.",
+        "math": "4x - x = 3x"
+      },
+      {
+        "step": "Step 2: Group y Terms",
+        "desc": "3y + 2y = 5y.",
+        "math": "3y + 2y = 5y"
+      },
+      {
+        "step": "Step 3: Combine Groups",
+        "desc": "Combine simplified terms.",
+        "math": "3x + 5y"
+      }
+    ],
+    "conceptSummary": "Only terms containing identical variable factors can be added or subtracted together.",
+    "misconception": "Combining unlike terms into a single product: 3x + 5y = 8xy.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Basic Algebra",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Solve for x: x / 4 = 7.",
+    "options": [
+      "x = 28",
+      "x = 11",
+      "x = 3",
+      "x = 1.75"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Multiply both sides by 4: x = 7 × 4 = 28.",
+    "steps": [
+      {
+        "step": "Step 1: Apply Inverse Operation",
+        "desc": "Multiply both sides by 4.",
+        "math": "(x / 4) × 4 = 7 × 4"
+      },
+      {
+        "step": "Step 2: Simplify",
+        "desc": "7 × 4 = 28.",
+        "math": "x = 28"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Undo division by multiplying both sides by the denominator.",
+        "math": "Result = x = 28"
+      }
+    ],
+    "conceptSummary": "Undo division by multiplying both sides by the denominator.",
+    "misconception": "Adding 4 to 7 to get 11.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Basic Algebra",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Solve for x: 2x - 5 = 11.",
+    "options": [
+      "x = 8",
+      "x = 3",
+      "x = 16",
+      "x = 6"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Add 5 to both sides: 2x = 16. Divide both sides by 2: x = 8.",
+    "steps": [
+      {
+        "step": "Step 1: Add 5 to Both Sides",
+        "desc": "2x = 11 + 5 = 16.",
+        "math": "2x = 16"
+      },
+      {
+        "step": "Step 2: Divide by 2",
+        "desc": "x = 16 / 2 = 8.",
+        "math": "x = 8"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "In a two-step equation, isolate the variable term first, then divide by the coefficient.",
+        "math": "Result = x = 8"
+      }
+    ],
+    "conceptSummary": "In a two-step equation, isolate the variable term first, then divide by the coefficient.",
+    "misconception": "Subtracting 5 from 11: 2x = 6 → x = 3.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Basic Algebra",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Expand the expression using the distributive property: 3(2x - 4).",
+    "options": [
+      "6x - 12",
+      "6x - 4",
+      "5x - 7",
+      "6x + 12"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Multiply each term inside by 3: 3 × 2x = 6x, and 3 × (-4) = -12. Result is 6x - 12.",
+    "steps": [
+      {
+        "step": "Step 1: Distribute to First Term",
+        "desc": "3 × 2x = 6x.",
+        "math": "3 × 2x = 6x"
+      },
+      {
+        "step": "Step 2: Distribute to Second Term",
+        "desc": "3 × (-4) = -12.",
+        "math": "3 × (-4) = -12"
+      },
+      {
+        "step": "Step 3: Combine Terms",
+        "desc": "6x - 12.",
+        "math": "6x - 12"
+      }
+    ],
+    "conceptSummary": "The distributive property requires multiplying the outside factor by every term inside parentheses.",
+    "misconception": "Multiplying only the first term: 3(2x - 4) = 6x - 4.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Basic Algebra",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Solve for x: 5x + 3 = 2x + 15.",
+    "options": [
+      "x = 4",
+      "x = 6",
+      "x = 3",
+      "x = 5"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Subtract 2x from both sides: 3x + 3 = 15. Subtract 3 from both sides: 3x = 12. Divide by 3: x = 4.",
+    "steps": [
+      {
+        "step": "Step 1: Collect Variable Terms",
+        "desc": "Subtract 2x from both sides: 5x - 2x = 3x.",
+        "math": "3x + 3 = 15"
+      },
+      {
+        "step": "Step 2: Collect Constant Terms",
+        "desc": "Subtract 3 from both sides: 15 - 3 = 12.",
+        "math": "3x = 12"
+      },
+      {
+        "step": "Step 3: Isolate x",
+        "desc": "Divide by 3: 12 / 3 = 4.",
+        "math": "x = 4"
+      }
+    ],
+    "conceptSummary": "When variables appear on both sides, subtract the smaller variable term from both sides to keep the coefficient positive.",
+    "misconception": "Adding 2x instead of subtracting (7x = 12).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Basic Algebra",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Solve for x: 4(x - 2) = 20.",
+    "options": [
+      "x = 7",
+      "x = 3",
+      "x = 6",
+      "x = 8"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Method 1: 4x - 8 = 20 → 4x = 28 → x = 7. Method 2: Divide by 4 first: x - 2 = 5 → x = 7.",
+    "steps": [
+      {
+        "step": "Step 1: Expand or Divide",
+        "desc": "Expand: 4x - 8 = 20.",
+        "math": "4x - 8 = 20"
+      },
+      {
+        "step": "Step 2: Add 8 to Both Sides",
+        "desc": "4x = 20 + 8 = 28.",
+        "math": "4x = 28"
+      },
+      {
+        "step": "Step 3: Divide by 4",
+        "desc": "x = 28 / 4 = 7.",
+        "math": "x = 7"
+      }
+    ],
+    "conceptSummary": "Equations with parentheses can be solved either by expanding first or dividing by the multiplier first.",
+    "misconception": "Adding 2 directly to 20 without considering the multiplier 4.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Basic Algebra",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Solve the inequality: 2x - 3 > 7.",
+    "options": [
+      "x > 5",
+      "x < 5",
+      "x > 2",
+      "x < 2"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Add 3 to both sides: 2x > 10. Divide by positive 2 (inequality sign remains unchanged): x > 5.",
+    "steps": [
+      {
+        "step": "Step 1: Add 3 to Both Sides",
+        "desc": "2x > 7 + 3 = 10.",
+        "math": "2x > 10"
+      },
+      {
+        "step": "Step 2: Divide by 2",
+        "desc": "Dividing by positive 2 preserves the inequality sign.",
+        "math": "x > 5"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Inequalities follow the same algebraic balance rules as equations, except the sign flips when multiplying or dividing by a negative.",
+        "math": "Result = x > 5"
+      }
+    ],
+    "conceptSummary": "Inequalities follow the same algebraic balance rules as equations, except the sign flips when multiplying or dividing by a negative.",
+    "misconception": "Flipping the inequality sign when dividing by a positive number.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Basic Algebra",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Factorize completely: 6x + 9.",
+    "options": [
+      "3(2x + 3)",
+      "3(2x + 9)",
+      "6(x + 3)",
+      "9(x + 1)"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The greatest common factor (GCF) of 6 and 9 is 3. Factoring out 3 gives 3(2x + 3).",
+    "steps": [
+      {
+        "step": "Step 1: Find GCF",
+        "desc": "Factors of 6: 1, 2, 3, 6. Factors of 9: 1, 3, 9. GCF = 3.",
+        "math": "GCF = 3"
+      },
+      {
+        "step": "Step 2: Factor Out GCF",
+        "desc": "6x ÷ 3 = 2x, and 9 ÷ 3 = 3.",
+        "math": "3(2x + 3)"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Factoring by GCF is the reverse of applying the distributive property.",
+        "math": "Result = 3(2x + 3)"
+      }
+    ],
+    "conceptSummary": "Factoring by GCF is the reverse of applying the distributive property.",
+    "misconception": "Factoring 3 out of 6x but leaving 9 untouched: 3(2x + 9).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Basic Algebra",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "Solve for x: 3(x + 4) - 2(2x - 1) = 10.",
+    "options": [
+      "x = 4",
+      "x = -4",
+      "x = 2",
+      "x = 6"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Expand brackets carefully: 3x + 12 - 4x + 2 = 10. Combine like terms: -x + 14 = 10. Subtract 14: -x = -4 → x = 4.",
+    "steps": [
+      {
+        "step": "Step 1: Expand Both Brackets",
+        "desc": "3(x + 4) = 3x + 12; -2(2x - 1) = -4x + 2.",
+        "math": "3x + 12 - 4x + 2 = 10"
+      },
+      {
+        "step": "Step 2: Combine Like Terms",
+        "desc": "(3x - 4x) + (12 + 2) = -x + 14.",
+        "math": "-x + 14 = 10"
+      },
+      {
+        "step": "Step 3: Isolate x",
+        "desc": "-x = 10 - 14 = -4 → x = 4.",
+        "math": "x = 4"
+      }
+    ],
+    "conceptSummary": "Be vigilant when distributing a negative sign into parentheses: -2 × (-1) = +2.",
+    "misconception": "Distributing -2 to -1 as -2 instead of +2.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Basic Algebra",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "Solve for x: (2x - 3) / 4 = (x + 1) / 3.",
+    "options": [
+      "x = 6.5",
+      "x = 5",
+      "x = 7.5",
+      "x = 4"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Cross-multiply: 3(2x - 3) = 4(x + 1) → 6x - 9 = 4x + 4 → 2x = 13 → x = 13/2 = 6.5.",
+    "steps": [
+      {
+        "step": "Step 1: Cross Multiply Across Fractions",
+        "desc": "3(2x - 3) = 4(x + 1).",
+        "math": "3(2x - 3) = 4(x + 1)"
+      },
+      {
+        "step": "Step 2: Expand Brackets",
+        "desc": "6x - 9 = 4x + 4.",
+        "math": "6x - 9 = 4x + 4"
+      },
+      {
+        "step": "Step 3: Collect Terms",
+        "desc": "6x - 4x = 4 + 9 → 2x = 13.",
+        "math": "2x = 13"
+      },
+      {
+        "step": "Step 4: Solve",
+        "desc": "x = 13 / 2 = 6.5.",
+        "math": "x = 6.5"
+      }
+    ],
+    "conceptSummary": "Fractions on both sides of an equation are eliminated by cross-multiplying the denominators.",
+    "misconception": "Multiplying only the 2x by 3 and forgetting to multiply the -3 by 3.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Basic Algebra",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "Liam is 4 years older than twice his sister Maya's age. If the sum of their ages is 28, how old is Liam?",
+    "options": [
+      "20 years old",
+      "8 years old",
+      "18 years old",
+      "16 years old"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Let Maya's age = m. Liam's age = 2m + 4. Sum: m + (2m + 4) = 28 → 3m + 4 = 28 → 3m = 24 → m = 8. Liam is 2(8) + 4 = 20 years old.",
+    "steps": [
+      {
+        "step": "Step 1: Define Variables",
+        "desc": "Let Maya = m; Liam = 2m + 4.",
+        "math": "Maya = m, Liam = 2m + 4"
+      },
+      {
+        "step": "Step 2: Form and Solve Equation",
+        "desc": "m + 2m + 4 = 28 → 3m = 24 → m = 8.",
+        "math": "m = 8"
+      },
+      {
+        "step": "Step 3: Calculate Liam's Age",
+        "desc": "Liam = 2(8) + 4 = 16 + 4 = 20.",
+        "math": "Liam = 20"
+      }
+    ],
+    "conceptSummary": "Translate verbal relationship descriptions into algebraic expressions before setting up the equation.",
+    "misconception": "Reporting Maya's age (8) instead of Liam's age.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Basic Algebra",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "Solve the inequality: -3x + 5 ≤ 17.",
+    "options": [
+      "x ≥ -4",
+      "x ≤ -4",
+      "x ≥ 4",
+      "x ≤ 4"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Subtract 5 from both sides: -3x ≤ 12. Divide both sides by -3 and FLIP the inequality sign: x ≥ -4.",
+    "steps": [
+      {
+        "step": "Step 1: Subtract 5",
+        "desc": "-3x ≤ 17 - 5 = 12.",
+        "math": "-3x ≤ 12"
+      },
+      {
+        "step": "Step 2: Divide by -3 and Reverse Sign",
+        "desc": "Dividing by a negative number flips ≤ to ≥.",
+        "math": "x ≥ 12 / (-3)"
+      },
+      {
+        "step": "Step 3: Final Solution",
+        "desc": "x ≥ -4.",
+        "math": "x ≥ -4"
+      }
+    ],
+    "conceptSummary": "Whenever multiplying or dividing both sides of an inequality by a negative number, the inequality sign must be reversed.",
+    "misconception": "Forgetting to reverse the inequality symbol (writing x ≤ -4).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  }
+]

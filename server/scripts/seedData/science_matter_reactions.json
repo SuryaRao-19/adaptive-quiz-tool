@@ -1,0 +1,557 @@
+[
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which state of matter has a definite fixed volume, but adapts to take the shape of the container it is poured into?",
+    "options": [
+      "Liquid",
+      "Solid",
+      "Gas",
+      "Plasma"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Liquids have fixed volume due to cohesive intermolecular forces, but their molecules can slide freely past one another, allowing them to take the shape of their container.",
+    "steps": [
+      {
+        "step": "Step 1: Compare States of Matter",
+        "desc": "Solids = fixed shape & volume; Liquids = indefinite shape, fixed volume; Gases = indefinite shape & volume.",
+        "math": "Liquid = Fixed volume, variable shape"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Liquids have fixed volume due to cohesive intermolecular forces, but their molecules can slide freely past one another, allowing them to take the shape of their container.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Liquids possess a definite volume while flowing to match container geometry.",
+        "math": "Correct Option: Liquid"
+      }
+    ],
+    "conceptSummary": "Liquids possess a definite volume while flowing to match container geometry.",
+    "misconception": "Confusing liquids with gases (gases expand to fill any container volume completely).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What is the standard chemical formula representing one molecule of water?",
+    "options": [
+      "H2O",
+      "HO2",
+      "H2O2",
+      "OH"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "A molecule of water consists of two hydrogen atoms covalently bonded to one central oxygen atom: H2O.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Elements and Subscripts",
+        "desc": "Two Hydrogens (H2) and one Oxygen (O).",
+        "math": "H2O"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "A molecule of water consists of two hydrogen atoms covalently bonded to one central oxygen atom: H2O.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Chemical formulas represent the exact elemental ratios of atoms in a molecule.",
+        "math": "Correct Option: H2O"
+      }
+    ],
+    "conceptSummary": "Chemical formulas represent the exact elemental ratios of atoms in a molecule.",
+    "misconception": "Confusing water (H2O) with hydrogen peroxide (H2O2).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which fundamental subatomic particle defines the atomic number of an element in the periodic table?",
+    "options": [
+      "Protons",
+      "Neutrons",
+      "Electrons",
+      "Photons"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The atomic number (Z) of any element is defined strictly by the number of positively charged protons located in its atomic nucleus.",
+    "steps": [
+      {
+        "step": "Step 1: Recall Atomic Number Definition",
+        "desc": "Atomic number = number of nuclear protons.",
+        "math": "Z = number of protons"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "The atomic number (Z) of any element is defined strictly by the number of positively charged protons located in its atomic nucleus.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Every chemical element is uniquely identified by its proton count (atomic number).",
+        "math": "Correct Option: Protons"
+      }
+    ],
+    "conceptSummary": "Every chemical element is uniquely identified by its proton count (atomic number).",
+    "misconception": "Thinking neutrons determine atomic identity (neutrons define isotopes).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which of the following processes is a physical change rather than a chemical change?",
+    "options": [
+      "Melting an ice cube into liquid water",
+      "Burning a dry wooden log into ash",
+      "Rusting of an iron nail exposed to rain",
+      "Baking bread dough in an oven"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Melting ice is a reversible phase change from solid H2O to liquid H2O; no new chemical bonds are broken or formed.",
+    "steps": [
+      {
+        "step": "Step 1: Distinguish Physical vs Chemical",
+        "desc": "Physical changes alter state or appearance without modifying molecular identity.",
+        "math": "H2O(s) → H2O(l)"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Melting ice is a reversible phase change from solid H2O to liquid H2O; no new chemical bonds are broken or formed.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Phase transitions (melting, boiling, freezing) are physical changes preserving chemical identity.",
+        "math": "Correct Option: Melting an ice cube into liquid water"
+      }
+    ],
+    "conceptSummary": "Phase transitions (melting, boiling, freezing) are physical changes preserving chemical identity.",
+    "misconception": "Assuming that any change involving heat must be a chemical change.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What does a pH value of 7 represent on the standard pH scale at 25°C?",
+    "options": [
+      "Neutral (neither acidic nor alkaline)",
+      "Strongly acidic",
+      "Strongly alkaline",
+      "Saturated salt solution"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "A pH of 7 represents a neutral solution where the concentrations of hydrogen ions [H+] and hydroxide ions [OH-] are equal.",
+    "steps": [
+      {
+        "step": "Step 1: Analyze pH Scale",
+        "desc": "pH < 7 is acidic; pH = 7 is neutral; pH > 7 is alkaline.",
+        "math": "pH 7 = Neutral"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "A pH of 7 represents a neutral solution where the concentrations of hydrogen ions [H+] and hydroxide ions [OH-] are equal.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "The pH scale ranges from 0 to 14, with pure water at 7 being neutral.",
+        "math": "Correct Option: Neutral (neither acidic nor alkaline)"
+      }
+    ],
+    "conceptSummary": "The pH scale ranges from 0 to 14, with pure water at 7 being neutral.",
+    "misconception": "Thinking 0 is neutral and 7 is acidic.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "According to the Law of Conservation of Mass, if 4 grams of hydrogen gas react completely with 32 grams of oxygen gas, what mass of water is produced?",
+    "options": [
+      "36 grams",
+      "28 grams",
+      "32 grams",
+      "16 grams"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Matter can neither be created nor destroyed in a chemical reaction. Total mass of products = Total mass of reactants = 4 g + 32 g = 36 g.",
+    "steps": [
+      {
+        "step": "Step 1: Apply Conservation of Mass",
+        "desc": "Mass of reactants = Mass of products.",
+        "math": "Mass(H2) + Mass(O2) = Mass(H2O)"
+      },
+      {
+        "step": "Step 2: Sum Masses",
+        "desc": "4 g + 32 g = 36 g.",
+        "math": "36 grams"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "In closed chemical systems, the total mass of the reactants equals the total mass of the products.",
+        "math": "Result = 36 grams"
+      }
+    ],
+    "conceptSummary": "In closed chemical systems, the total mass of the reactants equals the total mass of the products.",
+    "misconception": "Subtracting masses or assuming mass is lost as heat.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "What coefficient correctly balances the chemical equation for the synthesis of water: __ H₂ + O₂ → 2 H₂O?",
+    "options": [
+      "2",
+      "1",
+      "3",
+      "4"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "On the product side, 2 H2O contains 4 hydrogen atoms and 2 oxygen atoms. To balance the 4 hydrogens on the left, place a coefficient of 2 in front of H2: 2 H2 + O2 → 2 H2O.",
+    "steps": [
+      {
+        "step": "Step 1: Count Atoms on Product Side",
+        "desc": "2 molecules of H2O = 4 H and 2 O.",
+        "math": "Products: 4 H, 2 O"
+      },
+      {
+        "step": "Step 2: Balance Reactant Side",
+        "desc": "O2 has 2 O (balanced). H2 needs coefficient 2 to make 4 H.",
+        "math": "2 H2 + O2 → 2 H2O"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Coefficients scale whole molecules so that atom counts for each element match on both sides of a chemical equation.",
+        "math": "Result = 2"
+      }
+    ],
+    "conceptSummary": "Coefficients scale whole molecules so that atom counts for each element match on both sides of a chemical equation.",
+    "misconception": "Changing the subscript to H4 instead of adding a coefficient 2.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "When ammonium nitrate dissolves in water in a test tube, the tube feels noticeably cold to the touch. This reaction is classified as:",
+    "options": [
+      "Endothermic, because it absorbs thermal energy from the surrounding environment",
+      "Exothermic, because it releases heat into the water",
+      "A nuclear fission event",
+      "A purely catalytic physical state with zero energy exchange"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Endothermic reactions absorb heat energy from their surroundings, causing the ambient temperature of the reaction vessel to drop.",
+    "steps": [
+      {
+        "step": "Step 1: Evaluate Heat Flow",
+        "desc": "Temperature drops → energy is absorbed from the surroundings.",
+        "math": "ΔH > 0 (Endothermic)"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Endothermic reactions absorb heat energy from their surroundings, causing the ambient temperature of the reaction vessel to drop.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Endothermic reactions absorb thermal energy (feeling cold); exothermic reactions release thermal energy (feeling warm).",
+        "math": "Correct Option: Endothermic, because it absorbs thermal energy from the surrounding environment"
+      }
+    ],
+    "conceptSummary": "Endothermic reactions absorb thermal energy (feeling cold); exothermic reactions release thermal energy (feeling warm).",
+    "misconception": "Confusing endothermic with exothermic.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Which of the following observations provides conclusive experimental evidence that a chemical reaction (rather than just a physical change) has occurred?",
+    "options": [
+      "Formation of an insoluble precipitate and emission of light/heat upon mixing two clear solutions",
+      "A solid dissolving in warm water to form a clear mixture",
+      "Liquid water freezing into solid ice crystals",
+      "A rock being ground into fine dust"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Precipitate formation and energy release indicate that chemical bonds have been broken and new chemical compounds synthesized.",
+    "steps": [
+      {
+        "step": "Step 1: Check for New Substances",
+        "desc": "Precipitation, gas evolution, or energy change indicates creation of new chemical bonds.",
+        "math": "New substance formed"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Precipitate formation and energy release indicate that chemical bonds have been broken and new chemical compounds synthesized.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Indicators of chemical change include temperature shift, color change, gas evolution, and precipitate formation.",
+        "math": "Correct Option: Formation of an insoluble precipitate and emission of light/heat upon mixing two clear solutions"
+      }
+    ],
+    "conceptSummary": "Indicators of chemical change include temperature shift, color change, gas evolution, and precipitate formation.",
+    "misconception": "Believing dissolving sugar in water is a chemical change.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "According to the kinetic molecular theory, what happens to the gas molecules inside a sealed rigid steel canister when the gas is heated?",
+    "options": [
+      "They absorb thermal energy, move with higher average kinetic speed, and collide more frequently and forcefully with the canister walls.",
+      "They slow down and condense into liquid droplets on the floor of the canister.",
+      "The molecules swell in individual physical size.",
+      "The number of molecules doubles."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Temperature is a measure of average molecular kinetic energy. Heating increases particle speed, causing more frequent, high-momentum collisions against walls (raising pressure).",
+    "steps": [
+      {
+        "step": "Step 1: Connect Temperature to Kinetic Energy",
+        "desc": "T ∝ Average Kinetic Energy (1/2 mv²).",
+        "math": "Higher T → Higher molecular speed"
+      },
+      {
+        "step": "Step 2: Relate to Container Pressure",
+        "desc": "Faster particles strike rigid walls with greater force and frequency.",
+        "math": "Pressure increases"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Heating a gas increases particle kinetic energy and collision frequency.",
+        "math": "Result = They absorb thermal energy, move with higher average kinetic speed, and collide more frequently and forcefully with the canister walls."
+      }
+    ],
+    "conceptSummary": "Heating a gas increases particle kinetic energy and collision frequency.",
+    "misconception": "Believing that gas molecules themselves expand in size when heated.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "When hydrochloric acid (HCl) reacts completely with sodium hydroxide (NaOH) in a neutralization reaction, what two products are formed?",
+    "options": [
+      "Sodium chloride (NaCl) and water (H₂O)",
+      "Sodium hydride and chlorine gas",
+      "Hydrogen gas and sodium oxide",
+      "Sodium bicarbonate and oxygen gas"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Acid + Base → Salt + Water: HCl + NaOH → NaCl + H2O.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Reactants",
+        "desc": "HCl (acid) + NaOH (base).",
+        "math": "Acid + Base"
+      },
+      {
+        "step": "Step 2: Predict Neutralization Products",
+        "desc": "H+ from acid combines with OH- from base to form water (H2O); Na+ and Cl- form table salt (NaCl).",
+        "math": "HCl + NaOH → NaCl + H2O"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Neutralization of an Arrhenius acid and base produces an ionic salt and water.",
+        "math": "Result = Sodium chloride (NaCl) and water (H₂O)"
+      }
+    ],
+    "conceptSummary": "Neutralization of an Arrhenius acid and base produces an ionic salt and water.",
+    "misconception": "Expecting hydrogen gas (H2) to be produced during acid-base neutralization.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "What coefficient for HCl is required to fully balance the chemical equation: 2 Al + __ HCl → 2 AlCl₃ + 3 H₂?",
+    "options": [
+      "6",
+      "3",
+      "2",
+      "12"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "On the product side, 2 AlCl3 contains 2 × 3 = 6 chlorine atoms, and 3 H2 contains 3 × 2 = 6 hydrogen atoms. Therefore, 6 HCl molecules are needed: 2 Al + 6 HCl → 2 AlCl3 + 3 H2.",
+    "steps": [
+      {
+        "step": "Step 1: Count Chlorines on Product Side",
+        "desc": "2 AlCl3 has 2 × 3 = 6 chlorine atoms.",
+        "math": "Chlorine needed = 6"
+      },
+      {
+        "step": "Step 2: Count Hydrogens on Product Side",
+        "desc": "3 H2 has 3 × 2 = 6 hydrogen atoms.",
+        "math": "Hydrogen needed = 6"
+      },
+      {
+        "step": "Step 3: Assign HCl Coefficient",
+        "desc": "6 HCl supplies both 6 H and 6 Cl atoms.",
+        "math": "Coefficient = 6"
+      }
+    ],
+    "conceptSummary": "Balance complex redox equations by tallying individual element atom counts across reactants and products.",
+    "misconception": "Selecting 3 because of the subscript on AlCl3, leaving hydrogen unbalanced.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "During a heating curve experiment, water is heated continuously, but its temperature remains completely constant at 100°C while it boils. Why does temperature not rise during this phase change?",
+    "options": [
+      "The added thermal energy is used as latent heat of vaporization to overcome intermolecular hydrogen bonds rather than increasing kinetic energy.",
+      "The thermometer has reached its maximum physical recording capability.",
+      "Heat energy is destroyed when bubbles are created.",
+      "The water molecules lose all kinetic energy upon boiling."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "During a phase change, thermal input is absorbed as latent heat to break attractive intermolecular bonds (hydrogen bonds in liquid water) rather than increasing molecular kinetic motion (temperature).",
+    "steps": [
+      {
+        "step": "Step 1: Distinguish Temperature from Phase Change",
+        "desc": "Temperature measures kinetic energy of particles.",
+        "math": "T ∝ KE_avg"
+      },
+      {
+        "step": "Step 2: Identify Latent Heat Role",
+        "desc": "Energy during boiling increases potential energy by separating molecules.",
+        "math": "Q = m · L_v"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Plateaus on a heating curve signify latent heat uptake for phase transitions at constant temperature.",
+        "math": "Result = The added thermal energy is used as latent heat of vaporization to overcome intermolecular hydrogen bonds rather than increasing kinetic energy."
+      }
+    ],
+    "conceptSummary": "Plateaus on a heating curve signify latent heat uptake for phase transitions at constant temperature.",
+    "misconception": "Believing heat input always raises temperature immediately.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "In a controlled corrosion experiment using identical iron nails, which environmental condition causes the iron nail to rust most rapidly?",
+    "options": [
+      "Submerged in salt water with access to atmospheric dissolved oxygen",
+      "Submerged in boiled distilled water sealed with a layer of mineral oil",
+      "Kept in a dry test tube containing anhydrous calcium chloride drying agent",
+      "Submerged in pure kerosene oil away from air"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Rusting of iron (hydrated iron(III) oxide formation) requires both oxygen and water simultaneously. Dissolved salt ions act as an electrolyte, dramatically accelerating electron transfer in the electrochemical corrosion reaction.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Essential Reactants for Rusting",
+        "desc": "Iron + Oxygen + Water are mandatory.",
+        "math": "4 Fe + 3 O2 + 6 H2O → 4 Fe(OH)3"
+      },
+      {
+        "step": "Step 2: Role of Electrolyte",
+        "desc": "Saline water provides dissolved ions (Na+, Cl-) facilitating electrochemical redox flow.",
+        "math": "Electrolyte speeds reaction"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Corrosion is an electrochemical oxidation requiring both moisture and oxygen, accelerated by electrolytes.",
+        "math": "Result = Submerged in salt water with access to atmospheric dissolved oxygen"
+      }
+    ],
+    "conceptSummary": "Corrosion is an electrochemical oxidation requiring both moisture and oxygen, accelerated by electrolytes.",
+    "misconception": "Believing water alone causes rust without needing oxygen.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "An isotope of Carbon has an atomic number of 6 and a mass number of 14 (Carbon-14). What is the exact subatomic composition of a neutral Carbon-14 atom?",
+    "options": [
+      "6 protons, 8 neutrons, 6 electrons",
+      "6 protons, 14 neutrons, 6 electrons",
+      "8 protons, 6 neutrons, 8 electrons",
+      "7 protons, 7 neutrons, 7 electrons"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Atomic number = 6 means 6 protons. In a neutral atom, electrons = protons = 6. Neutrons = Mass number - Atomic number = 14 - 6 = 8 neutrons.",
+    "steps": [
+      {
+        "step": "Step 1: Find Protons",
+        "desc": "Atomic number Z = 6 protons.",
+        "math": "Protons = 6"
+      },
+      {
+        "step": "Step 2: Find Neutrons",
+        "desc": "Neutrons = Mass Number (A) - Atomic Number (Z) = 14 - 6 = 8.",
+        "math": "Neutrons = 8"
+      },
+      {
+        "step": "Step 3: Find Electrons",
+        "desc": "Neutral atom means electrons equal protons = 6.",
+        "math": "Electrons = 6"
+      }
+    ],
+    "conceptSummary": "Mass number equals protons plus neutrons; atomic number equals protons.",
+    "misconception": "Assuming mass number 14 equals the count of neutrons.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  }
+]

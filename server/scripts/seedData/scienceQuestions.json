@@ -1,0 +1,2782 @@
+[
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which cellular organelle is often referred to as the 'powerhouse of the cell' because it generates ATP through cellular respiration?",
+    "options": [
+      "Mitochondria",
+      "Nucleus",
+      "Ribosome",
+      "Endoplasmic Reticulum"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Mitochondria produce adenosine triphosphate (ATP), the primary energy currency of the cell, via aerobic cellular respiration.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Energy Organelle",
+        "desc": "Mitochondria break down glucose to synthesize ATP.",
+        "math": "Glucose + O2 → CO2 + H2O + ATP"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Mitochondria produce adenosine triphosphate (ATP), the primary energy currency of the cell, via aerobic cellular respiration.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Mitochondria are the primary sites of ATP production in eukaryotic cells.",
+        "math": "Correct Option: Mitochondria"
+      }
+    ],
+    "conceptSummary": "Mitochondria are the primary sites of ATP production in eukaryotic cells.",
+    "misconception": "Thinking the nucleus produces energy because it is the central control organelle.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What green pigment inside plant cells absorbs solar light energy to drive photosynthesis?",
+    "options": [
+      "Chlorophyll",
+      "Hemoglobin",
+      "Melanin",
+      "Cytoplasm"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Chlorophyll, found within chloroplasts, absorbs blue and red wavelengths of light while reflecting green light, powering photosynthesis.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Photosynthetic Pigment",
+        "desc": "Chlorophyll captures photon energy in thylakoid membranes.",
+        "math": "Light Energy + CO2 + H2O → C6H12O6 + O2"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Chlorophyll, found within chloroplasts, absorbs blue and red wavelengths of light while reflecting green light, powering photosynthesis.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Chlorophyll is the light-harvesting pigment in plant chloroplasts.",
+        "math": "Correct Option: Chlorophyll"
+      }
+    ],
+    "conceptSummary": "Chlorophyll is the light-harvesting pigment in plant chloroplasts.",
+    "misconception": "Confusing chlorophyll (pigment) with chloroplast (the organelle) or cytoplasm.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which of the following structures is present in typical plant cells but completely absent in animal cells?",
+    "options": [
+      "Cell wall",
+      "Cell membrane",
+      "Mitochondria",
+      "Nucleus"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Plant cells possess a rigid outer cell wall composed of cellulose for mechanical support, whereas animal cells only have a flexible cell membrane.",
+    "steps": [
+      {
+        "step": "Step 1: Compare Plant vs Animal Structures",
+        "desc": "Plants have cell wall, chloroplasts, and large central vacuole; animals do not have a cell wall.",
+        "math": "Plant cell = Cell wall + Cell membrane"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Plant cells possess a rigid outer cell wall composed of cellulose for mechanical support, whereas animal cells only have a flexible cell membrane.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Cell walls provide structural rigidity and turgor protection exclusively to plant, fungal, and bacterial cells.",
+        "math": "Correct Option: Cell wall"
+      }
+    ],
+    "conceptSummary": "Cell walls provide structural rigidity and turgor protection exclusively to plant, fungal, and bacterial cells.",
+    "misconception": "Believing animal cells have cell walls or that plant cells lack cell membranes.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which organelle houses genomic DNA and acts as the administrative control center of a eukaryotic cell?",
+    "options": [
+      "Nucleus",
+      "Vacuole",
+      "Golgi apparatus",
+      "Lysosome"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The nucleus encloses the organism's genetic blueprint (DNA) and directs vital cell activities including transcription and replication.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Genetic Storage",
+        "desc": "DNA is sequestered inside the nuclear membrane.",
+        "math": "Nucleus = Genetic Control"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "The nucleus encloses the organism's genetic blueprint (DNA) and directs vital cell activities including transcription and replication.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "The eukaryotic nucleus coordinates protein synthesis, growth, and cell division via DNA.",
+        "math": "Correct Option: Nucleus"
+      }
+    ],
+    "conceptSummary": "The eukaryotic nucleus coordinates protein synthesis, growth, and cell division via DNA.",
+    "misconception": "Assuming all cells possess a nucleus (prokaryotes lack a membrane-bound nucleus).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What is the jelly-like fluid that fills the cell and holds the organelles in place called?",
+    "options": [
+      "Cytoplasm",
+      "Plasma",
+      "Cytosol nucleus",
+      "Cell sap"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The cytoplasm consists of cytosol fluid and suspended structures, providing an aqueous medium for biochemical reactions.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Cellular Fluid",
+        "desc": "Cytoplasm fills the interior space between the cell membrane and nucleus.",
+        "math": "Cytoplasm = Aqueous matrix"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "The cytoplasm consists of cytosol fluid and suspended structures, providing an aqueous medium for biochemical reactions.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Cytoplasm provides the medium for cellular metabolism and organelle positioning.",
+        "math": "Correct Option: Cytoplasm"
+      }
+    ],
+    "conceptSummary": "Cytoplasm provides the medium for cellular metabolism and organelle positioning.",
+    "misconception": "Confusing cell cytoplasm with blood plasma.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Which statement accurately describes the functional difference between the cell wall and the cell membrane?",
+    "options": [
+      "The cell wall provides rigid structural shape, while the cell membrane regulates selective transport in and out of the cell.",
+      "The cell wall controls what enters the cell, while the cell membrane makes ATP.",
+      "The cell membrane is rigid and impermeable, while the cell wall is completely flexible.",
+      "Both structures perform identical functions and are found in all living organisms."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The cellulose cell wall provides structural protection and turgidity, while the lipid bilayer cell membrane is semi-permeable, regulating the influx and efflux of ions and molecules.",
+    "steps": [
+      {
+        "step": "Step 1: Define Cell Wall Function",
+        "desc": "Rigid outer matrix supporting high osmotic pressure.",
+        "math": "Cell wall = Rigidity / Protection"
+      },
+      {
+        "step": "Step 2: Define Cell Membrane Function",
+        "desc": "Phospholipid bilayer with selective permeability.",
+        "math": "Cell membrane = Selective barrier"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Cell walls provide structural strength; cell membranes maintain homeostasis through selective permeability.",
+        "math": "Result = The cell wall provides rigid structural shape, while the cell membrane regulates selective transport in and out of the cell."
+      }
+    ],
+    "conceptSummary": "Cell walls provide structural strength; cell membranes maintain homeostasis through selective permeability.",
+    "misconception": "Thinking the cell wall controls transport while the cell membrane provides rigidity.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "What is the primary cellular function of ribosomes?",
+    "options": [
+      "Synthesizing proteins by translating messenger RNA (mRNA)",
+      "Breaking down metabolic toxins and cellular waste",
+      "Storing starches and water",
+      "Duplicating chromosomes during meiosis"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Ribosomes read mRNA codon sequences and assemble amino acids into polypeptide chains (protein synthesis).",
+    "steps": [
+      {
+        "step": "Step 1: Ribosome Function",
+        "desc": "Translation of mRNA into functional proteins.",
+        "math": "mRNA + Amino Acids → Polypeptide"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Ribosomes read mRNA codon sequences and assemble amino acids into polypeptide chains (protein synthesis).",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Ribosomes are molecular factories responsible for protein translation in all living cells.",
+        "math": "Correct Option: Synthesizing proteins by translating messenger RNA (mRNA)"
+      }
+    ],
+    "conceptSummary": "Ribosomes are molecular factories responsible for protein translation in all living cells.",
+    "misconception": "Confusing ribosomes with lysosomes (waste disposal) or mitochondria (ATP synthesis).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Osmosis is specifically defined as the net diffusion of:",
+    "options": [
+      "Water molecules across a selectively permeable membrane from an area of higher water potential to lower water potential",
+      "Solute salt crystals through open pores in a cell wall",
+      "Glucose molecules across active carrier pumps requiring ATP",
+      "Oxygen and carbon dioxide gases between alveoli capillaries"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Osmosis is the spontaneous passive transport of solvent (water) molecules through a semi-permeable membrane towards a region of higher solute concentration (lower water potential).",
+    "steps": [
+      {
+        "step": "Step 1: Identify Solvent",
+        "desc": "Osmosis applies exclusively to water/solvent motion.",
+        "math": "Water: High [Water] → Low [Water]"
+      },
+      {
+        "step": "Step 2: Membrane Requirement",
+        "desc": "Must pass across a selectively permeable barrier.",
+        "math": "Semi-permeable membrane"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Osmosis is passive water movement driven by chemical water potential gradients.",
+        "math": "Result = Water molecules across a selectively permeable membrane from an area of higher water potential to lower water potential"
+      }
+    ],
+    "conceptSummary": "Osmosis is passive water movement driven by chemical water potential gradients.",
+    "misconception": "Believing osmosis describes the movement of salt or sugar solute particles.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Why do mature plant cells possess a large permanent central vacuole, while animal cells have only small, transient vacuoles?",
+    "options": [
+      "The large central vacuole maintains turgor pressure against the cell wall, keeping the plant upright without a skeletal system.",
+      "Plant cells need large vacuoles to breathe gaseous oxygen directly from the air.",
+      "Animal cells have bones so their cells do not require any water storage.",
+      "The plant vacuole creates glucose directly from sunlight."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "When water enters the central vacuole, hydrostatic turgor pressure pushes against the cell wall, giving non-woody plant stems rigidity and posture.",
+    "steps": [
+      {
+        "step": "Step 1: Relate Vacuole to Plant Posture",
+        "desc": "Water fills the vacuole, creating internal hydrostatic pressure.",
+        "math": "Turgor pressure = Mechanical support"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "When water enters the central vacuole, hydrostatic turgor pressure pushes against the cell wall, giving non-woody plant stems rigidity and posture.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Vacuolar turgor pressure provides essential hydrostatic support to herbaceous plant structures.",
+        "math": "Correct Option: The large central vacuole maintains turgor pressure against the cell wall, keeping the plant upright without a skeletal system."
+      }
+    ],
+    "conceptSummary": "Vacuolar turgor pressure provides essential hydrostatic support to herbaceous plant structures.",
+    "misconception": "Believing plant vacuoles exist solely to store chlorophyll.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Which critical feature distinguishes eukaryotic cells from prokaryotic cells (such as bacteria)?",
+    "options": [
+      "Eukaryotes possess a membrane-bound nucleus and membrane-bound organelles, whereas prokaryotes do not.",
+      "Prokaryotes contain mitochondria, whereas eukaryotes do not.",
+      "Eukaryotes do not contain DNA or genetic material.",
+      "Prokaryotes are always multicellular organisms."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Eukaryotic cells package their DNA within a true nuclear envelope and possess specialized organelles (mitochondria, ER, Golgi); prokaryotes have free-floating circular nucleoid DNA.",
+    "steps": [
+      {
+        "step": "Step 1: Analyze Terminology",
+        "desc": "Eu = true, karyon = nucleus. Pro = before, karyon = nucleus.",
+        "math": "Eukaryote = True nucleus"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Eukaryotic cells package their DNA within a true nuclear envelope and possess specialized organelles (mitochondria, ER, Golgi); prokaryotes have free-floating circular nucleoid DNA.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Compartmentalization with membrane-bound organelles is the defining evolutionary hallmark of eukaryotic cells.",
+        "math": "Correct Option: Eukaryotes possess a membrane-bound nucleus and membrane-bound organelles, whereas prokaryotes do not."
+      }
+    ],
+    "conceptSummary": "Compartmentalization with membrane-bound organelles is the defining evolutionary hallmark of eukaryotic cells.",
+    "misconception": "Believing prokaryotes lack DNA or ribosomes entirely.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "When observing an onion epidermal peel under a compound microscope, why do the cells appear as regular, brick-like interlocking units?",
+    "options": [
+      "The rigid cellulose cell wall locks each cell into a fixed geometric shape.",
+      "Onion cells are compressed by external muscular tissue.",
+      "The microscope stains distort the cell membranes into polygons.",
+      "Onion cells lack cytoplasm so they crystallize."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The strong, non-elastic cellulose cell walls cement adjacent cells together, maintaining a regular rectangular geometric pattern under magnification.",
+    "steps": [
+      {
+        "step": "Step 1: Connect Structure to Microscopy",
+        "desc": "Cellulose walls maintain shape even when dead or stained.",
+        "math": "Rigid cell wall → Fixed geometry"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "The strong, non-elastic cellulose cell walls cement adjacent cells together, maintaining a regular rectangular geometric pattern under magnification.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Cellulose walls provide fixed architectural geometry to plant tissues.",
+        "math": "Correct Option: The rigid cellulose cell wall locks each cell into a fixed geometric shape."
+      }
+    ],
+    "conceptSummary": "Cellulose walls provide fixed architectural geometry to plant tissues.",
+    "misconception": "Attributing cell shape to the magnification glass or microscope optics.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "What occurs when an animal red blood cell is immersed in pure distilled water (a hypotonic solution), and why?",
+    "options": [
+      "Water enters the cell rapidly via osmosis, causing it to swell and burst (lysis) because it lacks a rigid cell wall.",
+      "Water rushes out of the cell, causing it to shrivel up into a crenated sphere.",
+      "The cell wall prevents any volume change, keeping the red blood cell turgid.",
+      "No net movement occurs because cell membranes are completely impermeable to water."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Pure water has higher water potential than the saline interior of the red blood cell. Water flows inward down the concentration gradient. Because animal cells lack a cell wall to withstand turgor pressure, the membrane ruptures (lysis).",
+    "steps": [
+      {
+        "step": "Step 1: Determine Water Potential Gradient",
+        "desc": "Distilled water has zero solute (highest water potential). Interior cytoplasm is concentrated.",
+        "math": "Ψ_ext > Ψ_int"
+      },
+      {
+        "step": "Step 2: Direction of Net Osmosis",
+        "desc": "Water flows inward down the osmotic gradient.",
+        "math": "Net water influx"
+      },
+      {
+        "step": "Step 3: Analyze Structural Limit",
+        "desc": "Animal cells have no cell wall to resist internal pressure → Lysis (bursting).",
+        "math": "Cell lysis"
+      }
+    ],
+    "conceptSummary": "Hypotonic environments cause animal cells to undergo osmotic lysis due to the absence of a cell wall.",
+    "misconception": "Assuming animal cells can become turgid like plant cells without bursting.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "How do large or polar molecules (such as glucose) cross the hydrophobic lipid bilayer of the cell membrane down their concentration gradient without consuming cellular ATP?",
+    "options": [
+      "Via facilitated diffusion through specialized transmembrane transport proteins",
+      "Via simple diffusion directly slipping through hydrophobic fatty acid tails",
+      "Via active endocytosis using ATP hydrolysis pumps",
+      "Via osmosis directly through cholesterol steroid rings"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Glucose is hydrophilic and too large to diffuse across the hydrophobic core of the phospholipid bilayer. Carrier or channel transport proteins facilitate its passive diffusion without ATP consumption.",
+    "steps": [
+      {
+        "step": "Step 1: Characterize Molecular Properties",
+        "desc": "Glucose is polar and relatively large, repelled by nonpolar lipid tails.",
+        "math": "Polar solute + Lipid core = Blocked"
+      },
+      {
+        "step": "Step 2: Identify Transport Mechanism",
+        "desc": "Movement down gradient without energy = Facilitated diffusion.",
+        "math": "Passive transport via protein channels"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Facilitated diffusion enables polar solutes to cross membranes down their concentration gradient through specific transport proteins.",
+        "math": "Result = Via facilitated diffusion through specialized transmembrane transport proteins"
+      }
+    ],
+    "conceptSummary": "Facilitated diffusion enables polar solutes to cross membranes down their concentration gradient through specific transport proteins.",
+    "misconception": "Assuming all carrier protein transport requires ATP energy (confusing facilitated diffusion with active transport).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "Which piece of evidence strongly supports the endosymbiotic theory that mitochondria and chloroplasts originated as ancient free-living prokaryotic organisms engulfed by early eukaryotes?",
+    "options": [
+      "They possess their own circular DNA, self-contained 70S ribosomes, and divide independently by binary fission.",
+      "They have single-layer membranes identical to modern viral capsids.",
+      "They can survive for weeks outside living organisms in the open air.",
+      "Their genetic code is identical to human nuclear chromosomal DNA."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Mitochondria and chloroplasts contain independent circular DNA genomes, prokaryotic-like 70S ribosomes, and replicate via binary fission inside host cells, matching bacterial biology.",
+    "steps": [
+      {
+        "step": "Step 1: Evaluate Endosymbiosis Hallmarks",
+        "desc": "Double membranes, bacterial-size ribosomes (70S), circular DNA, autonomous replication.",
+        "math": "Prokaryotic characteristics"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Mitochondria and chloroplasts contain independent circular DNA genomes, prokaryotic-like 70S ribosomes, and replicate via binary fission inside host cells, matching bacterial biology.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Endosymbiotic theory explains the origin of mitochondria and chloroplasts as engulfed prokaryotes.",
+        "math": "Correct Option: They possess their own circular DNA, self-contained 70S ribosomes, and divide independently by binary fission."
+      }
+    ],
+    "conceptSummary": "Endosymbiotic theory explains the origin of mitochondria and chloroplasts as engulfed prokaryotes.",
+    "misconception": "Believing organelles are synthesized anew from scratch by the cell nucleus during division.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "What is the correct structural hierarchy of biological organization in complex multicellular organisms, from simplest unit to most complex organism?",
+    "options": [
+      "Cell → Tissue → Organ → Organ System → Organism",
+      "Tissue → Cell → Organ System → Organ → Organism",
+      "Organism → Organ System → Organ → Tissue → Cell",
+      "Cell → Organ → Tissue → Organ System → Organism"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Cells group together to form tissues; tissues combine into functional organs; organs coordinate within organ systems; organ systems assemble the complete living organism.",
+    "steps": [
+      {
+        "step": "Step 1: Fundamental Unit",
+        "desc": "Cell is the basic building block.",
+        "math": "Cell"
+      },
+      {
+        "step": "Step 2: Group of Specialized Cells",
+        "desc": "Similar cells form tissue.",
+        "math": "Cell → Tissue"
+      },
+      {
+        "step": "Step 3: Functional Unit",
+        "desc": "Multiple tissues form an organ (e.g. heart, stomach).",
+        "math": "Tissue → Organ"
+      },
+      {
+        "step": "Step 4: Integrated Systems",
+        "desc": "Organs cooperate in an organ system (e.g. circulatory system) to sustain the organism.",
+        "math": "Organ → Organ System → Organism"
+      }
+    ],
+    "conceptSummary": "Biological hierarchy progresses upward in scale and functional integration.",
+    "misconception": "Inverting the order of tissues and organs.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What is the standard International System (SI) unit of force?",
+    "options": [
+      "Newton (N)",
+      "Kilogram (kg)",
+      "Joule (J)",
+      "Watt (W)"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The Newton (N), defined as 1 kg·m/s², is the standard SI unit used to measure force.",
+    "steps": [
+      {
+        "step": "Step 1: Identify SI Unit",
+        "desc": "Force unit is named in honor of Sir Isaac Newton.",
+        "math": "1 N = 1 kg·m/s²"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "The Newton (N), defined as 1 kg·m/s², is the standard SI unit used to measure force.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Force is measured in Newtons (N); mass in kilograms (kg); energy in Joules (J).",
+        "math": "Correct Option: Newton (N)"
+      }
+    ],
+    "conceptSummary": "Force is measured in Newtons (N); mass in kilograms (kg); energy in Joules (J).",
+    "misconception": "Confusing force (Newtons) with mass (kilograms).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "If an object is moving at constant velocity in a straight line on a frictionless surface, what is the net external force acting on it?",
+    "options": [
+      "0 N",
+      "A constant forward force equal to its mass",
+      "A force equal to its velocity",
+      "9.8 N"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "According to Newton's First Law, an object at constant velocity experiences zero net force (acceleration is zero, so F = ma = 0).",
+    "steps": [
+      {
+        "step": "Step 1: Check Acceleration",
+        "desc": "Constant velocity means change in velocity is zero.",
+        "math": "a = 0 m/s²"
+      },
+      {
+        "step": "Step 2: Apply Newton's Second Law",
+        "desc": "F_net = m × a = m × 0 = 0 N.",
+        "math": "F_net = 0 N"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Zero net force corresponds to either a state of rest or motion at constant velocity.",
+        "math": "Result = 0 N"
+      }
+    ],
+    "conceptSummary": "Zero net force corresponds to either a state of rest or motion at constant velocity.",
+    "misconception": "Believing a continuous forward force is required to sustain steady motion (Aristotelian misconception).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What contact force always opposes the relative sliding motion between two surfaces in contact?",
+    "options": [
+      "Friction",
+      "Gravity",
+      "Magnetic force",
+      "Buoyancy"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Frictional forces arise from electrostatic interactions between microscopic surface irregularities, opposing relative motion.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Contact Opposing Force",
+        "desc": "Friction acts tangentially opposite to the direction of motion or applied force.",
+        "math": "f_friction opposes velocity"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Frictional forces arise from electrostatic interactions between microscopic surface irregularities, opposing relative motion.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Friction resists the sliding or rolling of surfaces past one another.",
+        "math": "Correct Option: Friction"
+      }
+    ],
+    "conceptSummary": "Friction resists the sliding or rolling of surfaces past one another.",
+    "misconception": "Thinking gravity opposes horizontal sliding motion.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which laboratory instrument is used to measure the magnitude of a pulling force or weight directly in Newtons?",
+    "options": [
+      "Spring balance (newton meter)",
+      "Beam balance",
+      "Thermometer",
+      "Graduated cylinder"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "A spring balance uses Hooke's Law (spring extension proportional to applied force) calibrated in Newtons to measure force and weight.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Force Measuring Device",
+        "desc": "Spring scale measures extension produced by gravitational pull or tensile force.",
+        "math": "F = k · Δx"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "A spring balance uses Hooke's Law (spring extension proportional to applied force) calibrated in Newtons to measure force and weight.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Spring balances measure force/weight in Newtons, while beam balances compare masses in kilograms.",
+        "math": "Correct Option: Spring balance (newton meter)"
+      }
+    ],
+    "conceptSummary": "Spring balances measure force/weight in Newtons, while beam balances compare masses in kilograms.",
+    "misconception": "Believing a spring balance measures mass independent of gravity.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "How is average speed calculated mathematically?",
+    "options": [
+      "Total distance divided by total time taken",
+      "Total distance multiplied by total time taken",
+      "Mass multiplied by acceleration",
+      "Force divided by area"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Average speed is the total path distance traveled divided by the total elapsed time interval: s = d / t.",
+    "steps": [
+      {
+        "step": "Step 1: Recall Speed Formula",
+        "desc": "Speed equals distance covered per unit time.",
+        "math": "Speed = Distance / Time"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Average speed is the total path distance traveled divided by the total elapsed time interval: s = d / t.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Speed is a scalar quantity measuring rate of distance covered per unit time.",
+        "math": "Correct Option: Total distance divided by total time taken"
+      }
+    ],
+    "conceptSummary": "Speed is a scalar quantity measuring rate of distance covered per unit time.",
+    "misconception": "Multiplying distance by time.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Why does a standing passenger suddenly lurch forward when a moving city bus slams on its brakes?",
+    "options": [
+      "Due to inertia, the passenger's upper body continues moving forward at the bus's prior speed until a force acts on it.",
+      "A mysterious forward force is created by the braking system.",
+      "The passenger's mass increases during rapid deceleration.",
+      "Air pressure inside the bus suddenly pushes forward."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Newton's First Law (Law of Inertia): an object in motion remains in motion at constant velocity unless acted upon by an external net force. The bus stops, but the passenger's body continues forward.",
+    "steps": [
+      {
+        "step": "Step 1: Apply Newton's First Law",
+        "desc": "Inertia is the tendency of matter to resist changes in its velocity.",
+        "math": "Velocity tends to remain constant"
+      },
+      {
+        "step": "Step 2: Trace Motion",
+        "desc": "Brakes apply force to bus chassis and feet; upper body continues moving forward.",
+        "math": "Forward inertia"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Inertia is the inherent property of matter that resists changes in motion.",
+        "math": "Result = Due to inertia, the passenger's upper body continues moving forward at the bus's prior speed until a force acts on it."
+      }
+    ],
+    "conceptSummary": "Inertia is the inherent property of matter that resists changes in motion.",
+    "misconception": "Imagining an active invisible force pushes the passenger forward.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "A cart with a mass of 5 kg accelerates along a flat track at 3 m/s². What net horizontal force was applied to the cart?",
+    "options": [
+      "15 N",
+      "1.67 N",
+      "8 N",
+      "0.6 N"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Apply Newton's Second Law: F = m × a = 5 kg × 3 m/s² = 15 N.",
+    "steps": [
+      {
+        "step": "Step 1: State Formula",
+        "desc": "Net Force = mass × acceleration.",
+        "math": "F = ma"
+      },
+      {
+        "step": "Step 2: Substitute Values",
+        "desc": "m = 5 kg, a = 3 m/s².",
+        "math": "F = 5 × 3 = 15 N"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Newton's Second Law quantifies the relationship between net force, mass, and resultant acceleration.",
+        "math": "Result = 15 N"
+      }
+    ],
+    "conceptSummary": "Newton's Second Law quantifies the relationship between net force, mass, and resultant acceleration.",
+    "misconception": "Dividing mass by acceleration: 5 / 3 = 1.67 N.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "The Moon has a surface gravity approximately 1/6th that of Earth. If an astronaut travels from Earth to the Moon, how do their mass and weight change?",
+    "options": [
+      "Their mass remains unchanged, but their weight decreases to 1/6th of its Earth value.",
+      "Both their mass and weight decrease to 1/6th of their Earth values.",
+      "Their weight remains constant, but their mass decreases to 1/6th.",
+      "Neither mass nor weight changes in space."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Mass is the amount of matter in an object and is invariant regardless of location. Weight is the gravitational force acting on that mass (W = mg), which decreases by 1/6 on the Moon.",
+    "steps": [
+      {
+        "step": "Step 1: Define Mass",
+        "desc": "Mass is an intrinsic property measuring amount of matter.",
+        "math": "Mass_moon = Mass_earth"
+      },
+      {
+        "step": "Step 2: Define Weight",
+        "desc": "Weight depends directly on local gravitational field strength.",
+        "math": "W = m · g → W_moon = (1/6) · W_earth"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Mass is constant everywhere; weight varies directly with local gravitational field strength.",
+        "math": "Result = Their mass remains unchanged, but their weight decreases to 1/6th of its Earth value."
+      }
+    ],
+    "conceptSummary": "Mass is constant everywhere; weight varies directly with local gravitational field strength.",
+    "misconception": "Treating mass and weight as interchangeable terms.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "On a Speed vs Time graph, what does a flat, horizontal line above the time axis indicate about an object's motion?",
+    "options": [
+      "The object is moving at constant non-zero speed with zero acceleration.",
+      "The object is completely stationary.",
+      "The object is accelerating at a steady constant rate.",
+      "The object is decelerating rapidly to a halt."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "On a speed-time graph, a horizontal line indicates that speed is unchanging over time (slope = acceleration = 0). The object is in uniform motion.",
+    "steps": [
+      {
+        "step": "Step 1: Interpret Axes",
+        "desc": "Y-axis is speed, X-axis is time.",
+        "math": "y = constant"
+      },
+      {
+        "step": "Step 2: Relate Slope to Acceleration",
+        "desc": "Slope of speed-time graph is acceleration.",
+        "math": "Slope = Δv/Δt = 0"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Slope on a speed-time graph represents acceleration; a horizontal line signifies zero acceleration (constant speed).",
+        "math": "Result = The object is moving at constant non-zero speed with zero acceleration."
+      }
+    ],
+    "conceptSummary": "Slope on a speed-time graph represents acceleration; a horizontal line signifies zero acceleration (constant speed).",
+    "misconception": "Confusing a speed-time graph with a distance-time graph (where a horizontal line means stationary).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "According to Newton's Third Law, when a swimmer exerts a backward force on the water with their hands, what propels the swimmer forward?",
+    "options": [
+      "The equal and opposite reaction force exerted by the water forward onto the swimmer's hands",
+      "The swimmer's own willpower overcoming buoyancy",
+      "Air resistance above the pool surface pulling the swimmer",
+      "A reduction in the swimmer's gravitational mass"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Newton's Third Law states that every action force produces an equal and opposite reaction force. As hands push water backward, water pushes hands forward.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Action-Reaction Pair",
+        "desc": "Force of swimmer on water = -(Force of water on swimmer).",
+        "math": "F_action = -F_reaction"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Newton's Third Law states that every action force produces an equal and opposite reaction force.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Forces always occur in matched action-reaction pairs acting on different objects.",
+        "math": "Correct Option: The equal and opposite reaction force exerted by the water forward onto the swimmer's hands"
+      }
+    ],
+    "conceptSummary": "Forces always occur in matched action-reaction pairs acting on different objects.",
+    "misconception": "Believing only living beings can exert forces (water exerts real mechanical force).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "When a falling skydiver reaches terminal velocity, what can be deduced about the forces acting on the skydiver?",
+    "options": [
+      "Upward air resistance equals downward gravitational weight, resulting in zero net force and zero acceleration.",
+      "Gravity ceases to act on the skydiver.",
+      "Air resistance exceeds gravity, pushing the skydiver back upward.",
+      "The skydiver's velocity reaches the speed of sound."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Terminal velocity is reached when upward drag force equals downward gravitational force: F_net = F_gravity - F_drag = 0. Speed remains constant.",
+    "steps": [
+      {
+        "step": "Step 1: Balance Vertical Forces",
+        "desc": "Drag increases with speed until it matches weight.",
+        "math": "F_drag = F_gravity"
+      },
+      {
+        "step": "Step 2: Net Force and Acceleration",
+        "desc": "F_net = 0 N → a = 0 m/s².",
+        "math": "Terminal velocity = Constant speed"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Terminal velocity occurs when resistive drag balances gravitational pull, producing zero net force.",
+        "math": "Result = Upward air resistance equals downward gravitational weight, resulting in zero net force and zero acceleration."
+      }
+    ],
+    "conceptSummary": "Terminal velocity occurs when resistive drag balances gravitational pull, producing zero net force.",
+    "misconception": "Believing gravity stops acting at terminal velocity.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "A racing car accelerates uniformly along a straight drag strip from an initial speed of 10 m/s to 25 m/s in 5.0 seconds. What is the car's acceleration?",
+    "options": [
+      "3.0 m/s²",
+      "7.0 m/s²",
+      "5.0 m/s²",
+      "0.33 m/s²"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Acceleration a = (v_final - v_initial) / t = (25 m/s - 10 m/s) / 5 s = 15 / 5 = 3.0 m/s².",
+    "steps": [
+      {
+        "step": "Step 1: State Acceleration Formula",
+        "desc": "a = (v - u) / t.",
+        "math": "a = (25 - 10) / 5"
+      },
+      {
+        "step": "Step 2: Calculate Velocity Change",
+        "desc": "Δv = 25 - 10 = 15 m/s.",
+        "math": "Δv = 15 m/s"
+      },
+      {
+        "step": "Step 3: Divide by Time",
+        "desc": "15 m/s / 5 s = 3.0 m/s².",
+        "math": "a = 3.0 m/s²"
+      }
+    ],
+    "conceptSummary": "Acceleration measures the rate of change of velocity over time.",
+    "misconception": "Dividing final velocity directly by time: 25 / 5 = 5.0 m/s² without subtracting initial velocity.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "How can the total distance traveled by an object be extracted from its Speed vs Time graph?",
+    "options": [
+      "By calculating the geometric area bounded beneath the curve of the speed-time graph",
+      "By measuring the slope of the line at the final point",
+      "By multiplying the maximum speed by the minimum time",
+      "By reading the coordinate value of the highest peak on the y-axis"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Since distance = speed × time, integrating or computing the geometric area under a speed-time graph gives the exact distance traveled.",
+    "steps": [
+      {
+        "step": "Step 1: Dimensional Analysis",
+        "desc": "Speed (m/s) × Time (s) = Meters (distance).",
+        "math": "[m/s] × [s] = [m]"
+      },
+      {
+        "step": "Step 2: Geometric Relationship",
+        "desc": "Area of shapes under the curve (rectangles, triangles) = distance.",
+        "math": "Area under curve = Distance"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Area under a speed-time graph represents total distance traveled.",
+        "math": "Result = By calculating the geometric area bounded beneath the curve of the speed-time graph"
+      }
+    ],
+    "conceptSummary": "Area under a speed-time graph represents total distance traveled.",
+    "misconception": "Assuming the slope gives distance (the slope gives acceleration).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "A 3 kg crate rests on a floor. A student pulls it rightward with 30 N of force while a rope pulls it leftward with 12 N. Kinetic friction opposes the rightward motion with 3 N. What is the crate's acceleration?",
+    "options": [
+      "5.0 m/s² to the right",
+      "15.0 m/s² to the right",
+      "4.0 m/s² to the right",
+      "6.0 m/s² to the left"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Net force F_net = Rightward forces - Leftward forces = 30 N - (12 N + 3 N) = 30 - 15 = 15 N to the right. Acceleration a = F_net / m = 15 N / 3 kg = 5.0 m/s² to the right.",
+    "steps": [
+      {
+        "step": "Step 1: Sum Opposing Forces",
+        "desc": "Left forces = 12 N (rope) + 3 N (friction) = 15 N.",
+        "math": "F_left = 15 N"
+      },
+      {
+        "step": "Step 2: Calculate Net Force",
+        "desc": "F_net = 30 N - 15 N = 15 N rightward.",
+        "math": "F_net = 15 N"
+      },
+      {
+        "step": "Step 3: Solve for Acceleration",
+        "desc": "a = F_net / m = 15 / 3 = 5.0 m/s².",
+        "math": "a = 5.0 m/s²"
+      }
+    ],
+    "conceptSummary": "Resolve all opposing collinear vector forces into a net force before calculating acceleration.",
+    "misconception": "Forgetting to include friction or adding friction to the forward pulling force.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "In an experiment inside an evacuated vacuum chamber with zero air resistance, a heavy 2 kg iron hammer and a light 0.005 kg bird feather are dropped simultaneously from a height of 3 meters. What occurs?",
+    "options": [
+      "Both hit the bottom surface at the exact same instant because gravitational acceleration is independent of mass.",
+      "The hammer lands significantly sooner because its greater mass generates more gravitational force.",
+      "The feather floats suspended because its mass is too negligible to experience gravity.",
+      "The feather lands first because it has lower inertia."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "While the hammer experiences a greater gravitational force (F = mg), its greater inertia exactly compensates (a = F/m = mg/m = g). In a vacuum without air drag, both accelerate at g ≈ 9.8 m/s² and land together.",
+    "steps": [
+      {
+        "step": "Step 1: Newton's Gravitational Acceleration",
+        "desc": "Gravitational force: F = mg. Acceleration: a = F/m = (mg)/m = g.",
+        "math": "a = g"
+      },
+      {
+        "step": "Step 2: Eliminate Air Resistance",
+        "desc": "In a vacuum, no drag acts on either object.",
+        "math": "t = √(2h / g)"
+      },
+      {
+        "step": "Step 3: Conclude Arrival",
+        "desc": "Both drop for identical time t and land simultaneously.",
+        "math": "t_hammer = t_feather"
+      }
+    ],
+    "conceptSummary": "All masses experience identical gravitational acceleration in free fall in the absence of fluid resistance.",
+    "misconception": "Believing heavier objects naturally fall faster regardless of air resistance (Galileo's famous refutation).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which state of matter has a definite fixed volume, but adapts to take the shape of the container it is poured into?",
+    "options": [
+      "Liquid",
+      "Solid",
+      "Gas",
+      "Plasma"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Liquids have fixed volume due to cohesive intermolecular forces, but their molecules can slide freely past one another, allowing them to take the shape of their container.",
+    "steps": [
+      {
+        "step": "Step 1: Compare States of Matter",
+        "desc": "Solids = fixed shape & volume; Liquids = indefinite shape, fixed volume; Gases = indefinite shape & volume.",
+        "math": "Liquid = Fixed volume, variable shape"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Liquids have fixed volume due to cohesive intermolecular forces, but their molecules can slide freely past one another, allowing them to take the shape of their container.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Liquids possess a definite volume while flowing to match container geometry.",
+        "math": "Correct Option: Liquid"
+      }
+    ],
+    "conceptSummary": "Liquids possess a definite volume while flowing to match container geometry.",
+    "misconception": "Confusing liquids with gases (gases expand to fill any container volume completely).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What is the standard chemical formula representing one molecule of water?",
+    "options": [
+      "H2O",
+      "HO2",
+      "H2O2",
+      "OH"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "A molecule of water consists of two hydrogen atoms covalently bonded to one central oxygen atom: H2O.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Elements and Subscripts",
+        "desc": "Two Hydrogens (H2) and one Oxygen (O).",
+        "math": "H2O"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "A molecule of water consists of two hydrogen atoms covalently bonded to one central oxygen atom: H2O.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Chemical formulas represent the exact elemental ratios of atoms in a molecule.",
+        "math": "Correct Option: H2O"
+      }
+    ],
+    "conceptSummary": "Chemical formulas represent the exact elemental ratios of atoms in a molecule.",
+    "misconception": "Confusing water (H2O) with hydrogen peroxide (H2O2).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which fundamental subatomic particle defines the atomic number of an element in the periodic table?",
+    "options": [
+      "Protons",
+      "Neutrons",
+      "Electrons",
+      "Photons"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The atomic number (Z) of any element is defined strictly by the number of positively charged protons located in its atomic nucleus.",
+    "steps": [
+      {
+        "step": "Step 1: Recall Atomic Number Definition",
+        "desc": "Atomic number = number of nuclear protons.",
+        "math": "Z = number of protons"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "The atomic number (Z) of any element is defined strictly by the number of positively charged protons located in its atomic nucleus.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Every chemical element is uniquely identified by its proton count (atomic number).",
+        "math": "Correct Option: Protons"
+      }
+    ],
+    "conceptSummary": "Every chemical element is uniquely identified by its proton count (atomic number).",
+    "misconception": "Thinking neutrons determine atomic identity (neutrons define isotopes).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which of the following processes is a physical change rather than a chemical change?",
+    "options": [
+      "Melting an ice cube into liquid water",
+      "Burning a dry wooden log into ash",
+      "Rusting of an iron nail exposed to rain",
+      "Baking bread dough in an oven"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Melting ice is a reversible phase change from solid H2O to liquid H2O; no new chemical bonds are broken or formed.",
+    "steps": [
+      {
+        "step": "Step 1: Distinguish Physical vs Chemical",
+        "desc": "Physical changes alter state or appearance without modifying molecular identity.",
+        "math": "H2O(s) → H2O(l)"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Melting ice is a reversible phase change from solid H2O to liquid H2O; no new chemical bonds are broken or formed.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Phase transitions (melting, boiling, freezing) are physical changes preserving chemical identity.",
+        "math": "Correct Option: Melting an ice cube into liquid water"
+      }
+    ],
+    "conceptSummary": "Phase transitions (melting, boiling, freezing) are physical changes preserving chemical identity.",
+    "misconception": "Assuming that any change involving heat must be a chemical change.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What does a pH value of 7 represent on the standard pH scale at 25°C?",
+    "options": [
+      "Neutral (neither acidic nor alkaline)",
+      "Strongly acidic",
+      "Strongly alkaline",
+      "Saturated salt solution"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "A pH of 7 represents a neutral solution where the concentrations of hydrogen ions [H+] and hydroxide ions [OH-] are equal.",
+    "steps": [
+      {
+        "step": "Step 1: Analyze pH Scale",
+        "desc": "pH < 7 is acidic; pH = 7 is neutral; pH > 7 is alkaline.",
+        "math": "pH 7 = Neutral"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "A pH of 7 represents a neutral solution where the concentrations of hydrogen ions [H+] and hydroxide ions [OH-] are equal.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "The pH scale ranges from 0 to 14, with pure water at 7 being neutral.",
+        "math": "Correct Option: Neutral (neither acidic nor alkaline)"
+      }
+    ],
+    "conceptSummary": "The pH scale ranges from 0 to 14, with pure water at 7 being neutral.",
+    "misconception": "Thinking 0 is neutral and 7 is acidic.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "According to the Law of Conservation of Mass, if 4 grams of hydrogen gas react completely with 32 grams of oxygen gas, what mass of water is produced?",
+    "options": [
+      "36 grams",
+      "28 grams",
+      "32 grams",
+      "16 grams"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Matter can neither be created nor destroyed in a chemical reaction. Total mass of products = Total mass of reactants = 4 g + 32 g = 36 g.",
+    "steps": [
+      {
+        "step": "Step 1: Apply Conservation of Mass",
+        "desc": "Mass of reactants = Mass of products.",
+        "math": "Mass(H2) + Mass(O2) = Mass(H2O)"
+      },
+      {
+        "step": "Step 2: Sum Masses",
+        "desc": "4 g + 32 g = 36 g.",
+        "math": "36 grams"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "In closed chemical systems, the total mass of the reactants equals the total mass of the products.",
+        "math": "Result = 36 grams"
+      }
+    ],
+    "conceptSummary": "In closed chemical systems, the total mass of the reactants equals the total mass of the products.",
+    "misconception": "Subtracting masses or assuming mass is lost as heat.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "What coefficient correctly balances the chemical equation for the synthesis of water: __ H₂ + O₂ → 2 H₂O?",
+    "options": [
+      "2",
+      "1",
+      "3",
+      "4"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "On the product side, 2 H2O contains 4 hydrogen atoms and 2 oxygen atoms. To balance the 4 hydrogens on the left, place a coefficient of 2 in front of H2: 2 H2 + O2 → 2 H2O.",
+    "steps": [
+      {
+        "step": "Step 1: Count Atoms on Product Side",
+        "desc": "2 molecules of H2O = 4 H and 2 O.",
+        "math": "Products: 4 H, 2 O"
+      },
+      {
+        "step": "Step 2: Balance Reactant Side",
+        "desc": "O2 has 2 O (balanced). H2 needs coefficient 2 to make 4 H.",
+        "math": "2 H2 + O2 → 2 H2O"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Coefficients scale whole molecules so that atom counts for each element match on both sides of a chemical equation.",
+        "math": "Result = 2"
+      }
+    ],
+    "conceptSummary": "Coefficients scale whole molecules so that atom counts for each element match on both sides of a chemical equation.",
+    "misconception": "Changing the subscript to H4 instead of adding a coefficient 2.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "When ammonium nitrate dissolves in water in a test tube, the tube feels noticeably cold to the touch. This reaction is classified as:",
+    "options": [
+      "Endothermic, because it absorbs thermal energy from the surrounding environment",
+      "Exothermic, because it releases heat into the water",
+      "A nuclear fission event",
+      "A purely catalytic physical state with zero energy exchange"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Endothermic reactions absorb heat energy from their surroundings, causing the ambient temperature of the reaction vessel to drop.",
+    "steps": [
+      {
+        "step": "Step 1: Evaluate Heat Flow",
+        "desc": "Temperature drops → energy is absorbed from the surroundings.",
+        "math": "ΔH > 0 (Endothermic)"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Endothermic reactions absorb heat energy from their surroundings, causing the ambient temperature of the reaction vessel to drop.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Endothermic reactions absorb thermal energy (feeling cold); exothermic reactions release thermal energy (feeling warm).",
+        "math": "Correct Option: Endothermic, because it absorbs thermal energy from the surrounding environment"
+      }
+    ],
+    "conceptSummary": "Endothermic reactions absorb thermal energy (feeling cold); exothermic reactions release thermal energy (feeling warm).",
+    "misconception": "Confusing endothermic with exothermic.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Which of the following observations provides conclusive experimental evidence that a chemical reaction (rather than just a physical change) has occurred?",
+    "options": [
+      "Formation of an insoluble precipitate and emission of light/heat upon mixing two clear solutions",
+      "A solid dissolving in warm water to form a clear mixture",
+      "Liquid water freezing into solid ice crystals",
+      "A rock being ground into fine dust"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Precipitate formation and energy release indicate that chemical bonds have been broken and new chemical compounds synthesized.",
+    "steps": [
+      {
+        "step": "Step 1: Check for New Substances",
+        "desc": "Precipitation, gas evolution, or energy change indicates creation of new chemical bonds.",
+        "math": "New substance formed"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Precipitate formation and energy release indicate that chemical bonds have been broken and new chemical compounds synthesized.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Indicators of chemical change include temperature shift, color change, gas evolution, and precipitate formation.",
+        "math": "Correct Option: Formation of an insoluble precipitate and emission of light/heat upon mixing two clear solutions"
+      }
+    ],
+    "conceptSummary": "Indicators of chemical change include temperature shift, color change, gas evolution, and precipitate formation.",
+    "misconception": "Believing dissolving sugar in water is a chemical change.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "According to the kinetic molecular theory, what happens to the gas molecules inside a sealed rigid steel canister when the gas is heated?",
+    "options": [
+      "They absorb thermal energy, move with higher average kinetic speed, and collide more frequently and forcefully with the canister walls.",
+      "They slow down and condense into liquid droplets on the floor of the canister.",
+      "The molecules swell in individual physical size.",
+      "The number of molecules doubles."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Temperature is a measure of average molecular kinetic energy. Heating increases particle speed, causing more frequent, high-momentum collisions against walls (raising pressure).",
+    "steps": [
+      {
+        "step": "Step 1: Connect Temperature to Kinetic Energy",
+        "desc": "T ∝ Average Kinetic Energy (1/2 mv²).",
+        "math": "Higher T → Higher molecular speed"
+      },
+      {
+        "step": "Step 2: Relate to Container Pressure",
+        "desc": "Faster particles strike rigid walls with greater force and frequency.",
+        "math": "Pressure increases"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Heating a gas increases particle kinetic energy and collision frequency.",
+        "math": "Result = They absorb thermal energy, move with higher average kinetic speed, and collide more frequently and forcefully with the canister walls."
+      }
+    ],
+    "conceptSummary": "Heating a gas increases particle kinetic energy and collision frequency.",
+    "misconception": "Believing that gas molecules themselves expand in size when heated.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "When hydrochloric acid (HCl) reacts completely with sodium hydroxide (NaOH) in a neutralization reaction, what two products are formed?",
+    "options": [
+      "Sodium chloride (NaCl) and water (H₂O)",
+      "Sodium hydride and chlorine gas",
+      "Hydrogen gas and sodium oxide",
+      "Sodium bicarbonate and oxygen gas"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Acid + Base → Salt + Water: HCl + NaOH → NaCl + H2O.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Reactants",
+        "desc": "HCl (acid) + NaOH (base).",
+        "math": "Acid + Base"
+      },
+      {
+        "step": "Step 2: Predict Neutralization Products",
+        "desc": "H+ from acid combines with OH- from base to form water (H2O); Na+ and Cl- form table salt (NaCl).",
+        "math": "HCl + NaOH → NaCl + H2O"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Neutralization of an Arrhenius acid and base produces an ionic salt and water.",
+        "math": "Result = Sodium chloride (NaCl) and water (H₂O)"
+      }
+    ],
+    "conceptSummary": "Neutralization of an Arrhenius acid and base produces an ionic salt and water.",
+    "misconception": "Expecting hydrogen gas (H2) to be produced during acid-base neutralization.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "What coefficient for HCl is required to fully balance the chemical equation: 2 Al + __ HCl → 2 AlCl₃ + 3 H₂?",
+    "options": [
+      "6",
+      "3",
+      "2",
+      "12"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "On the product side, 2 AlCl3 contains 2 × 3 = 6 chlorine atoms, and 3 H2 contains 3 × 2 = 6 hydrogen atoms. Therefore, 6 HCl molecules are needed: 2 Al + 6 HCl → 2 AlCl3 + 3 H2.",
+    "steps": [
+      {
+        "step": "Step 1: Count Chlorines on Product Side",
+        "desc": "2 AlCl3 has 2 × 3 = 6 chlorine atoms.",
+        "math": "Chlorine needed = 6"
+      },
+      {
+        "step": "Step 2: Count Hydrogens on Product Side",
+        "desc": "3 H2 has 3 × 2 = 6 hydrogen atoms.",
+        "math": "Hydrogen needed = 6"
+      },
+      {
+        "step": "Step 3: Assign HCl Coefficient",
+        "desc": "6 HCl supplies both 6 H and 6 Cl atoms.",
+        "math": "Coefficient = 6"
+      }
+    ],
+    "conceptSummary": "Balance complex redox equations by tallying individual element atom counts across reactants and products.",
+    "misconception": "Selecting 3 because of the subscript on AlCl3, leaving hydrogen unbalanced.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "During a heating curve experiment, water is heated continuously, but its temperature remains completely constant at 100°C while it boils. Why does temperature not rise during this phase change?",
+    "options": [
+      "The added thermal energy is used as latent heat of vaporization to overcome intermolecular hydrogen bonds rather than increasing kinetic energy.",
+      "The thermometer has reached its maximum physical recording capability.",
+      "Heat energy is destroyed when bubbles are created.",
+      "The water molecules lose all kinetic energy upon boiling."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "During a phase change, thermal input is absorbed as latent heat to break attractive intermolecular bonds (hydrogen bonds in liquid water) rather than increasing molecular kinetic motion (temperature).",
+    "steps": [
+      {
+        "step": "Step 1: Distinguish Temperature from Phase Change",
+        "desc": "Temperature measures kinetic energy of particles.",
+        "math": "T ∝ KE_avg"
+      },
+      {
+        "step": "Step 2: Identify Latent Heat Role",
+        "desc": "Energy during boiling increases potential energy by separating molecules.",
+        "math": "Q = m · L_v"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Plateaus on a heating curve signify latent heat uptake for phase transitions at constant temperature.",
+        "math": "Result = The added thermal energy is used as latent heat of vaporization to overcome intermolecular hydrogen bonds rather than increasing kinetic energy."
+      }
+    ],
+    "conceptSummary": "Plateaus on a heating curve signify latent heat uptake for phase transitions at constant temperature.",
+    "misconception": "Believing heat input always raises temperature immediately.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "In a controlled corrosion experiment using identical iron nails, which environmental condition causes the iron nail to rust most rapidly?",
+    "options": [
+      "Submerged in salt water with access to atmospheric dissolved oxygen",
+      "Submerged in boiled distilled water sealed with a layer of mineral oil",
+      "Kept in a dry test tube containing anhydrous calcium chloride drying agent",
+      "Submerged in pure kerosene oil away from air"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Rusting of iron (hydrated iron(III) oxide formation) requires both oxygen and water simultaneously. Dissolved salt ions act as an electrolyte, dramatically accelerating electron transfer in the electrochemical corrosion reaction.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Essential Reactants for Rusting",
+        "desc": "Iron + Oxygen + Water are mandatory.",
+        "math": "4 Fe + 3 O2 + 6 H2O → 4 Fe(OH)3"
+      },
+      {
+        "step": "Step 2: Role of Electrolyte",
+        "desc": "Saline water provides dissolved ions (Na+, Cl-) facilitating electrochemical redox flow.",
+        "math": "Electrolyte speeds reaction"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Corrosion is an electrochemical oxidation requiring both moisture and oxygen, accelerated by electrolytes.",
+        "math": "Result = Submerged in salt water with access to atmospheric dissolved oxygen"
+      }
+    ],
+    "conceptSummary": "Corrosion is an electrochemical oxidation requiring both moisture and oxygen, accelerated by electrolytes.",
+    "misconception": "Believing water alone causes rust without needing oxygen.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Matter & Reactions",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "An isotope of Carbon has an atomic number of 6 and a mass number of 14 (Carbon-14). What is the exact subatomic composition of a neutral Carbon-14 atom?",
+    "options": [
+      "6 protons, 8 neutrons, 6 electrons",
+      "6 protons, 14 neutrons, 6 electrons",
+      "8 protons, 6 neutrons, 8 electrons",
+      "7 protons, 7 neutrons, 7 electrons"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Atomic number = 6 means 6 protons. In a neutral atom, electrons = protons = 6. Neutrons = Mass number - Atomic number = 14 - 6 = 8 neutrons.",
+    "steps": [
+      {
+        "step": "Step 1: Find Protons",
+        "desc": "Atomic number Z = 6 protons.",
+        "math": "Protons = 6"
+      },
+      {
+        "step": "Step 2: Find Neutrons",
+        "desc": "Neutrons = Mass Number (A) - Atomic Number (Z) = 14 - 6 = 8.",
+        "math": "Neutrons = 8"
+      },
+      {
+        "step": "Step 3: Find Electrons",
+        "desc": "Neutral atom means electrons equal protons = 6.",
+        "math": "Electrons = 6"
+      }
+    ],
+    "conceptSummary": "Mass number equals protons plus neutrons; atomic number equals protons.",
+    "misconception": "Assuming mass number 14 equals the count of neutrons.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which group of organisms forms the foundational first trophic level of almost all terrestrial and aquatic food chains?",
+    "options": [
+      "Producers (Autotrophs)",
+      "Primary Consumers (Herbivores)",
+      "Secondary Consumers (Carnivores)",
+      "Decomposers"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Producers (such as green plants and phytoplankton) convert solar energy into chemical energy via photosynthesis, forming the base of ecological food chains.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Energy Entrants",
+        "desc": "Autotrophs convert radiant sunlight into organic biomass.",
+        "math": "Trophic Level 1 = Producers"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Producers (such as green plants and phytoplankton) convert solar energy into chemical energy via photosynthesis, forming the base of ecological food chains.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Producers synthesize organic glucose from inorganic raw materials, supporting all consumer levels.",
+        "math": "Correct Option: Producers (Autotrophs)"
+      }
+    ],
+    "conceptSummary": "Producers synthesize organic glucose from inorganic raw materials, supporting all consumer levels.",
+    "misconception": "Believing herbivores are the base of the food chain.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "An organism whose diet consists exclusively of photosynthetic plant matter is classified as a:",
+    "options": [
+      "Herbivore",
+      "Carnivore",
+      "Omnivore",
+      "Detritivore"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Herbivores (primary consumers) feed exclusively on autotrophic plants, fruits, and foliage.",
+    "steps": [
+      {
+        "step": "Step 1: Classify Diet",
+        "desc": "Herb (plant) + vore (eater) = Herbivore.",
+        "math": "Primary consumer = Herbivore"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Herbivores (primary consumers) feed exclusively on autotrophic plants, fruits, and foliage.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Herbivores consume plant biomass directly; carnivores consume animal tissue.",
+        "math": "Correct Option: Herbivore"
+      }
+    ],
+    "conceptSummary": "Herbivores consume plant biomass directly; carnivores consume animal tissue.",
+    "misconception": "Confusing herbivores with omnivores (which eat both plants and meat).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What crucial ecological role do decomposers like fungi and soil bacteria fulfill within an ecosystem?",
+    "options": [
+      "They break down dead organic matter and recycle essential mineral nutrients back into the soil and atmosphere.",
+      "They hunt live prey to prevent overpopulation.",
+      "They generate solar energy at night.",
+      "They consume atmospheric oxygen to prevent fires."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Decomposers secrete extracellular digestive enzymes to break down carcasses, fallen leaves, and feces, releasing nitrates and phosphates back into nutrient cycles.",
+    "steps": [
+      {
+        "step": "Step 1: Nutrient Cycling Role",
+        "desc": "Dead biomass is decomposed into inorganic nutrients for plant uptake.",
+        "math": "Organic waste → Inorganic nutrients"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Decomposers secrete extracellular digestive enzymes to break down carcasses, fallen leaves, and feces, releasing nitrates and phosphates back into nutrient cycles.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Decomposers close the ecological loop by recycling nutrients back to primary producers.",
+        "math": "Correct Option: They break down dead organic matter and recycle essential mineral nutrients back into the soil and atmosphere."
+      }
+    ],
+    "conceptSummary": "Decomposers close the ecological loop by recycling nutrients back to primary producers.",
+    "misconception": "Viewing decomposers as useless or harmful parasites.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What is the ultimate primary source of energy powering virtually all biological food webs on Earth?",
+    "options": [
+      "The Sun",
+      "Deep ocean hydrothermal vents",
+      "Soil fertilizer",
+      "Atmospheric wind"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Sunlight provides radiant solar energy captured by photosynthetic autotrophs, which is then passed up food webs.",
+    "steps": [
+      {
+        "step": "Step 1: Trace Energy Origin",
+        "desc": "Photons from nuclear fusion in the Sun drive photosynthesis.",
+        "math": "Solar radiant energy"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Sunlight provides radiant solar energy captured by photosynthetic autotrophs, which is then passed up food webs.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Solar radiation powers Earth's biosphere through photosynthetic carbon fixation.",
+        "math": "Correct Option: The Sun"
+      }
+    ],
+    "conceptSummary": "Solar radiation powers Earth's biosphere through photosynthetic carbon fixation.",
+    "misconception": "Assuming plants absorb energy from soil minerals rather than sunlight.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "In ecology, the specific natural environment where a particular biological species lives, shelters, and finds sustenance is termed its:",
+    "options": [
+      "Habitat",
+      "Biome",
+      "Niche",
+      "Biosphere"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "A habitat is the physical geographical location and environmental conditions in which a specific species resides.",
+    "steps": [
+      {
+        "step": "Step 1: Define Ecological Terms",
+        "desc": "Habitat = physical address; Niche = functional ecological role.",
+        "math": "Habitat = Living environment"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "A habitat is the physical geographical location and environmental conditions in which a specific species resides.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "A habitat provides organisms with food, water, shelter, and space necessary for survival.",
+        "math": "Correct Option: Habitat"
+      }
+    ],
+    "conceptSummary": "A habitat provides organisms with food, water, shelter, and space necessary for survival.",
+    "misconception": "Confusing habitat (physical place) with ecological niche (role/job of the organism).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "According to the 10% ecological energy transfer rule, if producers capture 10,000 Joules of energy, how much energy is transferred to primary consumers?",
+    "options": [
+      "1,000 Joules",
+      "10,000 Joules",
+      "5,000 Joules",
+      "100 Joules"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Roughly 10% of energy is incorporated into biomass between adjacent trophic levels (the remaining 90% is lost as heat, respiration, and waste): 10% of 10,000 J = 1,000 J.",
+    "steps": [
+      {
+        "step": "Step 1: State 10% Rule",
+        "desc": "Trophic efficiency ≈ 10%.",
+        "math": "E_next = 0.10 × E_previous"
+      },
+      {
+        "step": "Step 2: Calculate Energy Transferred",
+        "desc": "0.10 × 10,000 J = 1,000 J.",
+        "math": "1,000 Joules"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Only approximately 10% of energy at any trophic level is converted into new biomass at the next level.",
+        "math": "Result = 1,000 Joules"
+      }
+    ],
+    "conceptSummary": "Only approximately 10% of energy at any trophic level is converted into new biomass at the next level.",
+    "misconception": "Assuming energy is 100% conserved and transferred without metabolic heat losses.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Why is an ecological food web considered a significantly more accurate biological model than a linear food chain?",
+    "options": [
+      "Most organisms consume diverse food sources and occupy multiple interconnected trophic levels.",
+      "Food webs exclude decomposers to make diagrams simpler.",
+      "Linear food chains only exist during winter seasons.",
+      "Food webs prove that energy increases at higher trophic levels."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "In real ecosystems, predators consume multiple prey species, prey are eaten by multiple predators, and omnivores span trophic levels, forming complex networks rather than isolated single lines.",
+    "steps": [
+      {
+        "step": "Step 1: Compare Chain vs Web",
+        "desc": "Food chain = single linear line; Food web = branched feeding network.",
+        "math": "Network interconnectivity"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "In real ecosystems, predators consume multiple prey species, prey are eaten by multiple predators, and omnivores span trophic levels, forming complex networks rather than isolated single lines.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Food webs model the complex, branched feeding relationships in natural biological communities.",
+        "math": "Correct Option: Most organisms consume diverse food sources and occupy multiple interconnected trophic levels."
+      }
+    ],
+    "conceptSummary": "Food webs model the complex, branched feeding relationships in natural biological communities.",
+    "misconception": "Assuming real animals only eat a single food item their entire lives.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Which of the following is an abiotic (non-living) factor that influences aquatic biodiversity in a freshwater lake?",
+    "options": [
+      "Concentration of dissolved oxygen",
+      "Aquatic water lilies",
+      "Phytoplankton blooms",
+      "Largemouth bass"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Abiotic factors are chemical and physical non-living components of an ecosystem, such as dissolved oxygen, water temperature, pH, and sunlight penetration.",
+    "steps": [
+      {
+        "step": "Step 1: Differentiate Biotic vs Abiotic",
+        "desc": "Bio = living organisms; A-biotic = non-living physical/chemical parameters.",
+        "math": "Abiotic = Non-living factor"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Abiotic factors are chemical and physical non-living components of an ecosystem, such as dissolved oxygen, water temperature, pH, and sunlight penetration.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Abiotic factors (light, temperature, water, nutrients) define habitat tolerance zones for living biotic organisms.",
+        "math": "Correct Option: Concentration of dissolved oxygen"
+      }
+    ],
+    "conceptSummary": "Abiotic factors (light, temperature, water, nutrients) define habitat tolerance zones for living biotic organisms.",
+    "misconception": "Categorizing microorganisms or plankton as abiotic because they are microscopic.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "If a viral epidemic suddenly decimates the rabbit population in a grassland ecosystem, what is the immediate expected ecological consequence for the local coyote population?",
+    "options": [
+      "The coyote population will decline due to diminished prey availability and increased intraspecific foraging competition.",
+      "The coyote population will instantly triple.",
+      "Coyotes will immediately start synthesizing glucose through photosynthesis.",
+      "The coyote population will experience zero ecological impact."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "In predator-prey dynamics, a sudden collapse of a primary food source leads to starvation, reduced reproduction, and migration, causing predator numbers to drop.",
+    "steps": [
+      {
+        "step": "Step 1: Trace Predator-Prey Dependence",
+        "desc": "Prey abundance directly impacts predator carrying capacity.",
+        "math": "Prey drops → Predator drops"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "In predator-prey dynamics, a sudden collapse of a primary food source leads to starvation, reduced reproduction, and migration, causing predator numbers to drop.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Predator population sizes oscillate in lagged response to prey population densities.",
+        "math": "Correct Option: The coyote population will decline due to diminished prey availability and increased intraspecific foraging competition."
+      }
+    ],
+    "conceptSummary": "Predator population sizes oscillate in lagged response to prey population densities.",
+    "misconception": "Believing predators are unaffected by the depletion of their primary food supply.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "The symbiotic interaction between honeybees gathering flower nectar and angiosperm flowers being cross-pollinated is classified as:",
+    "options": [
+      "Mutualism",
+      "Commensalism",
+      "Parasitism",
+      "Competition"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Mutualism is an interspecies interaction where both species derive fitness benefits: bees receive nutritional nectar and pollen, while flowers achieve cross-fertilization.",
+    "steps": [
+      {
+        "step": "Step 1: Evaluate Outcomes for Both Species",
+        "desc": "Bee gains food (+); Flower gains pollination (+).",
+        "math": "(+, +) interaction = Mutualism"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Mutualism is an interspecies interaction where both species derive fitness benefits: bees receive nutritional nectar and pollen, while flowers achieve cross-fertilization.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Mutualism is a (+, +) ecological symbiosis benefiting both participating species.",
+        "math": "Correct Option: Mutualism"
+      }
+    ],
+    "conceptSummary": "Mutualism is a (+, +) ecological symbiosis benefiting both participating species.",
+    "misconception": "Confusing mutualism with commensalism ((+, 0) where one benefits and the other is unharmed).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Why do apex predators (such as bald eagles or killer whales) frequently exhibit dangerous concentrations of fat-soluble industrial pollutants (like DDT or PCBs)?",
+    "options": [
+      "Biological biomagnification causes persistent non-biodegradable toxins to accumulate in fatty tissues and concentrate progressively up trophic levels.",
+      "Apex predators absorb toxic pollutants directly through respiration from clouds.",
+      "Producers destroy all toxins, so predators must synthesize them internally.",
+      "Apex predators produce toxins naturally to defend against parasites."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Persistent pollutants are not easily metabolized or excreted. As primary consumers eat large quantities of contaminated plants, and secondary predators eat many consumers, toxin concentration multiplies exponentially at top trophic tiers.",
+    "steps": [
+      {
+        "step": "Step 1: Mechanism of Biomagnification",
+        "desc": "Lipophilic toxins resist excretion and concentrate in adipose tissue across trophic steps.",
+        "math": "[Toxin] increases up food chain"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Persistent pollutants are not easily metabolized or excreted.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Biomagnification leads to highest pollutant concentrations in apex predators.",
+        "math": "Correct Option: Biological biomagnification causes persistent non-biodegradable toxins to accumulate in fatty tissues and concentrate progressively up trophic levels."
+      }
+    ],
+    "conceptSummary": "Biomagnification leads to highest pollutant concentrations in apex predators.",
+    "misconception": "Thinking toxin concentration is highest at the bottom of the food chain.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "During primary ecological succession on freshly cooled volcanic basalt rock with zero initial organic soil, which pioneer species is best equipped to colonize first?",
+    "options": [
+      "Lichens and mosses that secrete organic acids to chemically weather bare rock into mineral dust",
+      "Fast-growing oak and maple trees with deep root systems",
+      "Tall agricultural grasses requiring rich humus",
+      "Carnivorous burrowing desert rodents"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Lichens (mutualistic fungus-alga associations) can survive on barren substrate with only rainwater and sunlight. They secrete acids that weather minerals, combining with their dead biomass to initiate the very first thin soil layer.",
+    "steps": [
+      {
+        "step": "Step 1: Analyze Initial Substrate",
+        "desc": "Bare rock lacks soil, nitrogen, and organic matter (Primary Succession).",
+        "math": "Zero organic soil"
+      },
+      {
+        "step": "Step 2: Pioneer Adaptation",
+        "desc": "Lichens survive desiccation and break down rock minerals into early soil.",
+        "math": "Pioneer species = Lichens"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Pioneer species in primary succession initiate pedogenesis (soil formation) on barren substrate.",
+        "math": "Result = Lichens and mosses that secrete organic acids to chemically weather bare rock into mineral dust"
+      }
+    ],
+    "conceptSummary": "Pioneer species in primary succession initiate pedogenesis (soil formation) on barren substrate.",
+    "misconception": "Assuming succession begins immediately with vascular grass seeds.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "When apex grey wolves were reintroduced to Yellowstone National Park, their predation altered deer/elk grazing behavior, enabling riparian willow groves to regenerate and stabilizing riverbanks. What ecological phenomenon does this exemplify?",
+    "options": [
+      "A top-down trophic cascade",
+      "Biochemical biomagnification",
+      "Primary ecological succession",
+      "Competitive exclusion principle"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "A trophic cascade occurs when changes at the top carnivore level trigger cascading indirect effects across multiple lower trophic levels, profoundly altering abiotic landscape features like river morphology.",
+    "steps": [
+      {
+        "step": "Step 1: Trace Causality Across Trophic Levels",
+        "desc": "Wolves (Apex) → Elk behaviour/density ↓ → Willows/Aspens ↑ → Beaver/Riparian riverbanks stabilized.",
+        "math": "Apex predator → Producer recovery → Landscape stability"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "A trophic cascade occurs when changes at the top carnivore level trigger cascading indirect effects across multiple lower trophic levels, profoundly altering abiotic landscape features like river morphology.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Trophic cascades demonstrate the disproportionate community-wide impact of apex keystone predators.",
+        "math": "Correct Option: A top-down trophic cascade"
+      }
+    ],
+    "conceptSummary": "Trophic cascades demonstrate the disproportionate community-wide impact of apex keystone predators.",
+    "misconception": "Believing predators only negatively impact ecosystems by killing organisms.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "What occurs when a wild deer population temporarily overshoots the biological carrying capacity (K) of its forest habitat?",
+    "options": [
+      "Resource depletion (overgrazing) triggers increased mortality and reduced birth rates, causing population size to crash back down below or toward K.",
+      "The habitat carrying capacity automatically doubles to accommodate the extra deer.",
+      "The deer evolve into carnivores to expand their food supply.",
+      "The population continues growing exponentially forever without constraint."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Carrying capacity (K) represents the maximum sustainable population given available food, water, and space. Overshooting K degrades resources, causing famine and death until density drops back into equilibrium.",
+    "steps": [
+      {
+        "step": "Step 1: Analyze Logistic Growth Boundary",
+        "desc": "N > K results in negative population growth rate: dN/dt < 0.",
+        "math": "dN/dt = rN(1 - N/K)"
+      },
+      {
+        "step": "Step 2: Consequence of Overshoot",
+        "desc": "Overgrazing leads to starvation, increased disease, and population contraction.",
+        "math": "Population crash toward K"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Populations exceeding carrying capacity experience increased mortality until equilibrium is restored.",
+        "math": "Result = Resource depletion (overgrazing) triggers increased mortality and reduced birth rates, causing population size to crash back down below or toward K."
+      }
+    ],
+    "conceptSummary": "Populations exceeding carrying capacity experience increased mortality until equilibrium is restored.",
+    "misconception": "Believing natural habitats can expand carrying capacity arbitrarily to support unbounded growth.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "Although atmospheric air is 78% nitrogen gas (N₂), terrestrial plants cannot absorb atmospheric N₂ directly to synthesize proteins. How is nitrogen converted into a biologically usable form?",
+    "options": [
+      "Nitrogen-fixing bacteria (e.g., Rhizobium in legume root nodules) convert N₂ into ammonium (NH₄⁺) and nitrates (NO₃⁻) that plants can absorb through roots.",
+      "Plant chloroplasts break the strong triple bond of N2 during daylight photosynthesis.",
+      "Earthworms convert atmospheric nitrogen into solid carbon crystals in the soil.",
+      "Animals breathe in nitrogen gas and exhale ready-to-use plant proteins."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Atmospheric N2 has an extremely strong triple covalent bond (N≡N). Diazotrophic nitrogen-fixing bacteria possess the nitrogenase enzyme to convert N2 into bioavailable ammonium and nitrates for plant assimilation.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Chemical Challenge",
+        "desc": "Atmospheric N2 has a high bond dissociation energy triple bond.",
+        "math": "N≡N bond"
+      },
+      {
+        "step": "Step 2: Biological Fixation Mechanism",
+        "desc": "Nitrogen-fixing bacteria reduce N2 into absorbable NH4+ and NO3-.",
+        "math": "N2 → NH4+ / NO3- (Biological Fixation)"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Biological nitrogen fixation by specialized bacteria is essential for introducing nitrogen into organic food chains.",
+        "math": "Result = Nitrogen-fixing bacteria (e.g., Rhizobium in legume root nodules) convert N₂ into ammonium (NH₄⁺) and nitrates (NO₃⁻) that plants can absorb through roots."
+      }
+    ],
+    "conceptSummary": "Biological nitrogen fixation by specialized bacteria is essential for introducing nitrogen into organic food chains.",
+    "misconception": "Believing plants absorb nitrogen gas directly through leaf stomata like carbon dioxide.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What is the standard International System (SI) unit of energy and work?",
+    "options": [
+      "Joule (J)",
+      "Watt (W)",
+      "Newton (N)",
+      "Volt (V)"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The Joule (J), named after James Prescott Joule, is the standard metric unit for all forms of energy, heat, and mechanical work.",
+    "steps": [
+      {
+        "step": "Step 1: Identify SI Unit",
+        "desc": "1 Joule is defined as 1 Newton of force acting across 1 meter.",
+        "math": "1 J = 1 N · m"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "The Joule (J), named after James Prescott Joule, is the standard metric unit for all forms of energy, heat, and mechanical work.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Energy and work are both measured in Joules (J).",
+        "math": "Correct Option: Joule (J)"
+      }
+    ],
+    "conceptSummary": "Energy and work are both measured in Joules (J).",
+    "misconception": "Confusing energy (Joules) with power (Watts = Joules per second) or force (Newtons).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "The energy possessed by an object due to its physical motion is called:",
+    "options": [
+      "Kinetic energy",
+      "Gravitational potential energy",
+      "Chemical potential energy",
+      "Nuclear energy"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Kinetic energy (KE = 1/2 mv²) is the energy of mass in active motion.",
+    "steps": [
+      {
+        "step": "Step 1: Define Motion Energy",
+        "desc": "Any moving object with mass possesses kinetic energy.",
+        "math": "KE = (1/2) · m · v²"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Kinetic energy (KE = 1/2 mv²) is the energy of mass in active motion.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Kinetic energy is energy in motion; potential energy is stored energy.",
+        "math": "Correct Option: Kinetic energy"
+      }
+    ],
+    "conceptSummary": "Kinetic energy is energy in motion; potential energy is stored energy.",
+    "misconception": "Confusing kinetic energy with stored potential energy.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What type of stored potential energy increases when an archer draws back a bowstring or a student stretches a rubber band?",
+    "options": [
+      "Elastic potential energy",
+      "Gravitational potential energy",
+      "Thermal energy",
+      "Electric current"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Deforming or stretching an elastic material stores mechanical energy as elastic potential energy, which converts to kinetic energy upon release.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Deformative Energy",
+        "desc": "Stretching an elastic material stores energy: E_p = 1/2 k x².",
+        "math": "Elastic Potential Energy"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Deforming or stretching an elastic material stores mechanical energy as elastic potential energy, which converts to kinetic energy upon release.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Elastic potential energy is stored when an object is temporarily stretched, compressed, or distorted.",
+        "math": "Correct Option: Elastic potential energy"
+      }
+    ],
+    "conceptSummary": "Elastic potential energy is stored when an object is temporarily stretched, compressed, or distorted.",
+    "misconception": "Assuming the stretched bowstring is already possessing kinetic motion.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which of the following is an inexhaustible, renewable energy resource?",
+    "options": [
+      "Solar photovoltaic power",
+      "Coal combustion",
+      "Petroleum diesel",
+      "Natural gas"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Solar energy is replenished naturally and continuously by the Sun without finite depletion, making it a clean renewable resource.",
+    "steps": [
+      {
+        "step": "Step 1: Differentiate Energy Sources",
+        "desc": "Fossil fuels (coal, oil, gas) are finite and non-renewable; solar is renewable.",
+        "math": "Solar = Renewable"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Solar energy is replenished naturally and continuously by the Sun without finite depletion, making it a clean renewable resource.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Renewable energy resources replenish naturally on human timescales (solar, wind, hydro).",
+        "math": "Correct Option: Solar photovoltaic power"
+      }
+    ],
+    "conceptSummary": "Renewable energy resources replenish naturally on human timescales (solar, wind, hydro).",
+    "misconception": "Thinking fossil fuels are renewable because natural geological processes formed them millions of years ago.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "The fundamental Law of Conservation of Energy dictates that energy can:",
+    "options": [
+      "Neither be created nor destroyed, only transformed from one form into another",
+      "Be created out of nothing by strong electric engines",
+      "Be completely destroyed when friction causes an object to stop",
+      "Multiply exponentially during everyday chemical reactions"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The First Law of Thermodynamics states that the total energy of an isolated system remains constant over time; it merely transforms among potential, kinetic, thermal, and radiative states.",
+    "steps": [
+      {
+        "step": "Step 1: State Conservation Principle",
+        "desc": "Total energy before = Total energy after.",
+        "math": "E_total = Constant"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "The First Law of Thermodynamics states that the total energy of an isolated system remains constant over time; it merely transforms among potential, kinetic, thermal, and radiative states.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Energy cannot be created or destroyed; it only changes forms.",
+        "math": "Correct Option: Neither be created nor destroyed, only transformed from one form into another"
+      }
+    ],
+    "conceptSummary": "Energy cannot be created or destroyed; it only changes forms.",
+    "misconception": "Thinking energy disappears or is destroyed when friction slows down a moving car (it converts to heat).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Trace the primary energy transformation chain when an electric battery-powered flashlight is switched on:",
+    "options": [
+      "Chemical potential energy → Electrical energy → Light (radiant) and thermal (heat) energy",
+      "Nuclear energy → Mechanical kinetic energy → Chemical energy",
+      "Sound energy → Electrical energy → Magnetic energy",
+      "Gravitational energy → Light energy → Nuclear fusion"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Chemical reactions in the battery drive electric current through the circuit, which heats the filament or powers the LED to emit photons of light and waste heat.",
+    "steps": [
+      {
+        "step": "Step 1: Battery Source",
+        "desc": "Batteries store chemical potential energy.",
+        "math": "Chemical"
+      },
+      {
+        "step": "Step 2: Circuit Transmission",
+        "desc": "Electron flow produces electrical energy.",
+        "math": "Electrical"
+      },
+      {
+        "step": "Step 3: Light Output",
+        "desc": "Bulb converts electricity into photons and thermal energy.",
+        "math": "Radiant + Thermal"
+      }
+    ],
+    "conceptSummary": "Energy pathways map sequential transformations through intermediate forms to final work and heat outputs.",
+    "misconception": "Believing flashlight batteries produce light directly without electrical intermediate transfer.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "A 2.0 kg physics textbook is lifted onto a bookshelf 2.0 meters above the floor. Taking the acceleration due to gravity as g = 9.8 m/s², what is the book's gravitational potential energy relative to the floor?",
+    "options": [
+      "39.2 Joules",
+      "19.6 Joules",
+      "4.0 Joules",
+      "78.4 Joules"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Gravitational potential energy GPE = m × g × h = 2.0 kg × 9.8 m/s² × 2.0 m = 39.2 J.",
+    "steps": [
+      {
+        "step": "Step 1: State GPE Formula",
+        "desc": "GPE = m · g · h.",
+        "math": "GPE = mgh"
+      },
+      {
+        "step": "Step 2: Substitute Knowns",
+        "desc": "m = 2.0 kg, g = 9.8 m/s², h = 2.0 m.",
+        "math": "GPE = 2.0 × 9.8 × 2.0"
+      },
+      {
+        "step": "Step 3: Compute Product",
+        "desc": "4.0 × 9.8 = 39.2 Joules.",
+        "math": "GPE = 39.2 J"
+      }
+    ],
+    "conceptSummary": "Gravitational potential energy is directly proportional to mass, height, and local gravity.",
+    "misconception": "Multiplying only mass and height: 2 × 2 = 4 J without factoring in gravity g.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Calculate the kinetic energy of a 1,000 kg electric vehicle cruising at a velocity of 10 m/s.",
+    "options": [
+      "50,000 Joules",
+      "10,000 Joules",
+      "100,000 Joules",
+      "5,000 Joules"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Kinetic energy KE = (1/2) × m × v² = 0.5 × 1,000 kg × (10 m/s)² = 500 × 100 = 50,000 J (or 50 kJ).",
+    "steps": [
+      {
+        "step": "Step 1: State Formula",
+        "desc": "KE = 0.5 · m · v².",
+        "math": "KE = 0.5 × 1000 × 10²"
+      },
+      {
+        "step": "Step 2: Square Velocity",
+        "desc": "10² = 100.",
+        "math": "10² = 100"
+      },
+      {
+        "step": "Step 3: Multiply Across",
+        "desc": "0.5 × 1000 × 100 = 50,000 Joules.",
+        "math": "KE = 50,000 J"
+      }
+    ],
+    "conceptSummary": "Kinetic energy scales quadratically with velocity: doubling speed quadruples kinetic energy.",
+    "misconception": "Forgetting to square the velocity: 0.5 × 1,000 × 10 = 5,000 J.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "An incandescent lightbulb draws 100 Joules of electrical energy and converts 20 Joules into useful visible light, with the remaining energy dissipated as heat. What is the lightbulb's energy efficiency?",
+    "options": [
+      "20%",
+      "80%",
+      "50%",
+      "25%"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Efficiency = (Useful Energy Output / Total Energy Input) × 100% = (20 J / 100 J) × 100% = 20%.",
+    "steps": [
+      {
+        "step": "Step 1: State Efficiency Formula",
+        "desc": "Efficiency = (Useful Output / Total Input) × 100%.",
+        "math": "Eff = (E_out / E_in) × 100%"
+      },
+      {
+        "step": "Step 2: Substitute Values",
+        "desc": "(20 / 100) × 100% = 20%.",
+        "math": "20%"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Energy efficiency expresses the percentage of input energy that performs intended useful work.",
+        "math": "Result = 20%"
+      }
+    ],
+    "conceptSummary": "Energy efficiency expresses the percentage of input energy that performs intended useful work.",
+    "misconception": "Reporting the 80% wasted heat as the efficiency.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "How does thermal energy from the Sun travel across 150 million kilometers of empty vacuum space to warm planet Earth?",
+    "options": [
+      "Radiation via electromagnetic infrared and visible light waves",
+      "Conduction through atmospheric air molecules",
+      "Convection currents through cosmic fluid",
+      "Sound waves oscillating interplanetary dust"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Thermal radiation travels via electromagnetic waves (light and infrared), which require no physical medium and can propagate through the vacuum of space.",
+    "steps": [
+      {
+        "step": "Step 1: Analyze Heat Transfer Mechanisms",
+        "desc": "Conduction and convection require particle mediums. Radiation requires no matter.",
+        "math": "Radiation propagates in vacuum"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Thermal radiation travels via electromagnetic waves (light and infrared), which require no physical medium and can propagate through the vacuum of space.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Thermal radiation transfers energy across space via electromagnetic waves without requiring matter.",
+        "math": "Correct Option: Radiation via electromagnetic infrared and visible light waves"
+      }
+    ],
+    "conceptSummary": "Thermal radiation transfers energy across space via electromagnetic waves without requiring matter.",
+    "misconception": "Believing heat always requires physical matter (conduction or convection) to transfer.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Which sequential energy transformations occur in a hydroelectric power plant as reservoir water flows down the penstock pipes to generate grid electricity?",
+    "options": [
+      "Gravitational potential energy → Kinetic energy of water → Mechanical kinetic energy of turbine → Electrical energy",
+      "Chemical energy → Thermal energy → Sound energy → Electrical energy",
+      "Nuclear energy → Gravitational energy → Electrical energy",
+      "Electrical energy → Gravitational energy → Kinetic energy"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "High-elevation reservoir water possesses gravitational potential energy; flowing downward converts it to kinetic motion, which spins turbine blades (mechanical work) coupled to an electromagnetic generator (electrical energy).",
+    "steps": [
+      {
+        "step": "Step 1: Elevated Water Storage",
+        "desc": "Height provides gravitational potential energy.",
+        "math": "Gravitational PE"
+      },
+      {
+        "step": "Step 2: Flowing Water Motion",
+        "desc": "Water accelerates down penstock into kinetic energy.",
+        "math": "Kinetic Energy"
+      },
+      {
+        "step": "Step 3: Turbine and Generator",
+        "desc": "Mechanical rotation drives electromagnetic generator.",
+        "math": "Mechanical → Electrical"
+      }
+    ],
+    "conceptSummary": "Hydroelectric generation converts elevated water's potential energy into grid electricity.",
+    "misconception": "Assuming hydroelectric power involves thermal heat cycles.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "A 500 kg roller coaster cart starts from rest at the top of a 20-meter high frictionless track. Assuming no energy is lost to air resistance or friction (g = 9.8 m/s²), what is the cart's speed at the bottom of the hill?",
+    "options": [
+      "19.8 m/s",
+      "14.0 m/s",
+      "392.0 m/s",
+      "9.9 m/s"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "By conservation of mechanical energy: Initial GPE = Final KE → mgh = (1/2)mv² → gh = (1/2)v² → v = √(2gh) = √(2 × 9.8 × 20) = √392 ≈ 19.8 m/s.",
+    "steps": [
+      {
+        "step": "Step 1: Equate Initial and Final Energies",
+        "desc": "mgh = (1/2)mv².",
+        "math": "m cancels out: gh = 0.5v²"
+      },
+      {
+        "step": "Step 2: Solve for Velocity",
+        "desc": "v² = 2gh = 2 × 9.8 × 20 = 392.",
+        "math": "v² = 392"
+      },
+      {
+        "step": "Step 3: Take Square Root",
+        "desc": "v = √392 ≈ 19.8 m/s.",
+        "math": "v = 19.8 m/s"
+      }
+    ],
+    "conceptSummary": "In frictionless gravity systems, speed at the bottom depends only on drop height: v = √(2gh).",
+    "misconception": "Forgetting to take the square root of 392.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "Why are cooking frying pans constructed with metal bodies (such as copper or aluminum) but equipped with wooden, silicone, or Bakelite handles?",
+    "options": [
+      "Metals are excellent thermal conductors due to delocalized electrons, rapidly transferring heat to food, while wood/plastic are thermal insulators that protect hands.",
+      "Metals absorb all heat without letting any through to the handle.",
+      "Wood is denser than metal, preventing heat absorption.",
+      "Plastic handles generate active cool air when heated."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Metals have metallic bonding with free electrons that rapidly transfer kinetic heat by conduction. Non-metals like wood and plastic have tightly bound valence electrons and act as thermal insulators with low thermal conductivity.",
+    "steps": [
+      {
+        "step": "Step 1: Metal Conduction Mechanism",
+        "desc": "Free delocalized electrons rapidly transfer vibrational energy across the lattice.",
+        "math": "High thermal conductivity k"
+      },
+      {
+        "step": "Step 2: Insulator Handle",
+        "desc": "Wood/polymer covalent bonds lack free electrons, slowing heat transfer.",
+        "math": "Low thermal conductivity (Insulator)"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Thermal conductors facilitate rapid heat flow, whereas insulators impede thermal transfer.",
+        "math": "Result = Metals are excellent thermal conductors due to delocalized electrons, rapidly transferring heat to food, while wood/plastic are thermal insulators that protect hands."
+      }
+    ],
+    "conceptSummary": "Thermal conductors facilitate rapid heat flow, whereas insulators impede thermal transfer.",
+    "misconception": "Believing wood cannot burn or that metals heat up because they 'attract' heat magnetically.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "An electric space heater rated at 2,000 Watts (2.0 kW) operates continuously for 3.5 hours. How much electrical energy does it consume in kilowatt-hours (kWh)?",
+    "options": [
+      "7.0 kWh",
+      "5.5 kWh",
+      "571.4 kWh",
+      "14.0 kWh"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Electrical Energy (kWh) = Power (kW) × Time (hours) = 2.0 kW × 3.5 h = 7.0 kWh.",
+    "steps": [
+      {
+        "step": "Step 1: State Formula",
+        "desc": "Energy (kWh) = Power (kW) × Time (hours).",
+        "math": "E = P × t"
+      },
+      {
+        "step": "Step 2: Substitute Values",
+        "desc": "P = 2.0 kW, t = 3.5 hours.",
+        "math": "2.0 × 3.5 = 7.0"
+      },
+      {
+        "step": "Step 3: State Result",
+        "desc": "7.0 kilowatt-hours.",
+        "math": "7.0 kWh"
+      }
+    ],
+    "conceptSummary": "One kilowatt-hour (kWh) equals 3.6 million Joules and measures commercial electrical energy consumption.",
+    "misconception": "Dividing power by time: 2.0 / 3.5 = 0.57 kWh.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "An industrial electric motor consumes 500 Joules of electrical energy to lift a weight. It delivers 350 Joules of useful mechanical work, while dissipating 100 Joules as thermal heat and 50 Joules as sound vibrations. What percentage of the total energy was wasted?",
+    "options": [
+      "30%",
+      "70%",
+      "10%",
+      "20%"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Total wasted energy = Heat + Sound = 100 J + 50 J = 150 J. Wasted percentage = (150 J / 500 J) × 100% = 3/10 × 100% = 30%. (Useful work was 350/500 = 70%).",
+    "steps": [
+      {
+        "step": "Step 1: Sum Wasted Energies",
+        "desc": "Wasted = Thermal (100 J) + Sound (50 J) = 150 J.",
+        "math": "E_wasted = 150 J"
+      },
+      {
+        "step": "Step 2: Verify Conservation",
+        "desc": "350 J (useful) + 150 J (wasted) = 500 J (input).",
+        "math": "Energy conserved"
+      },
+      {
+        "step": "Step 3: Compute Wasted Percentage",
+        "desc": "(150 / 500) × 100% = 30%.",
+        "math": "Percentage wasted = 30%"
+      }
+    ],
+    "conceptSummary": "Energy efficiency and wasted energy sum to 100% of the total energy input in compliance with conservation laws.",
+    "misconception": "Selecting 70% (the useful efficiency) instead of the wasted percentage.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  }
+]

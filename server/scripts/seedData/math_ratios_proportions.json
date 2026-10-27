@@ -1,0 +1,557 @@
+[
+  {
+    "subject": "Math",
+    "topic": "Ratios & Proportions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Simplify the ratio 18 : 24 to lowest terms.",
+    "options": [
+      "3 : 4",
+      "9 : 16",
+      "2 : 3",
+      "6 : 8"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Divide both numbers by their greatest common divisor (6): 18 ÷ 6 = 3, 24 ÷ 6 = 4. The ratio is 3 : 4.",
+    "steps": [
+      {
+        "step": "Step 1: Find GCD",
+        "desc": "Greatest common divisor of 18 and 24 is 6.",
+        "math": "GCD(18, 24) = 6"
+      },
+      {
+        "step": "Step 2: Divide Both Terms",
+        "desc": "18 ÷ 6 = 3; 24 ÷ 6 = 4.",
+        "math": "3 : 4"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "A ratio is in simplest form when its terms have no common factors other than 1.",
+        "math": "Result = 3 : 4"
+      }
+    ],
+    "conceptSummary": "A ratio is in simplest form when its terms have no common factors other than 1.",
+    "misconception": "Stopping at 6:8 without fully reducing.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Ratios & Proportions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "A fruit basket contains 4 apples and 6 oranges. What is the ratio of apples to total fruit in simplest form?",
+    "options": [
+      "4 : 6",
+      "2 : 3",
+      "2 : 5",
+      "4 : 10"
+    ],
+    "correctAnswerIndex": 2,
+    "explanation": "Total fruit = 4 + 6 = 10. Ratio of apples to total is 4 : 10. Simplify by dividing by 2 to get 2 : 5.",
+    "steps": [
+      {
+        "step": "Step 1: Compute Total Fruit",
+        "desc": "4 apples + 6 oranges = 10 fruit.",
+        "math": "Total = 10"
+      },
+      {
+        "step": "Step 2: Form Ratio",
+        "desc": "Apples : Total = 4 : 10.",
+        "math": "4 : 10"
+      },
+      {
+        "step": "Step 3: Simplify",
+        "desc": "Divide by 2: 2 : 5.",
+        "math": "2 : 5"
+      }
+    ],
+    "conceptSummary": "Part-to-whole ratios compare one part to the sum of all parts.",
+    "misconception": "Writing the part-to-part ratio 4:6 (or 2:3) instead of comparing to the total.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Ratios & Proportions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Solve the proportion for x: x / 5 = 6 / 15.",
+    "options": [
+      "x = 2",
+      "x = 3",
+      "x = 18",
+      "x = 10"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Cross-multiply: 15 × x = 5 × 6 → 15x = 30 → x = 30 / 15 = 2.",
+    "steps": [
+      {
+        "step": "Step 1: Cross Multiply",
+        "desc": "15x = 5 × 6.",
+        "math": "15x = 30"
+      },
+      {
+        "step": "Step 2: Isolate x",
+        "desc": "Divide both sides by 15.",
+        "math": "x = 30 / 15 = 2"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "In any proportion a/b = c/d, the cross products are equal: a · d = b · c.",
+        "math": "Result = x = 2"
+      }
+    ],
+    "conceptSummary": "In any proportion a/b = c/d, the cross products are equal: a · d = b · c.",
+    "misconception": "Subtracting 5 from 6 or 15.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Ratios & Proportions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "A car travels 150 kilometers in 3 hours at constant speed. What is its unit rate in km/h?",
+    "options": [
+      "450 km/h",
+      "50 km/h",
+      "45 km/h",
+      "75 km/h"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Unit rate = Distance ÷ Time = 150 km ÷ 3 h = 50 km/h.",
+    "steps": [
+      {
+        "step": "Step 1: Set Up Rate",
+        "desc": "150 km per 3 hours.",
+        "math": "150 km / 3 h"
+      },
+      {
+        "step": "Step 2: Divide",
+        "desc": "150 ÷ 3 = 50.",
+        "math": "50 km/h"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "A unit rate compares a quantity to one unit of another quantity.",
+        "math": "Result = 50 km/h"
+      }
+    ],
+    "conceptSummary": "A unit rate compares a quantity to one unit of another quantity.",
+    "misconception": "Multiplying distance by time (150 × 3 = 450).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Ratios & Proportions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which ratio is equivalent to 3 : 5?",
+    "options": [
+      "12 : 20",
+      "6 : 8",
+      "9 : 12",
+      "15 : 20"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Multiply both terms of 3 : 5 by 4: (3 × 4) : (5 × 4) = 12 : 20.",
+    "steps": [
+      {
+        "step": "Step 1: Test Factor",
+        "desc": "Multiply 3 and 5 by 4.",
+        "math": "3 × 4 = 12, 5 × 4 = 20"
+      },
+      {
+        "step": "Step 2: Verify Ratio",
+        "desc": "12 : 20 reduces to 3 : 5 when divided by 4.",
+        "math": "12 : 20"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Equivalent ratios maintain the same quotient when both terms are multiplied by the same non-zero number.",
+        "math": "Result = 12 : 20"
+      }
+    ],
+    "conceptSummary": "Equivalent ratios maintain the same quotient when both terms are multiplied by the same non-zero number.",
+    "misconception": "Adding the same number to both terms (3+3 : 5+3 = 6:8 ≠ 3:5).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Ratios & Proportions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Divide $120 between Amy and Ben in the ratio 3 : 5. How much money does Ben receive?",
+    "options": [
+      "$45",
+      "$75",
+      "$60",
+      "$80"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Total ratio parts = 3 + 5 = 8 parts. Value of 1 part = $120 ÷ 8 = $15. Ben receives 5 parts: 5 × $15 = $75.",
+    "steps": [
+      {
+        "step": "Step 1: Sum Ratio Parts",
+        "desc": "3 + 5 = 8 equal parts.",
+        "math": "Total parts = 8"
+      },
+      {
+        "step": "Step 2: Find Value per Part",
+        "desc": "$120 / 8 = $15 per part.",
+        "math": "1 part = $15"
+      },
+      {
+        "step": "Step 3: Calculate Ben's Share",
+        "desc": "5 parts × $15 = $75.",
+        "math": "Ben = $75"
+      }
+    ],
+    "conceptSummary": "To divide a quantity in a given ratio, find the value of one part by dividing total quantity by sum of parts.",
+    "misconception": "Computing Amy's share ($45) instead of Ben's.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Ratios & Proportions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "A recipe for 4 people requires 250 grams of flour. How many grams of flour are required to make the recipe for 10 people?",
+    "options": [
+      "500 g",
+      "625 g",
+      "600 g",
+      "750 g"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Flour per person = 250 g ÷ 4 = 62.5 g. For 10 people = 62.5 g × 10 = 625 g.",
+    "steps": [
+      {
+        "step": "Step 1: Determine Unit Rate",
+        "desc": "250 / 4 = 62.5 g per person.",
+        "math": "Unit rate = 62.5 g"
+      },
+      {
+        "step": "Step 2: Scale to 10 People",
+        "desc": "62.5 × 10 = 625 g.",
+        "math": "Total = 625 g"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Proportional scaling preserves the constant unit rate across different quantities.",
+        "math": "Result = 625 g"
+      }
+    ],
+    "conceptSummary": "Proportional scaling preserves the constant unit rate across different quantities.",
+    "misconception": "Doubling 250 to 500 without accounting for the remaining 2 people.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Ratios & Proportions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Solve the proportion for x: (x + 2) / 6 = 5 / 3.",
+    "options": [
+      "x = 8",
+      "x = 7",
+      "x = 10",
+      "x = 12"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Cross-multiply: 3(x + 2) = 6 × 5 → 3x + 6 = 30 → 3x = 24 → x = 8.",
+    "steps": [
+      {
+        "step": "Step 1: Cross Multiply",
+        "desc": "3(x + 2) = 30.",
+        "math": "3x + 6 = 30"
+      },
+      {
+        "step": "Step 2: Subtract 6",
+        "desc": "3x = 30 - 6 = 24.",
+        "math": "3x = 24"
+      },
+      {
+        "step": "Step 3: Divide by 3",
+        "desc": "x = 24 / 3 = 8.",
+        "math": "x = 8"
+      }
+    ],
+    "conceptSummary": "Remember to distribute the factor to all terms inside binomial parentheses when cross-multiplying.",
+    "misconception": "Failing to distribute: 3x + 2 = 30 → 3x = 28.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Ratios & Proportions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "The three interior angles of a triangle are in the ratio 2 : 3 : 4. What is the measure of the largest angle?",
+    "options": [
+      "40°",
+      "60°",
+      "80°",
+      "90°"
+    ],
+    "correctAnswerIndex": 2,
+    "explanation": "Sum of angles in any triangle is 180°. Total parts = 2 + 3 + 4 = 9 parts. Each part = 180° ÷ 9 = 20°. Largest angle = 4 × 20° = 80°.",
+    "steps": [
+      {
+        "step": "Step 1: Total Ratio Parts",
+        "desc": "2 + 3 + 4 = 9 parts.",
+        "math": "Parts = 9"
+      },
+      {
+        "step": "Step 2: Value per Part",
+        "desc": "180° / 9 = 20° per part.",
+        "math": "1 part = 20°"
+      },
+      {
+        "step": "Step 3: Largest Angle",
+        "desc": "4 parts × 20° = 80°.",
+        "math": "Largest = 80°"
+      }
+    ],
+    "conceptSummary": "Combine geometric properties (sum of angles = 180°) with ratio part partitioning.",
+    "misconception": "Assuming the largest angle in an acute triangle must be 90°.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Ratios & Proportions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "If 6 painters take 8 hours to paint a building, how many hours will 4 painters take working at the exact same pace?",
+    "options": [
+      "5.33 hours",
+      "12 hours",
+      "10 hours",
+      "16 hours"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "This is an inverse proportion: Total person-hours required = 6 × 8 = 48 hours. With 4 painters: 48 ÷ 4 = 12 hours.",
+    "steps": [
+      {
+        "step": "Step 1: Calculate Total Workload",
+        "desc": "Painters × Hours = Constant Work.",
+        "math": "6 × 8 = 48 person-hours"
+      },
+      {
+        "step": "Step 2: Divide by New Number of Workers",
+        "desc": "48 person-hours / 4 painters = 12 hours.",
+        "math": "Time = 12 hours"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "In inverse proportion, as one variable decreases, the other increases proportionally so their product remains constant.",
+        "math": "Result = 12 hours"
+      }
+    ],
+    "conceptSummary": "In inverse proportion, as one variable decreases, the other increases proportionally so their product remains constant.",
+    "misconception": "Treating as direct proportion: (4 × 8) / 6 = 5.33 hours (fewer painters cannot paint faster!).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Ratios & Proportions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "On a map, a scale of 1 cm represents 5 km. If two towns are 7.5 cm apart on the map, what is the actual distance between them?",
+    "options": [
+      "35 km",
+      "37.5 km",
+      "12.5 km",
+      "40 km"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Actual distance = Map distance × Scale factor = 7.5 cm × 5 km/cm = 37.5 km.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Scale",
+        "desc": "1 cm = 5 km.",
+        "math": "Scale = 5 km/cm"
+      },
+      {
+        "step": "Step 2: Multiply Map Distance",
+        "desc": "7.5 × 5 = 37.5 km.",
+        "math": "Distance = 37.5 km"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Map scales represent a direct linear proportion between paper model and reality.",
+        "math": "Result = 37.5 km"
+      }
+    ],
+    "conceptSummary": "Map scales represent a direct linear proportion between paper model and reality.",
+    "misconception": "Dividing 7.5 by 5 = 1.5 km.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Ratios & Proportions",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "Two interlocking gears are in mesh. Gear A has 24 teeth and Gear B has 36 teeth. If Gear A completes 15 rotations, how many rotations does Gear B complete?",
+    "options": [
+      "10 rotations",
+      "22.5 rotations",
+      "12 rotations",
+      "18 rotations"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Total teeth meshed is equal: Teeth_A × Rotations_A = Teeth_B × Rotations_B. 24 × 15 = 36 × Rotations_B → 360 = 36 × Rotations_B → Rotations_B = 10.",
+    "steps": [
+      {
+        "step": "Step 1: Set Up Gear Relation",
+        "desc": "Gear rotations are inversely proportional to number of teeth.",
+        "math": "24 × 15 = 36 × R_B"
+      },
+      {
+        "step": "Step 2: Multiply Left Side",
+        "desc": "24 × 15 = 360 teeth passed.",
+        "math": "Total teeth = 360"
+      },
+      {
+        "step": "Step 3: Solve for Rotations of B",
+        "desc": "360 / 36 = 10 rotations.",
+        "math": "R_B = 10"
+      }
+    ],
+    "conceptSummary": "Gear ratios are inversely proportional: larger gears rotate fewer times.",
+    "misconception": "Treating as direct proportion: (36 × 15) / 24 = 22.5 rotations.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Ratios & Proportions",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "If the ratio A : B = 2 : 3 and the ratio B : C = 4 : 5, what is the ratio A : C?",
+    "options": [
+      "2 : 5",
+      "8 : 15",
+      "6 : 15",
+      "8 : 12"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Equalize the common term B. LCM of 3 and 4 is 12. A : B = (2×4) : (3×4) = 8 : 12. B : C = (4×3) : (5×3) = 12 : 15. Therefore, A : B : C = 8 : 12 : 15, so A : C = 8 : 15.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Shared Variable",
+        "desc": "B is common to both ratios (values 3 and 4).",
+        "math": "LCM(3, 4) = 12"
+      },
+      {
+        "step": "Step 2: Scale Both Ratios to Common B",
+        "desc": "Multiply A:B by 4 → 8:12. Multiply B:C by 3 → 12:15.",
+        "math": "A:B:C = 8:12:15"
+      },
+      {
+        "step": "Step 3: Extract A : C",
+        "desc": "A : C = 8 : 15.",
+        "math": "A : C = 8 : 15"
+      }
+    ],
+    "conceptSummary": "Compound ratios are combined by scaling the common term to its least common multiple.",
+    "misconception": "Taking first and last terms directly (2:5).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Ratios & Proportions",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "A 40-liter mixture contains milk and water in the ratio 3 : 1. How many liters of water must be added to make the ratio of milk to water 2 : 1?",
+    "options": [
+      "5 liters",
+      "10 liters",
+      "8 liters",
+      "4 liters"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Total parts = 4. 1 part = 40 ÷ 4 = 10 L. Milk = 3 × 10 = 30 L; Water = 1 × 10 = 10 L. We add W liters of water: Milk / (Water + W) = 2 / 1 → 30 / (10 + W) = 2 → 30 = 20 + 2W → 2W = 10 → W = 5 L.",
+    "steps": [
+      {
+        "step": "Step 1: Find Initial Quantities",
+        "desc": "Milk = (3/4) × 40 = 30 L; Water = (1/4) × 40 = 10 L.",
+        "math": "Milk = 30 L, Water = 10 L"
+      },
+      {
+        "step": "Step 2: Set Up New Proportion",
+        "desc": "Amount of milk stays constant at 30 L.",
+        "math": "30 / (10 + W) = 2 / 1"
+      },
+      {
+        "step": "Step 3: Solve for W",
+        "desc": "2(10 + W) = 30 → 20 + 2W = 30 → 2W = 10 → W = 5 L.",
+        "math": "W = 5 Liters"
+      }
+    ],
+    "conceptSummary": "In mixture problems where one component is added, the other component remains invariant in quantity.",
+    "misconception": "Adding water to the milk side or miscalculating initial parts.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Ratios & Proportions",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "3 automated machines produce 180 widgets in 4 hours. How many widgets will 5 such machines produce in 6 hours?",
+    "options": [
+      "450 widgets",
+      "360 widgets",
+      "400 widgets",
+      "500 widgets"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Production rate per machine-hour = 180 ÷ (3 × 4) = 180 ÷ 12 = 15 widgets/machine-hour. Total output for 5 machines over 6 hours = 15 × 5 × 6 = 15 × 30 = 450 widgets.",
+    "steps": [
+      {
+        "step": "Step 1: Calculate Unit Rate per Machine-Hour",
+        "desc": "180 widgets / (3 machines × 4 hours) = 180 / 12 = 15 widgets/(machine·h).",
+        "math": "Rate = 15 widgets/h"
+      },
+      {
+        "step": "Step 2: Multiply by New Machine-Hours",
+        "desc": "5 machines × 6 hours = 30 machine-hours.",
+        "math": "Machine-hours = 30"
+      },
+      {
+        "step": "Step 3: Compute Total Output",
+        "desc": "15 × 30 = 450 widgets.",
+        "math": "Output = 450"
+      }
+    ],
+    "conceptSummary": "Compound proportion problems are resolved by finding the unit output per worker per unit time.",
+    "misconception": "Scaling machines and hours independently without multiplying them together.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  }
+]

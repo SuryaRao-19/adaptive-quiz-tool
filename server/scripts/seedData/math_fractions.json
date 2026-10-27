@@ -1,0 +1,557 @@
+[
+  {
+    "subject": "Math",
+    "topic": "Fractions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What is 1/4 + 2/4 in simplest form?",
+    "options": [
+      "3/8",
+      "3/4",
+      "2/8",
+      "1/2"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Because both fractions already have the same denominator (4), simply add the numerators: 1 + 2 = 3. The denominator stays 4.",
+    "steps": [
+      {
+        "step": "Step 1: Check Denominators",
+        "desc": "Both denominators are equal to 4.",
+        "math": "Common denominator = 4"
+      },
+      {
+        "step": "Step 2: Add Numerators",
+        "desc": "Add the top numbers while keeping denominator constant.",
+        "math": "1/4 + 2/4 = (1 + 2)/4 = 3/4"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "When adding fractions with like denominators, add only the numerators.",
+        "math": "Result = 3/4"
+      }
+    ],
+    "conceptSummary": "When adding fractions with like denominators, add only the numerators.",
+    "misconception": "Never add the denominators together (4 + 4 ≠ 8).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Fractions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Evaluate: 5/8 - 2/8.",
+    "options": [
+      "3/0",
+      "3/8",
+      "3/16",
+      "7/8"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "With identical denominators, subtract the numerators: 5 - 2 = 3. The denominator remains 8.",
+    "steps": [
+      {
+        "step": "Step 1: Inspect Denominators",
+        "desc": "Denominators are already matching at 8.",
+        "math": "Denominator = 8"
+      },
+      {
+        "step": "Step 2: Subtract Numerators",
+        "desc": "Subtract 2 from 5.",
+        "math": "(5 - 2)/8 = 3/8"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Subtracting fractions with like denominators only alters the numerator.",
+        "math": "Result = 3/8"
+      }
+    ],
+    "conceptSummary": "Subtracting fractions with like denominators only alters the numerator.",
+    "misconception": "Subtracting denominators (8 - 8 = 0) is undefined and incorrect.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Fractions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "In the fraction 7/12, what does the numerator represent?",
+    "options": [
+      "The total number of equal parts in the whole",
+      "The number of parts selected out of the 12 equal parts",
+      "The remainder after long division",
+      "The difference between 12 and 7"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "The numerator (7) represents the number of specified or chosen parts out of the 12 total equal parts.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Components",
+        "desc": "Top is numerator, bottom is denominator.",
+        "math": "7/12 = numerator/denominator"
+      },
+      {
+        "step": "Step 2: Define Numerator",
+        "desc": "Numerator counts the parts taken.",
+        "math": "7 parts taken"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Numerator is the count of parts considered; denominator is the total parts in a whole.",
+        "math": "Result = The number of parts selected out of the 12 equal parts"
+      }
+    ],
+    "conceptSummary": "Numerator is the count of parts considered; denominator is the total parts in a whole.",
+    "misconception": "Confusing numerator with total parts in the whole.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Fractions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Convert the mixed number 2 3/5 into an improper fraction.",
+    "options": [
+      "13/5",
+      "11/5",
+      "6/5",
+      "10/5"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Multiply whole number 2 by denominator 5 (10), then add numerator 3 to get 13. The improper fraction is 13/5.",
+    "steps": [
+      {
+        "step": "Step 1: Multiply Whole by Denominator",
+        "desc": "2 wholes of 5 fifths each = 10 fifths.",
+        "math": "2 × 5 = 10"
+      },
+      {
+        "step": "Step 2: Add Numerator",
+        "desc": "Add the 3 additional fifths.",
+        "math": "10 + 3 = 13"
+      },
+      {
+        "step": "Step 3: State Improper Fraction",
+        "desc": "Place over denominator 5.",
+        "math": "13/5"
+      }
+    ],
+    "conceptSummary": "An improper fraction expresses a value equal to or greater than 1 as a single fraction.",
+    "misconception": "Adding whole number to numerator without multiplying by denominator (2 + 3 = 5/5).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Fractions",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which fraction is equivalent to 3/4?",
+    "options": [
+      "6/8",
+      "4/5",
+      "9/16",
+      "5/6"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Multiply numerator and denominator by 2: (3 × 2)/(4 × 2) = 6/8.",
+    "steps": [
+      {
+        "step": "Step 1: Multiply by Form of 1",
+        "desc": "Scale by 2/2.",
+        "math": "3/4 × 2/2 = 6/8"
+      },
+      {
+        "step": "Step 2: Verify by Division",
+        "desc": "Divide 6 and 8 by 2.",
+        "math": "6 ÷ 2 = 3; 8 ÷ 2 = 4"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Equivalent fractions have the same value, achieved by multiplying or dividing top and bottom by the same non-zero number.",
+        "math": "Result = 6/8"
+      }
+    ],
+    "conceptSummary": "Equivalent fractions have the same value, achieved by multiplying or dividing top and bottom by the same non-zero number.",
+    "misconception": "Adding 1 to both top and bottom (3/4 + 1/1 ≠ 4/5).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Fractions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Calculate: 3/5 + 1/10 in simplest form.",
+    "options": [
+      "4/15",
+      "7/10",
+      "4/10",
+      "3/10"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Find LCD which is 10. Multiply 3/5 by 2/2 to get 6/10. Then 6/10 + 1/10 = 7/10.",
+    "steps": [
+      {
+        "step": "Step 1: Find LCD",
+        "desc": "Least common denominator of 5 and 10 is 10.",
+        "math": "LCD = 10"
+      },
+      {
+        "step": "Step 2: Scale 3/5",
+        "desc": "Multiply numerator and denominator by 2.",
+        "math": "(3 × 2)/(5 × 2) = 6/10"
+      },
+      {
+        "step": "Step 3: Add Fractions",
+        "desc": "Sum numerators over 10.",
+        "math": "6/10 + 1/10 = 7/10"
+      }
+    ],
+    "conceptSummary": "Unlike denominators must be equalized to a common denominator before adding.",
+    "misconception": "Adding numerators and denominators straight across: (3+1)/(5+10) = 4/15.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Fractions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Calculate: 5/6 - 1/4 in simplest form.",
+    "options": [
+      "4/2",
+      "7/12",
+      "4/12",
+      "1/3"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "LCD of 6 and 4 is 12. Convert 5/6 to 10/12 and 1/4 to 3/12. 10/12 - 3/12 = 7/12.",
+    "steps": [
+      {
+        "step": "Step 1: Find LCD",
+        "desc": "LCM of 6 and 4 is 12.",
+        "math": "LCD = 12"
+      },
+      {
+        "step": "Step 2: Convert to Equivalent Fractions",
+        "desc": "5/6 × 2/2 = 10/12; 1/4 × 3/3 = 3/12.",
+        "math": "10/12 - 3/12"
+      },
+      {
+        "step": "Step 3: Subtract Numerators",
+        "desc": "10 - 3 = 7.",
+        "math": "7/12"
+      }
+    ],
+    "conceptSummary": "To subtract unlike fractions, find equivalent fractions with LCD.",
+    "misconception": "Subtracting across (5 - 1)/(6 - 4) = 4/2 = 2.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Fractions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Multiply: (2/3) × (4/7).",
+    "options": [
+      "8/21",
+      "6/10",
+      "14/12",
+      "8/10"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Multiply numerators together (2 × 4 = 8) and denominators together (3 × 7 = 21). Result is 8/21.",
+    "steps": [
+      {
+        "step": "Step 1: Multiply Numerators",
+        "desc": "Multiply 2 by 4.",
+        "math": "2 × 4 = 8"
+      },
+      {
+        "step": "Step 2: Multiply Denominators",
+        "desc": "Multiply 3 by 7.",
+        "math": "3 × 7 = 21"
+      },
+      {
+        "step": "Step 3: Check Reducibility",
+        "desc": "8 and 21 share no common factors besides 1.",
+        "math": "8/21"
+      }
+    ],
+    "conceptSummary": "Multiply fractions by multiplying straight across top and bottom.",
+    "misconception": "Cross multiplying instead of multiplying across.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Fractions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Evaluate: (3/4) ÷ (2/3).",
+    "options": [
+      "1/2",
+      "9/8",
+      "6/12",
+      "8/9"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Multiplying by the reciprocal of 2/3 gives (3/4) × (3/2) = 9/8 = 1 1/8.",
+    "steps": [
+      {
+        "step": "Step 1: Invert Divisor",
+        "desc": "Reciprocal of 2/3 is 3/2.",
+        "math": "Reciprocal = 3/2"
+      },
+      {
+        "step": "Step 2: Multiply Directly",
+        "desc": "(3 × 3)/(4 × 2) = 9/8.",
+        "math": "9/8"
+      },
+      {
+        "step": "Step 3: State Result",
+        "desc": "9/8 is in simplest improper form.",
+        "math": "9/8"
+      }
+    ],
+    "conceptSummary": "Dividing by a fraction is equivalent to multiplying by its reciprocal.",
+    "misconception": "Inverting the dividend (first fraction) instead of divisor.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Fractions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Which statement correctly compares 3/7 and 5/12?",
+    "options": [
+      "3/7 > 5/12 because 36/84 > 35/84",
+      "3/7 < 5/12 because 7 is smaller than 12",
+      "3/7 = 5/12",
+      "5/12 > 3/7 because 5 is greater than 3"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "With common denominator 84, 3/7 = 36/84 and 5/12 = 35/84. Since 36 > 35, 3/7 > 5/12.",
+    "steps": [
+      {
+        "step": "Step 1: Determine LCD",
+        "desc": "LCD of 7 and 12 is 84.",
+        "math": "LCD = 84"
+      },
+      {
+        "step": "Step 2: Convert Both Fractions",
+        "desc": "3/7 = 36/84 and 5/12 = 35/84.",
+        "math": "36/84 vs 35/84"
+      },
+      {
+        "step": "Step 3: Compare Numerators",
+        "desc": "36 > 35, so 3/7 > 5/12.",
+        "math": "3/7 > 5/12"
+      }
+    ],
+    "conceptSummary": "Compare fractions by expressing both with a common denominator.",
+    "misconception": "Assuming 5/12 is larger simply because 5 > 3 or 12 > 7.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Fractions",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Calculate: 3 1/4 - 1 3/4.",
+    "options": [
+      "2 2/4",
+      "1 1/2",
+      "2 1/2",
+      "1 1/4"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Regroup 3 1/4 as 2 5/4. Then 2 5/4 - 1 3/4 = (2 - 1) + (5/4 - 3/4) = 1 2/4 = 1 1/2.",
+    "steps": [
+      {
+        "step": "Step 1: Regroup Minuend",
+        "desc": "Borrow 1 (4/4) from 3: 3 1/4 = 2 5/4.",
+        "math": "3 1/4 = 2 5/4"
+      },
+      {
+        "step": "Step 2: Subtract Wholes and Parts",
+        "desc": "2 - 1 = 1, and 5/4 - 3/4 = 2/4.",
+        "math": "1 2/4"
+      },
+      {
+        "step": "Step 3: Reduce Fraction",
+        "desc": "Reduce 2/4 to 1/2.",
+        "math": "1 1/2"
+      }
+    ],
+    "conceptSummary": "Regroup 1 whole as equal parts of the denominator when subtracting larger fractional parts.",
+    "misconception": "Subtracting smaller from larger without borrowing (3 - 1 = 2, 3/4 - 1/4 = 2/4 = 2 1/2).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Fractions",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "Evaluate: (1/2 + 2/3) ÷ (5/6 - 1/4).",
+    "options": [
+      "2",
+      "7/6",
+      "7/12",
+      "14/7"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Numerator: 1/2 + 2/3 = 7/6. Denominator: 5/6 - 1/4 = 10/12 - 3/12 = 7/12. Division: (7/6) ÷ (7/12) = (7/6) × (12/7) = 12/6 = 2.",
+    "steps": [
+      {
+        "step": "Step 1: Evaluate Numerator",
+        "desc": "3/6 + 4/6 = 7/6.",
+        "math": "Numerator = 7/6"
+      },
+      {
+        "step": "Step 2: Evaluate Denominator",
+        "desc": "10/12 - 3/12 = 7/12.",
+        "math": "Denominator = 7/12"
+      },
+      {
+        "step": "Step 3: Perform Fraction Division",
+        "desc": "(7/6) × (12/7) = 12/6 = 2.",
+        "math": "Result = 2"
+      }
+    ],
+    "conceptSummary": "Follow order of operations by simplifying grouped numerator and denominator before dividing.",
+    "misconception": "Cancelling terms across addition/subtraction signs before solving expressions.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Fractions",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "A water tank is 3/5 full. After 18 liters are added, it becomes 3/4 full. What is the total capacity of the tank?",
+    "options": [
+      "120 Liters",
+      "90 Liters",
+      "150 Liters",
+      "60 Liters"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Fraction difference: 3/4 - 3/5 = 15/20 - 12/20 = 3/20. If 3/20 of the capacity equals 18 L, total capacity is 18 ÷ (3/20) = 18 × 20/3 = 120 L.",
+    "steps": [
+      {
+        "step": "Step 1: Calculate Fractional Increase",
+        "desc": "3/4 - 3/5 with LCD 20.",
+        "math": "15/20 - 12/20 = 3/20"
+      },
+      {
+        "step": "Step 2: Relate to Volume Added",
+        "desc": "3/20 of Capacity = 18 L.",
+        "math": "(3/20) × C = 18"
+      },
+      {
+        "step": "Step 3: Solve for C",
+        "desc": "C = 18 × (20/3) = 6 × 20 = 120 L.",
+        "math": "C = 120 Liters"
+      }
+    ],
+    "conceptSummary": "Find the fractional difference corresponding to the added quantity to determine the whole.",
+    "misconception": "Multiplying 18 by 3/4 directly without considering initial volume.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Fractions",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "A baker uses 1/3 of a bag of flour in the morning. In the afternoon, he uses 2/5 of the remainder. What fraction of the original bag is left?",
+    "options": [
+      "2/5",
+      "4/15",
+      "1/5",
+      "7/15"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Remaining after morning: 1 - 1/3 = 2/3. Afternoon used: (2/5) × (2/3) = 4/15. Remaining at end: 2/3 - 4/15 = 10/15 - 4/15 = 6/15 = 2/5.",
+    "steps": [
+      {
+        "step": "Step 1: Find Morning Remainder",
+        "desc": "1 - 1/3 = 2/3 remaining.",
+        "math": "Remainder = 2/3"
+      },
+      {
+        "step": "Step 2: Calculate Afternoon Usage",
+        "desc": "2/5 of 2/3 = 4/15.",
+        "math": "(2/5) × (2/3) = 4/15"
+      },
+      {
+        "step": "Step 3: Subtract from Morning Remainder",
+        "desc": "2/3 - 4/15 = 10/15 - 4/15 = 6/15 = 2/5.",
+        "math": "Final = 2/5"
+      }
+    ],
+    "conceptSummary": "'Fraction of the remainder' requires multiplying by the portion left, not the original total.",
+    "misconception": "Adding 1/3 + 2/5 = 11/15 and concluding 4/15 remains.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Fractions",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "Evaluate: 2/5 × (3/4 + 5/8) in simplest form.",
+    "options": [
+      "11/20",
+      "8/20",
+      "16/40",
+      "1/2"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Inside parentheses: 3/4 + 5/8 = 6/8 + 5/8 = 11/8. Then (2/5) × (11/8) = 22/40 = 11/20.",
+    "steps": [
+      {
+        "step": "Step 1: Evaluate Parentheses",
+        "desc": "Convert 3/4 to 6/8. 6/8 + 5/8 = 11/8.",
+        "math": "3/4 + 5/8 = 11/8"
+      },
+      {
+        "step": "Step 2: Multiply by 2/5",
+        "desc": "(2 × 11)/(5 × 8) = 22/40.",
+        "math": "22/40"
+      },
+      {
+        "step": "Step 3: Simplify Fraction",
+        "desc": "Divide by 2: 22/40 = 11/20.",
+        "math": "11/20"
+      }
+    ],
+    "conceptSummary": "Evaluate operations within grouping symbols first before applying external multiplication.",
+    "misconception": "Multiplying 2/5 by only 3/4 and then adding 5/8 without distributing.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  }
+]

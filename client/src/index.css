@@ -1,0 +1,218 @@
+@import 'katex/dist/katex.min.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    @apply bg-[#F8FAFC] text-slate-900 font-sans antialiased transition-colors duration-200;
+  }
+
+  /* Cyber Midnight (Dark Theme) Global Overrides */
+  html.dark body {
+    @apply bg-[#0B0F19] text-slate-100;
+  }
+}
+
+/* Accessible Semantic Design Tokens */
+:root {
+  --color-background: #F8FAFC;
+  --color-surface: #FFFFFF;
+  --color-surface-raised: #F1F5F9;
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --color-border: #E2E8F0;
+  --color-primary: #4F46E5;
+  --color-primary-hover: #4338CA;
+  --color-accent: #06B6D4;
+  --color-success: #16A34A;
+  --color-error: #DC2626;
+  --color-warning: #D97706;
+  --color-focus-ring: #4F46E5;
+
+  --theme-primary: #4F46E5;
+  --theme-primary-hover: #4338CA;
+  --theme-primary-light: #EEF2FF;
+  --theme-primary-border: #C7D2FE;
+  --theme-accent: #06B6D4;
+}
+
+/* 1. Student Themes */
+html.theme-student-indigo {
+  --color-primary: #4F46E5;
+  --color-primary-hover: #4338CA;
+  --color-focus-ring: #4F46E5;
+  --theme-primary: #4F46E5;
+  --theme-primary-hover: #4338CA;
+  --theme-primary-light: #EEF2FF;
+  --theme-primary-border: #C7D2FE;
+  --theme-accent: #06B6D4;
+}
+
+html.theme-student-neon {
+  --color-primary: #7C3AED;
+  --color-primary-hover: #6D28D9;
+  --color-focus-ring: #7C3AED;
+  --theme-primary: #7C3AED;
+  --theme-primary-hover: #6D28D9;
+  --theme-primary-light: #F5F3FF;
+  --theme-primary-border: #DDD6FE;
+  --theme-accent: #06B6D4;
+}
+
+/* 2. Teacher Themes */
+html.theme-teacher-navy {
+  --color-primary: #1E3A8A;
+  --color-primary-hover: #172554;
+  --color-focus-ring: #1E3A8A;
+  --theme-primary: #1E3A8A;
+  --theme-primary-hover: #172554;
+  --theme-primary-light: #EFF6FF;
+  --theme-primary-border: #BFDBFE;
+  --theme-accent: #3B82F6;
+}
+
+html.theme-teacher-emerald {
+  --color-primary: #059669;
+  --color-primary-hover: #047857;
+  --color-focus-ring: #059669;
+  --theme-primary: #059669;
+  --theme-primary-hover: #047857;
+  --theme-primary-light: #ECFDF5;
+  --theme-primary-border: #A7F3D0;
+  --theme-accent: #D97706;
+}
+
+/* 3. Universal Themes */
+html.theme-sunset {
+  --color-primary: #EA580C;
+  --color-primary-hover: #C2410C;
+  --color-focus-ring: #EA580C;
+  --theme-primary: #EA580C;
+  --theme-primary-hover: #C2410C;
+  --theme-primary-light: #FFF7ED;
+  --theme-primary-border: #FED7AA;
+  --theme-accent: #F59E0B;
+}
+
+/* 4. Cyber Midnight (Dark Mode) */
+html.theme-midnight,
+html.dark {
+  --color-background: #0B0F19;
+  --color-surface: #111827;
+  --color-surface-raised: #1E293B;
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+  --color-border: #1E293B;
+  --color-primary: #38BDF8;
+  --color-primary-hover: #0284C7;
+  --color-focus-ring: #38BDF8;
+  --theme-primary: #38BDF8;
+  --theme-primary-hover: #0284C7;
+  --theme-primary-light: rgba(56, 189, 248, 0.12);
+  --theme-primary-border: #0284C7;
+  --theme-accent: #818CF8;
+}
+
+/* Respect user's motion preference (WCAG 2.2 AA) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High-contrast focus ring utility */
+.focus-ring {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-focus-ring, #4F46E5);
+  outline-offset: 2px;
+}
+
+/* Graceful dark mode fallbacks for legacy/unadorned utilities */
+html.dark .bg-white {
+  background-color: #111827;
+}
+
+html.dark .text-slate-900 {
+  color: #F8FAFC;
+}
+
+html.dark .text-slate-800 {
+  color: #E2E8F0;
+}
+
+html.dark .text-slate-700 {
+  color: #CBD5E1;
+}
+
+html.dark .text-slate-600 {
+  color: #94A3B8;
+}
+
+html.dark .text-slate-500 {
+  color: #94A3B8;
+}
+
+html.dark .border-slate-200,
+html.dark .border-slate-200\/80,
+html.dark .border-slate-200\/90,
+html.dark .border-slate-100 {
+  border-color: #1E293B;
+}
+
+html.dark .bg-slate-50,
+html.dark .bg-slate-100 {
+  background-color: #1E293B;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+/* Print Styles for Certified Report */
+@media print {
+  body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-page {
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+}

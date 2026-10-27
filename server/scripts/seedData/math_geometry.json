@@ -1,0 +1,557 @@
+[
+  {
+    "subject": "Math",
+    "topic": "Geometry",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What is the sum of the interior angles of any triangle?",
+    "options": [
+      "180°",
+      "360°",
+      "90°",
+      "270°"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "In Euclidean geometry, the sum of all three interior angles in any triangle always equals exactly 180°.",
+    "steps": [
+      {
+        "step": "Step 1: Recall Theorem",
+        "desc": "Triangle Angle-Sum Theorem states interior angles sum to a straight line (180°).",
+        "math": "Angle A + Angle B + Angle C = 180°"
+      },
+      {
+        "step": "Step 2: Conclusion",
+        "desc": "Regardless of whether a triangle is acute, right, or obtuse, interior angles always total 180°.",
+        "math": "Total = 180°"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "The interior angles of any planar triangle sum to 180 degrees.",
+        "math": "Result = 180°"
+      }
+    ],
+    "conceptSummary": "The interior angles of any planar triangle sum to 180 degrees.",
+    "misconception": "Confusing the sum of triangle angles (180°) with quadrilateral angles (360°).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Geometry",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What is the area of a rectangle with length 8 cm and width 5 cm?",
+    "options": [
+      "40 cm²",
+      "26 cm",
+      "13 cm²",
+      "80 cm²"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Area of rectangle = length × width = 8 cm × 5 cm = 40 cm².",
+    "steps": [
+      {
+        "step": "Step 1: Formula for Area",
+        "desc": "Area = length × width.",
+        "math": "A = l × w"
+      },
+      {
+        "step": "Step 2: Multiply Dimensions",
+        "desc": "8 × 5 = 40.",
+        "math": "A = 40 cm²"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Area measures the two-dimensional surface covered, calculated in square units.",
+        "math": "Result = 40 cm²"
+      }
+    ],
+    "conceptSummary": "Area measures the two-dimensional surface covered, calculated in square units.",
+    "misconception": "Confusing perimeter with area: 2(8 + 5) = 26 cm.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Geometry",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What is the perimeter of a square with side length 9 cm?",
+    "options": [
+      "36 cm",
+      "81 cm²",
+      "18 cm",
+      "27 cm"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "A square has 4 equal sides. Perimeter = 4 × side = 4 × 9 cm = 36 cm.",
+    "steps": [
+      {
+        "step": "Step 1: Formula for Perimeter",
+        "desc": "Perimeter = 4s.",
+        "math": "P = 4 × 9"
+      },
+      {
+        "step": "Step 2: Calculate",
+        "desc": "4 × 9 = 36 cm.",
+        "math": "P = 36 cm"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Perimeter measures total distance around the boundary in linear units.",
+        "math": "Result = 36 cm"
+      }
+    ],
+    "conceptSummary": "Perimeter measures total distance around the boundary in linear units.",
+    "misconception": "Squaring the side to calculate area (9 × 9 = 81 cm²) instead of perimeter.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Geometry",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Two angles are complementary if the sum of their measures is equal to:",
+    "options": [
+      "90°",
+      "180°",
+      "360°",
+      "45°"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "By definition, complementary angles add up to 90° (forming a right angle).",
+    "steps": [
+      {
+        "step": "Step 1: Geometric Definition",
+        "desc": "Complementary angles sum to 90°.",
+        "math": "A + B = 90°"
+      },
+      {
+        "step": "Step 2: Compare with Supplementary",
+        "desc": "Supplementary angles sum to 180°, while complementary angles sum to 90°.",
+        "math": "Complementary = 90°"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Complementary angles sum to 90°; supplementary angles sum to 180°.",
+        "math": "Result = 90°"
+      }
+    ],
+    "conceptSummary": "Complementary angles sum to 90°; supplementary angles sum to 180°.",
+    "misconception": "Confusing complementary (90°) with supplementary (180°).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Geometry",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "A circle has a radius of 7 cm. Using π = 22/7, what is its circumference?",
+    "options": [
+      "44 cm",
+      "154 cm²",
+      "22 cm",
+      "88 cm"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Circumference = 2 × π × r = 2 × (22/7) × 7 = 44 cm.",
+    "steps": [
+      {
+        "step": "Step 1: Formula for Circumference",
+        "desc": "C = 2πr.",
+        "math": "C = 2 × (22/7) × 7"
+      },
+      {
+        "step": "Step 2: Cancel Factors and Compute",
+        "desc": "7 cancels out: 2 × 22 = 44 cm.",
+        "math": "C = 44 cm"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Circumference is the linear perimeter of a circle: C = 2πr = πd.",
+        "math": "Result = 44 cm"
+      }
+    ],
+    "conceptSummary": "Circumference is the linear perimeter of a circle: C = 2πr = πd.",
+    "misconception": "Calculating circle area: πr² = (22/7) × 49 = 154 cm².",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Geometry",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Find the area of a triangle with base 12 cm and perpendicular height 7 cm.",
+    "options": [
+      "42 cm²",
+      "84 cm²",
+      "19 cm²",
+      "38 cm²"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Area of a triangle = (1/2) × base × height = (1/2) × 12 × 7 = 6 × 7 = 42 cm².",
+    "steps": [
+      {
+        "step": "Step 1: Recall Formula",
+        "desc": "A = (1/2) × b × h.",
+        "math": "A = 0.5 × 12 × 7"
+      },
+      {
+        "step": "Step 2: Compute",
+        "desc": "6 × 7 = 42 cm².",
+        "math": "A = 42 cm²"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "A triangle covers exactly half the area of a rectangle with the same base and height.",
+        "math": "Result = 42 cm²"
+      }
+    ],
+    "conceptSummary": "A triangle covers exactly half the area of a rectangle with the same base and height.",
+    "misconception": "Forgetting to multiply by 1/2, giving 12 × 7 = 84 cm².",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Geometry",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Angles A and B are supplementary. If Angle A measures 65°, what is the measure of Angle B?",
+    "options": [
+      "115°",
+      "25°",
+      "125°",
+      "90°"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Supplementary angles sum to 180°. Angle B = 180° - 65° = 115°.",
+    "steps": [
+      {
+        "step": "Step 1: Set Up Supplementary Equation",
+        "desc": "A + B = 180°.",
+        "math": "65° + B = 180°"
+      },
+      {
+        "step": "Step 2: Solve for B",
+        "desc": "180° - 65° = 115°.",
+        "math": "B = 115°"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Supplementary angles form a linear pair and add to 180 degrees.",
+        "math": "Result = 115°"
+      }
+    ],
+    "conceptSummary": "Supplementary angles form a linear pair and add to 180 degrees.",
+    "misconception": "Subtracting from 90° (complementary) to get 25°.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Geometry",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Two angles of a triangle measure 45° and 70°. What is the measure of the third angle?",
+    "options": [
+      "65°",
+      "115°",
+      "75°",
+      "55°"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Sum of angles in a triangle is 180°. Third angle = 180° - (45° + 70°) = 180° - 115° = 65°.",
+    "steps": [
+      {
+        "step": "Step 1: Add Known Angles",
+        "desc": "45° + 70° = 115°.",
+        "math": "Sum = 115°"
+      },
+      {
+        "step": "Step 2: Subtract from 180°",
+        "desc": "180° - 115° = 65°.",
+        "math": "Third angle = 65°"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Determine any missing triangle angle by subtracting the sum of known angles from 180 degrees.",
+        "math": "Result = 65°"
+      }
+    ],
+    "conceptSummary": "Determine any missing triangle angle by subtracting the sum of known angles from 180 degrees.",
+    "misconception": "Stopping after adding known angles (115°).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Geometry",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "A right-angled triangle has perpendicular legs of length 6 cm and 8 cm. What is the length of the hypotenuse?",
+    "options": [
+      "10 cm",
+      "14 cm",
+      "12 cm",
+      "48 cm"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "By the Pythagorean Theorem: c² = a² + b² = 6² + 8² = 36 + 64 = 100. c = √100 = 10 cm.",
+    "steps": [
+      {
+        "step": "Step 1: State Pythagorean Theorem",
+        "desc": "a² + b² = c².",
+        "math": "6² + 8² = c²"
+      },
+      {
+        "step": "Step 2: Square and Sum",
+        "desc": "36 + 64 = 100.",
+        "math": "c² = 100"
+      },
+      {
+        "step": "Step 3: Take Square Root",
+        "desc": "c = √100 = 10 cm.",
+        "math": "c = 10 cm"
+      }
+    ],
+    "conceptSummary": "In any right triangle, the square of the hypotenuse equals the sum of squares of the other two sides.",
+    "misconception": "Adding leg lengths directly: 6 + 8 = 14 cm.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Geometry",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "What is the area of a circle with radius 7 cm? (Use π = 22/7)",
+    "options": [
+      "154 cm²",
+      "44 cm²",
+      "308 cm²",
+      "49 cm²"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Area = πr² = (22/7) × 7² = (22/7) × 49 = 22 × 7 = 154 cm².",
+    "steps": [
+      {
+        "step": "Step 1: Area Formula",
+        "desc": "A = πr².",
+        "math": "A = (22/7) × 7²"
+      },
+      {
+        "step": "Step 2: Evaluate",
+        "desc": "(22/7) × 49 = 22 × 7 = 154.",
+        "math": "A = 154 cm²"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Circle area scales with the square of the radius multiplied by π.",
+        "math": "Result = 154 cm²"
+      }
+    ],
+    "conceptSummary": "Circle area scales with the square of the radius multiplied by π.",
+    "misconception": "Calculating circumference instead: 2πr = 44 cm.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Geometry",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Find the volume of a rectangular prism with length 6 cm, width 4 cm, and height 5 cm.",
+    "options": [
+      "120 cm³",
+      "30 cm³",
+      "74 cm³",
+      "60 cm³"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Volume = length × width × height = 6 × 4 × 5 = 120 cm³.",
+    "steps": [
+      {
+        "step": "Step 1: Formula for Volume",
+        "desc": "V = l × w × h.",
+        "math": "V = 6 × 4 × 5"
+      },
+      {
+        "step": "Step 2: Multiply Dimensions",
+        "desc": "24 × 5 = 120 cm³.",
+        "math": "V = 120 cm³"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Volume of a rectangular prism represents the three-dimensional space enclosed, in cubic units.",
+        "math": "Result = 120 cm³"
+      }
+    ],
+    "conceptSummary": "Volume of a rectangular prism represents the three-dimensional space enclosed, in cubic units.",
+    "misconception": "Adding the three dimensions: 6 + 4 + 5 = 15 cm³.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Geometry",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "A 13-meter ladder leans against a vertical wall. If the base of the ladder is placed 5 meters away from the base of the wall, how high up the wall does the ladder reach?",
+    "options": [
+      "12 meters",
+      "8 meters",
+      "14 meters",
+      "18 meters"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Right triangle with hypotenuse 13 m and base 5 m. By Pythagorean theorem: h² = 13² - 5² = 169 - 25 = 144. h = √144 = 12 meters.",
+    "steps": [
+      {
+        "step": "Step 1: Set Up Right Triangle",
+        "desc": "Ladder = hypotenuse (c = 13), base = a = 5, height = b.",
+        "math": "5² + b² = 13²"
+      },
+      {
+        "step": "Step 2: Subtract to Isolate b²",
+        "desc": "b² = 169 - 25 = 144.",
+        "math": "b² = 144"
+      },
+      {
+        "step": "Step 3: Square Root",
+        "desc": "b = √144 = 12 meters.",
+        "math": "b = 12 m"
+      }
+    ],
+    "conceptSummary": "Pythagorean theorem resolves distances in physical situations forming right triangles.",
+    "misconception": "Subtracting lengths directly: 13 - 5 = 8 meters.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Geometry",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "What is the measure of each interior angle of a regular hexagon (6-sided polygon)?",
+    "options": [
+      "120°",
+      "108°",
+      "720°",
+      "60°"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Sum of interior angles = (n - 2) × 180° = (6 - 2) × 180° = 4 × 180° = 720°. For a regular hexagon: 720° ÷ 6 = 120°.",
+    "steps": [
+      {
+        "step": "Step 1: Total Interior Angle Sum",
+        "desc": "(n - 2) × 180° for n = 6.",
+        "math": "(6 - 2) × 180° = 720°"
+      },
+      {
+        "step": "Step 2: Divide by Number of Vertices",
+        "desc": "Each angle = 720° / 6.",
+        "math": "720° / 6 = 120°"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Each interior angle of a regular n-gon equals ((n - 2) × 180°) / n.",
+        "math": "Result = 120°"
+      }
+    ],
+    "conceptSummary": "Each interior angle of a regular n-gon equals ((n - 2) × 180°) / n.",
+    "misconception": "Reporting the total angle sum (720°) or exterior angle (60°).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Geometry",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "A composite figure is made of a rectangle 10 cm by 6 cm topped by a semicircle whose diameter matches the 6 cm side. What is the total area of the figure? (Use π ≈ 3.14)",
+    "options": [
+      "74.13 cm²",
+      "88.26 cm²",
+      "60.00 cm²",
+      "69.42 cm²"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Rectangle area = 10 × 6 = 60 cm². Semicircle radius = 6 ÷ 2 = 3 cm. Semicircle area = (1/2) × π × 3² = 0.5 × 3.14 × 9 = 14.13 cm². Total area = 60 + 14.13 = 74.13 cm².",
+    "steps": [
+      {
+        "step": "Step 1: Area of Rectangle",
+        "desc": "10 × 6 = 60 cm².",
+        "math": "A_rect = 60 cm²"
+      },
+      {
+        "step": "Step 2: Area of Semicircle",
+        "desc": "Radius = 3 cm. Area = 0.5 × π × 3² = 0.5 × 3.14 × 9 = 14.13 cm².",
+        "math": "A_semi = 14.13 cm²"
+      },
+      {
+        "step": "Step 3: Sum Component Areas",
+        "desc": "60 + 14.13 = 74.13 cm².",
+        "math": "A_total = 74.13 cm²"
+      }
+    ],
+    "conceptSummary": "Compute areas of composite figures by decomposing them into non-overlapping standard geometric shapes.",
+    "misconception": "Using the full circle area or forgetting to halve diameter to find radius.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Geometry",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "Find the total surface area of a closed cylinder with radius 3 cm and height 7 cm. (Use π ≈ 3.14)",
+    "options": [
+      "188.4 cm²",
+      "131.88 cm²",
+      "197.82 cm²",
+      "150.72 cm²"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Total surface area = 2πrh + 2πr² = 2 × 3.14 × 3 × 7 + 2 × 3.14 × 9 = 131.88 + 56.52 = 188.4 cm².",
+    "steps": [
+      {
+        "step": "Step 1: Curved Surface Area",
+        "desc": "2πrh = 2 × 3.14 × 3 × 7 = 131.88 cm².",
+        "math": "CSA = 131.88 cm²"
+      },
+      {
+        "step": "Step 2: Area of Both Circular Bases",
+        "desc": "2 × πr² = 2 × 3.14 × 9 = 56.52 cm².",
+        "math": "Bases = 56.52 cm²"
+      },
+      {
+        "step": "Step 3: Sum Areas",
+        "desc": "131.88 + 56.52 = 188.40 cm².",
+        "math": "TSA = 188.4 cm²"
+      }
+    ],
+    "conceptSummary": "The total surface area of a closed cylinder combines the curved lateral area and both end caps.",
+    "misconception": "Omitting the two circular base caps (curved surface area only: 131.88 cm²).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  }
+]

@@ -1,0 +1,562 @@
+[
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which cellular organelle is often referred to as the 'powerhouse of the cell' because it generates ATP through cellular respiration?",
+    "options": [
+      "Mitochondria",
+      "Nucleus",
+      "Ribosome",
+      "Endoplasmic Reticulum"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Mitochondria produce adenosine triphosphate (ATP), the primary energy currency of the cell, via aerobic cellular respiration.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Energy Organelle",
+        "desc": "Mitochondria break down glucose to synthesize ATP.",
+        "math": "Glucose + O2 → CO2 + H2O + ATP"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Mitochondria produce adenosine triphosphate (ATP), the primary energy currency of the cell, via aerobic cellular respiration.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Mitochondria are the primary sites of ATP production in eukaryotic cells.",
+        "math": "Correct Option: Mitochondria"
+      }
+    ],
+    "conceptSummary": "Mitochondria are the primary sites of ATP production in eukaryotic cells.",
+    "misconception": "Thinking the nucleus produces energy because it is the central control organelle.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What green pigment inside plant cells absorbs solar light energy to drive photosynthesis?",
+    "options": [
+      "Chlorophyll",
+      "Hemoglobin",
+      "Melanin",
+      "Cytoplasm"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Chlorophyll, found within chloroplasts, absorbs blue and red wavelengths of light while reflecting green light, powering photosynthesis.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Photosynthetic Pigment",
+        "desc": "Chlorophyll captures photon energy in thylakoid membranes.",
+        "math": "Light Energy + CO2 + H2O → C6H12O6 + O2"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Chlorophyll, found within chloroplasts, absorbs blue and red wavelengths of light while reflecting green light, powering photosynthesis.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Chlorophyll is the light-harvesting pigment in plant chloroplasts.",
+        "math": "Correct Option: Chlorophyll"
+      }
+    ],
+    "conceptSummary": "Chlorophyll is the light-harvesting pigment in plant chloroplasts.",
+    "misconception": "Confusing chlorophyll (pigment) with chloroplast (the organelle) or cytoplasm.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which of the following structures is present in typical plant cells but completely absent in animal cells?",
+    "options": [
+      "Cell wall",
+      "Cell membrane",
+      "Mitochondria",
+      "Nucleus"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Plant cells possess a rigid outer cell wall composed of cellulose for mechanical support, whereas animal cells only have a flexible cell membrane.",
+    "steps": [
+      {
+        "step": "Step 1: Compare Plant vs Animal Structures",
+        "desc": "Plants have cell wall, chloroplasts, and large central vacuole; animals do not have a cell wall.",
+        "math": "Plant cell = Cell wall + Cell membrane"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Plant cells possess a rigid outer cell wall composed of cellulose for mechanical support, whereas animal cells only have a flexible cell membrane.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Cell walls provide structural rigidity and turgor protection exclusively to plant, fungal, and bacterial cells.",
+        "math": "Correct Option: Cell wall"
+      }
+    ],
+    "conceptSummary": "Cell walls provide structural rigidity and turgor protection exclusively to plant, fungal, and bacterial cells.",
+    "misconception": "Believing animal cells have cell walls or that plant cells lack cell membranes.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which organelle houses genomic DNA and acts as the administrative control center of a eukaryotic cell?",
+    "options": [
+      "Nucleus",
+      "Vacuole",
+      "Golgi apparatus",
+      "Lysosome"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The nucleus encloses the organism's genetic blueprint (DNA) and directs vital cell activities including transcription and replication.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Genetic Storage",
+        "desc": "DNA is sequestered inside the nuclear membrane.",
+        "math": "Nucleus = Genetic Control"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "The nucleus encloses the organism's genetic blueprint (DNA) and directs vital cell activities including transcription and replication.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "The eukaryotic nucleus coordinates protein synthesis, growth, and cell division via DNA.",
+        "math": "Correct Option: Nucleus"
+      }
+    ],
+    "conceptSummary": "The eukaryotic nucleus coordinates protein synthesis, growth, and cell division via DNA.",
+    "misconception": "Assuming all cells possess a nucleus (prokaryotes lack a membrane-bound nucleus).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What is the jelly-like fluid that fills the cell and holds the organelles in place called?",
+    "options": [
+      "Cytoplasm",
+      "Plasma",
+      "Cytosol nucleus",
+      "Cell sap"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The cytoplasm consists of cytosol fluid and suspended structures, providing an aqueous medium for biochemical reactions.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Cellular Fluid",
+        "desc": "Cytoplasm fills the interior space between the cell membrane and nucleus.",
+        "math": "Cytoplasm = Aqueous matrix"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "The cytoplasm consists of cytosol fluid and suspended structures, providing an aqueous medium for biochemical reactions.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Cytoplasm provides the medium for cellular metabolism and organelle positioning.",
+        "math": "Correct Option: Cytoplasm"
+      }
+    ],
+    "conceptSummary": "Cytoplasm provides the medium for cellular metabolism and organelle positioning.",
+    "misconception": "Confusing cell cytoplasm with blood plasma.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Which statement accurately describes the functional difference between the cell wall and the cell membrane?",
+    "options": [
+      "The cell wall provides rigid structural shape, while the cell membrane regulates selective transport in and out of the cell.",
+      "The cell wall controls what enters the cell, while the cell membrane makes ATP.",
+      "The cell membrane is rigid and impermeable, while the cell wall is completely flexible.",
+      "Both structures perform identical functions and are found in all living organisms."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The cellulose cell wall provides structural protection and turgidity, while the lipid bilayer cell membrane is semi-permeable, regulating the influx and efflux of ions and molecules.",
+    "steps": [
+      {
+        "step": "Step 1: Define Cell Wall Function",
+        "desc": "Rigid outer matrix supporting high osmotic pressure.",
+        "math": "Cell wall = Rigidity / Protection"
+      },
+      {
+        "step": "Step 2: Define Cell Membrane Function",
+        "desc": "Phospholipid bilayer with selective permeability.",
+        "math": "Cell membrane = Selective barrier"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Cell walls provide structural strength; cell membranes maintain homeostasis through selective permeability.",
+        "math": "Result = The cell wall provides rigid structural shape, while the cell membrane regulates selective transport in and out of the cell."
+      }
+    ],
+    "conceptSummary": "Cell walls provide structural strength; cell membranes maintain homeostasis through selective permeability.",
+    "misconception": "Thinking the cell wall controls transport while the cell membrane provides rigidity.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "What is the primary cellular function of ribosomes?",
+    "options": [
+      "Synthesizing proteins by translating messenger RNA (mRNA)",
+      "Breaking down metabolic toxins and cellular waste",
+      "Storing starches and water",
+      "Duplicating chromosomes during meiosis"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Ribosomes read mRNA codon sequences and assemble amino acids into polypeptide chains (protein synthesis).",
+    "steps": [
+      {
+        "step": "Step 1: Ribosome Function",
+        "desc": "Translation of mRNA into functional proteins.",
+        "math": "mRNA + Amino Acids → Polypeptide"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Ribosomes read mRNA codon sequences and assemble amino acids into polypeptide chains (protein synthesis).",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Ribosomes are molecular factories responsible for protein translation in all living cells.",
+        "math": "Correct Option: Synthesizing proteins by translating messenger RNA (mRNA)"
+      }
+    ],
+    "conceptSummary": "Ribosomes are molecular factories responsible for protein translation in all living cells.",
+    "misconception": "Confusing ribosomes with lysosomes (waste disposal) or mitochondria (ATP synthesis).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Osmosis is specifically defined as the net diffusion of:",
+    "options": [
+      "Water molecules across a selectively permeable membrane from an area of higher water potential to lower water potential",
+      "Solute salt crystals through open pores in a cell wall",
+      "Glucose molecules across active carrier pumps requiring ATP",
+      "Oxygen and carbon dioxide gases between alveoli capillaries"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Osmosis is the spontaneous passive transport of solvent (water) molecules through a semi-permeable membrane towards a region of higher solute concentration (lower water potential).",
+    "steps": [
+      {
+        "step": "Step 1: Identify Solvent",
+        "desc": "Osmosis applies exclusively to water/solvent motion.",
+        "math": "Water: High [Water] → Low [Water]"
+      },
+      {
+        "step": "Step 2: Membrane Requirement",
+        "desc": "Must pass across a selectively permeable barrier.",
+        "math": "Semi-permeable membrane"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Osmosis is passive water movement driven by chemical water potential gradients.",
+        "math": "Result = Water molecules across a selectively permeable membrane from an area of higher water potential to lower water potential"
+      }
+    ],
+    "conceptSummary": "Osmosis is passive water movement driven by chemical water potential gradients.",
+    "misconception": "Believing osmosis describes the movement of salt or sugar solute particles.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Why do mature plant cells possess a large permanent central vacuole, while animal cells have only small, transient vacuoles?",
+    "options": [
+      "The large central vacuole maintains turgor pressure against the cell wall, keeping the plant upright without a skeletal system.",
+      "Plant cells need large vacuoles to breathe gaseous oxygen directly from the air.",
+      "Animal cells have bones so their cells do not require any water storage.",
+      "The plant vacuole creates glucose directly from sunlight."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "When water enters the central vacuole, hydrostatic turgor pressure pushes against the cell wall, giving non-woody plant stems rigidity and posture.",
+    "steps": [
+      {
+        "step": "Step 1: Relate Vacuole to Plant Posture",
+        "desc": "Water fills the vacuole, creating internal hydrostatic pressure.",
+        "math": "Turgor pressure = Mechanical support"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "When water enters the central vacuole, hydrostatic turgor pressure pushes against the cell wall, giving non-woody plant stems rigidity and posture.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Vacuolar turgor pressure provides essential hydrostatic support to herbaceous plant structures.",
+        "math": "Correct Option: The large central vacuole maintains turgor pressure against the cell wall, keeping the plant upright without a skeletal system."
+      }
+    ],
+    "conceptSummary": "Vacuolar turgor pressure provides essential hydrostatic support to herbaceous plant structures.",
+    "misconception": "Believing plant vacuoles exist solely to store chlorophyll.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Which critical feature distinguishes eukaryotic cells from prokaryotic cells (such as bacteria)?",
+    "options": [
+      "Eukaryotes possess a membrane-bound nucleus and membrane-bound organelles, whereas prokaryotes do not.",
+      "Prokaryotes contain mitochondria, whereas eukaryotes do not.",
+      "Eukaryotes do not contain DNA or genetic material.",
+      "Prokaryotes are always multicellular organisms."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Eukaryotic cells package their DNA within a true nuclear envelope and possess specialized organelles (mitochondria, ER, Golgi); prokaryotes have free-floating circular nucleoid DNA.",
+    "steps": [
+      {
+        "step": "Step 1: Analyze Terminology",
+        "desc": "Eu = true, karyon = nucleus. Pro = before, karyon = nucleus.",
+        "math": "Eukaryote = True nucleus"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Eukaryotic cells package their DNA within a true nuclear envelope and possess specialized organelles (mitochondria, ER, Golgi); prokaryotes have free-floating circular nucleoid DNA.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Compartmentalization with membrane-bound organelles is the defining evolutionary hallmark of eukaryotic cells.",
+        "math": "Correct Option: Eukaryotes possess a membrane-bound nucleus and membrane-bound organelles, whereas prokaryotes do not."
+      }
+    ],
+    "conceptSummary": "Compartmentalization with membrane-bound organelles is the defining evolutionary hallmark of eukaryotic cells.",
+    "misconception": "Believing prokaryotes lack DNA or ribosomes entirely.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "When observing an onion epidermal peel under a compound microscope, why do the cells appear as regular, brick-like interlocking units?",
+    "options": [
+      "The rigid cellulose cell wall locks each cell into a fixed geometric shape.",
+      "Onion cells are compressed by external muscular tissue.",
+      "The microscope stains distort the cell membranes into polygons.",
+      "Onion cells lack cytoplasm so they crystallize."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The strong, non-elastic cellulose cell walls cement adjacent cells together, maintaining a regular rectangular geometric pattern under magnification.",
+    "steps": [
+      {
+        "step": "Step 1: Connect Structure to Microscopy",
+        "desc": "Cellulose walls maintain shape even when dead or stained.",
+        "math": "Rigid cell wall → Fixed geometry"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "The strong, non-elastic cellulose cell walls cement adjacent cells together, maintaining a regular rectangular geometric pattern under magnification.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Cellulose walls provide fixed architectural geometry to plant tissues.",
+        "math": "Correct Option: The rigid cellulose cell wall locks each cell into a fixed geometric shape."
+      }
+    ],
+    "conceptSummary": "Cellulose walls provide fixed architectural geometry to plant tissues.",
+    "misconception": "Attributing cell shape to the magnification glass or microscope optics.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "What occurs when an animal red blood cell is immersed in pure distilled water (a hypotonic solution), and why?",
+    "options": [
+      "Water enters the cell rapidly via osmosis, causing it to swell and burst (lysis) because it lacks a rigid cell wall.",
+      "Water rushes out of the cell, causing it to shrivel up into a crenated sphere.",
+      "The cell wall prevents any volume change, keeping the red blood cell turgid.",
+      "No net movement occurs because cell membranes are completely impermeable to water."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Pure water has higher water potential than the saline interior of the red blood cell. Water flows inward down the concentration gradient. Because animal cells lack a cell wall to withstand turgor pressure, the membrane ruptures (lysis).",
+    "steps": [
+      {
+        "step": "Step 1: Determine Water Potential Gradient",
+        "desc": "Distilled water has zero solute (highest water potential). Interior cytoplasm is concentrated.",
+        "math": "Ψ_ext > Ψ_int"
+      },
+      {
+        "step": "Step 2: Direction of Net Osmosis",
+        "desc": "Water flows inward down the osmotic gradient.",
+        "math": "Net water influx"
+      },
+      {
+        "step": "Step 3: Analyze Structural Limit",
+        "desc": "Animal cells have no cell wall to resist internal pressure → Lysis (bursting).",
+        "math": "Cell lysis"
+      }
+    ],
+    "conceptSummary": "Hypotonic environments cause animal cells to undergo osmotic lysis due to the absence of a cell wall.",
+    "misconception": "Assuming animal cells can become turgid like plant cells without bursting.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "How do large or polar molecules (such as glucose) cross the hydrophobic lipid bilayer of the cell membrane down their concentration gradient without consuming cellular ATP?",
+    "options": [
+      "Via facilitated diffusion through specialized transmembrane transport proteins",
+      "Via simple diffusion directly slipping through hydrophobic fatty acid tails",
+      "Via active endocytosis using ATP hydrolysis pumps",
+      "Via osmosis directly through cholesterol steroid rings"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Glucose is hydrophilic and too large to diffuse across the hydrophobic core of the phospholipid bilayer. Carrier or channel transport proteins facilitate its passive diffusion without ATP consumption.",
+    "steps": [
+      {
+        "step": "Step 1: Characterize Molecular Properties",
+        "desc": "Glucose is polar and relatively large, repelled by nonpolar lipid tails.",
+        "math": "Polar solute + Lipid core = Blocked"
+      },
+      {
+        "step": "Step 2: Identify Transport Mechanism",
+        "desc": "Movement down gradient without energy = Facilitated diffusion.",
+        "math": "Passive transport via protein channels"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Facilitated diffusion enables polar solutes to cross membranes down their concentration gradient through specific transport proteins.",
+        "math": "Result = Via facilitated diffusion through specialized transmembrane transport proteins"
+      }
+    ],
+    "conceptSummary": "Facilitated diffusion enables polar solutes to cross membranes down their concentration gradient through specific transport proteins.",
+    "misconception": "Assuming all carrier protein transport requires ATP energy (confusing facilitated diffusion with active transport).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "Which piece of evidence strongly supports the endosymbiotic theory that mitochondria and chloroplasts originated as ancient free-living prokaryotic organisms engulfed by early eukaryotes?",
+    "options": [
+      "They possess their own circular DNA, self-contained 70S ribosomes, and divide independently by binary fission.",
+      "They have single-layer membranes identical to modern viral capsids.",
+      "They can survive for weeks outside living organisms in the open air.",
+      "Their genetic code is identical to human nuclear chromosomal DNA."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Mitochondria and chloroplasts contain independent circular DNA genomes, prokaryotic-like 70S ribosomes, and replicate via binary fission inside host cells, matching bacterial biology.",
+    "steps": [
+      {
+        "step": "Step 1: Evaluate Endosymbiosis Hallmarks",
+        "desc": "Double membranes, bacterial-size ribosomes (70S), circular DNA, autonomous replication.",
+        "math": "Prokaryotic characteristics"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Mitochondria and chloroplasts contain independent circular DNA genomes, prokaryotic-like 70S ribosomes, and replicate via binary fission inside host cells, matching bacterial biology.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Endosymbiotic theory explains the origin of mitochondria and chloroplasts as engulfed prokaryotes.",
+        "math": "Correct Option: They possess their own circular DNA, self-contained 70S ribosomes, and divide independently by binary fission."
+      }
+    ],
+    "conceptSummary": "Endosymbiotic theory explains the origin of mitochondria and chloroplasts as engulfed prokaryotes.",
+    "misconception": "Believing organelles are synthesized anew from scratch by the cell nucleus during division.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Cells",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "What is the correct structural hierarchy of biological organization in complex multicellular organisms, from simplest unit to most complex organism?",
+    "options": [
+      "Cell → Tissue → Organ → Organ System → Organism",
+      "Tissue → Cell → Organ System → Organ → Organism",
+      "Organism → Organ System → Organ → Tissue → Cell",
+      "Cell → Organ → Tissue → Organ System → Organism"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Cells group together to form tissues; tissues combine into functional organs; organs coordinate within organ systems; organ systems assemble the complete living organism.",
+    "steps": [
+      {
+        "step": "Step 1: Fundamental Unit",
+        "desc": "Cell is the basic building block.",
+        "math": "Cell"
+      },
+      {
+        "step": "Step 2: Group of Specialized Cells",
+        "desc": "Similar cells form tissue.",
+        "math": "Cell → Tissue"
+      },
+      {
+        "step": "Step 3: Functional Unit",
+        "desc": "Multiple tissues form an organ (e.g. heart, stomach).",
+        "math": "Tissue → Organ"
+      },
+      {
+        "step": "Step 4: Integrated Systems",
+        "desc": "Organs cooperate in an organ system (e.g. circulatory system) to sustain the organism.",
+        "math": "Organ → Organ System → Organism"
+      }
+    ],
+    "conceptSummary": "Biological hierarchy progresses upward in scale and functional integration.",
+    "misconception": "Inverting the order of tissues and organs.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  }
+]

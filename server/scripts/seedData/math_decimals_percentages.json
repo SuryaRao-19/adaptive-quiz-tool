@@ -1,0 +1,562 @@
+[
+  {
+    "subject": "Math",
+    "topic": "Decimals & Percentages",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Convert 0.45 into a simplified fraction.",
+    "options": [
+      "9/20",
+      "45/10",
+      "4/5",
+      "9/10"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "0.45 equals 45/100. Divide both numerator and denominator by their greatest common factor (5): 45 ÷ 5 = 9, 100 ÷ 5 = 20. Result is 9/20.",
+    "steps": [
+      {
+        "step": "Step 1: Write as Decimal Fraction",
+        "desc": "Two decimal places means hundredths.",
+        "math": "0.45 = 45/100"
+      },
+      {
+        "step": "Step 2: Simplify",
+        "desc": "Divide top and bottom by 5.",
+        "math": "(45 ÷ 5)/(100 ÷ 5) = 9/20"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Decimals with two places are converted by placing over 100 and simplifying.",
+        "math": "Result = 9/20"
+      }
+    ],
+    "conceptSummary": "Decimals with two places are converted by placing over 100 and simplifying.",
+    "misconception": "Placing 45 over 10 (45/10 = 4.5).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Decimals & Percentages",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Convert 3/4 into a percentage.",
+    "options": [
+      "34%",
+      "75%",
+      "7.5%",
+      "70%"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Multiply the fraction by 100%: (3/4) × 100% = (300/4)% = 75%.",
+    "steps": [
+      {
+        "step": "Step 1: Multiply by 100",
+        "desc": "Convert fraction to percentage base.",
+        "math": "(3/4) × 100 = 300 / 4"
+      },
+      {
+        "step": "Step 2: Divide",
+        "desc": "300 ÷ 4 = 75.",
+        "math": "75%"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Percent means 'per hundred'. Multiply any fraction or decimal by 100 to get percent.",
+        "math": "Result = 75%"
+      }
+    ],
+    "conceptSummary": "Percent means 'per hundred'. Multiply any fraction or decimal by 100 to get percent.",
+    "misconception": "Concatenating numerator and denominator as digits (3/4 → 34%).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Decimals & Percentages",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Calculate: 3.25 + 1.4.",
+    "options": [
+      "3.39",
+      "4.65",
+      "4.29",
+      "4.39"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Line up the decimal points: 3.25 + 1.40 = 4.65.",
+    "steps": [
+      {
+        "step": "Step 1: Align Decimals",
+        "desc": "Write 1.4 as 1.40 to match decimal places.",
+        "math": "3.25 + 1.40"
+      },
+      {
+        "step": "Step 2: Add Place Values",
+        "desc": "Hundredths: 5+0=5; Tenths: 2+4=6; Units: 3+1=4.",
+        "math": "4.65"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Always align decimal points vertically when adding or subtracting decimals.",
+        "math": "Result = 4.65"
+      }
+    ],
+    "conceptSummary": "Always align decimal points vertically when adding or subtracting decimals.",
+    "misconception": "Adding 25 and 14 without place value alignment (3.25 + 1.4 = 3.39).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Decimals & Percentages",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What is 10% of 250?",
+    "options": [
+      "2.5",
+      "25",
+      "2500",
+      "0.25"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "10% is 10/100 = 0.10. Multiply 0.10 × 250 = 25.",
+    "steps": [
+      {
+        "step": "Step 1: Convert 10% to Fraction",
+        "desc": "10% = 10/100 = 1/10.",
+        "math": "10% = 1/10"
+      },
+      {
+        "step": "Step 2: Multiply by Quantity",
+        "desc": "(1/10) × 250 = 25.",
+        "math": "25"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Finding 10% of any number is equivalent to dividing that number by 10.",
+        "math": "Result = 25"
+      }
+    ],
+    "conceptSummary": "Finding 10% of any number is equivalent to dividing that number by 10.",
+    "misconception": "Dividing by 100 instead of 10.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Decimals & Percentages",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Evaluate: 0.8 × 0.2.",
+    "options": [
+      "1.6",
+      "0.16",
+      "0.016",
+      "16.0"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "8 × 2 = 16. Count the total decimal places: 1 in 0.8 and 1 in 0.2, making 2 decimal places total. 0.16.",
+    "steps": [
+      {
+        "step": "Step 1: Multiply Whole Digits",
+        "desc": "Ignore decimal points first: 8 × 2 = 16.",
+        "math": "8 × 2 = 16"
+      },
+      {
+        "step": "Step 2: Count Decimal Places",
+        "desc": "1 place in 0.8 + 1 place in 0.2 = 2 places.",
+        "math": "2 decimal places"
+      },
+      {
+        "step": "Step 3: Place Decimal Point",
+        "desc": "Move two places left in 16.",
+        "math": "0.16"
+      }
+    ],
+    "conceptSummary": "In decimal multiplication, the product has total decimal digits equal to the sum of decimal digits of the factors.",
+    "misconception": "Writing 1.6 by keeping only 1 decimal place.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Decimals & Percentages",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Calculate: 4.6 - 1.85.",
+    "options": [
+      "3.25",
+      "2.75",
+      "2.85",
+      "3.75"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Pad 4.6 as 4.60. Align decimals: 4.60 - 1.85 = 2.75.",
+    "steps": [
+      {
+        "step": "Step 1: Pad with Zero",
+        "desc": "Align decimal places: 4.6 becomes 4.60.",
+        "math": "4.60 - 1.85"
+      },
+      {
+        "step": "Step 2: Regroup and Subtract",
+        "desc": "Borrow from tenths: 10 - 5 = 5; 15 - 8 = 7; 3 - 1 = 2.",
+        "math": "2.75"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Pad trailing zeroes to the minuend to subtract hundredths accurately.",
+        "math": "Result = 2.75"
+      }
+    ],
+    "conceptSummary": "Pad trailing zeroes to the minuend to subtract hundredths accurately.",
+    "misconception": "Dropping the 5 without borrowing to get 2.85 or 3.25.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Decimals & Percentages",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "A jacket originally costs $80 and is on sale for 15% off. What is the sale price?",
+    "options": [
+      "$12",
+      "$68",
+      "$72",
+      "$65"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Discount amount: 15% of $80 = 0.15 × 80 = $12. Sale price: $80 - $12 = $68.",
+    "steps": [
+      {
+        "step": "Step 1: Calculate Discount",
+        "desc": "0.15 × 80 = 12.",
+        "math": "Discount = $12"
+      },
+      {
+        "step": "Step 2: Subtract from Original Price",
+        "desc": "$80 - $12 = $68.",
+        "math": "Sale Price = $68"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Sale price equals original price minus discount amount.",
+        "math": "Result = $68"
+      }
+    ],
+    "conceptSummary": "Sale price equals original price minus discount amount.",
+    "misconception": "Reporting the discount ($12) as the final sale price.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Decimals & Percentages",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Convert the fraction 7/8 into a decimal.",
+    "options": [
+      "0.78",
+      "0.875",
+      "0.85",
+      "0.758"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Divide 7 by 8 using long division: 7 ÷ 8 = 0.875.",
+    "steps": [
+      {
+        "step": "Step 1: Set Up Division",
+        "desc": "7.000 ÷ 8.",
+        "math": "7 ÷ 8"
+      },
+      {
+        "step": "Step 2: Divide",
+        "desc": "8 into 70 goes 8 times (64, remainder 6). 8 into 60 goes 7 times (56, remainder 4). 8 into 40 goes 5 times (40, remainder 0).",
+        "math": "0.875"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Convert any fraction to a decimal by dividing the numerator by the denominator.",
+        "math": "Result = 0.875"
+      }
+    ],
+    "conceptSummary": "Convert any fraction to a decimal by dividing the numerator by the denominator.",
+    "misconception": "Writing digits 7 and 8 directly as 0.78.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Decimals & Percentages",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Calculate: 2.4 ÷ 0.06.",
+    "options": [
+      "0.4",
+      "4",
+      "40",
+      "400"
+    ],
+    "correctAnswerIndex": 2,
+    "explanation": "Multiply both numbers by 100 to make the divisor a whole number: 240 ÷ 6 = 40.",
+    "steps": [
+      {
+        "step": "Step 1: Eliminate Divisor Decimal",
+        "desc": "Multiply numerator and denominator by 100.",
+        "math": "(2.4 × 100)/(0.06 × 100) = 240/6"
+      },
+      {
+        "step": "Step 2: Perform Integer Division",
+        "desc": "240 ÷ 6 = 40.",
+        "math": "40"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Shift the decimal point of both divisor and dividend by the same number of places to divide by a whole number.",
+        "math": "Result = 40"
+      }
+    ],
+    "conceptSummary": "Shift the decimal point of both divisor and dividend by the same number of places to divide by a whole number.",
+    "misconception": "Dividing 2.4 by 6 to get 0.4.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Decimals & Percentages",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Find the percentage increase when a price rises from $50 to $65.",
+    "options": [
+      "15%",
+      "30%",
+      "23%",
+      "25%"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Absolute increase = 65 - 50 = $15. Percentage increase = (15 / 50) × 100% = 0.30 × 100% = 30%.",
+    "steps": [
+      {
+        "step": "Step 1: Find Absolute Increase",
+        "desc": "New - Original = 65 - 50 = 15.",
+        "math": "Increase = 15"
+      },
+      {
+        "step": "Step 2: Divide by Original Value",
+        "desc": "15 / 50 = 0.30.",
+        "math": "15/50 = 0.30"
+      },
+      {
+        "step": "Step 3: Convert to Percent",
+        "desc": "0.30 × 100% = 30%.",
+        "math": "30%"
+      }
+    ],
+    "conceptSummary": "Percentage change is always calculated relative to the original initial value.",
+    "misconception": "Mistaking the dollar increase ($15) as the percentage increase (15%).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Decimals & Percentages",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "A store reduces the price of a shoes from $80 to $60. What is the percentage decrease?",
+    "options": [
+      "20%",
+      "25%",
+      "33.3%",
+      "15%"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Decrease amount = 80 - 60 = 20. Percentage decrease = (20 / 80) × 100% = (1/4) × 100% = 25%.",
+    "steps": [
+      {
+        "step": "Step 1: Find Difference",
+        "desc": "80 - 60 = 20.",
+        "math": "Difference = 20"
+      },
+      {
+        "step": "Step 2: Divide by Original Amount",
+        "desc": "20 / 80 = 1/4 = 0.25.",
+        "math": "20/80 = 0.25"
+      },
+      {
+        "step": "Step 3: Convert to Percentage",
+        "desc": "0.25 × 100% = 25%.",
+        "math": "25%"
+      }
+    ],
+    "conceptSummary": "Percentage decrease uses the starting amount as the denominator.",
+    "misconception": "Dividing the change by the new price: 20 / 60 = 33.3%.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Decimals & Percentages",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "A smartphone price is increased by 20%, and later the new price is decreased by 20%. What is the overall net change compared to the original price?",
+    "options": [
+      "0% change (price returns to original)",
+      "4% decrease",
+      "4% increase",
+      "2% decrease"
+    ],
+    "correctAnswerIndex": 1,
+    "explanation": "Assume original price is 100. After 20% increase: 100 × 1.20 = 120. After 20% decrease: 120 × 0.80 = 96. Overall change: 96 - 100 = -4, a 4% net decrease.",
+    "steps": [
+      {
+        "step": "Step 1: Model with Base 100",
+        "desc": "Let original price = $100.",
+        "math": "Base = 100"
+      },
+      {
+        "step": "Step 2: Apply 20% Increase",
+        "desc": "100 + (0.20 × 100) = $120.",
+        "math": "Price 1 = 120"
+      },
+      {
+        "step": "Step 3: Apply 20% Decrease on New Price",
+        "desc": "120 - (0.20 × 120) = 120 - 24 = $96.",
+        "math": "Price 2 = 96"
+      },
+      {
+        "step": "Step 4: Compute Overall Delta",
+        "desc": "96 - 100 = -4%.",
+        "math": "Net Change = -4%"
+      }
+    ],
+    "conceptSummary": "Equal percentage increase followed by decrease always yields a net decrease because the base of the decrease is larger.",
+    "misconception": "Assuming +20% and -20% cancel out to 0%.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Decimals & Percentages",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "An item priced at $120 is discounted by 25%. A sales tax of 8% is then applied to the discounted price. What is the final total cost?",
+    "options": [
+      "$97.20",
+      "$90.00",
+      "$99.60",
+      "$102.40"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Discount: 25% of $120 = $30, so sale price is $120 - $30 = $90. Sales tax: 8% of $90 = 0.08 × 90 = $7.20. Final total = $90 + $7.20 = $97.20.",
+    "steps": [
+      {
+        "step": "Step 1: Calculate Sale Price",
+        "desc": "120 × (1 - 0.25) = 120 × 0.75 = $90.",
+        "math": "Sale Price = $90"
+      },
+      {
+        "step": "Step 2: Calculate Tax on Sale Price",
+        "desc": "90 × 0.08 = $7.20.",
+        "math": "Tax = $7.20"
+      },
+      {
+        "step": "Step 3: Add Tax to Sale Price",
+        "desc": "90 + 7.20 = $97.20.",
+        "math": "Total = $97.20"
+      }
+    ],
+    "conceptSummary": "Sequential percentages are applied sequentially to the running total.",
+    "misconception": "Subtracting 8% tax from 25% discount to get a net 17% discount.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Decimals & Percentages",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "In a state examination, 85% of students passed. If 45 students failed, how many total students took the examination?",
+    "options": [
+      "300",
+      "255",
+      "345",
+      "450"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "If 85% passed, then 100% - 85% = 15% failed. 15% of Total = 45. Total = 45 ÷ 0.15 = 300 students.",
+    "steps": [
+      {
+        "step": "Step 1: Find Failure Percentage",
+        "desc": "100% - 85% = 15%.",
+        "math": "Failed = 15%"
+      },
+      {
+        "step": "Step 2: Set Up Proportion",
+        "desc": "0.15 × N = 45.",
+        "math": "0.15N = 45"
+      },
+      {
+        "step": "Step 3: Solve for N",
+        "desc": "N = 45 / 0.15 = 4500 / 15 = 300.",
+        "math": "N = 300"
+      }
+    ],
+    "conceptSummary": "When the count of the complement is known, divide by the complement percentage to find the whole.",
+    "misconception": "Multiplying 45 by 0.85 directly.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Math",
+    "topic": "Decimals & Percentages",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "Evaluate: (0.3)² + (0.16 ÷ 0.4).",
+    "options": [
+      "0.49",
+      "1.30",
+      "0.13",
+      "0.76"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "(0.3)² = 0.09. 0.16 ÷ 0.4 = 1.6 ÷ 4 = 0.4. Sum = 0.09 + 0.40 = 0.49.",
+    "steps": [
+      {
+        "step": "Step 1: Evaluate Exponent",
+        "desc": "0.3 × 0.3 = 0.09.",
+        "math": "(0.3)² = 0.09"
+      },
+      {
+        "step": "Step 2: Evaluate Division",
+        "desc": "0.16 / 0.4 = 1.6 / 4 = 0.40.",
+        "math": "0.16 ÷ 0.4 = 0.40"
+      },
+      {
+        "step": "Step 3: Add Quantities",
+        "desc": "0.09 + 0.40 = 0.49.",
+        "math": "0.49"
+      }
+    ],
+    "conceptSummary": "Compute powers and divisions before addition, adhering to PEMDAS.",
+    "misconception": "Squaring 0.3 as 0.9, leading to 0.9 + 0.4 = 1.3.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  }
+]

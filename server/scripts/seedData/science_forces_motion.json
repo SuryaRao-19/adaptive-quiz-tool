@@ -1,0 +1,557 @@
+[
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What is the standard International System (SI) unit of force?",
+    "options": [
+      "Newton (N)",
+      "Kilogram (kg)",
+      "Joule (J)",
+      "Watt (W)"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The Newton (N), defined as 1 kg·m/s², is the standard SI unit used to measure force.",
+    "steps": [
+      {
+        "step": "Step 1: Identify SI Unit",
+        "desc": "Force unit is named in honor of Sir Isaac Newton.",
+        "math": "1 N = 1 kg·m/s²"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "The Newton (N), defined as 1 kg·m/s², is the standard SI unit used to measure force.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Force is measured in Newtons (N); mass in kilograms (kg); energy in Joules (J).",
+        "math": "Correct Option: Newton (N)"
+      }
+    ],
+    "conceptSummary": "Force is measured in Newtons (N); mass in kilograms (kg); energy in Joules (J).",
+    "misconception": "Confusing force (Newtons) with mass (kilograms).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "If an object is moving at constant velocity in a straight line on a frictionless surface, what is the net external force acting on it?",
+    "options": [
+      "0 N",
+      "A constant forward force equal to its mass",
+      "A force equal to its velocity",
+      "9.8 N"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "According to Newton's First Law, an object at constant velocity experiences zero net force (acceleration is zero, so F = ma = 0).",
+    "steps": [
+      {
+        "step": "Step 1: Check Acceleration",
+        "desc": "Constant velocity means change in velocity is zero.",
+        "math": "a = 0 m/s²"
+      },
+      {
+        "step": "Step 2: Apply Newton's Second Law",
+        "desc": "F_net = m × a = m × 0 = 0 N.",
+        "math": "F_net = 0 N"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Zero net force corresponds to either a state of rest or motion at constant velocity.",
+        "math": "Result = 0 N"
+      }
+    ],
+    "conceptSummary": "Zero net force corresponds to either a state of rest or motion at constant velocity.",
+    "misconception": "Believing a continuous forward force is required to sustain steady motion (Aristotelian misconception).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What contact force always opposes the relative sliding motion between two surfaces in contact?",
+    "options": [
+      "Friction",
+      "Gravity",
+      "Magnetic force",
+      "Buoyancy"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Frictional forces arise from electrostatic interactions between microscopic surface irregularities, opposing relative motion.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Contact Opposing Force",
+        "desc": "Friction acts tangentially opposite to the direction of motion or applied force.",
+        "math": "f_friction opposes velocity"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Frictional forces arise from electrostatic interactions between microscopic surface irregularities, opposing relative motion.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Friction resists the sliding or rolling of surfaces past one another.",
+        "math": "Correct Option: Friction"
+      }
+    ],
+    "conceptSummary": "Friction resists the sliding or rolling of surfaces past one another.",
+    "misconception": "Thinking gravity opposes horizontal sliding motion.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which laboratory instrument is used to measure the magnitude of a pulling force or weight directly in Newtons?",
+    "options": [
+      "Spring balance (newton meter)",
+      "Beam balance",
+      "Thermometer",
+      "Graduated cylinder"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "A spring balance uses Hooke's Law (spring extension proportional to applied force) calibrated in Newtons to measure force and weight.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Force Measuring Device",
+        "desc": "Spring scale measures extension produced by gravitational pull or tensile force.",
+        "math": "F = k · Δx"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "A spring balance uses Hooke's Law (spring extension proportional to applied force) calibrated in Newtons to measure force and weight.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Spring balances measure force/weight in Newtons, while beam balances compare masses in kilograms.",
+        "math": "Correct Option: Spring balance (newton meter)"
+      }
+    ],
+    "conceptSummary": "Spring balances measure force/weight in Newtons, while beam balances compare masses in kilograms.",
+    "misconception": "Believing a spring balance measures mass independent of gravity.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "How is average speed calculated mathematically?",
+    "options": [
+      "Total distance divided by total time taken",
+      "Total distance multiplied by total time taken",
+      "Mass multiplied by acceleration",
+      "Force divided by area"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Average speed is the total path distance traveled divided by the total elapsed time interval: s = d / t.",
+    "steps": [
+      {
+        "step": "Step 1: Recall Speed Formula",
+        "desc": "Speed equals distance covered per unit time.",
+        "math": "Speed = Distance / Time"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Average speed is the total path distance traveled divided by the total elapsed time interval: s = d / t.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Speed is a scalar quantity measuring rate of distance covered per unit time.",
+        "math": "Correct Option: Total distance divided by total time taken"
+      }
+    ],
+    "conceptSummary": "Speed is a scalar quantity measuring rate of distance covered per unit time.",
+    "misconception": "Multiplying distance by time.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Why does a standing passenger suddenly lurch forward when a moving city bus slams on its brakes?",
+    "options": [
+      "Due to inertia, the passenger's upper body continues moving forward at the bus's prior speed until a force acts on it.",
+      "A mysterious forward force is created by the braking system.",
+      "The passenger's mass increases during rapid deceleration.",
+      "Air pressure inside the bus suddenly pushes forward."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Newton's First Law (Law of Inertia): an object in motion remains in motion at constant velocity unless acted upon by an external net force. The bus stops, but the passenger's body continues forward.",
+    "steps": [
+      {
+        "step": "Step 1: Apply Newton's First Law",
+        "desc": "Inertia is the tendency of matter to resist changes in its velocity.",
+        "math": "Velocity tends to remain constant"
+      },
+      {
+        "step": "Step 2: Trace Motion",
+        "desc": "Brakes apply force to bus chassis and feet; upper body continues moving forward.",
+        "math": "Forward inertia"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Inertia is the inherent property of matter that resists changes in motion.",
+        "math": "Result = Due to inertia, the passenger's upper body continues moving forward at the bus's prior speed until a force acts on it."
+      }
+    ],
+    "conceptSummary": "Inertia is the inherent property of matter that resists changes in motion.",
+    "misconception": "Imagining an active invisible force pushes the passenger forward.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "A cart with a mass of 5 kg accelerates along a flat track at 3 m/s². What net horizontal force was applied to the cart?",
+    "options": [
+      "15 N",
+      "1.67 N",
+      "8 N",
+      "0.6 N"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Apply Newton's Second Law: F = m × a = 5 kg × 3 m/s² = 15 N.",
+    "steps": [
+      {
+        "step": "Step 1: State Formula",
+        "desc": "Net Force = mass × acceleration.",
+        "math": "F = ma"
+      },
+      {
+        "step": "Step 2: Substitute Values",
+        "desc": "m = 5 kg, a = 3 m/s².",
+        "math": "F = 5 × 3 = 15 N"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Newton's Second Law quantifies the relationship between net force, mass, and resultant acceleration.",
+        "math": "Result = 15 N"
+      }
+    ],
+    "conceptSummary": "Newton's Second Law quantifies the relationship between net force, mass, and resultant acceleration.",
+    "misconception": "Dividing mass by acceleration: 5 / 3 = 1.67 N.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "The Moon has a surface gravity approximately 1/6th that of Earth. If an astronaut travels from Earth to the Moon, how do their mass and weight change?",
+    "options": [
+      "Their mass remains unchanged, but their weight decreases to 1/6th of its Earth value.",
+      "Both their mass and weight decrease to 1/6th of their Earth values.",
+      "Their weight remains constant, but their mass decreases to 1/6th.",
+      "Neither mass nor weight changes in space."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Mass is the amount of matter in an object and is invariant regardless of location. Weight is the gravitational force acting on that mass (W = mg), which decreases by 1/6 on the Moon.",
+    "steps": [
+      {
+        "step": "Step 1: Define Mass",
+        "desc": "Mass is an intrinsic property measuring amount of matter.",
+        "math": "Mass_moon = Mass_earth"
+      },
+      {
+        "step": "Step 2: Define Weight",
+        "desc": "Weight depends directly on local gravitational field strength.",
+        "math": "W = m · g → W_moon = (1/6) · W_earth"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Mass is constant everywhere; weight varies directly with local gravitational field strength.",
+        "math": "Result = Their mass remains unchanged, but their weight decreases to 1/6th of its Earth value."
+      }
+    ],
+    "conceptSummary": "Mass is constant everywhere; weight varies directly with local gravitational field strength.",
+    "misconception": "Treating mass and weight as interchangeable terms.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "On a Speed vs Time graph, what does a flat, horizontal line above the time axis indicate about an object's motion?",
+    "options": [
+      "The object is moving at constant non-zero speed with zero acceleration.",
+      "The object is completely stationary.",
+      "The object is accelerating at a steady constant rate.",
+      "The object is decelerating rapidly to a halt."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "On a speed-time graph, a horizontal line indicates that speed is unchanging over time (slope = acceleration = 0). The object is in uniform motion.",
+    "steps": [
+      {
+        "step": "Step 1: Interpret Axes",
+        "desc": "Y-axis is speed, X-axis is time.",
+        "math": "y = constant"
+      },
+      {
+        "step": "Step 2: Relate Slope to Acceleration",
+        "desc": "Slope of speed-time graph is acceleration.",
+        "math": "Slope = Δv/Δt = 0"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Slope on a speed-time graph represents acceleration; a horizontal line signifies zero acceleration (constant speed).",
+        "math": "Result = The object is moving at constant non-zero speed with zero acceleration."
+      }
+    ],
+    "conceptSummary": "Slope on a speed-time graph represents acceleration; a horizontal line signifies zero acceleration (constant speed).",
+    "misconception": "Confusing a speed-time graph with a distance-time graph (where a horizontal line means stationary).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "According to Newton's Third Law, when a swimmer exerts a backward force on the water with their hands, what propels the swimmer forward?",
+    "options": [
+      "The equal and opposite reaction force exerted by the water forward onto the swimmer's hands",
+      "The swimmer's own willpower overcoming buoyancy",
+      "Air resistance above the pool surface pulling the swimmer",
+      "A reduction in the swimmer's gravitational mass"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Newton's Third Law states that every action force produces an equal and opposite reaction force. As hands push water backward, water pushes hands forward.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Action-Reaction Pair",
+        "desc": "Force of swimmer on water = -(Force of water on swimmer).",
+        "math": "F_action = -F_reaction"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Newton's Third Law states that every action force produces an equal and opposite reaction force.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Forces always occur in matched action-reaction pairs acting on different objects.",
+        "math": "Correct Option: The equal and opposite reaction force exerted by the water forward onto the swimmer's hands"
+      }
+    ],
+    "conceptSummary": "Forces always occur in matched action-reaction pairs acting on different objects.",
+    "misconception": "Believing only living beings can exert forces (water exerts real mechanical force).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "When a falling skydiver reaches terminal velocity, what can be deduced about the forces acting on the skydiver?",
+    "options": [
+      "Upward air resistance equals downward gravitational weight, resulting in zero net force and zero acceleration.",
+      "Gravity ceases to act on the skydiver.",
+      "Air resistance exceeds gravity, pushing the skydiver back upward.",
+      "The skydiver's velocity reaches the speed of sound."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Terminal velocity is reached when upward drag force equals downward gravitational force: F_net = F_gravity - F_drag = 0. Speed remains constant.",
+    "steps": [
+      {
+        "step": "Step 1: Balance Vertical Forces",
+        "desc": "Drag increases with speed until it matches weight.",
+        "math": "F_drag = F_gravity"
+      },
+      {
+        "step": "Step 2: Net Force and Acceleration",
+        "desc": "F_net = 0 N → a = 0 m/s².",
+        "math": "Terminal velocity = Constant speed"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Terminal velocity occurs when resistive drag balances gravitational pull, producing zero net force.",
+        "math": "Result = Upward air resistance equals downward gravitational weight, resulting in zero net force and zero acceleration."
+      }
+    ],
+    "conceptSummary": "Terminal velocity occurs when resistive drag balances gravitational pull, producing zero net force.",
+    "misconception": "Believing gravity stops acting at terminal velocity.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "A racing car accelerates uniformly along a straight drag strip from an initial speed of 10 m/s to 25 m/s in 5.0 seconds. What is the car's acceleration?",
+    "options": [
+      "3.0 m/s²",
+      "7.0 m/s²",
+      "5.0 m/s²",
+      "0.33 m/s²"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Acceleration a = (v_final - v_initial) / t = (25 m/s - 10 m/s) / 5 s = 15 / 5 = 3.0 m/s².",
+    "steps": [
+      {
+        "step": "Step 1: State Acceleration Formula",
+        "desc": "a = (v - u) / t.",
+        "math": "a = (25 - 10) / 5"
+      },
+      {
+        "step": "Step 2: Calculate Velocity Change",
+        "desc": "Δv = 25 - 10 = 15 m/s.",
+        "math": "Δv = 15 m/s"
+      },
+      {
+        "step": "Step 3: Divide by Time",
+        "desc": "15 m/s / 5 s = 3.0 m/s².",
+        "math": "a = 3.0 m/s²"
+      }
+    ],
+    "conceptSummary": "Acceleration measures the rate of change of velocity over time.",
+    "misconception": "Dividing final velocity directly by time: 25 / 5 = 5.0 m/s² without subtracting initial velocity.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "How can the total distance traveled by an object be extracted from its Speed vs Time graph?",
+    "options": [
+      "By calculating the geometric area bounded beneath the curve of the speed-time graph",
+      "By measuring the slope of the line at the final point",
+      "By multiplying the maximum speed by the minimum time",
+      "By reading the coordinate value of the highest peak on the y-axis"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Since distance = speed × time, integrating or computing the geometric area under a speed-time graph gives the exact distance traveled.",
+    "steps": [
+      {
+        "step": "Step 1: Dimensional Analysis",
+        "desc": "Speed (m/s) × Time (s) = Meters (distance).",
+        "math": "[m/s] × [s] = [m]"
+      },
+      {
+        "step": "Step 2: Geometric Relationship",
+        "desc": "Area of shapes under the curve (rectangles, triangles) = distance.",
+        "math": "Area under curve = Distance"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Area under a speed-time graph represents total distance traveled.",
+        "math": "Result = By calculating the geometric area bounded beneath the curve of the speed-time graph"
+      }
+    ],
+    "conceptSummary": "Area under a speed-time graph represents total distance traveled.",
+    "misconception": "Assuming the slope gives distance (the slope gives acceleration).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "A 3 kg crate rests on a floor. A student pulls it rightward with 30 N of force while a rope pulls it leftward with 12 N. Kinetic friction opposes the rightward motion with 3 N. What is the crate's acceleration?",
+    "options": [
+      "5.0 m/s² to the right",
+      "15.0 m/s² to the right",
+      "4.0 m/s² to the right",
+      "6.0 m/s² to the left"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Net force F_net = Rightward forces - Leftward forces = 30 N - (12 N + 3 N) = 30 - 15 = 15 N to the right. Acceleration a = F_net / m = 15 N / 3 kg = 5.0 m/s² to the right.",
+    "steps": [
+      {
+        "step": "Step 1: Sum Opposing Forces",
+        "desc": "Left forces = 12 N (rope) + 3 N (friction) = 15 N.",
+        "math": "F_left = 15 N"
+      },
+      {
+        "step": "Step 2: Calculate Net Force",
+        "desc": "F_net = 30 N - 15 N = 15 N rightward.",
+        "math": "F_net = 15 N"
+      },
+      {
+        "step": "Step 3: Solve for Acceleration",
+        "desc": "a = F_net / m = 15 / 3 = 5.0 m/s².",
+        "math": "a = 5.0 m/s²"
+      }
+    ],
+    "conceptSummary": "Resolve all opposing collinear vector forces into a net force before calculating acceleration.",
+    "misconception": "Forgetting to include friction or adding friction to the forward pulling force.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Forces & Motion",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "In an experiment inside an evacuated vacuum chamber with zero air resistance, a heavy 2 kg iron hammer and a light 0.005 kg bird feather are dropped simultaneously from a height of 3 meters. What occurs?",
+    "options": [
+      "Both hit the bottom surface at the exact same instant because gravitational acceleration is independent of mass.",
+      "The hammer lands significantly sooner because its greater mass generates more gravitational force.",
+      "The feather floats suspended because its mass is too negligible to experience gravity.",
+      "The feather lands first because it has lower inertia."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "While the hammer experiences a greater gravitational force (F = mg), its greater inertia exactly compensates (a = F/m = mg/m = g). In a vacuum without air drag, both accelerate at g ≈ 9.8 m/s² and land together.",
+    "steps": [
+      {
+        "step": "Step 1: Newton's Gravitational Acceleration",
+        "desc": "Gravitational force: F = mg. Acceleration: a = F/m = (mg)/m = g.",
+        "math": "a = g"
+      },
+      {
+        "step": "Step 2: Eliminate Air Resistance",
+        "desc": "In a vacuum, no drag acts on either object.",
+        "math": "t = √(2h / g)"
+      },
+      {
+        "step": "Step 3: Conclude Arrival",
+        "desc": "Both drop for identical time t and land simultaneously.",
+        "math": "t_hammer = t_feather"
+      }
+    ],
+    "conceptSummary": "All masses experience identical gravitational acceleration in free fall in the absence of fluid resistance.",
+    "misconception": "Believing heavier objects naturally fall faster regardless of air resistance (Galileo's famous refutation).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  }
+]

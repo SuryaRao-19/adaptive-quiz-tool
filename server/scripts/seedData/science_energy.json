@@ -1,0 +1,557 @@
+[
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What is the standard International System (SI) unit of energy and work?",
+    "options": [
+      "Joule (J)",
+      "Watt (W)",
+      "Newton (N)",
+      "Volt (V)"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The Joule (J), named after James Prescott Joule, is the standard metric unit for all forms of energy, heat, and mechanical work.",
+    "steps": [
+      {
+        "step": "Step 1: Identify SI Unit",
+        "desc": "1 Joule is defined as 1 Newton of force acting across 1 meter.",
+        "math": "1 J = 1 N · m"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "The Joule (J), named after James Prescott Joule, is the standard metric unit for all forms of energy, heat, and mechanical work.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Energy and work are both measured in Joules (J).",
+        "math": "Correct Option: Joule (J)"
+      }
+    ],
+    "conceptSummary": "Energy and work are both measured in Joules (J).",
+    "misconception": "Confusing energy (Joules) with power (Watts = Joules per second) or force (Newtons).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "The energy possessed by an object due to its physical motion is called:",
+    "options": [
+      "Kinetic energy",
+      "Gravitational potential energy",
+      "Chemical potential energy",
+      "Nuclear energy"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Kinetic energy (KE = 1/2 mv²) is the energy of mass in active motion.",
+    "steps": [
+      {
+        "step": "Step 1: Define Motion Energy",
+        "desc": "Any moving object with mass possesses kinetic energy.",
+        "math": "KE = (1/2) · m · v²"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Kinetic energy (KE = 1/2 mv²) is the energy of mass in active motion.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Kinetic energy is energy in motion; potential energy is stored energy.",
+        "math": "Correct Option: Kinetic energy"
+      }
+    ],
+    "conceptSummary": "Kinetic energy is energy in motion; potential energy is stored energy.",
+    "misconception": "Confusing kinetic energy with stored potential energy.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What type of stored potential energy increases when an archer draws back a bowstring or a student stretches a rubber band?",
+    "options": [
+      "Elastic potential energy",
+      "Gravitational potential energy",
+      "Thermal energy",
+      "Electric current"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Deforming or stretching an elastic material stores mechanical energy as elastic potential energy, which converts to kinetic energy upon release.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Deformative Energy",
+        "desc": "Stretching an elastic material stores energy: E_p = 1/2 k x².",
+        "math": "Elastic Potential Energy"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Deforming or stretching an elastic material stores mechanical energy as elastic potential energy, which converts to kinetic energy upon release.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Elastic potential energy is stored when an object is temporarily stretched, compressed, or distorted.",
+        "math": "Correct Option: Elastic potential energy"
+      }
+    ],
+    "conceptSummary": "Elastic potential energy is stored when an object is temporarily stretched, compressed, or distorted.",
+    "misconception": "Assuming the stretched bowstring is already possessing kinetic motion.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which of the following is an inexhaustible, renewable energy resource?",
+    "options": [
+      "Solar photovoltaic power",
+      "Coal combustion",
+      "Petroleum diesel",
+      "Natural gas"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Solar energy is replenished naturally and continuously by the Sun without finite depletion, making it a clean renewable resource.",
+    "steps": [
+      {
+        "step": "Step 1: Differentiate Energy Sources",
+        "desc": "Fossil fuels (coal, oil, gas) are finite and non-renewable; solar is renewable.",
+        "math": "Solar = Renewable"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Solar energy is replenished naturally and continuously by the Sun without finite depletion, making it a clean renewable resource.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Renewable energy resources replenish naturally on human timescales (solar, wind, hydro).",
+        "math": "Correct Option: Solar photovoltaic power"
+      }
+    ],
+    "conceptSummary": "Renewable energy resources replenish naturally on human timescales (solar, wind, hydro).",
+    "misconception": "Thinking fossil fuels are renewable because natural geological processes formed them millions of years ago.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "The fundamental Law of Conservation of Energy dictates that energy can:",
+    "options": [
+      "Neither be created nor destroyed, only transformed from one form into another",
+      "Be created out of nothing by strong electric engines",
+      "Be completely destroyed when friction causes an object to stop",
+      "Multiply exponentially during everyday chemical reactions"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "The First Law of Thermodynamics states that the total energy of an isolated system remains constant over time; it merely transforms among potential, kinetic, thermal, and radiative states.",
+    "steps": [
+      {
+        "step": "Step 1: State Conservation Principle",
+        "desc": "Total energy before = Total energy after.",
+        "math": "E_total = Constant"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "The First Law of Thermodynamics states that the total energy of an isolated system remains constant over time; it merely transforms among potential, kinetic, thermal, and radiative states.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Energy cannot be created or destroyed; it only changes forms.",
+        "math": "Correct Option: Neither be created nor destroyed, only transformed from one form into another"
+      }
+    ],
+    "conceptSummary": "Energy cannot be created or destroyed; it only changes forms.",
+    "misconception": "Thinking energy disappears or is destroyed when friction slows down a moving car (it converts to heat).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Trace the primary energy transformation chain when an electric battery-powered flashlight is switched on:",
+    "options": [
+      "Chemical potential energy → Electrical energy → Light (radiant) and thermal (heat) energy",
+      "Nuclear energy → Mechanical kinetic energy → Chemical energy",
+      "Sound energy → Electrical energy → Magnetic energy",
+      "Gravitational energy → Light energy → Nuclear fusion"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Chemical reactions in the battery drive electric current through the circuit, which heats the filament or powers the LED to emit photons of light and waste heat.",
+    "steps": [
+      {
+        "step": "Step 1: Battery Source",
+        "desc": "Batteries store chemical potential energy.",
+        "math": "Chemical"
+      },
+      {
+        "step": "Step 2: Circuit Transmission",
+        "desc": "Electron flow produces electrical energy.",
+        "math": "Electrical"
+      },
+      {
+        "step": "Step 3: Light Output",
+        "desc": "Bulb converts electricity into photons and thermal energy.",
+        "math": "Radiant + Thermal"
+      }
+    ],
+    "conceptSummary": "Energy pathways map sequential transformations through intermediate forms to final work and heat outputs.",
+    "misconception": "Believing flashlight batteries produce light directly without electrical intermediate transfer.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "A 2.0 kg physics textbook is lifted onto a bookshelf 2.0 meters above the floor. Taking the acceleration due to gravity as g = 9.8 m/s², what is the book's gravitational potential energy relative to the floor?",
+    "options": [
+      "39.2 Joules",
+      "19.6 Joules",
+      "4.0 Joules",
+      "78.4 Joules"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Gravitational potential energy GPE = m × g × h = 2.0 kg × 9.8 m/s² × 2.0 m = 39.2 J.",
+    "steps": [
+      {
+        "step": "Step 1: State GPE Formula",
+        "desc": "GPE = m · g · h.",
+        "math": "GPE = mgh"
+      },
+      {
+        "step": "Step 2: Substitute Knowns",
+        "desc": "m = 2.0 kg, g = 9.8 m/s², h = 2.0 m.",
+        "math": "GPE = 2.0 × 9.8 × 2.0"
+      },
+      {
+        "step": "Step 3: Compute Product",
+        "desc": "4.0 × 9.8 = 39.2 Joules.",
+        "math": "GPE = 39.2 J"
+      }
+    ],
+    "conceptSummary": "Gravitational potential energy is directly proportional to mass, height, and local gravity.",
+    "misconception": "Multiplying only mass and height: 2 × 2 = 4 J without factoring in gravity g.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Calculate the kinetic energy of a 1,000 kg electric vehicle cruising at a velocity of 10 m/s.",
+    "options": [
+      "50,000 Joules",
+      "10,000 Joules",
+      "100,000 Joules",
+      "5,000 Joules"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Kinetic energy KE = (1/2) × m × v² = 0.5 × 1,000 kg × (10 m/s)² = 500 × 100 = 50,000 J (or 50 kJ).",
+    "steps": [
+      {
+        "step": "Step 1: State Formula",
+        "desc": "KE = 0.5 · m · v².",
+        "math": "KE = 0.5 × 1000 × 10²"
+      },
+      {
+        "step": "Step 2: Square Velocity",
+        "desc": "10² = 100.",
+        "math": "10² = 100"
+      },
+      {
+        "step": "Step 3: Multiply Across",
+        "desc": "0.5 × 1000 × 100 = 50,000 Joules.",
+        "math": "KE = 50,000 J"
+      }
+    ],
+    "conceptSummary": "Kinetic energy scales quadratically with velocity: doubling speed quadruples kinetic energy.",
+    "misconception": "Forgetting to square the velocity: 0.5 × 1,000 × 10 = 5,000 J.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "An incandescent lightbulb draws 100 Joules of electrical energy and converts 20 Joules into useful visible light, with the remaining energy dissipated as heat. What is the lightbulb's energy efficiency?",
+    "options": [
+      "20%",
+      "80%",
+      "50%",
+      "25%"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Efficiency = (Useful Energy Output / Total Energy Input) × 100% = (20 J / 100 J) × 100% = 20%.",
+    "steps": [
+      {
+        "step": "Step 1: State Efficiency Formula",
+        "desc": "Efficiency = (Useful Output / Total Input) × 100%.",
+        "math": "Eff = (E_out / E_in) × 100%"
+      },
+      {
+        "step": "Step 2: Substitute Values",
+        "desc": "(20 / 100) × 100% = 20%.",
+        "math": "20%"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Energy efficiency expresses the percentage of input energy that performs intended useful work.",
+        "math": "Result = 20%"
+      }
+    ],
+    "conceptSummary": "Energy efficiency expresses the percentage of input energy that performs intended useful work.",
+    "misconception": "Reporting the 80% wasted heat as the efficiency.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "How does thermal energy from the Sun travel across 150 million kilometers of empty vacuum space to warm planet Earth?",
+    "options": [
+      "Radiation via electromagnetic infrared and visible light waves",
+      "Conduction through atmospheric air molecules",
+      "Convection currents through cosmic fluid",
+      "Sound waves oscillating interplanetary dust"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Thermal radiation travels via electromagnetic waves (light and infrared), which require no physical medium and can propagate through the vacuum of space.",
+    "steps": [
+      {
+        "step": "Step 1: Analyze Heat Transfer Mechanisms",
+        "desc": "Conduction and convection require particle mediums. Radiation requires no matter.",
+        "math": "Radiation propagates in vacuum"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Thermal radiation travels via electromagnetic waves (light and infrared), which require no physical medium and can propagate through the vacuum of space.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Thermal radiation transfers energy across space via electromagnetic waves without requiring matter.",
+        "math": "Correct Option: Radiation via electromagnetic infrared and visible light waves"
+      }
+    ],
+    "conceptSummary": "Thermal radiation transfers energy across space via electromagnetic waves without requiring matter.",
+    "misconception": "Believing heat always requires physical matter (conduction or convection) to transfer.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Which sequential energy transformations occur in a hydroelectric power plant as reservoir water flows down the penstock pipes to generate grid electricity?",
+    "options": [
+      "Gravitational potential energy → Kinetic energy of water → Mechanical kinetic energy of turbine → Electrical energy",
+      "Chemical energy → Thermal energy → Sound energy → Electrical energy",
+      "Nuclear energy → Gravitational energy → Electrical energy",
+      "Electrical energy → Gravitational energy → Kinetic energy"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "High-elevation reservoir water possesses gravitational potential energy; flowing downward converts it to kinetic motion, which spins turbine blades (mechanical work) coupled to an electromagnetic generator (electrical energy).",
+    "steps": [
+      {
+        "step": "Step 1: Elevated Water Storage",
+        "desc": "Height provides gravitational potential energy.",
+        "math": "Gravitational PE"
+      },
+      {
+        "step": "Step 2: Flowing Water Motion",
+        "desc": "Water accelerates down penstock into kinetic energy.",
+        "math": "Kinetic Energy"
+      },
+      {
+        "step": "Step 3: Turbine and Generator",
+        "desc": "Mechanical rotation drives electromagnetic generator.",
+        "math": "Mechanical → Electrical"
+      }
+    ],
+    "conceptSummary": "Hydroelectric generation converts elevated water's potential energy into grid electricity.",
+    "misconception": "Assuming hydroelectric power involves thermal heat cycles.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "A 500 kg roller coaster cart starts from rest at the top of a 20-meter high frictionless track. Assuming no energy is lost to air resistance or friction (g = 9.8 m/s²), what is the cart's speed at the bottom of the hill?",
+    "options": [
+      "19.8 m/s",
+      "14.0 m/s",
+      "392.0 m/s",
+      "9.9 m/s"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "By conservation of mechanical energy: Initial GPE = Final KE → mgh = (1/2)mv² → gh = (1/2)v² → v = √(2gh) = √(2 × 9.8 × 20) = √392 ≈ 19.8 m/s.",
+    "steps": [
+      {
+        "step": "Step 1: Equate Initial and Final Energies",
+        "desc": "mgh = (1/2)mv².",
+        "math": "m cancels out: gh = 0.5v²"
+      },
+      {
+        "step": "Step 2: Solve for Velocity",
+        "desc": "v² = 2gh = 2 × 9.8 × 20 = 392.",
+        "math": "v² = 392"
+      },
+      {
+        "step": "Step 3: Take Square Root",
+        "desc": "v = √392 ≈ 19.8 m/s.",
+        "math": "v = 19.8 m/s"
+      }
+    ],
+    "conceptSummary": "In frictionless gravity systems, speed at the bottom depends only on drop height: v = √(2gh).",
+    "misconception": "Forgetting to take the square root of 392.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "Why are cooking frying pans constructed with metal bodies (such as copper or aluminum) but equipped with wooden, silicone, or Bakelite handles?",
+    "options": [
+      "Metals are excellent thermal conductors due to delocalized electrons, rapidly transferring heat to food, while wood/plastic are thermal insulators that protect hands.",
+      "Metals absorb all heat without letting any through to the handle.",
+      "Wood is denser than metal, preventing heat absorption.",
+      "Plastic handles generate active cool air when heated."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Metals have metallic bonding with free electrons that rapidly transfer kinetic heat by conduction. Non-metals like wood and plastic have tightly bound valence electrons and act as thermal insulators with low thermal conductivity.",
+    "steps": [
+      {
+        "step": "Step 1: Metal Conduction Mechanism",
+        "desc": "Free delocalized electrons rapidly transfer vibrational energy across the lattice.",
+        "math": "High thermal conductivity k"
+      },
+      {
+        "step": "Step 2: Insulator Handle",
+        "desc": "Wood/polymer covalent bonds lack free electrons, slowing heat transfer.",
+        "math": "Low thermal conductivity (Insulator)"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Thermal conductors facilitate rapid heat flow, whereas insulators impede thermal transfer.",
+        "math": "Result = Metals are excellent thermal conductors due to delocalized electrons, rapidly transferring heat to food, while wood/plastic are thermal insulators that protect hands."
+      }
+    ],
+    "conceptSummary": "Thermal conductors facilitate rapid heat flow, whereas insulators impede thermal transfer.",
+    "misconception": "Believing wood cannot burn or that metals heat up because they 'attract' heat magnetically.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "An electric space heater rated at 2,000 Watts (2.0 kW) operates continuously for 3.5 hours. How much electrical energy does it consume in kilowatt-hours (kWh)?",
+    "options": [
+      "7.0 kWh",
+      "5.5 kWh",
+      "571.4 kWh",
+      "14.0 kWh"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Electrical Energy (kWh) = Power (kW) × Time (hours) = 2.0 kW × 3.5 h = 7.0 kWh.",
+    "steps": [
+      {
+        "step": "Step 1: State Formula",
+        "desc": "Energy (kWh) = Power (kW) × Time (hours).",
+        "math": "E = P × t"
+      },
+      {
+        "step": "Step 2: Substitute Values",
+        "desc": "P = 2.0 kW, t = 3.5 hours.",
+        "math": "2.0 × 3.5 = 7.0"
+      },
+      {
+        "step": "Step 3: State Result",
+        "desc": "7.0 kilowatt-hours.",
+        "math": "7.0 kWh"
+      }
+    ],
+    "conceptSummary": "One kilowatt-hour (kWh) equals 3.6 million Joules and measures commercial electrical energy consumption.",
+    "misconception": "Dividing power by time: 2.0 / 3.5 = 0.57 kWh.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Energy",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "An industrial electric motor consumes 500 Joules of electrical energy to lift a weight. It delivers 350 Joules of useful mechanical work, while dissipating 100 Joules as thermal heat and 50 Joules as sound vibrations. What percentage of the total energy was wasted?",
+    "options": [
+      "30%",
+      "70%",
+      "10%",
+      "20%"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Total wasted energy = Heat + Sound = 100 J + 50 J = 150 J. Wasted percentage = (150 J / 500 J) × 100% = 3/10 × 100% = 30%. (Useful work was 350/500 = 70%).",
+    "steps": [
+      {
+        "step": "Step 1: Sum Wasted Energies",
+        "desc": "Wasted = Thermal (100 J) + Sound (50 J) = 150 J.",
+        "math": "E_wasted = 150 J"
+      },
+      {
+        "step": "Step 2: Verify Conservation",
+        "desc": "350 J (useful) + 150 J (wasted) = 500 J (input).",
+        "math": "Energy conserved"
+      },
+      {
+        "step": "Step 3: Compute Wasted Percentage",
+        "desc": "(150 / 500) × 100% = 30%.",
+        "math": "Percentage wasted = 30%"
+      }
+    ],
+    "conceptSummary": "Energy efficiency and wasted energy sum to 100% of the total energy input in compliance with conservation laws.",
+    "misconception": "Selecting 70% (the useful efficiency) instead of the wasted percentage.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  }
+]

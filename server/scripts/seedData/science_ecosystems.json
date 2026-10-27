@@ -1,0 +1,557 @@
+[
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "Which group of organisms forms the foundational first trophic level of almost all terrestrial and aquatic food chains?",
+    "options": [
+      "Producers (Autotrophs)",
+      "Primary Consumers (Herbivores)",
+      "Secondary Consumers (Carnivores)",
+      "Decomposers"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Producers (such as green plants and phytoplankton) convert solar energy into chemical energy via photosynthesis, forming the base of ecological food chains.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Energy Entrants",
+        "desc": "Autotrophs convert radiant sunlight into organic biomass.",
+        "math": "Trophic Level 1 = Producers"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Producers (such as green plants and phytoplankton) convert solar energy into chemical energy via photosynthesis, forming the base of ecological food chains.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Producers synthesize organic glucose from inorganic raw materials, supporting all consumer levels.",
+        "math": "Correct Option: Producers (Autotrophs)"
+      }
+    ],
+    "conceptSummary": "Producers synthesize organic glucose from inorganic raw materials, supporting all consumer levels.",
+    "misconception": "Believing herbivores are the base of the food chain.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "An organism whose diet consists exclusively of photosynthetic plant matter is classified as a:",
+    "options": [
+      "Herbivore",
+      "Carnivore",
+      "Omnivore",
+      "Detritivore"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Herbivores (primary consumers) feed exclusively on autotrophic plants, fruits, and foliage.",
+    "steps": [
+      {
+        "step": "Step 1: Classify Diet",
+        "desc": "Herb (plant) + vore (eater) = Herbivore.",
+        "math": "Primary consumer = Herbivore"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Herbivores (primary consumers) feed exclusively on autotrophic plants, fruits, and foliage.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Herbivores consume plant biomass directly; carnivores consume animal tissue.",
+        "math": "Correct Option: Herbivore"
+      }
+    ],
+    "conceptSummary": "Herbivores consume plant biomass directly; carnivores consume animal tissue.",
+    "misconception": "Confusing herbivores with omnivores (which eat both plants and meat).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What crucial ecological role do decomposers like fungi and soil bacteria fulfill within an ecosystem?",
+    "options": [
+      "They break down dead organic matter and recycle essential mineral nutrients back into the soil and atmosphere.",
+      "They hunt live prey to prevent overpopulation.",
+      "They generate solar energy at night.",
+      "They consume atmospheric oxygen to prevent fires."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Decomposers secrete extracellular digestive enzymes to break down carcasses, fallen leaves, and feces, releasing nitrates and phosphates back into nutrient cycles.",
+    "steps": [
+      {
+        "step": "Step 1: Nutrient Cycling Role",
+        "desc": "Dead biomass is decomposed into inorganic nutrients for plant uptake.",
+        "math": "Organic waste → Inorganic nutrients"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Decomposers secrete extracellular digestive enzymes to break down carcasses, fallen leaves, and feces, releasing nitrates and phosphates back into nutrient cycles.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Decomposers close the ecological loop by recycling nutrients back to primary producers.",
+        "math": "Correct Option: They break down dead organic matter and recycle essential mineral nutrients back into the soil and atmosphere."
+      }
+    ],
+    "conceptSummary": "Decomposers close the ecological loop by recycling nutrients back to primary producers.",
+    "misconception": "Viewing decomposers as useless or harmful parasites.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "What is the ultimate primary source of energy powering virtually all biological food webs on Earth?",
+    "options": [
+      "The Sun",
+      "Deep ocean hydrothermal vents",
+      "Soil fertilizer",
+      "Atmospheric wind"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Sunlight provides radiant solar energy captured by photosynthetic autotrophs, which is then passed up food webs.",
+    "steps": [
+      {
+        "step": "Step 1: Trace Energy Origin",
+        "desc": "Photons from nuclear fusion in the Sun drive photosynthesis.",
+        "math": "Solar radiant energy"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Sunlight provides radiant solar energy captured by photosynthetic autotrophs, which is then passed up food webs.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Solar radiation powers Earth's biosphere through photosynthetic carbon fixation.",
+        "math": "Correct Option: The Sun"
+      }
+    ],
+    "conceptSummary": "Solar radiation powers Earth's biosphere through photosynthetic carbon fixation.",
+    "misconception": "Assuming plants absorb energy from soil minerals rather than sunlight.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "easy",
+    "levelName": "Level 1: Foundational",
+    "questionText": "In ecology, the specific natural environment where a particular biological species lives, shelters, and finds sustenance is termed its:",
+    "options": [
+      "Habitat",
+      "Biome",
+      "Niche",
+      "Biosphere"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "A habitat is the physical geographical location and environmental conditions in which a specific species resides.",
+    "steps": [
+      {
+        "step": "Step 1: Define Ecological Terms",
+        "desc": "Habitat = physical address; Niche = functional ecological role.",
+        "math": "Habitat = Living environment"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "A habitat is the physical geographical location and environmental conditions in which a specific species resides.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "A habitat provides organisms with food, water, shelter, and space necessary for survival.",
+        "math": "Correct Option: Habitat"
+      }
+    ],
+    "conceptSummary": "A habitat provides organisms with food, water, shelter, and space necessary for survival.",
+    "misconception": "Confusing habitat (physical place) with ecological niche (role/job of the organism).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "According to the 10% ecological energy transfer rule, if producers capture 10,000 Joules of energy, how much energy is transferred to primary consumers?",
+    "options": [
+      "1,000 Joules",
+      "10,000 Joules",
+      "5,000 Joules",
+      "100 Joules"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Roughly 10% of energy is incorporated into biomass between adjacent trophic levels (the remaining 90% is lost as heat, respiration, and waste): 10% of 10,000 J = 1,000 J.",
+    "steps": [
+      {
+        "step": "Step 1: State 10% Rule",
+        "desc": "Trophic efficiency ≈ 10%.",
+        "math": "E_next = 0.10 × E_previous"
+      },
+      {
+        "step": "Step 2: Calculate Energy Transferred",
+        "desc": "0.10 × 10,000 J = 1,000 J.",
+        "math": "1,000 Joules"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Only approximately 10% of energy at any trophic level is converted into new biomass at the next level.",
+        "math": "Result = 1,000 Joules"
+      }
+    ],
+    "conceptSummary": "Only approximately 10% of energy at any trophic level is converted into new biomass at the next level.",
+    "misconception": "Assuming energy is 100% conserved and transferred without metabolic heat losses.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Why is an ecological food web considered a significantly more accurate biological model than a linear food chain?",
+    "options": [
+      "Most organisms consume diverse food sources and occupy multiple interconnected trophic levels.",
+      "Food webs exclude decomposers to make diagrams simpler.",
+      "Linear food chains only exist during winter seasons.",
+      "Food webs prove that energy increases at higher trophic levels."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "In real ecosystems, predators consume multiple prey species, prey are eaten by multiple predators, and omnivores span trophic levels, forming complex networks rather than isolated single lines.",
+    "steps": [
+      {
+        "step": "Step 1: Compare Chain vs Web",
+        "desc": "Food chain = single linear line; Food web = branched feeding network.",
+        "math": "Network interconnectivity"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "In real ecosystems, predators consume multiple prey species, prey are eaten by multiple predators, and omnivores span trophic levels, forming complex networks rather than isolated single lines.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Food webs model the complex, branched feeding relationships in natural biological communities.",
+        "math": "Correct Option: Most organisms consume diverse food sources and occupy multiple interconnected trophic levels."
+      }
+    ],
+    "conceptSummary": "Food webs model the complex, branched feeding relationships in natural biological communities.",
+    "misconception": "Assuming real animals only eat a single food item their entire lives.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Which of the following is an abiotic (non-living) factor that influences aquatic biodiversity in a freshwater lake?",
+    "options": [
+      "Concentration of dissolved oxygen",
+      "Aquatic water lilies",
+      "Phytoplankton blooms",
+      "Largemouth bass"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Abiotic factors are chemical and physical non-living components of an ecosystem, such as dissolved oxygen, water temperature, pH, and sunlight penetration.",
+    "steps": [
+      {
+        "step": "Step 1: Differentiate Biotic vs Abiotic",
+        "desc": "Bio = living organisms; A-biotic = non-living physical/chemical parameters.",
+        "math": "Abiotic = Non-living factor"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Abiotic factors are chemical and physical non-living components of an ecosystem, such as dissolved oxygen, water temperature, pH, and sunlight penetration.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Abiotic factors (light, temperature, water, nutrients) define habitat tolerance zones for living biotic organisms.",
+        "math": "Correct Option: Concentration of dissolved oxygen"
+      }
+    ],
+    "conceptSummary": "Abiotic factors (light, temperature, water, nutrients) define habitat tolerance zones for living biotic organisms.",
+    "misconception": "Categorizing microorganisms or plankton as abiotic because they are microscopic.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "If a viral epidemic suddenly decimates the rabbit population in a grassland ecosystem, what is the immediate expected ecological consequence for the local coyote population?",
+    "options": [
+      "The coyote population will decline due to diminished prey availability and increased intraspecific foraging competition.",
+      "The coyote population will instantly triple.",
+      "Coyotes will immediately start synthesizing glucose through photosynthesis.",
+      "The coyote population will experience zero ecological impact."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "In predator-prey dynamics, a sudden collapse of a primary food source leads to starvation, reduced reproduction, and migration, causing predator numbers to drop.",
+    "steps": [
+      {
+        "step": "Step 1: Trace Predator-Prey Dependence",
+        "desc": "Prey abundance directly impacts predator carrying capacity.",
+        "math": "Prey drops → Predator drops"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "In predator-prey dynamics, a sudden collapse of a primary food source leads to starvation, reduced reproduction, and migration, causing predator numbers to drop.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Predator population sizes oscillate in lagged response to prey population densities.",
+        "math": "Correct Option: The coyote population will decline due to diminished prey availability and increased intraspecific foraging competition."
+      }
+    ],
+    "conceptSummary": "Predator population sizes oscillate in lagged response to prey population densities.",
+    "misconception": "Believing predators are unaffected by the depletion of their primary food supply.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "The symbiotic interaction between honeybees gathering flower nectar and angiosperm flowers being cross-pollinated is classified as:",
+    "options": [
+      "Mutualism",
+      "Commensalism",
+      "Parasitism",
+      "Competition"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Mutualism is an interspecies interaction where both species derive fitness benefits: bees receive nutritional nectar and pollen, while flowers achieve cross-fertilization.",
+    "steps": [
+      {
+        "step": "Step 1: Evaluate Outcomes for Both Species",
+        "desc": "Bee gains food (+); Flower gains pollination (+).",
+        "math": "(+, +) interaction = Mutualism"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Mutualism is an interspecies interaction where both species derive fitness benefits: bees receive nutritional nectar and pollen, while flowers achieve cross-fertilization.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Mutualism is a (+, +) ecological symbiosis benefiting both participating species.",
+        "math": "Correct Option: Mutualism"
+      }
+    ],
+    "conceptSummary": "Mutualism is a (+, +) ecological symbiosis benefiting both participating species.",
+    "misconception": "Confusing mutualism with commensalism ((+, 0) where one benefits and the other is unharmed).",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "medium",
+    "levelName": "Level 2: Procedural",
+    "questionText": "Why do apex predators (such as bald eagles or killer whales) frequently exhibit dangerous concentrations of fat-soluble industrial pollutants (like DDT or PCBs)?",
+    "options": [
+      "Biological biomagnification causes persistent non-biodegradable toxins to accumulate in fatty tissues and concentrate progressively up trophic levels.",
+      "Apex predators absorb toxic pollutants directly through respiration from clouds.",
+      "Producers destroy all toxins, so predators must synthesize them internally.",
+      "Apex predators produce toxins naturally to defend against parasites."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Persistent pollutants are not easily metabolized or excreted. As primary consumers eat large quantities of contaminated plants, and secondary predators eat many consumers, toxin concentration multiplies exponentially at top trophic tiers.",
+    "steps": [
+      {
+        "step": "Step 1: Mechanism of Biomagnification",
+        "desc": "Lipophilic toxins resist excretion and concentrate in adipose tissue across trophic steps.",
+        "math": "[Toxin] increases up food chain"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "Persistent pollutants are not easily metabolized or excreted.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Biomagnification leads to highest pollutant concentrations in apex predators.",
+        "math": "Correct Option: Biological biomagnification causes persistent non-biodegradable toxins to accumulate in fatty tissues and concentrate progressively up trophic levels."
+      }
+    ],
+    "conceptSummary": "Biomagnification leads to highest pollutant concentrations in apex predators.",
+    "misconception": "Thinking toxin concentration is highest at the bottom of the food chain.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "During primary ecological succession on freshly cooled volcanic basalt rock with zero initial organic soil, which pioneer species is best equipped to colonize first?",
+    "options": [
+      "Lichens and mosses that secrete organic acids to chemically weather bare rock into mineral dust",
+      "Fast-growing oak and maple trees with deep root systems",
+      "Tall agricultural grasses requiring rich humus",
+      "Carnivorous burrowing desert rodents"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Lichens (mutualistic fungus-alga associations) can survive on barren substrate with only rainwater and sunlight. They secrete acids that weather minerals, combining with their dead biomass to initiate the very first thin soil layer.",
+    "steps": [
+      {
+        "step": "Step 1: Analyze Initial Substrate",
+        "desc": "Bare rock lacks soil, nitrogen, and organic matter (Primary Succession).",
+        "math": "Zero organic soil"
+      },
+      {
+        "step": "Step 2: Pioneer Adaptation",
+        "desc": "Lichens survive desiccation and break down rock minerals into early soil.",
+        "math": "Pioneer species = Lichens"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Pioneer species in primary succession initiate pedogenesis (soil formation) on barren substrate.",
+        "math": "Result = Lichens and mosses that secrete organic acids to chemically weather bare rock into mineral dust"
+      }
+    ],
+    "conceptSummary": "Pioneer species in primary succession initiate pedogenesis (soil formation) on barren substrate.",
+    "misconception": "Assuming succession begins immediately with vascular grass seeds.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "When apex grey wolves were reintroduced to Yellowstone National Park, their predation altered deer/elk grazing behavior, enabling riparian willow groves to regenerate and stabilizing riverbanks. What ecological phenomenon does this exemplify?",
+    "options": [
+      "A top-down trophic cascade",
+      "Biochemical biomagnification",
+      "Primary ecological succession",
+      "Competitive exclusion principle"
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "A trophic cascade occurs when changes at the top carnivore level trigger cascading indirect effects across multiple lower trophic levels, profoundly altering abiotic landscape features like river morphology.",
+    "steps": [
+      {
+        "step": "Step 1: Trace Causality Across Trophic Levels",
+        "desc": "Wolves (Apex) → Elk behaviour/density ↓ → Willows/Aspens ↑ → Beaver/Riparian riverbanks stabilized.",
+        "math": "Apex predator → Producer recovery → Landscape stability"
+      },
+      {
+        "step": "Step 2: Apply the Principle",
+        "desc": "A trophic cascade occurs when changes at the top carnivore level trigger cascading indirect effects across multiple lower trophic levels, profoundly altering abiotic landscape features like river morphology.",
+        "math": "Application of principle"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Trophic cascades demonstrate the disproportionate community-wide impact of apex keystone predators.",
+        "math": "Correct Option: A top-down trophic cascade"
+      }
+    ],
+    "conceptSummary": "Trophic cascades demonstrate the disproportionate community-wide impact of apex keystone predators.",
+    "misconception": "Believing predators only negatively impact ecosystems by killing organisms.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "What occurs when a wild deer population temporarily overshoots the biological carrying capacity (K) of its forest habitat?",
+    "options": [
+      "Resource depletion (overgrazing) triggers increased mortality and reduced birth rates, causing population size to crash back down below or toward K.",
+      "The habitat carrying capacity automatically doubles to accommodate the extra deer.",
+      "The deer evolve into carnivores to expand their food supply.",
+      "The population continues growing exponentially forever without constraint."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Carrying capacity (K) represents the maximum sustainable population given available food, water, and space. Overshooting K degrades resources, causing famine and death until density drops back into equilibrium.",
+    "steps": [
+      {
+        "step": "Step 1: Analyze Logistic Growth Boundary",
+        "desc": "N > K results in negative population growth rate: dN/dt < 0.",
+        "math": "dN/dt = rN(1 - N/K)"
+      },
+      {
+        "step": "Step 2: Consequence of Overshoot",
+        "desc": "Overgrazing leads to starvation, increased disease, and population contraction.",
+        "math": "Population crash toward K"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Populations exceeding carrying capacity experience increased mortality until equilibrium is restored.",
+        "math": "Result = Resource depletion (overgrazing) triggers increased mortality and reduced birth rates, causing population size to crash back down below or toward K."
+      }
+    ],
+    "conceptSummary": "Populations exceeding carrying capacity experience increased mortality until equilibrium is restored.",
+    "misconception": "Believing natural habitats can expand carrying capacity arbitrarily to support unbounded growth.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  },
+  {
+    "subject": "Science",
+    "topic": "Ecosystems",
+    "difficulty": "hard",
+    "levelName": "Level 3: Multi-Step",
+    "questionText": "Although atmospheric air is 78% nitrogen gas (N₂), terrestrial plants cannot absorb atmospheric N₂ directly to synthesize proteins. How is nitrogen converted into a biologically usable form?",
+    "options": [
+      "Nitrogen-fixing bacteria (e.g., Rhizobium in legume root nodules) convert N₂ into ammonium (NH₄⁺) and nitrates (NO₃⁻) that plants can absorb through roots.",
+      "Plant chloroplasts break the strong triple bond of N2 during daylight photosynthesis.",
+      "Earthworms convert atmospheric nitrogen into solid carbon crystals in the soil.",
+      "Animals breathe in nitrogen gas and exhale ready-to-use plant proteins."
+    ],
+    "correctAnswerIndex": 0,
+    "explanation": "Atmospheric N2 has an extremely strong triple covalent bond (N≡N). Diazotrophic nitrogen-fixing bacteria possess the nitrogenase enzyme to convert N2 into bioavailable ammonium and nitrates for plant assimilation.",
+    "steps": [
+      {
+        "step": "Step 1: Identify Chemical Challenge",
+        "desc": "Atmospheric N2 has a high bond dissociation energy triple bond.",
+        "math": "N≡N bond"
+      },
+      {
+        "step": "Step 2: Biological Fixation Mechanism",
+        "desc": "Nitrogen-fixing bacteria reduce N2 into absorbable NH4+ and NO3-.",
+        "math": "N2 → NH4+ / NO3- (Biological Fixation)"
+      },
+      {
+        "step": "Step 3: Conclude and Verify",
+        "desc": "Biological nitrogen fixation by specialized bacteria is essential for introducing nitrogen into organic food chains.",
+        "math": "Result = Nitrogen-fixing bacteria (e.g., Rhizobium in legume root nodules) convert N₂ into ammonium (NH₄⁺) and nitrates (NO₃⁻) that plants can absorb through roots."
+      }
+    ],
+    "conceptSummary": "Biological nitrogen fixation by specialized bacteria is essential for introducing nitrogen into organic food chains.",
+    "misconception": "Believing plants absorb nitrogen gas directly through leaf stomata like carbon dioxide.",
+    "source": "seed",
+    "status": "approved",
+    "isActive": true
+  }
+]
