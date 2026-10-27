@@ -55,10 +55,13 @@ const ensureDbConnected = async (req, res, next) => {
 // Health Check & Gateway Discovery
 app.get('/api/health', async (req, res) => {
   const mongoose = require('mongoose');
+  let mongoErr = null;
   if (mongoose.connection.readyState < 1) {
     try {
       await connectDB();
-    } catch (_) {}
+    } catch (err) {
+      mongoErr = err.message;
+    }
   }
   const pgStatus = await verifyDatabaseConnection();
   const isMongoConnected = mongoose.connection.readyState === 1;
@@ -71,7 +74,8 @@ app.get('/api/health', async (req, res) => {
     message: 'AdaptIQ Adaptive Quiz & Assessment Engine API is running.',
     databases: {
       postgresql: pgStatus.status,
-      mongodb: isMongoConnected ? 'connected' : 'disconnected'
+      mongodb: isMongoConnected ? 'connected' : 'disconnected',
+      mongoError: mongoErr
     },
     database: pgStatus.ok ? 'connected' : (isMongoConnected ? 'connected_mongo_fallback' : 'disconnected'),
     contentBundleVersion: process.env.CONTENT_BUNDLE_VERSION || '2.0.0-stem-offline',
