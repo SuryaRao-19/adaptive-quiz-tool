@@ -6,7 +6,7 @@ dotenv.config();
 module.exports = {
   PORT: process.env.PORT || 5000,
   CLIENT_URL: process.env.CLIENT_URL || 'http://localhost:5173',
-  MONGODB_URI: process.env.MONGODB_URI || 'mongodb://localhost:27017/adaptive_quiz_db',
+  MONGODB_URI: process.env.MONGODB_URI || 'mongodb+srv://suryasampathrao_db_user:Adaptiq2026@cluster0.p7ntivh.mongodb.net/adaptiq_db?retryWrites=true&w=majority',
   JWT_SECRET: process.env.JWT_SECRET || 'super_secret_school_jwt_key_change_in_production_987654321',
   JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || '7d',
   

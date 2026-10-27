@@ -3,13 +3,14 @@ const mongoose = require('mongoose');
 const { MongoMemoryServer } = require('mongodb-memory-server');
 const keys = require('./keys');
 
-// Ensure reliable SRV resolution across all ISPs and OS environments
-try {
-  dns.setServers(['8.8.8.8', '1.1.1.1']);
-} catch (_) {}
+// Ensure reliable SRV resolution for local environments without interfering with cloud VPC DNS
+if (!process.env.VERCEL && !process.env.AWS_LAMBDA_FUNCTION_NAME) {
+  try {
+    dns.setServers(['8.8.8.8', '1.1.1.1']);
+  } catch (_) {}
+}
 
 let mongodInstance = null;
-
 let cachedConnection = null;
 
 const connectDB = async () => {
@@ -23,15 +24,19 @@ const connectDB = async () => {
 
   const connUri = keys.MONGODB_URI;
   try {
-    console.log(`[Database] Attempting connection to MongoDB at: ${connUri}...`);
-    cachedConnection = await mongoose.connect(connUri, { serverSelectionTimeoutMS: 5000 });
-    console.log(`[Database] MongoDB Connected: ${cachedConnection.connection.host}`);
+    const maskedUri = connUri.replace(/:[^:]*@/, ':****@');
+    console.log(`[Database] Attempting connection to MongoDB at: ${maskedUri}...`);
+    cachedConnection = await mongoose.connect(connUri, { 
+      serverSelectionTimeoutMS: 5000,
+      maxPoolSize: 10
+    });
+    console.log(`[Database] MongoDB Connected: ${mongoose.connection.host}`);
     return cachedConnection;
   } catch (error) {
     console.warn(`[Database Warning] Could not connect to external MongoDB (${error.message}).`);
 
-    // In production, prohibit silent fallback to ephemeral in-memory database to prevent catastrophic data loss (Phase 10.4)
-    if (process.env.NODE_ENV === 'production') {
+    // In production or cloud serverless, prohibit silent fallback to ephemeral in-memory database
+    if (process.env.NODE_ENV === 'production' || process.env.VERCEL) {
       console.error('[CRITICAL PRODUCTION DATABASE ERROR] Could not connect to external production MongoDB. Fallback to in-memory database is strictly disabled in production.');
       throw new Error(`Production database connection failed: ${error.message}. Please configure a valid MONGODB_URI.`);
     }

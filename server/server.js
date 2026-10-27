@@ -25,9 +25,41 @@ app.use(cors({
 }));
 app.use(express.json({ limit: '10mb' }));
 
+// Database auto-connection middleware for serverless (Vercel) & traditional hosting
+let mongoConnectionPromise = null;
+
+const ensureDbConnected = async (req, res, next) => {
+  if (req.method === 'OPTIONS') return next();
+  try {
+    const mongoose = require('mongoose');
+    if (mongoose.connection.readyState < 1) {
+      if (!mongoConnectionPromise) {
+        mongoConnectionPromise = connectDB().finally(() => {
+          mongoConnectionPromise = null;
+        });
+      }
+      await mongoConnectionPromise;
+    }
+    next();
+  } catch (err) {
+    console.error('[DB Middleware Error]', err.message);
+    if (req.path === '/api/health') return next();
+    return res.status(503).json({
+      success: false,
+      message: 'Database connection initializing. Please retry in a moment.',
+      error: err.message
+    });
+  }
+};
+
 // Health Check & Gateway Discovery
 app.get('/api/health', async (req, res) => {
   const mongoose = require('mongoose');
+  if (mongoose.connection.readyState < 1) {
+    try {
+      await connectDB();
+    } catch (_) {}
+  }
   const pgStatus = await verifyDatabaseConnection();
   const isMongoConnected = mongoose.connection.readyState === 1;
 
@@ -46,6 +78,9 @@ app.get('/api/health', async (req, res) => {
     timestamp: new Date().toISOString()
   });
 });
+
+// Ensure Database Connected before processing API routes
+app.use(ensureDbConnected);
 
 // Mount Routes
 app.use('/api/auth', require('./routes/authRoutes'));
