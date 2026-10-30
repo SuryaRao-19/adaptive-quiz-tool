@@ -71,6 +71,8 @@ You will see:
    | `MONGODB_URI` | `mongodb+srv://suryasampathrao_db_user:Adaptiq2026@cluster0.p7ntivh.mongodb.net/adaptiq_db?retryWrites=true&w=majority` | **Yes** |
    | `JWT_SECRET` | `super_secret_school_jwt_key_change_in_production_987654321` | **Yes** |
    | `NODE_ENV` | `production` | **Yes** |
+   | `VITE_WEB3FORMS_ACCESS_KEY` | `7f2f2260-0ea7-4671-9dd6-99793dfa416e` *(or your key)* | **Yes** (For Support/Feedback Forms) |
+   | `WEB3FORMS_ACCESS_KEY` | `7f2f2260-0ea7-4671-9dd6-99793dfa416e` *(or your key)* | Optional (Server proxy) |
    | `AI_PROVIDER` | `gemini` | Optional |
    | `AI_API_KEY` | *(Your Google Gemini API Key for AI Tutor)* | Optional |
    | `AI_MODEL` | `gemini-1.5-flash` | Optional |

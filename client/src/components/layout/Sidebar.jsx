@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useRef, useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AuthContext } from '../../context/AuthContext';
@@ -28,6 +28,28 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [supportModalOpen, setSupportModalOpen] = useState(false);
+  const [profilePopoverOpen, setProfilePopoverOpen] = useState(false);
+  const profilePopoverRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (profilePopoverRef.current && !profilePopoverRef.current.contains(e.target)) {
+        setProfilePopoverOpen(false);
+      }
+    };
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setProfilePopoverOpen(false);
+    };
+
+    if (profilePopoverOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleKeyDown);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [profilePopoverOpen]);
 
   const navItems = [
     { label: "Overview", to: "/dashboard", icon: Home },
@@ -157,7 +179,7 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
         </div>
 
         {/* Pinned User Profile Block at Bottom */}
-        <div className="p-3 border-t border-slate-200/90 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-900/60">
+        <div className="p-3 border-t border-slate-200/90 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-900/60 relative" ref={profilePopoverRef}>
           {/* Quick Demo Persona Switcher Pill */}
           <div className="mb-2 bg-white dark:bg-slate-800 p-1 rounded-xl border border-slate-200/80 dark:border-slate-700 flex items-center justify-between text-[11px] font-bold">
             <button
@@ -180,31 +202,140 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
             </button>
           </div>
 
-          <div className="flex items-center justify-between p-2 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-subtle">
-            <div className="flex items-center gap-2.5 overflow-hidden">
-              <div className="w-8 h-8 rounded-full bg-[var(--theme-primary,#4F46E5)] text-white flex items-center justify-center font-bold text-xs flex-shrink-0 shadow-sm">
-                {user?.fullName ? user.fullName[0] : 'U'}
+          {/* Interactive Profile Popup Box (Appears when clicking profile picture/user block) */}
+          <AnimatePresence>
+            {profilePopoverOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                transition={{ duration: 0.16, ease: 'easeOut' }}
+                className="absolute bottom-full left-3 right-3 mb-2 bg-white dark:bg-slate-900 rounded-3xl shadow-elevated border border-slate-200 dark:border-slate-800 p-4 z-50 text-slate-800 dark:text-slate-100 space-y-3.5"
+              >
+                {/* Popover Header Banner */}
+                <div className="flex items-center gap-3 pb-3 border-b border-slate-100 dark:border-slate-800">
+                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-700 to-cyan-500 text-white flex items-center justify-center font-extrabold text-base flex-shrink-0 shadow-glow-primary">
+                    {user?.avatar || (user?.fullName ? user.fullName[0].toUpperCase() : 'U')}
+                  </div>
+                  <div className="overflow-hidden flex-1 min-w-0">
+                    <h4 className="font-extrabold text-sm text-slate-900 dark:text-white truncate">
+                      {user?.fullName || user?.name || 'Demo User'}
+                    </h4>
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
+                      {user?.email || (role === 'teacher' ? 'teacher@adaptiq.edu' : 'student@adaptiq.edu')}
+                    </p>
+                    <div className="mt-1 flex items-center gap-1.5">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 uppercase tracking-wider">
+                        {role === 'teacher' ? 'Educator' : `Grade ${user?.grade || user?.gradeLevel || 7} Student`}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Account Details / Badges */}
+                <div className="bg-slate-50 dark:bg-slate-800/60 rounded-2xl p-3 text-xs space-y-2 border border-slate-100 dark:border-slate-800">
+                  <div className="flex items-center justify-between text-[11px]">
+                    <span className="text-slate-500 dark:text-slate-400">Account Type:</span>
+                    <span className="font-bold text-slate-800 dark:text-slate-200 capitalize">{role}</span>
+                  </div>
+                  <div className="flex items-center justify-between text-[11px]">
+                    <span className="text-slate-500 dark:text-slate-400">Learning Track:</span>
+                    <span className="font-bold text-slate-800 dark:text-slate-200">Mathematics & Science</span>
+                  </div>
+                  <div className="flex items-center justify-between text-[11px]">
+                    <span className="text-slate-500 dark:text-slate-400">Curriculum:</span>
+                    <span className="font-bold text-indigo-600 dark:text-cyan-400 font-mono">UN SDG 4</span>
+                  </div>
+                </div>
+
+                {/* Popover Action Links */}
+                <div className="space-y-1 pt-0.5">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setProfilePopoverOpen(false);
+                      navigate('/settings');
+                    }}
+                    className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Settings className="w-4 h-4 text-slate-400" />
+                      <span>Account Settings</span>
+                    </div>
+                    <span className="text-[10px] text-slate-400 font-mono">Profile</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setProfilePopoverOpen(false);
+                      setSupportModalOpen(true);
+                    }}
+                    className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                  >
+                    <div className="flex items-center gap-2">
+                      <HelpCircle className="w-4 h-4 text-slate-400" />
+                      <span>Help & Feedback</span>
+                    </div>
+                    <span className="text-[10px] text-emerald-600 font-mono">Support</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setProfilePopoverOpen(false);
+                      handleSignOut();
+                    }}
+                    className="w-full flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs font-semibold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-colors"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    <span>Sign Out</span>
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Compact Profile Card Bar */}
+          <div className="flex items-center justify-between p-2 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-subtle gap-2">
+            {/* Interactive Profile Picture & Name Block */}
+            <button
+              type="button"
+              onClick={() => setProfilePopoverOpen(!profilePopoverOpen)}
+              aria-expanded={profilePopoverOpen}
+              aria-haspopup="dialog"
+              className="flex items-center gap-2.5 min-w-0 flex-1 text-left group p-1 -m-1 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-750 transition-colors focus:outline-none cursor-pointer"
+              title="Click to view full user profile"
+            >
+              <div className="relative flex-shrink-0">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-indigo-600 to-cyan-500 text-white flex items-center justify-center font-bold text-xs shadow-sm group-hover:scale-105 group-hover:shadow-glow-primary transition-all">
+                  {user?.avatar || (user?.fullName ? user.fullName[0].toUpperCase() : 'U')}
+                </div>
+                <span className="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-800" />
               </div>
-              <div className="overflow-hidden text-left">
-                <p className="font-bold text-slate-800 dark:text-slate-200 text-xs truncate leading-tight">
-                  {user?.fullName || 'Demo User'}
+              <div className="min-w-0 flex-1 overflow-hidden">
+                <p className="font-bold text-slate-800 dark:text-slate-100 text-xs truncate leading-tight whitespace-nowrap group-hover:text-indigo-600 dark:group-hover:text-cyan-400 transition-colors">
+                  {user?.fullName || user?.name || 'Demo User'}
                 </p>
-                <span className="text-[10px] font-semibold text-[var(--theme-primary,#4F46E5)] dark:text-cyan-400 uppercase tracking-wider block">
-                  {role} {role === 'student' ? `• G${user?.grade || 7}` : ''}
+                <span className="text-[10px] font-semibold text-indigo-600 dark:text-cyan-400 uppercase tracking-wider truncate block leading-normal whitespace-nowrap">
+                  {role} {role === 'student' ? `• G${user?.grade || user?.gradeLevel || 7}` : ''}
                 </span>
               </div>
-            </div>
+            </button>
 
-            <div className="flex items-center gap-1">
+            {/* Quick Icon Actions (Compact) */}
+            <div className="flex items-center gap-0.5 flex-shrink-0">
+              <ThemeSelector size="sm" align="right" direction="up" iconOnly={true} />
               <button
+                type="button"
                 onClick={() => navigate('/settings')}
                 title="Settings"
                 className="p-1.5 text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
               >
                 <Settings className="w-4 h-4" />
               </button>
-              <ThemeSelector size="sm" align="left" direction="up" />
               <button
+                type="button"
                 onClick={handleSignOut}
                 title="Sign Out"
                 className="p-1.5 text-slate-400 hover:text-rose-600 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"

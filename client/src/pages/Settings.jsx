@@ -13,8 +13,14 @@ import {
   AlertCircle,
   Sparkles,
   Save,
-  Key
+  Key,
+  Mail,
+  MessageSquare,
+  Bug
 } from 'lucide-react';
+import { ContactUsForm } from '../components/support/ContactUsForm';
+import { FeedbackForm } from '../components/support/FeedbackForm';
+import { BugReportForm } from '../components/support/BugReportForm';
 
 const AVATAR_OPTIONS = ['🎓', '🚀', '🔬', '🧠', '⚡', '🌟', '🎨', '📚', '🦁', '🦉', '🦊', '🐬'];
 
@@ -173,7 +179,8 @@ export const Settings = () => {
           { id: 'profile', label: 'Profile Details', icon: User },
           { id: 'appearance', label: 'Appearance & Theme', icon: Palette },
           { id: 'security', label: 'Security & Password', icon: Shield },
-          { id: 'notifications', label: 'Notifications', icon: Bell }
+          { id: 'notifications', label: 'Notifications', icon: Bell },
+          { id: 'support', label: 'Support & Feedback', icon: Sparkles }
         ].map((tab) => {
           const Icon = tab.icon;
           const active = activeTab === tab.id;
@@ -508,6 +515,33 @@ export const Settings = () => {
                   </label>
                 </div>
               </div>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Support & Feedback Tab Content */}
+        {activeTab === 'support' && (
+          <motion.div
+            key="support"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-elevated space-y-6"
+          >
+            <div>
+              <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <span>Support, Feedback & Bug Tracking</span>
+                <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400">
+                  Web3Forms
+                </span>
+              </h2>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                Direct communication pipeline with the AdaptIQ development and curriculum team.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <ContactUsForm />
             </div>
           </motion.div>
         )}

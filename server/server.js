@@ -98,6 +98,7 @@ app.use('/api/library', require('./routes/libraryRoutes'));
 app.use('/api/quiz', require('./routes/quizRoutes'));
 app.use('/api/progress', require('./routes/progressRoutes'));
 app.use('/api/gateway', require('./routes/gatewayRoutes'));
+app.use('/api/support', require('./routes/supportRoutes'));
 
 // 404 Handler
 app.use('*', (req, res) => {

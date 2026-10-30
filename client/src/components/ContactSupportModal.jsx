@@ -1,119 +1,143 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal } from './ui/Modal';
-import { Button } from './ui/Button';
-import { AuthContext } from '../context/AuthContext';
-import { submitContactFeedback } from '../services/web3forms';
-import { Send, CheckCircle2, MessageSquare, AlertCircle } from 'lucide-react';
+import { ContactUsForm } from './support/ContactUsForm';
+import { FeedbackForm } from './support/FeedbackForm';
+import { BugReportForm } from './support/BugReportForm';
+import { isWeb3FormsConfigured } from '../services/web3forms';
+import {
+  Mail,
+  MessageSquare,
+  Bug,
+  HelpCircle,
+  AlertTriangle,
+  ExternalLink,
+  ShieldCheck
+} from 'lucide-react';
 
-export const ContactSupportModal = ({ isOpen, onClose }) => {
-  const { user } = useContext(AuthContext);
-  const [category, setCategory] = useState('Feedback');
-  const [message, setMessage] = useState('');
-  const [email, setEmail] = useState(user?.email || '');
-  const [submitting, setSubmitting] = useState(false);
-  const [status, setStatus] = useState({ success: false, message: '' });
+export const ContactSupportModal = ({
+  isOpen,
+  onClose,
+  initialTab = 'contact', // 'contact' | 'feedback' | 'bug'
+  defaultFeedbackPage = '',
+  defaultBugTitle = ''
+}) => {
+  const [activeTab, setActiveTab] = useState(initialTab);
+  const [configured, setConfigured] = useState(true);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!message.trim()) return;
-
-    setSubmitting(true);
-    setStatus({ success: false, message: '' });
-
-    const res = await submitContactFeedback({
-      name: user?.name || user?.fullName || 'AdaptIQ User',
-      email: email.trim(),
-      category,
-      message: message.trim()
-    });
-
-    setSubmitting(false);
-
-    if (res.success) {
-      setStatus({ success: true, message: 'Thank you! Your feedback has been sent to our academic support team.' });
-      setMessage('');
-      setTimeout(() => {
-        setStatus({ success: false, message: '' });
-        onClose();
-      }, 2000);
-    } else {
-      setStatus({ success: false, message: 'Message recorded locally. (Web3Forms access key not active or network offline)' });
+  useEffect(() => {
+    if (isOpen) {
+      setActiveTab(initialTab);
+      setConfigured(isWeb3FormsConfigured());
     }
-  };
+  }, [isOpen, initialTab]);
 
   return (
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      title="Contact Support & Feedback"
-      subtitle="UN SDG 4 Aligned Learning Support"
-      maxWidth="max-w-lg"
+      title="AdaptIQ Help, Feedback & Support"
+      subtitle="UN SDG 4 Aligned Learning • Connected via Web3Forms"
+      maxWidth="max-w-xl"
     >
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {status.message && (
-          <div className={`p-3 rounded-xl text-xs font-semibold flex items-center gap-2 ${
-            status.success
-              ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800'
-              : 'bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-800'
-          }`}>
-            {status.success ? <CheckCircle2 className="w-4 h-4 text-emerald-600" /> : <AlertCircle className="w-4 h-4 text-amber-600" />}
-            <span>{status.message}</span>
+      <div className="space-y-4">
+        {/* Missing Web3Forms Access Key Warning Banner (Non-blocking informative banner) */}
+        {!configured && (
+          <div className="p-3.5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 flex items-start gap-2.5 text-xs text-amber-800 dark:text-amber-300">
+            <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
+            <div className="space-y-1">
+              <p className="font-bold">Web3Forms Access Key Not Detected</p>
+              <p className="text-[11px] text-amber-700 dark:text-amber-400">
+                To receive submissions in your inbox, set <code className="font-mono bg-white dark:bg-slate-900 px-1 py-0.5 rounded font-bold">VITE_WEB3FORMS_ACCESS_KEY</code> in <code className="font-mono">client/.env</code>. Obtain your free key instantly at{' '}
+                <a
+                  href="https://web3forms.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline font-bold inline-flex items-center gap-0.5"
+                >
+                  web3forms.com <ExternalLink className="w-2.5 h-2.5" />
+                </a>.
+              </p>
+            </div>
           </div>
         )}
 
-        <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
-            Category
-          </label>
-          <select
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
-            className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-semibold text-slate-800 dark:text-slate-200 outline-none"
+        {/* Tab Navigation Pill Group */}
+        <div className="grid grid-cols-3 gap-1.5 p-1 rounded-2xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700">
+          <button
+            type="button"
+            onClick={() => setActiveTab('contact')}
+            className={`py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+              activeTab === 'contact'
+                ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-cyan-400 shadow-subtle'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+            }`}
           >
-            <option value="Feedback">Product Feedback & Feature Request</option>
-            <option value="Question Bug">Curriculum / Question Issue</option>
-            <option value="AI Tutor">AI Tutor Response Feedback</option>
-            <option value="General Support">General Support Request</option>
-          </select>
+            <Mail className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Contact Us</span>
+            <span className="sm:hidden">Contact</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('feedback')}
+            className={`py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+              activeTab === 'feedback'
+                ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-cyan-400 shadow-subtle'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+            }`}
+          >
+            <MessageSquare className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">User Feedback</span>
+            <span className="sm:hidden">Feedback</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveTab('bug')}
+            className={`py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+              activeTab === 'bug'
+                ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-cyan-400 shadow-subtle'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+            }`}
+          >
+            <Bug className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Report Bug</span>
+            <span className="sm:hidden">Bug</span>
+          </button>
         </div>
 
-        <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
-            Your Email
-          </label>
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="student@school.edu"
-            className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-semibold text-slate-800 dark:text-slate-200 outline-none"
-          />
-        </div>
+        {/* Tab Content Display */}
+        <div className="pt-1 max-h-[68vh] overflow-y-auto px-0.5">
+          {activeTab === 'contact' && (
+            <ContactUsForm
+              onSuccess={() => {
+                setTimeout(onClose, 2400);
+              }}
+              onCancel={onClose}
+            />
+          )}
 
-        <div>
-          <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
-            Message
-          </label>
-          <textarea
-            required
-            rows={4}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            placeholder="Describe what happened or how we can improve your learning experience..."
-            className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-medium text-slate-800 dark:text-slate-200 outline-none"
-          />
-        </div>
+          {activeTab === 'feedback' && (
+            <FeedbackForm
+              defaultPage={defaultFeedbackPage}
+              onSuccess={() => {
+                setTimeout(onClose, 2400);
+              }}
+              onCancel={onClose}
+            />
+          )}
 
-        <div className="flex justify-end gap-2 pt-2">
-          <Button type="button" variant="outline" size="sm" onClick={onClose}>
-            Cancel
-          </Button>
-          <Button type="submit" variant="primary" size="sm" icon={Send} disabled={submitting}>
-            {submitting ? 'Sending...' : 'Send Message'}
-          </Button>
+          {activeTab === 'bug' && (
+            <BugReportForm
+              defaultTitle={defaultBugTitle}
+              onSuccess={() => {
+                setTimeout(onClose, 2400);
+              }}
+              onCancel={onClose}
+            />
+          )}
         </div>
-      </form>
+      </div>
     </Modal>
   );
 };

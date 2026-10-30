@@ -355,6 +355,34 @@ export const StyleGuide = () => {
               <p className="text-[10px] text-slate-400 mt-1">Tier 3: Proficient Practitioner</p>
             </div>
           </Card>
+
+          {/* Component 8: Web3Forms Email Integration */}
+          <Card className="p-5 space-y-3">
+            <div className="flex items-center justify-between">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">8. Web3Forms Support Hub</h3>
+              <Badge variant="indigo" size="sm">Email API</Badge>
+            </div>
+            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 space-y-2">
+              <div className="flex items-center justify-between text-xs font-bold text-slate-800 dark:text-slate-200">
+                <span>3 Workflows Integrated</span>
+                <span className="text-[10px] font-mono bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 px-2 py-0.5 rounded-full">
+                  Spam Protected
+                </span>
+              </div>
+              <p className="text-xs text-slate-500 dark:text-slate-400">
+                Contact Enquiries, User Feedback & Bug Reports with client-side rate limiting and zero student PII leakage.
+              </p>
+              <div className="pt-2 flex items-center gap-2">
+                <a
+                  href="/contact"
+                  className="text-xs font-bold text-indigo-600 dark:text-cyan-400 hover:underline flex items-center gap-1"
+                >
+                  <span>Open Support Center</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+          </Card>
         </div>
       </section>
     </div>

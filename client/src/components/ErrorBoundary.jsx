@@ -84,6 +84,14 @@ export class ErrorBoundary extends React.Component {
                 <Home className="w-4 h-4" />
                 <span>Return to Dashboard</span>
               </button>
+
+              <a
+                href="/support?tab=bug"
+                className="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-rose-200 dark:border-rose-800 bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 hover:bg-rose-100 dark:hover:bg-rose-900/60 font-bold text-xs flex items-center justify-center gap-2 transition-all"
+              >
+                <ShieldAlert className="w-4 h-4" />
+                <span>Report Bug</span>
+              </a>
             </div>
           </div>
         </div>

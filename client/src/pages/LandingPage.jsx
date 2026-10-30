@@ -415,10 +415,13 @@ export const LandingPage = () => {
             <span>• UN SDG 4 Aligned</span>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center gap-6">
             <Link to="/select" className="hover:text-indigo-600 dark:hover:text-cyan-400">Subjects</Link>
             <Link to="/dashboard" className="hover:text-indigo-600 dark:hover:text-cyan-400">Dashboard</Link>
             <Link to="/styleguide" className="hover:text-indigo-600 dark:hover:text-cyan-400">Design System</Link>
+            <Link to="/contact" className="hover:text-indigo-600 dark:hover:text-cyan-400">Contact Us</Link>
+            <Link to="/support?tab=feedback" className="hover:text-indigo-600 dark:hover:text-cyan-400">Feedback</Link>
+            <Link to="/support?tab=bug" className="hover:text-indigo-600 dark:hover:text-cyan-400">Report Bug</Link>
           </div>
         </div>
       </footer>

@@ -41,16 +41,16 @@ export const Modal = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
             transition={{ type: 'spring', damping: 25, stiffness: 350 }}
-            className={`relative w-full ${maxWidth} bg-white rounded-3xl shadow-elevated border border-slate-200 p-6 sm:p-8 z-10`}
+            className={`relative w-full ${maxWidth} bg-white dark:bg-slate-900 rounded-3xl shadow-elevated border border-slate-200 dark:border-slate-800 p-6 sm:p-8 z-10 transition-colors`}
           >
             <div className="flex items-start justify-between mb-4">
               <div>
-                {title && <h3 className="text-xl font-bold text-slate-900">{title}</h3>}
-                {subtitle && <p className="text-xs text-slate-500 mt-1">{subtitle}</p>}
+                {title && <h3 className="text-xl font-bold text-slate-900 dark:text-white">{title}</h3>}
+                {subtitle && <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{subtitle}</p>}
               </div>
               <button
                 onClick={onClose}
-                className="text-slate-400 hover:text-slate-600 rounded-full p-1.5 hover:bg-slate-100 transition-colors"
+                className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>

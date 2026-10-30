@@ -76,6 +76,12 @@ export const Navbar = () => {
               <Palette className="w-3.5 h-3.5" />
               <span>Design System</span>
             </Link>
+            <Link 
+              to="/contact" 
+              className="hover:text-indigo-600 dark:hover:text-cyan-400 transition-colors"
+            >
+              Support
+            </Link>
           </nav>
 
           {/* 3. Actions: Theme Selector + Demo Switcher + Launch App */}
@@ -163,6 +169,13 @@ export const Navbar = () => {
             >
               <Palette className="w-4 h-4 text-indigo-600" />
               <span>Design System</span>
+            </Link>
+            <Link 
+              to="/contact" 
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"
+            >
+              Contact & Support
             </Link>
           </div>
 

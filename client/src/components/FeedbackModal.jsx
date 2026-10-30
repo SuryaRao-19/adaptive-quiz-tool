@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from './ui/Button';
 import { MathRenderer } from './ui/MathRenderer';
 import { SpeechButton } from './ui/SpeechButton';
-import { CheckCircle2, XCircle, Lightbulb, AlertTriangle, ArrowRight } from 'lucide-react';
+import { ContactSupportModal } from './ContactSupportModal';
+import { CheckCircle2, XCircle, Lightbulb, AlertTriangle, ArrowRight, Flag } from 'lucide-react';
 
 /**
  * Pedagogical Explanation Experience (Phase 3.4)
@@ -22,6 +23,8 @@ export const FeedbackModal = ({
   onNext, 
   isLastQuestion = false 
 }) => {
+  const [reportModalOpen, setReportModalOpen] = useState(false);
+
   const feedbackSpeechText = `${isCorrect ? 'Correct.' : 'Incorrect.'} ${explanation || ''}. ${
     conceptSummary ? `Key concept: ${conceptSummary}.` : ''
   } ${misconception ? `Common pitfall to avoid: ${misconception}.` : ''}`;
@@ -128,18 +131,35 @@ export const FeedbackModal = ({
         </div>
       )}
 
-      {/* Actionable Next Step Button */}
-      <div className="mt-5 flex justify-end">
+      {/* Actionable Next Step Button & Question Issue Flag */}
+      <div className="mt-5 flex flex-col-reverse sm:flex-row items-center justify-between gap-3">
+        <button
+          type="button"
+          onClick={() => setReportModalOpen(true)}
+          className="text-xs text-slate-500 hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400 font-semibold flex items-center gap-1.5 transition-colors self-start sm:self-center"
+        >
+          <Flag className="w-3.5 h-3.5" />
+          <span>Report question issue or typo</span>
+        </button>
+
         <Button 
           onClick={onNext} 
           variant={isCorrect ? 'success' : 'primary'} 
           size="md"
           iconRight={ArrowRight}
-          className="px-7"
+          className="px-7 w-full sm:w-auto"
         >
           {isLastQuestion ? 'Complete Assessment' : 'Continue Practice'}
         </Button>
       </div>
+
+      {/* Support / Bug Report Modal for Questions */}
+      <ContactSupportModal
+        isOpen={reportModalOpen}
+        onClose={() => setReportModalOpen(false)}
+        initialTab="bug"
+        defaultBugTitle="Curriculum Question Issue"
+      />
     </div>
   );
 };

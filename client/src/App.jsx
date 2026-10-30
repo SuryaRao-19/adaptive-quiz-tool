@@ -25,6 +25,7 @@ import { SolutionsHub } from './pages/SolutionsHub';
 import { Settings } from './pages/Settings';
 import { QuestionBankManager } from './pages/QuestionBankManager';
 import { StyleGuide } from './pages/StyleGuide';
+import { ContactSupportPage } from './pages/ContactSupportPage';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
 // Protected App Shell Route Wrapper
@@ -67,6 +68,35 @@ export const App = () => {
                 <>
                   <Navbar />
                   <LandingPage />
+                </>
+              }
+            />
+
+            {/* Public Help, Contact, Feedback & Bug Report Pages */}
+            <Route
+              path="/contact"
+              element={
+                <>
+                  <Navbar />
+                  <ContactSupportPage />
+                </>
+              }
+            />
+            <Route
+              path="/support"
+              element={
+                <>
+                  <Navbar />
+                  <ContactSupportPage />
+                </>
+              }
+            />
+            <Route
+              path="/feedback"
+              element={
+                <>
+                  <Navbar />
+                  <ContactSupportPage />
                 </>
               }
             />
