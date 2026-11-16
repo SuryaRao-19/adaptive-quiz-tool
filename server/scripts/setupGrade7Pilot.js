@@ -1,0 +1,774 @@
+/**
+ * Asian Public School — Grade 7 Pilot Demonstration Setup Script
+ * Emergency build preparation for November 17, 2026 school demonstration.
+ * 
+ * - Purges fabricated 540 attempts and 3600 synthetic attendance logs
+ * - Preserves verified question bank and school infrastructure
+ * - Establishes dedicated Grade 7-A Pilot Class (15-20 students with unique roll numbers)
+ * - Authors the 20-question CBSE Grade 7 Mathematics Diagnostic Assessment
+ * - Assigns the assessment to Grade 7-A
+ */
+
+const fs = require('fs');
+const path = require('path');
+const bcrypt = require('bcryptjs');
+
+const DATA_FILE_PATH = path.join(__dirname, '../data/syntheticSchoolData.json');
+const BACKUP_PATH = path.join(__dirname, '../backups/syntheticSchoolData_pre_pilot.json');
+
+// 20-Question Verified Grade 7 Mathematics Diagnostic Pool
+// Distributed strictly per CBSE syllabus requirements:
+// Integers (3), Fractions & Decimals (4), Rational Numbers (3), Simple Linear Equations (3),
+// Algebraic Expressions (3), Geometry & Mensuration (2), Ratio & Proportion (2)
+// Difficulty: 6 Easy, 9 Medium, 5 Hard. Total Marks: 20
+const GRADE_7_DIAGNOSTIC_QUESTIONS = [
+  // 1. Integers (3 Qs: 1 Easy, 1 Medium, 1 Hard)
+  {
+    id: "aps-g7-m-int-01",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 1: Integers",
+    topic: "Integers",
+    learningObjective: "Evaluate addition and subtraction of signed integers with parentheses.",
+    difficulty: "EASY",
+    marks: 1,
+    estimatedSeconds: 60,
+    questionText: "Calculate the exact value of: (-15) + (-28) - (-43)",
+    options: ["0", "-86", "-30", "56"],
+    correctAnswerIndex: 0,
+    explanation: "Subtracting a negative number is equivalent to adding: (-15) + (-28) + 43 = -43 + 43 = 0.",
+    workedSolution: {
+      given: "Expression: (-15) + (-28) - (-43)",
+      toFind: "Simplified integer value",
+      concept: "Two negatives make a positive: -(-a) = +a. Combine same-sign integers first.",
+      steps: [
+        { step: "Step 1: Simplify double signs", desc: "-(-43) becomes +43. Expression is (-15) + (-28) + 43", math: "(-15) + (-28) + 43" },
+        { step: "Step 2: Add negative terms", desc: "(-15) + (-28) = -43", math: "-43 + 43" },
+        { step: "Step 3: Combine with positive term", desc: "-43 + 43 = 0", math: "0" }
+      ],
+      finalAnswer: "0",
+      commonMistake: "Failing to convert -(-43) into +43."
+    },
+    misconception: "Sign reversal error with subtraction of negative integers."
+  },
+  {
+    id: "aps-g7-m-int-02",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 1: Integers",
+    topic: "Integers",
+    learningObjective: "Apply order of operations and multiplication/division rules of integers.",
+    difficulty: "MEDIUM",
+    marks: 1,
+    estimatedSeconds: 60,
+    questionText: "Evaluate: (-20) × (-5) ÷ (-4)",
+    options: ["-25", "25", "-100", "50"],
+    correctAnswerIndex: 0,
+    explanation: "(-20) × (-5) = +100. Then +100 ÷ (-4) = -25. Positive divided by negative is negative.",
+    workedSolution: {
+      given: "Expression: (-20) × (-5) ÷ (-4)",
+      toFind: "Numeric result",
+      concept: "Negative × Negative = Positive; Positive ÷ Negative = Negative.",
+      steps: [
+        { step: "Step 1: Multiply first two factors", desc: "(-20) × (-5) = +100", math: "100 ÷ (-4)" },
+        { step: "Step 2: Divide by -4", desc: "100 / (-4) = -25", math: "-25" }
+      ],
+      finalAnswer: "-25",
+      commonMistake: "Assuming the final product must be positive because of two initial negatives."
+    },
+    misconception: "Sign propagation error across chained multiplication and division."
+  },
+  {
+    id: "aps-g7-m-int-03",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 1: Integers",
+    topic: "Integers",
+    learningObjective: "Solve multi-step temperature and elevation word problems using integers.",
+    difficulty: "HARD",
+    marks: 1,
+    estimatedSeconds: 75,
+    questionText: "At 6:00 AM, the temperature in Manali was -4°C. By noon, it rose by 9°C, and by midnight, it dropped by 11°C. What was the temperature at midnight?",
+    options: ["-6°C", "2°C", "-2°C", "-16°C"],
+    correctAnswerIndex: 0,
+    explanation: "Initial = -4°C. Noon = -4 + 9 = +5°C. Midnight = 5 - 11 = -6°C.",
+    workedSolution: {
+      given: "Initial temp = -4°C; rise = +9°C; drop = -11°C",
+      toFind: "Final temperature at midnight",
+      concept: "Rises correspond to positive additions; drops correspond to subtractions.",
+      steps: [
+        { step: "Step 1: Calculate noon temperature", desc: "-4°C + 9°C = +5°C", math: "+5°C" },
+        { step: "Step 2: Calculate midnight temperature", desc: "5°C - 11°C = -6°C", math: "-6°C" }
+      ],
+      finalAnswer: "-6°C",
+      commonMistake: "Subtracting 9 instead of adding it for a temperature rise."
+    },
+    misconception: "Directional integer confusion in real-world temperature deltas."
+  },
+
+  // 2. Fractions and Decimals (4 Qs: 1 Easy, 2 Medium, 1 Hard)
+  {
+    id: "aps-g7-m-frac-01",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 2: Fractions and Decimals",
+    topic: "Fractions and Decimals",
+    learningObjective: "Multiply fractions and reduce to simplest irreducible form.",
+    difficulty: "EASY",
+    marks: 1,
+    estimatedSeconds: 60,
+    questionText: "Evaluate: (2/5) × (15/16) and express in simplest form.",
+    options: ["3/8", "6/16", "30/80", "1/4"],
+    correctAnswerIndex: 0,
+    explanation: "Cross-cancel common factors: 2 and 16 divide by 2 (1/8); 15 and 5 divide by 5 (3/1). Multiply: (1 × 3)/(1 × 8) = 3/8.",
+    workedSolution: {
+      given: "(2/5) × (15/16)",
+      toFind: "Simplest fraction",
+      concept: "Divide numerator and denominator by greatest common divisor before multiplying.",
+      steps: [
+        { step: "Step 1: Simplify across diagonals", desc: "2/16 = 1/8 and 15/5 = 3/1", math: "(1/1) × (3/8)" },
+        { step: "Step 2: Multiply simplified numerators and denominators", desc: "1 × 3 = 3; 1 × 8 = 8", math: "3/8" }
+      ],
+      finalAnswer: "3/8",
+      commonMistake: "Multiplying raw numbers into 30/80 and forgetting to simplify."
+    },
+    misconception: "Omitting irreducible form reduction."
+  },
+  {
+    id: "aps-g7-m-frac-02",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 2: Fractions and Decimals",
+    topic: "Fractions and Decimals",
+    learningObjective: "Perform fraction division using reciprocal multiplication.",
+    difficulty: "MEDIUM",
+    marks: 1,
+    estimatedSeconds: 60,
+    questionText: "Evaluate: (7/12) ÷ (14/9)",
+    options: ["3/8", "8/3", "49/54", "2/3"],
+    correctAnswerIndex: 0,
+    explanation: "Dividing by a fraction is multiplying by its reciprocal: (7/12) × (9/14) = (7/14) × (9/12) = (1/2) × (3/4) = 3/8.",
+    workedSolution: {
+      given: "(7/12) ÷ (14/9)",
+      toFind: "Quotient in simplest form",
+      concept: "a/b ÷ c/d = a/b × d/c.",
+      steps: [
+        { step: "Step 1: Take reciprocal of divisor", desc: "Reciprocal of 14/9 is 9/14", math: "(7/12) × (9/14)" },
+        { step: "Step 2: Cross cancel 7 with 14 and 9 with 12", desc: "7/14 = 1/2; 9/12 = 3/4", math: "(1 × 3) / (4 × 2) = 3/8" }
+      ],
+      finalAnswer: "3/8",
+      commonMistake: "Flipping the first fraction instead of the divisor."
+    },
+    misconception: "Inverting dividend instead of divisor during fraction division."
+  },
+  {
+    id: "aps-g7-m-frac-03",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 2: Fractions and Decimals",
+    topic: "Fractions and Decimals",
+    learningObjective: "Multiply and divide decimals accurately.",
+    difficulty: "MEDIUM",
+    marks: 1,
+    estimatedSeconds: 60,
+    questionText: "What is 2.4 × 0.35?",
+    options: ["0.84", "8.4", "0.084", "0.74"],
+    correctAnswerIndex: 0,
+    explanation: "24 × 35 = 840. Total decimal places = 1 + 2 = 3 decimal places. 0.840 = 0.84.",
+    workedSolution: {
+      given: "2.4 × 0.35",
+      toFind: "Product",
+      concept: "Multiply ignoring decimals, then count total digits to right of decimals in both factors.",
+      steps: [
+        { step: "Step 1: Multiply whole numbers", desc: "24 × 35 = 840", math: "840" },
+        { step: "Step 2: Position decimal point", desc: "1 place in 2.4 + 2 places in 0.35 = 3 places", math: "0.840 = 0.84" }
+      ],
+      finalAnswer: "0.84",
+      commonMistake: "Placing decimal point after only 2 digits yielding 8.4."
+    },
+    misconception: "Decimal placement summation error in multiplication."
+  },
+  {
+    id: "aps-g7-m-frac-04",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 2: Fractions and Decimals",
+    topic: "Fractions and Decimals",
+    learningObjective: "Solve multi-step real-world problems involving mixed fractions and rates.",
+    difficulty: "HARD",
+    marks: 1,
+    estimatedSeconds: 75,
+    questionText: "A car covers a distance of 89.1 km in 2.2 hours. What is the average distance covered by it in 1 hour?",
+    options: ["40.5 km", "40.05 km", "44.55 km", "39.5 km"],
+    correctAnswerIndex: 0,
+    explanation: "Distance in 1 hour = 89.1 ÷ 2.2 = 891 ÷ 22 = 40.5 km.",
+    workedSolution: {
+      given: "Total distance = 89.1 km; Time = 2.2 hours",
+      toFind: "Average speed (distance per hour)",
+      concept: "Speed = Distance / Time. Multiply numerator and denominator by 10 to clear decimals.",
+      steps: [
+        { step: "Step 1: Set up division", desc: "89.1 / 2.2 = 891 / 22", math: "891 / 22" },
+        { step: "Step 2: Carry out division", desc: "891 / 22 = 40 with remainder 11. 11/22 = 0.5. Total = 40.5", math: "40.5" }
+      ],
+      finalAnswer: "40.5 km",
+      commonMistake: "Misplacing decimal point resulting in 4.05 km or 40.05 km."
+    },
+    misconception: "Division of decimals by decimals decimal-shift error."
+  },
+
+  // 3. Rational Numbers (3 Qs: 1 Easy, 1 Medium, 1 Hard)
+  {
+    id: "aps-g7-m-rat-01",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 9: Rational Numbers",
+    topic: "Rational Numbers",
+    learningObjective: "Express rational numbers in standard form with positive denominator.",
+    difficulty: "EASY",
+    marks: 1,
+    estimatedSeconds: 60,
+    questionText: "Write the rational number (-24)/36 in standard irreducible form.",
+    options: ["-2/3", "2/3", "-4/6", "-12/18"],
+    correctAnswerIndex: 0,
+    explanation: "Divide both numerator and denominator by their HCF (12): (-24 ÷ 12) / (36 ÷ 12) = -2/3.",
+    workedSolution: {
+      given: "(-24)/36",
+      toFind: "Standard irreducible form",
+      concept: "A rational number is in standard form when HCF(|p|, |q|) = 1 and denominator is positive.",
+      steps: [
+        { step: "Step 1: Find HCF of 24 and 36", desc: "HCF(24, 36) = 12", math: "12" },
+        { step: "Step 2: Divide numerator and denominator by 12", desc: "-24/12 = -2; 36/12 = 3", math: "-2/3" }
+      ],
+      finalAnswer: "-2/3",
+      commonMistake: "Leaving fraction as -4/6 without reducing completely."
+    },
+    misconception: "Incomplete reduction to lowest terms."
+  },
+  {
+    id: "aps-g7-m-rat-02",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 9: Rational Numbers",
+    topic: "Rational Numbers",
+    learningObjective: "Add rational numbers with unlike denominators.",
+    difficulty: "MEDIUM",
+    marks: 1,
+    estimatedSeconds: 60,
+    questionText: "Evaluate: (-3/5) + (7/10)",
+    options: ["1/10", "-1/10", "4/15", "10/10"],
+    correctAnswerIndex: 0,
+    explanation: "LCM of 5 and 10 is 10. (-3/5) = (-6/10). (-6/10) + (7/10) = (-6 + 7)/10 = 1/10.",
+    workedSolution: {
+      given: "(-3/5) + (7/10)",
+      toFind: "Sum in simplest form",
+      concept: "Equalize denominators using LCM of denominators.",
+      steps: [
+        { step: "Step 1: Find LCM(5, 10)", desc: "LCM is 10", math: "10" },
+        { step: "Step 2: Convert to like rational numbers", desc: "(-3 × 2)/(5 × 2) = -6/10", math: "-6/10 + 7/10" },
+        { step: "Step 3: Add numerators", desc: "-6 + 7 = +1", math: "1/10" }
+      ],
+      finalAnswer: "1/10",
+      commonMistake: "Adding numerators and denominators directly: (-3+7)/(5+10) = 4/15."
+    },
+    misconception: "Adding denominators instead of finding LCM."
+  },
+  {
+    id: "aps-g7-m-rat-03",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 9: Rational Numbers",
+    topic: "Rational Numbers",
+    learningObjective: "Multiply and subtract rational numbers using distributive property.",
+    difficulty: "HARD",
+    marks: 1,
+    estimatedSeconds: 75,
+    questionText: "What number should be added to -5/8 so as to get 5/9?",
+    options: ["85/72", "5/72", "-85/72", "10/17"],
+    correctAnswerIndex: 0,
+    explanation: "Let number be x. -5/8 + x = 5/9 => x = 5/9 - (-5/8) = 5/9 + 5/8 = (40 + 45)/72 = 85/72.",
+    workedSolution: {
+      given: "-5/8 + x = 5/9",
+      toFind: "Value of x",
+      concept: "Transpose -5/8 to right hand side as +5/8.",
+      steps: [
+        { step: "Step 1: Form equation", desc: "x = 5/9 - (-5/8) = 5/9 + 5/8", math: "5/9 + 5/8" },
+        { step: "Step 2: Find LCM(9, 8)", desc: "LCM is 72", math: "72" },
+        { step: "Step 3: Combine fractions", desc: "(5 × 8 + 5 × 9) / 72 = (40 + 45) / 72 = 85/72", math: "85/72" }
+      ],
+      finalAnswer: "85/72",
+      commonMistake: "Subtracting 5/8 instead of adding it upon transposition: (40 - 45)/72."
+    },
+    misconception: "Transposition sign change failure."
+  },
+
+  // 4. Simple Linear Equations (3 Qs: 1 Easy, 1 Medium, 1 Hard)
+  {
+    id: "aps-g7-m-eq-01",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 4: Simple Equations",
+    topic: "Simple Linear Equations",
+    learningObjective: "Solve single-step linear equations using inverse operations.",
+    difficulty: "EASY",
+    marks: 1,
+    estimatedSeconds: 60,
+    questionText: "Solve for x: 3x - 7 = 14",
+    options: ["7", "21", "5", "6"],
+    correctAnswerIndex: 0,
+    explanation: "Add 7 to both sides: 3x = 14 + 7 = 21. Divide by 3: x = 21 / 3 = 7.",
+    workedSolution: {
+      given: "3x - 7 = 14",
+      toFind: "x",
+      concept: "Isolate variable term using addition, then divide by coefficient.",
+      steps: [
+        { step: "Step 1: Add 7 to both sides", desc: "3x = 14 + 7 = 21", math: "3x = 21" },
+        { step: "Step 2: Divide both sides by 3", desc: "x = 21 / 3 = 7", math: "x = 7" }
+      ],
+      finalAnswer: "7",
+      commonMistake: "Subtracting 7 from 14 instead of adding: 3x = 7 => x = 7/3."
+    },
+    misconception: "Inverse operation confusion during transposition."
+  },
+  {
+    id: "aps-g7-m-eq-02",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 4: Simple Equations",
+    topic: "Simple Linear Equations",
+    learningObjective: "Solve linear equations with parentheses and variable distribution.",
+    difficulty: "MEDIUM",
+    marks: 1,
+    estimatedSeconds: 60,
+    questionText: "Solve for m: 4(m + 3) = 28",
+    options: ["4", "7", "10", "1"],
+    correctAnswerIndex: 0,
+    explanation: "Divide both sides by 4: m + 3 = 7. Subtract 3 from both sides: m = 7 - 3 = 4.",
+    workedSolution: {
+      given: "4(m + 3) = 28",
+      toFind: "m",
+      concept: "Divide through by factor or expand bracket first.",
+      steps: [
+        { step: "Step 1: Divide by 4", desc: "m + 3 = 28 / 4 = 7", math: "m + 3 = 7" },
+        { step: "Step 2: Subtract 3", desc: "m = 7 - 3 = 4", math: "m = 4" }
+      ],
+      finalAnswer: "4",
+      commonMistake: "Forgetting to distribute 4 to both m and 3, writing 4m + 3 = 28."
+    },
+    misconception: "Failure to distribute multiplier across all terms inside parentheses."
+  },
+  {
+    id: "aps-g7-m-eq-03",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 4: Simple Equations",
+    topic: "Simple Linear Equations",
+    learningObjective: "Set up and solve linear equation word problems.",
+    difficulty: "HARD",
+    marks: 1,
+    estimatedSeconds: 75,
+    questionText: "The perimeter of a rectangle is 48 cm. Its length is 4 cm more than its breadth. What is the breadth of the rectangle?",
+    options: ["10 cm", "14 cm", "12 cm", "8 cm"],
+    correctAnswerIndex: 0,
+    explanation: "Let breadth = b. Length = b + 4. Perimeter = 2(l + b) = 2(b + 4 + b) = 2(2b + 4) = 4b + 8. 4b + 8 = 48 => 4b = 40 => b = 10 cm.",
+    workedSolution: {
+      given: "Perimeter = 48 cm; Length = breadth + 4",
+      toFind: "Breadth (b)",
+      concept: "Perimeter of rectangle = 2(length + breadth).",
+      steps: [
+        { step: "Step 1: Write equation", desc: "2(b + b + 4) = 48", math: "2(2b + 4) = 48" },
+        { step: "Step 2: Divide by 2", desc: "2b + 4 = 24", math: "2b = 20" },
+        { step: "Step 3: Solve for b", desc: "b = 20 / 2 = 10 cm", math: "b = 10 cm" }
+      ],
+      finalAnswer: "10 cm",
+      commonMistake: "Forgetting the factor of 2 in perimeter formula, setting (2b + 4) = 48."
+    },
+    misconception: "Omitting perimeter factor of 2 in algebraic representation."
+  },
+
+  // 5. Algebraic Expressions (3 Qs: 1 Easy, 2 Medium)
+  {
+    id: "aps-g7-m-alg-01",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 12: Algebraic Expressions",
+    topic: "Algebraic Expressions",
+    learningObjective: "Identify coefficients and combine like terms in algebraic expressions.",
+    difficulty: "EASY",
+    marks: 1,
+    estimatedSeconds: 60,
+    questionText: "Simplify the algebraic expression by combining like terms: 7x - 4y + 2x + 9y",
+    options: ["9x + 5y", "9x - 5y", "5x + 5y", "14xy"],
+    correctAnswerIndex: 0,
+    explanation: "Group like terms: (7x + 2x) + (-4y + 9y) = 9x + 5y.",
+    workedSolution: {
+      given: "7x - 4y + 2x + 9y",
+      toFind: "Simplified expression",
+      concept: "Like terms having identical variable factors can be added or subtracted.",
+      steps: [
+        { step: "Step 1: Group x terms", desc: "7x + 2x = 9x", math: "9x" },
+        { step: "Step 2: Group y terms", desc: "-4y + 9y = +5y", math: "+5y" },
+        { step: "Step 3: Combine", desc: "9x + 5y", math: "9x + 5y" }
+      ],
+      finalAnswer: "9x + 5y",
+      commonMistake: "Combining unlike terms x and y into a single product 14xy."
+    },
+    misconception: "Conflating addition of terms with multiplication of variables."
+  },
+  {
+    id: "aps-g7-m-alg-02",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 12: Algebraic Expressions",
+    topic: "Algebraic Expressions",
+    learningObjective: "Evaluate algebraic expressions by substitution.",
+    difficulty: "MEDIUM",
+    marks: 1,
+    estimatedSeconds: 60,
+    questionText: "If a = 2 and b = -3, find the numerical value of: 3a² - 2ab + b²",
+    options: ["33", "15", "21", "27"],
+    correctAnswerIndex: 0,
+    explanation: "3(2)² - 2(2)(-3) + (-3)² = 3(4) - (-12) + 9 = 12 + 12 + 9 = 33.",
+    workedSolution: {
+      given: "Expression: 3a² - 2ab + b²; a = 2, b = -3",
+      toFind: "Numeric value",
+      concept: "Substitute values with brackets to preserve signs when squaring negatives.",
+      steps: [
+        { step: "Step 1: Substitute a=2 and b=-3", desc: "3(2)² - 2(2)(-3) + (-3)²", math: "3(4) - 2(-6) + 9" },
+        { step: "Step 2: Evaluate products", desc: "12 - (-12) + 9 = 12 + 12 + 9", math: "24 + 9" },
+        { step: "Step 3: Sum", desc: "24 + 9 = 33", math: "33" }
+      ],
+      finalAnswer: "33",
+      commonMistake: "Writing (-3)² as -9 instead of +9."
+    },
+    misconception: "Squaring negative numbers without brackets yielding negative results."
+  },
+  {
+    id: "aps-g7-m-alg-03",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 12: Algebraic Expressions",
+    topic: "Algebraic Expressions",
+    learningObjective: "Subtract polynomials by distributing negative signs across terms.",
+    difficulty: "MEDIUM",
+    marks: 1,
+    estimatedSeconds: 60,
+    questionText: "Subtract (3a - 4b + 5c) from (7a + 2b - 3c)",
+    options: ["4a + 6b - 8c", "4a - 2b + 2c", "10a - 2b - 8c", "4a + 6b + 2c"],
+    correctAnswerIndex: 0,
+    explanation: "(7a + 2b - 3c) - (3a - 4b + 5c) = 7a - 3a + 2b - (-4b) - 3c - 5c = 4a + 6b - 8c.",
+    workedSolution: {
+      given: "Subtract (3a - 4b + 5c) from (7a + 2b - 3c)",
+      toFind: "Resulting polynomial",
+      concept: "Subtracting requires changing the sign of every term in the subtrahend.",
+      steps: [
+        { step: "Step 1: Set up subtraction with brackets", desc: "(7a + 2b - 3c) - (3a - 4b + 5c)", math: "7a + 2b - 3c - 3a + 4b - 5c" },
+        { step: "Step 2: Group like terms", desc: "(7a - 3a) + (2b + 4b) + (-3c - 5c)", math: "4a + 6b - 8c" }
+      ],
+      finalAnswer: "4a + 6b - 8c",
+      commonMistake: "Only changing the sign of the first term: 7a - 3a - 4b + 5c."
+    },
+    misconception: "Incomplete sign distribution during polynomial subtraction."
+  },
+
+  // 6. Geometry and Basic Mensuration (2 Qs: 1 Easy, 1 Hard)
+  {
+    id: "aps-g7-m-geo-01",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 5: Lines and Angles",
+    topic: "Geometry and Basic Mensuration",
+    learningObjective: "Determine measures of supplementary and complementary angles.",
+    difficulty: "EASY",
+    marks: 1,
+    estimatedSeconds: 60,
+    questionText: "Two supplementary angles are in the ratio 4:5. What is the measure of the smaller angle?",
+    options: ["80°", "100°", "40°", "90°"],
+    correctAnswerIndex: 0,
+    explanation: "Supplementary angles sum to 180°. Let angles be 4x and 5x. 4x + 5x = 9x = 180° => x = 20°. Smaller angle = 4(20°) = 80°.",
+    workedSolution: {
+      given: "Angles in ratio 4:5; supplementary",
+      toFind: "Smaller angle measure",
+      concept: "Supplementary angles sum to 180°.",
+      steps: [
+        { step: "Step 1: Sum ratio parts", desc: "4x + 5x = 9x = 180°", math: "9x = 180°" },
+        { step: "Step 2: Find unit value x", desc: "x = 180° / 9 = 20°", math: "x = 20°" },
+        { step: "Step 3: Multiply smaller ratio part", desc: "4 × 20° = 80°", math: "80°" }
+      ],
+      finalAnswer: "80°",
+      commonMistake: "Using 90° (complementary sum) instead of 180° (supplementary sum)."
+    },
+    misconception: "Conflating complementary (90°) and supplementary (180°) angles."
+  },
+  {
+    id: "aps-g7-m-geo-02",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 11: Perimeter and Area",
+    topic: "Geometry and Basic Mensuration",
+    learningObjective: "Calculate perimeter, circumference, and side conversion of bent geometric shapes.",
+    difficulty: "HARD",
+    marks: 1,
+    estimatedSeconds: 75,
+    questionText: "A circular copper wire of radius r = 14 cm is cut and rebent into the exact shape of a square. Find the length of each side of the square. (Take π = 22/7)",
+    options: ["22 cm", "44 cm", "88 cm", "11 cm"],
+    correctAnswerIndex: 0,
+    explanation: "Perimeter of square = Circumference of circle. Circumference = 2πr = 2 × (22/7) × 14 = 88 cm. Side of square = 88 / 4 = 22 cm.",
+    workedSolution: {
+      given: "Circle radius r = 14 cm; rebent into a square",
+      toFind: "Side of square",
+      concept: "Rebending wire preserves boundary length (perimeter = circumference).",
+      steps: [
+        { step: "Step 1: Compute circumference of circle", desc: "C = 2 × (22/7) × 14 = 2 × 22 × 2 = 88 cm", math: "88 cm" },
+        { step: "Step 2: Equate to perimeter of square", desc: "4 × side = 88 cm", math: "4s = 88" },
+        { step: "Step 3: Solve for side", desc: "side = 88 / 4 = 22 cm", math: "22 cm" }
+      ],
+      finalAnswer: "22 cm",
+      commonMistake: "Assuming the circle area is preserved and taking square root of area."
+    },
+    misconception: "Conflating boundary length conservation with area conservation."
+  },
+
+  // 7. Ratio and Proportion (2 Qs: 2 Medium)
+  {
+    id: "aps-g7-m-ratprop-01",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 8: Comparing Quantities",
+    topic: "Ratio and Proportion",
+    learningObjective: "Chain compound ratios to find simplest relationship between first and third quantities.",
+    difficulty: "MEDIUM",
+    marks: 1,
+    estimatedSeconds: 60,
+    questionText: "If A : B = 3 : 4 and B : C = 8 : 9, what is the ratio of A : C in simplest irreducible form?",
+    options: ["2 : 3", "3 : 4", "24 : 36", "1 : 2"],
+    correctAnswerIndex: 0,
+    explanation: "A/C = (A/B) × (B/C) = (3/4) × (8/9) = (3 × 8) / (4 × 9) = 24/36 = 2/3 (or 2:3).",
+    workedSolution: {
+      given: "A:B = 3:4 and B:C = 8:9",
+      toFind: "Ratio A:C in simplest form",
+      concept: "Multiply ratios: (A/B) × (B/C) = A/C.",
+      steps: [
+        { step: "Step 1: Multiply fraction representations", desc: "(3/4) × (8/9)", math: "(3 × 8)/(4 × 9) = 24/36" },
+        { step: "Step 2: Reduce by dividing by 12", desc: "24/12 = 2; 36/12 = 3", math: "2/3" }
+      ],
+      finalAnswer: "2 : 3",
+      commonMistake: "Adding ratio parts instead of compounding via multiplication."
+    },
+    misconception: "Additive error in ratio compounding."
+  },
+  {
+    id: "aps-g7-m-ratprop-02",
+    gradeLevel: 7,
+    subject: "Mathematics",
+    chapter: "Chapter 8: Comparing Quantities",
+    topic: "Ratio and Proportion",
+    learningObjective: "Calculate percentage increase and profit/loss percentage relative to base value.",
+    difficulty: "MEDIUM",
+    marks: 1,
+    estimatedSeconds: 60,
+    questionText: "The price of an NCERT Mathematics textbook was increased from ₹400 to ₹460. What is the percentage increase in price?",
+    options: ["15%", "12%", "13.04%", "18%"],
+    correctAnswerIndex: 0,
+    explanation: "Increase = 460 - 400 = ₹60. Percentage increase = (Increase / Original Price) × 100% = (60 / 400) × 100% = 15%.",
+    workedSolution: {
+      given: "Original price = ₹400; New price = ₹460",
+      toFind: "Percentage increase",
+      concept: "Percentage increase = (Absolute Increase / Base Original Price) × 100.",
+      steps: [
+        { step: "Step 1: Find absolute increase", desc: "460 - 400 = ₹60", math: "₹60" },
+        { step: "Step 2: Calculate percentage over initial price", desc: "(60 / 400) × 100 = 60 / 4 = 15%", math: "15%" }
+      ],
+      finalAnswer: "15%",
+      commonMistake: "Dividing by the new price 460 instead of the original base 400 (giving 13.04%)."
+    },
+    misconception: "Using final value instead of initial base value in denominator of percentage change."
+  }
+];
+
+// 20 Dedicated Grade 7 Demonstration Student Accounts
+const GRADE_7_PILOT_STUDENTS = [
+  { id: "stu-g7-001", name: "Aarav Patel", rollNumber: "APS-07-001", grade: 7, gradeLevel: 7, section: "7-A", email: "aarav.patel@asianpublicschool.edu", activationCode: "APS-ACT-7001", isActivated: true },
+  { id: "stu-g7-002", name: "Priya Sharma", rollNumber: "APS-07-002", grade: 7, gradeLevel: 7, section: "7-A", email: "priya.sharma@asianpublicschool.edu", activationCode: "APS-ACT-7002", isActivated: true },
+  { id: "stu-g7-003", name: "Rohan Gupta", rollNumber: "APS-07-003", grade: 7, gradeLevel: 7, section: "7-A", email: "rohan.gupta@asianpublicschool.edu", activationCode: "APS-ACT-7003", isActivated: false },
+  { id: "stu-g7-004", name: "Ananya Verma", rollNumber: "APS-07-004", grade: 7, gradeLevel: 7, section: "7-A", email: "ananya.verma@asianpublicschool.edu", activationCode: "APS-ACT-7004", isActivated: false },
+  { id: "stu-g7-005", name: "Kabir Mehta", rollNumber: "APS-07-005", grade: 7, gradeLevel: 7, section: "7-A", email: "kabir.mehta@asianpublicschool.edu", activationCode: "APS-ACT-7005", isActivated: false },
+  { id: "stu-g7-006", name: "Sanya Reddy", rollNumber: "APS-07-006", grade: 7, gradeLevel: 7, section: "7-A", email: "sanya.reddy@asianpublicschool.edu", activationCode: "APS-ACT-7006", isActivated: false },
+  { id: "stu-g7-007", name: "Devansh Singh", rollNumber: "APS-07-007", grade: 7, gradeLevel: 7, section: "7-A", email: "devansh.singh@asianpublicschool.edu", activationCode: "APS-ACT-7007", isActivated: false },
+  { id: "stu-g7-008", name: "Ishita Joshi", rollNumber: "APS-07-008", grade: 7, gradeLevel: 7, section: "7-A", email: "ishita.joshi@asianpublicschool.edu", activationCode: "APS-ACT-7008", isActivated: false },
+  { id: "stu-g7-009", name: "Aditya Nair", rollNumber: "APS-07-009", grade: 7, gradeLevel: 7, section: "7-A", email: "aditya.nair@asianpublicschool.edu", activationCode: "APS-ACT-7009", isActivated: false },
+  { id: "stu-g7-010", name: "Meera Iyer", rollNumber: "APS-07-010", grade: 7, gradeLevel: 7, section: "7-A", email: "meera.iyer@asianpublicschool.edu", activationCode: "APS-ACT-7010", isActivated: false },
+  { id: "stu-g7-011", name: "Vihaan Rao", rollNumber: "APS-07-011", grade: 7, gradeLevel: 7, section: "7-A", email: "vihaan.rao@asianpublicschool.edu", activationCode: "APS-ACT-7011", isActivated: false },
+  { id: "stu-g7-012", name: "Diya Bansal", rollNumber: "APS-07-012", grade: 7, gradeLevel: 7, section: "7-A", email: "diya.bansal@asianpublicschool.edu", activationCode: "APS-ACT-7012", isActivated: false },
+  { id: "stu-g7-013", name: "Arjun Sen", rollNumber: "APS-07-013", grade: 7, gradeLevel: 7, section: "7-A", email: "arjun.sen@asianpublicschool.edu", activationCode: "APS-ACT-7013", isActivated: false },
+  { id: "stu-g7-014", name: "Tanvi Saxena", rollNumber: "APS-07-014", grade: 7, gradeLevel: 7, section: "7-A", email: "tanvi.saxena@asianpublicschool.edu", activationCode: "APS-ACT-7014", isActivated: false },
+  { id: "stu-g7-015", name: "Kunal Bhatia", rollNumber: "APS-07-015", grade: 7, gradeLevel: 7, section: "7-A", email: "kunal.bhatia@asianpublicschool.edu", activationCode: "APS-ACT-7015", isActivated: false },
+  { id: "stu-g7-016", name: "Rhea Chawla", rollNumber: "APS-07-016", grade: 7, gradeLevel: 7, section: "7-A", email: "rhea.chawla@asianpublicschool.edu", activationCode: "APS-ACT-7016", isActivated: false },
+  { id: "stu-g7-017", name: "Siddharth Das", rollNumber: "APS-07-017", grade: 7, gradeLevel: 7, section: "7-A", email: "siddharth.das@asianpublicschool.edu", activationCode: "APS-ACT-7017", isActivated: false },
+  { id: "stu-g7-018", name: "Pooja Trivedi", rollNumber: "APS-07-018", grade: 7, gradeLevel: 7, section: "7-A", email: "pooja.trivedi@asianpublicschool.edu", activationCode: "APS-ACT-7018", isActivated: false },
+  { id: "stu-g7-019", name: "Varun Malhotra", rollNumber: "APS-07-019", grade: 7, gradeLevel: 7, section: "7-A", email: "varun.malhotra@asianpublicschool.edu", activationCode: "APS-ACT-7019", isActivated: false },
+  { id: "stu-g7-020", name: "Ananya Saxena", rollNumber: "APS-07-020", grade: 7, gradeLevel: 7, section: "7-A", email: "ananya.saxena@asianpublicschool.edu", activationCode: "APS-ACT-7020", isActivated: false }
+];
+
+async function setupGrade7Pilot() {
+  console.log('========================================================');
+  console.log('🏫 Executing Asian Public School Grade 7 Pilot Setup');
+  console.log('========================================================');
+
+  // Hash standard default demonstration password "Student@123"
+  const defaultPasswordHash = await bcrypt.hash('Student@123', 10);
+  const teacherPasswordHash = await bcrypt.hash('teacher123', 10);
+  const principalPasswordHash = await bcrypt.hash('admin123', 10);
+
+  // 1. Prepare clean data store
+  const storeData = {
+    school: {
+      id: "school-aps-001",
+      name: "Asian Public School",
+      tenantName: "Asian Public School — AdaptIQ Demonstration Environment",
+      code: "APS-2026",
+      schoolCode: "40571",
+      board: "CBSE",
+      affiliationNumber: "530587",
+      location: "Sohna, Gurugram, Haryana",
+      city: "Gurugram",
+      state: "Haryana",
+      website: "https://aps-school.in/index.html",
+      curriculumUrl: "https://aps-school.in/curriculum.html",
+      established: 1998,
+      status: "ACTIVE"
+    },
+    teachers: [
+      {
+        id: "t-01",
+        name: "Mrs. Ananya Sharma",
+        email: "sharma.math@asianpublicschool.edu",
+        role: "TEACHER",
+        subject: "Mathematics",
+        gradeLevel: 7,
+        grades: [7, 8],
+        schoolId: "school-aps-001",
+        designation: "Head of Mathematics Department",
+        passwordHash: teacherPasswordHash,
+        status: "ACTIVE"
+      },
+      {
+        id: "t-admin",
+        name: "Dr. K. S. Raman",
+        email: "principal@asianpublicschool.edu",
+        role: "ADMIN",
+        subject: "Administration",
+        gradeLevel: null,
+        grades: [],
+        schoolId: "school-aps-001",
+        designation: "Principal & Academic Director",
+        passwordHash: principalPasswordHash,
+        status: "ACTIVE"
+      }
+    ],
+    classrooms: [
+      {
+        id: "cls-aps-7a",
+        _id: "cls-aps-7a",
+        name: "Grade 7-A Mathematics (Pilot)",
+        subject: "Mathematics",
+        gradeLevel: 7,
+        section: "7-A",
+        joinCode: "APS7M",
+        teacherId: "t-01",
+        teacherName: "Mrs. Ananya Sharma",
+        schoolId: "school-aps-001",
+        capacity: 30,
+        enrolledCount: GRADE_7_PILOT_STUDENTS.length,
+        createdAt: new Date().toISOString()
+      }
+    ],
+    students: GRADE_7_PILOT_STUDENTS.map(s => ({
+      ...s,
+      classroomId: "cls-aps-7a",
+      schoolId: "school-aps-001",
+      passwordHash: defaultPasswordHash,
+      createdAt: new Date().toISOString()
+    })),
+    // 20-Question Verified Diagnostic Assessment
+    assessments: [
+      {
+        id: "aps-g7-math-diag-2026",
+        title: "Asian Public School — Grade 7 Mathematics Diagnostic Assessment",
+        gradeLevel: 7,
+        subject: "Mathematics",
+        assessmentType: "PRE_TEST",
+        status: "PUBLISHED",
+        isLive: true,
+        isPaused: false,
+        durationMinutes: 20,
+        totalMarks: 20,
+        questionCount: 20,
+        questionIds: GRADE_7_DIAGNOSTIC_QUESTIONS.map(q => q.id),
+        classroomId: "cls-aps-7a",
+        teacherId: "t-01",
+        teacherName: "Mrs. Ananya Sharma",
+        instructions: "Read each question carefully. Choose the single best answer. 20 questions, 20 minutes. No calculators permitted.",
+        questions: GRADE_7_DIAGNOSTIC_QUESTIONS,
+        startTime: new Date().toISOString(),
+        endTime: null,
+        createdAt: new Date().toISOString()
+      }
+    ],
+    // Clean, authentic slate: Zero fabricated attempts, zero fabricated attendance!
+    attempts: [],
+    answerEvents: [],
+    attendance: [],
+    tickets: [
+      {
+        id: "TICK-2026-001",
+        ticketNumber: "APS-TK-001",
+        senderName: "Mrs. Ananya Sharma",
+        senderRole: "teacher",
+        senderEmail: "sharma.math@asianpublicschool.edu",
+        studentId: null,
+        subject: "Grade 7 Pilot Classroom Setup Confirmation",
+        message: "The 20 student accounts for Class 7-A Mathematics have been provisioned with login credentials and activation codes for tomorrow's pilot demonstration.",
+        category: "CURRICULUM",
+        priority: "MEDIUM",
+        status: "Open",
+        assignedTo: "Dr. K. S. Raman",
+        responses: [
+          {
+            id: "resp-01",
+            responderName: "Dr. K. S. Raman",
+            responderRole: "admin",
+            message: "Excellent. I will review the class roster and monitor candidate progress during the 20-minute timed diagnostic tomorrow.",
+            createdAt: new Date().toISOString()
+          }
+        ],
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      }
+    ]
+  };
+
+  // Write to syntheticSchoolData.json
+  fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(storeData, null, 2), 'utf8');
+  console.log(`✅ Saved clean Grade 7 Pilot baseline to: ${DATA_FILE_PATH}`);
+  console.log(`- Enrolled Students: ${storeData.students.length} (Roll Nos: APS-07-001 to APS-07-020)`);
+  console.log(`- Fabricated Attempts Removed: 0 attempts recorded (Clean Slate)`);
+  console.log(`- Fabricated Attendance Removed: 0 logs recorded (Clean Slate)`);
+  console.log(`- Assessment Provisioned: "${storeData.assessments[0].title}" (${storeData.assessments[0].questionCount} Questions)`);
+  console.log(`- Support Ticket System: Initialized with Ticket APS-TK-001`);
+  console.log('========================================================');
+}
+
+if (require.main === module) {
+  setupGrade7Pilot()
+    .then(() => process.exit(0))
+    .catch(err => {
+      console.error('Setup failed:', err);
+      process.exit(1);
+    });
+}
+
+module.exports = {
+  setupGrade7Pilot,
+  GRADE_7_DIAGNOSTIC_QUESTIONS,
+  GRADE_7_PILOT_STUDENTS
+};

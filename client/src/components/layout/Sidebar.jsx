@@ -13,13 +13,20 @@ import {
   MessageSquareText, 
   Users, 
   Award, 
+  Trophy,
+  BarChart3,
   FileText, 
   LogOut, 
   Settings, 
   X,
   GraduationCap,
   HelpCircle,
-  Layers
+  Layers,
+  Calendar,
+  CheckSquare,
+  TrendingUp,
+  ClipboardList,
+  Radio
 } from 'lucide-react';
 import { ContactSupportModal } from '../ContactSupportModal';
 
@@ -51,27 +58,59 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
     };
   }, [profilePopoverOpen]);
 
-  const navItems = [
-    { label: "Overview", to: "/dashboard", icon: Home },
-    { label: "Practice Mode", to: "/practice", icon: BrainCircuit, badge: "Adaptive" },
-    { label: "Test Mode", to: "/test", icon: Clock, badge: "Timed" },
-    { label: "Step-by-Step Solutions", to: "/solutions", icon: BookOpen },
-    { label: "Reference Library", to: "/library", icon: FileText },
-    { label: "AI Tutor Chat", to: "/tutor", icon: MessageSquareText, highlight: true },
-    { 
-      label: role === 'teacher' ? "Classroom Hub" : "My Classes", 
-      to: "/classes", 
-      icon: Users 
-    },
-    { 
-      label: "Question Bank", 
-      to: "/question-bank", 
-      icon: Layers, 
-      badge: "AI Gen" 
-    },
-    { label: "Progress & Analytics", to: "/metrics", icon: Award },
-    { label: "Settings", to: "/settings", icon: Settings },
-  ];
+  const isAdmin = role === 'admin' || role === 'school_admin';
+  const isTeacher = role === 'teacher';
+  const isParent = role === 'parent';
+
+  let navItems = [];
+  if (isAdmin) {
+    navItems = [
+      { label: "Institutional Overview", to: "/dashboard", icon: Home, badge: "APS Admin" },
+      { label: "Classrooms & Sections", to: "/classes", icon: Users },
+      { label: "Question Bank Manager", to: "/question-bank", icon: Layers, badge: "Grades 1-12" },
+      { label: "Schoolwide Analytics", to: "/metrics", icon: BarChart3 },
+      { label: "Reference Library", to: "/library", icon: FileText },
+      { label: "Settings & Profile", to: "/settings", icon: Settings },
+      { label: "Help & Support", to: "/support", icon: HelpCircle },
+    ];
+  } else if (isTeacher) {
+    navItems = [
+      { label: "Dashboard", to: "/dashboard", icon: Home },
+      { label: "My Classes", to: "/classes", icon: Users },
+      { label: "Assessment Centre", to: "/teacher/assessments", icon: ClipboardList },
+      { label: "Live Test Centre", to: "/teacher/live-test", icon: Radio, badge: "Live" },
+      { label: "Submissions", to: "/teacher/grading", icon: CheckSquare },
+      { label: "Grading", to: "/teacher/results", icon: TrendingUp },
+      { label: "Attendance", to: "/teacher/attendance", icon: Calendar },
+      { label: "Question Bank", to: "/question-bank", icon: Layers, badge: "Grades 1-12" },
+      { label: "Learning Resources", to: "/library", icon: FileText },
+      { label: "Reports", to: "/teacher/reports", icon: BookOpen },
+      { label: "Settings", to: "/settings", icon: Settings },
+    ];
+  } else if (isParent) {
+    navItems = [
+      { label: "Parent Dashboard", to: "/dashboard", icon: Home, badge: "Guardian" },
+      { label: "Ward Performance", to: "/parent", icon: BarChart3 },
+      { label: "Attendance Record", to: "/parent", icon: Calendar },
+      { label: "School Circulars", to: "/parent", icon: FileText },
+      { label: "Reference Library", to: "/library", icon: BookOpen },
+      { label: "Settings", to: "/settings", icon: Settings },
+      { label: "Help & Support", to: "/support", icon: HelpCircle },
+    ];
+  } else {
+    // Dedicated Student Navigation
+    navItems = [
+      { label: "Overview", to: "/dashboard", icon: Home },
+      { label: "My Learning", to: "/my-learning", icon: GraduationCap },
+      { label: "Practice Mode", to: "/practice", icon: BrainCircuit, badge: "Adaptive" },
+      { label: "Test Mode", to: "/test", icon: Clock, badge: "Timed" },
+      { label: "Step-by-Step Solutions", to: "/solutions", icon: BookOpen },
+      { label: "Reference Library", to: "/library", icon: FileText },
+      { label: "Progress & Analytics", to: "/metrics", icon: BarChart3 },
+      { label: "Settings", to: "/settings", icon: Settings },
+      { label: "Help & Feedback", to: "/support", icon: HelpCircle },
+    ];
+  }
 
   const handleSignOut = () => {
     logout();
@@ -90,30 +129,33 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
 
       {/* Main Sidebar Panel */}
       <aside
-        className={`fixed top-0 bottom-0 left-0 z-50 bg-white dark:bg-slate-900 border-r border-slate-200/90 dark:border-slate-800 w-64 flex flex-col justify-between transition-transform duration-300 ease-in-out
+        className={`fixed top-12 bottom-0 left-0 z-40 bg-white dark:bg-slate-900 border-r border-slate-200/90 dark:border-slate-800 w-64 flex flex-col justify-between transition-transform duration-300 ease-in-out
           lg:translate-x-0 ${isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         `}
       >
         {/* Top Header & Brand */}
-        <div className="p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
-          <NavLink to="/dashboard" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 rounded-xl bg-[var(--theme-primary,#4F46E5)] text-white flex items-center justify-center shadow-glow-primary group-hover:scale-105 transition-transform">
-              <Sparkles className="w-5 h-5" />
+        <div className="p-4 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+          <NavLink to="/dashboard" className="flex items-center gap-2.5 min-w-0 group">
+            <div className="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+              <GraduationCap className="w-5 h-5 text-white" />
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-1.5">
-                <span className="font-extrabold text-base tracking-tight text-slate-900 dark:text-white">AdaptIQ</span>
-                <span className="text-[10px] font-bold uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-400 px-1 py-0.2 rounded border border-indigo-200 dark:border-indigo-800">
-                  SDG 4
+                <span className="font-extrabold text-sm tracking-tight text-slate-900 dark:text-white truncate">AdaptIQ</span>
+                <span className="text-[9px] font-bold uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 px-1.5 py-0.5 rounded border border-indigo-200 dark:border-indigo-800 shrink-0">
+                  {isTeacher ? 'Teacher' : isAdmin ? 'Principal' : isParent ? 'Parent' : 'Grade 7'}
                 </span>
               </div>
-              <p className="text-[10px] text-slate-400 dark:text-slate-500 font-medium -mt-0.5">Adaptive Learning Engine</p>
+              <p className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold truncate mt-0.5">
+                Asian Public School
+              </p>
             </div>
           </NavLink>
 
           <button
             onClick={() => setIsMobileOpen(false)}
-            className="lg:hidden p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800"
+            className="lg:hidden p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 shrink-0"
+            aria-label="Close sidebar"
           >
             <X className="w-5 h-5" />
           </button>
@@ -158,50 +200,10 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
               </NavLink>
             );
           })}
-
-          {/* Help & Feedback (Web3Forms) */}
-          <button
-            type="button"
-            onClick={() => {
-              setIsMobileOpen(false);
-              setSupportModalOpen(true);
-            }}
-            className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-400 hover:bg-slate-100/80 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-all duration-150"
-          >
-            <div className="flex items-center gap-3">
-              <HelpCircle className="w-4 h-4 text-slate-400" />
-              <span>Help & Feedback</span>
-            </div>
-            <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 font-mono">
-              Support
-            </span>
-          </button>
         </div>
 
         {/* Pinned User Profile Block at Bottom */}
         <div className="p-3 border-t border-slate-200/90 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-900/60 relative" ref={profilePopoverRef}>
-          {/* Quick Demo Persona Switcher Pill */}
-          <div className="mb-2 bg-white dark:bg-slate-800 p-1 rounded-xl border border-slate-200/80 dark:border-slate-700 flex items-center justify-between text-[11px] font-bold">
-            <button
-              type="button"
-              onClick={() => switchRole('student')}
-              className={`flex-1 py-1 rounded-lg text-center transition-all ${
-                role === 'student' ? 'bg-[var(--theme-primary,#4F46E5)] text-white shadow-subtle' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white'
-              }`}
-            >
-              Student
-            </button>
-            <button
-              type="button"
-              onClick={() => switchRole('teacher')}
-              className={`flex-1 py-1 rounded-lg text-center transition-all ${
-                role === 'teacher' ? 'bg-[var(--theme-primary,#4F46E5)] text-white shadow-subtle' : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white'
-              }`}
-            >
-              Teacher
-            </button>
-          </div>
-
           {/* Interactive Profile Popup Box (Appears when clicking profile picture/user block) */}
           <AnimatePresence>
             {profilePopoverOpen && (

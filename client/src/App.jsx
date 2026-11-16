@@ -16,16 +16,24 @@ import { DiagnosticResults } from './pages/DiagnosticResults';
 import { PracticeMode } from './pages/PracticeMode';
 import { TestMode } from './pages/TestMode';
 import { ReferenceLibrary } from './pages/ReferenceLibrary';
-import { AITutorChat } from './pages/AITutorChat';
+import { MyLearning } from './pages/MyLearning';
+import { MyRevision } from './pages/MyRevision';
 import { ClassroomHub } from './pages/ClassroomHub';
 import { AnalyticsHub } from './pages/AnalyticsHub';
 import { StudentDashboard } from './pages/StudentDashboard';
 import { TeacherDashboard } from './pages/TeacherDashboard';
+import { AssessmentBuilder } from './pages/AssessmentBuilder';
+import { LiveTestCentre } from './pages/LiveTestCentre';
+import { SubmissionsGrading } from './pages/SubmissionsGrading';
+import { ClassResults } from './pages/ClassResults';
+import { AttendanceManager } from './pages/AttendanceManager';
+import { SchoolAdminDashboard } from './pages/SchoolAdminDashboard';
 import { SolutionsHub } from './pages/SolutionsHub';
 import { Settings } from './pages/Settings';
 import { QuestionBankManager } from './pages/QuestionBankManager';
 import { StyleGuide } from './pages/StyleGuide';
 import { ContactSupportPage } from './pages/ContactSupportPage';
+import { ParentPortal } from './pages/ParentPortal';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
 // Protected App Shell Route Wrapper
@@ -47,10 +55,13 @@ const ProtectedRoute = ({ children }) => {
   return <AppShell>{children}</AppShell>;
 };
 
-// Dynamic Dashboard based on User Role
+// Dynamic Dashboard based on User Role (Admin, Teacher, Parent, Student)
 const DashboardResolver = () => {
   const { role } = useContext(AuthContext);
-  return role === 'teacher' ? <TeacherDashboard /> : <StudentDashboard />;
+  if (role === 'admin' || role === 'school_admin') return <SchoolAdminDashboard />;
+  if (role === 'teacher') return <TeacherDashboard />;
+  if (role === 'parent') return <ParentPortal />;
+  return <StudentDashboard />;
 };
 
 export const App = () => {
@@ -124,6 +135,91 @@ export const App = () => {
               }
             />
 
+            {/* Teacher Command Centre Dedicated Workspaces */}
+            <Route
+              path="/teacher/assessments"
+              element={
+                <ProtectedRoute>
+                  <AssessmentBuilder />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/teacher/builder"
+              element={
+                <ProtectedRoute>
+                  <AssessmentBuilder />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/teacher/live-test"
+              element={
+                <ProtectedRoute>
+                  <LiveTestCentre />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/teacher/grading"
+              element={
+                <ProtectedRoute>
+                  <SubmissionsGrading />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/teacher/results"
+              element={
+                <ProtectedRoute>
+                  <ClassResults />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/teacher/attendance"
+              element={
+                <ProtectedRoute>
+                  <AttendanceManager />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/teacher/reports"
+              element={
+                <ProtectedRoute>
+                  <ClassResults />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute>
+                  <SchoolAdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/school-admin"
+              element={
+                <ProtectedRoute>
+                  <SchoolAdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/parent"
+              element={
+                <ProtectedRoute>
+                  <ParentPortal />
+                </ProtectedRoute>
+              }
+            />
+
             <Route
               path="/select"
               element={
@@ -179,13 +275,21 @@ export const App = () => {
             />
 
             <Route
-              path="/tutor"
+              path="/my-learning"
               element={
                 <ProtectedRoute>
-                  <AITutorChat />
+                  <MyLearning />
                 </ProtectedRoute>
               }
             />
+
+            <Route path="/revision" element={<Navigate to="/my-learning" replace />} />
+
+            <Route path="/achievements" element={<Navigate to="/metrics" replace />} />
+
+            {/* Seamless redirects for legacy decommissioned AI routes */}
+            <Route path="/tutor" element={<Navigate to="/my-learning" replace />} />
+            <Route path="/ai-hub" element={<Navigate to="/revision" replace />} />
 
             <Route
               path="/classes"

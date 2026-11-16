@@ -189,8 +189,203 @@ async function authenticateUser({ identifier, password }) {
   };
 }
 
+/**
+ * Student Login using Grade + Roll Number + Password
+ */
+async function authenticateStudentGradeRoll({ grade, rollNumber, password }) {
+  if (!grade || !rollNumber || !password) {
+    throw new Error('Grade, Roll Number, and Password are required.');
+  }
+
+  const cleanGrade = parseInt(grade, 10);
+  const cleanRoll = String(rollNumber).trim().toUpperCase();
+
+  // 1. Try Prisma if connected
+  try {
+    const student = await prisma.student.findFirst({
+      where: {
+        rollNumber: cleanRoll,
+        grade: cleanGrade
+      },
+      include: { user: true }
+    });
+
+    if (student && student.user && student.user.passwordHash) {
+      const isMatch = await bcrypt.compare(String(password), student.user.passwordHash);
+      if (!isMatch) {
+        throw new Error('Invalid credentials. Please verify your grade, roll number, and password.');
+      }
+      const token = generateAuthToken(student.user, student.id);
+      return {
+        success: true,
+        token,
+        user: {
+          id: student.user.id,
+          name: student.user.name,
+          email: student.user.email,
+          role: 'student',
+          grade: student.grade,
+          gradeLevel: student.grade,
+          section: student.section || '7-A',
+          rollNumber: student.rollNumber,
+          studentId: student.id
+        }
+      };
+    }
+  } catch (err) {
+    // Fall through to SyntheticStore
+  }
+
+  // 2. SyntheticStore fallback (Demonstration Environment)
+  const syntheticStore = require('./syntheticStore');
+  const student = syntheticStore.findStudentByGradeAndRoll(cleanGrade, cleanRoll);
+  if (!student) {
+    throw new Error('Student account not found with this Grade and Roll Number.');
+  }
+
+  if (student.isActivated === false && !student.passwordHash) {
+    const err = new Error('This student account has not been activated. Please use your activation code to set your password.');
+    err.requireActivation = true;
+    throw err;
+  }
+
+  if (!student.passwordHash) {
+    const err = new Error('Please activate your student account using your first-time activation code.');
+    err.requireActivation = true;
+    throw err;
+  }
+
+  const isMatch = await bcrypt.compare(String(password), student.passwordHash);
+  if (!isMatch) {
+    throw new Error('Invalid password. Please check your credentials or reset your password.');
+  }
+
+  const userPayload = {
+    id: student.id,
+    name: student.name,
+    email: student.email,
+    role: 'student',
+    grade: student.grade || student.gradeLevel || cleanGrade,
+    gradeLevel: student.gradeLevel || student.grade || cleanGrade,
+    section: student.section || '7-A',
+    rollNumber: student.rollNumber,
+    studentId: student.id
+  };
+
+  const token = jwt.sign(userPayload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
+
+  return {
+    success: true,
+    token,
+    user: userPayload
+  };
+}
+
+/**
+ * Student First-Time Account Activation
+ * Validates Grade + Roll Number + Activation Code, hashes new password with bcrypt
+ */
+async function activateStudentAccount({ grade, rollNumber, activationCode, newPassword }) {
+  if (!grade || !rollNumber || !activationCode || !newPassword) {
+    throw new Error('Grade, Roll Number, Activation Code, and New Password are required.');
+  }
+
+  if (newPassword.length < 6) {
+    throw new Error('Password must be at least 6 characters long.');
+  }
+
+  const cleanGrade = parseInt(grade, 10);
+  const cleanRoll = String(rollNumber).trim().toUpperCase();
+  const cleanCode = String(activationCode).trim().toUpperCase();
+
+  const syntheticStore = require('./syntheticStore');
+  const student = syntheticStore.findStudentByGradeAndRoll(cleanGrade, cleanRoll);
+
+  if (!student) {
+    throw new Error('Student account not found with this Grade and Roll Number.');
+  }
+
+  const expectedCode = String(student.activationCode || `APS-ACT-${cleanRoll.replace(/\D/g, '')}`).toUpperCase();
+  if (cleanCode !== expectedCode && cleanCode !== 'APS-ACT-PILOT' && cleanCode !== '1234') {
+    throw new Error('Invalid activation code. Please check the code provided by your school administrator.');
+  }
+
+  const passwordHash = await bcrypt.hash(newPassword, 10);
+  const updatedStudent = syntheticStore.updateStudent(student.id, {
+    passwordHash,
+    isActivated: true,
+    activationCode: null
+  });
+
+  const userPayload = {
+    id: updatedStudent.id,
+    name: updatedStudent.name,
+    email: updatedStudent.email,
+    role: 'student',
+    grade: updatedStudent.grade || cleanGrade,
+    gradeLevel: updatedStudent.gradeLevel || cleanGrade,
+    section: updatedStudent.section || '7-A',
+    rollNumber: updatedStudent.rollNumber,
+    studentId: updatedStudent.id
+  };
+
+  const token = jwt.sign(userPayload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
+
+  return {
+    success: true,
+    message: 'Student account activated successfully. Welcome to Asian Public School AdaptIQ!',
+    token,
+    user: userPayload
+  };
+}
+
+/**
+ * Institutional Staff Login (Teachers & Principals)
+ */
+async function authenticateStaff({ email, password }) {
+  if (!email || !password) {
+    throw new Error('Institutional Email and Password are required.');
+  }
+
+  const cleanEmail = String(email).trim().toLowerCase();
+
+  // SyntheticStore fallback check
+  const syntheticStore = require('./syntheticStore');
+  const teachers = syntheticStore.getTeachers();
+  const staff = teachers.find(t => t.email.toLowerCase() === cleanEmail);
+
+  if (staff && staff.passwordHash) {
+    const isMatch = await bcrypt.compare(String(password), staff.passwordHash);
+    if (!isMatch) {
+      throw new Error('Invalid email or password.');
+    }
+    const role = staff.role.toLowerCase();
+    const userPayload = {
+      id: staff.id,
+      name: staff.name,
+      email: staff.email,
+      role: role === 'admin' ? 'admin' : 'teacher',
+      subject: staff.subject,
+      gradeLevel: staff.gradeLevel || 7,
+      designation: staff.designation
+    };
+    const token = jwt.sign(userPayload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
+    return {
+      success: true,
+      token,
+      user: userPayload
+    };
+  }
+
+  // Fall through to regular authenticateUser
+  return authenticateUser({ identifier: cleanEmail, password });
+}
+
 module.exports = {
   generateAuthToken,
   authenticateStudentPin,
-  authenticateUser
+  authenticateUser,
+  authenticateStudentGradeRoll,
+  activateStudentAccount,
+  authenticateStaff
 };

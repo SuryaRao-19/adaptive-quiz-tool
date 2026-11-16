@@ -1,6 +1,7 @@
 const ChatMessage = require('../models/ChatMessage');
 const QuizAttempt = require('../models/QuizAttempt');
 const keys = require('../config/keys');
+const { aiGateway } = require('../services/ai/gateway/aiGateway');
 
 const SOCRATIC_SYSTEM_PROMPT = `You are AdaptIQ AI Tutor, an empathetic, highly encouraging, and pedagogically sound academic tutor aligned with UN Sustainable Development Goal 4 (Quality Education).
 Your core tutoring rules:
@@ -69,70 +70,22 @@ const sendMessage = async (req, res, next) => {
 
     let aiReplyText = '';
 
-    // If AI_API_KEY is configured, call Gemini API
-    if (keys.AI_API_KEY && keys.AI_API_KEY.trim()) {
-      try {
-        const recentMessages = await ChatMessage.find({ userId })
-          .sort({ timestamp: -1 })
-          .limit(8)
-          .lean();
-        
-        recentMessages.reverse();
-
-        const contents = [
-          {
-            role: 'user',
-            parts: [{ text: `${SOCRATIC_SYSTEM_PROMPT}\nCurrent Subject: ${subject}, Topic: ${topic}` }]
-          },
-          {
-            role: 'model',
-            parts: [{ text: 'Understood. I am AdaptIQ AI Tutor. I will guide the student Socratically, encouraging conceptual understanding step-by-step.' }]
-          }
-        ];
-
-        recentMessages.forEach(m => {
-          contents.push({
-            role: m.role === 'user' ? 'user' : 'model',
-            parts: [{ text: m.content }]
-          });
-        });
-
-        // Add latest if not already in recentMessages
-        if (!recentMessages.some(m => m._id.toString() === userMsg._id.toString())) {
-          contents.push({
-            role: 'user',
-            parts: [{ text: message.trim() }]
-          });
-        }
-
-        const modelName = keys.AI_MODEL || 'gemini-1.5-flash';
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${keys.AI_API_KEY.trim()}`;
-
-        const apiResponse = await fetch(apiUrl, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents,
-            generationConfig: {
-              temperature: 0.7,
-              maxOutputTokens: 800
-            }
-          })
-        });
-
-        if (apiResponse.ok) {
-          const data = await apiResponse.json();
-          const candidate = data.candidates?.[0]?.content?.parts?.[0]?.text;
-          if (candidate) {
-            aiReplyText = candidate;
-          }
-        } else {
-          const errText = await apiResponse.text();
-          console.warn('Gemini API call failed, falling back to Socratic engine:', errText);
-        }
-      } catch (geminiError) {
-        console.warn('Error contacting Gemini API:', geminiError.message);
+    // Use AI Gateway (Gemini with multi-model routing & fallback)
+    try {
+      const aiRes = await aiGateway.chat({
+        userId,
+        message: cleanContent,
+        subject,
+        topic,
+        tutorMode: 'socratic',
+        mode: 'auto',
+        isTestMode
+      });
+      if (aiRes?.text) {
+        aiReplyText = aiRes.text;
       }
+    } catch (gatewayError) {
+      console.warn('[Chat Controller] Gateway invocation failed, falling back to local Socratic heuristic:', gatewayError.message);
     }
 
     // If no API key or API call failed, use intelligent Socratic fallback

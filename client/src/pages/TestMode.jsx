@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -17,7 +17,10 @@ import {
   Sparkles,
   Layers,
   Award,
-  Zap
+  Zap,
+  Maximize2,
+  Lock,
+  ShieldCheck
 } from 'lucide-react';
 import { AuthContext } from '../context/AuthContext';
 import { ThemeContext } from '../context/ThemeContext';
@@ -44,6 +47,9 @@ export const TestMode = () => {
 
   // Test catalog state
   const [testsList, setTestsList] = useState(MOCK_TESTS);
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedSubject, setSelectedSubject] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Active Test State
   const activeTestId = searchParams.get('id');
@@ -54,6 +60,16 @@ export const TestMode = () => {
   const [confirmModalOpen, setConfirmModalOpen] = useState(false);
   const [testCompleted, setTestCompleted] = useState(false);
   const [testScore, setTestScore] = useState(null);
+
+  // Proctoring & Anti-Cheat State
+  const [testStarted, setTestStarted] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [violationCount, setViolationCount] = useState(0);
+  const [violationModalOpen, setViolationModalOpen] = useState(false);
+  const [lastViolationReason, setLastViolationReason] = useState('');
+  const [isAutoSubmitted, setIsAutoSubmitted] = useState(false);
+  const isSubmittingRef = useRef(false);
+  const lastViolationTimeRef = useRef(0);
 
   // Post-Test Review State
   const [reviewQuestionIdx, setReviewQuestionIdx] = useState(0);
@@ -70,20 +86,38 @@ export const TestMode = () => {
   });
 
   useEffect(() => {
+    // Only launch test execution when a test id is specified (e.g. /test?id=...)
     if (activeTestId) {
       const found = testsList.find((t) => t.id === activeTestId) || testsList[0];
       setTestData(found);
-      setSecondsRemaining((found.durationMinutes || 15) * 60);
+      const savedAnswers = JSON.parse(localStorage.getItem(`adaptiq_test_answers_${found.id}`) || '{}');
+      setSelectedAnswers(savedAnswers);
+      setSecondsRemaining((found.durationMinutes || 20) * 60);
       setCurrentQuestionIndex(0);
-      setSelectedAnswers({});
       setTestCompleted(false);
       setTestScore(null);
+      setTestStarted(false);
+      setViolationCount(0);
+      setViolationModalOpen(false);
+      setLastViolationReason('');
+      setIsAutoSubmitted(false);
+      isSubmittingRef.current = false;
+    } else {
+      setTestData(null);
+      setTestCompleted(false);
+      setTestScore(null);
+      setTestStarted(false);
+      setViolationCount(0);
+      setViolationModalOpen(false);
+      setLastViolationReason('');
+      setIsAutoSubmitted(false);
+      isSubmittingRef.current = false;
     }
-  }, [activeTestId]);
+  }, [activeTestId, testsList]);
 
   // Countdown Timer
   useEffect(() => {
-    if (activeTestId && !testCompleted && secondsRemaining > 0) {
+    if (activeTestId && testData && testStarted && !testCompleted && secondsRemaining > 0) {
       const timer = setInterval(() => {
         setSecondsRemaining((prev) => {
           if (prev <= 1) {
@@ -96,7 +130,7 @@ export const TestMode = () => {
       }, 1000);
       return () => clearInterval(timer);
     }
-  }, [activeTestId, testCompleted, secondsRemaining]);
+  }, [activeTestId, testData, testStarted, testCompleted, secondsRemaining]);
 
   const formatCountdown = (secs) => {
     const mins = Math.floor(secs / 60);
@@ -105,30 +139,95 @@ export const TestMode = () => {
   };
 
   const handleSelectOption = (qId, optionIdx) => {
-    setSelectedAnswers({
+    const updated = {
       ...selectedAnswers,
       [qId]: optionIdx
+    };
+    setSelectedAnswers(updated);
+    if (testData?.id) {
+      try {
+        localStorage.setItem(`adaptiq_test_answers_${testData.id}`, JSON.stringify(updated));
+      } catch (_) {}
+    }
+  };
+
+  const handleStartExam = async () => {
+    try {
+      if (typeof document !== 'undefined' && document.documentElement && document.documentElement.requestFullscreen) {
+        await document.documentElement.requestFullscreen();
+        setIsFullscreen(true);
+      }
+    } catch (err) {
+      console.warn('Fullscreen request blocked or not supported:', err);
+    }
+    setTestStarted(true);
+    isSubmittingRef.current = false;
+  };
+
+  const handleResumeFullscreen = async () => {
+    try {
+      if (typeof document !== 'undefined' && document.documentElement && document.documentElement.requestFullscreen) {
+        await document.documentElement.requestFullscreen();
+        setIsFullscreen(true);
+      }
+    } catch (err) {
+      console.warn('Fullscreen resume error:', err);
+    }
+    setViolationModalOpen(false);
+  };
+
+  const handleAutoSubmit = async (violations, reason) => {
+    if (isSubmittingRef.current) return;
+    isSubmittingRef.current = true;
+    setIsAutoSubmitted(true);
+    setViolationModalOpen(false);
+
+    if (typeof document !== 'undefined' && document.fullscreenElement) {
+      try {
+        await document.exitFullscreen();
+      } catch (_) {}
+    }
+
+    await calculateScore({
+      autoSubmitted: true,
+      violationCount: violations,
+      violationReason: reason
     });
   };
 
-  const calculateScore = () => {
-    const questions = testData?.questions || MOCK_TESTS[0].questions;
+  const calculateScore = async (submissionMeta = {}) => {
+    if (typeof document !== 'undefined' && document.fullscreenElement) {
+      try {
+        await document.exitFullscreen();
+      } catch (_) {}
+    }
+
+    const questions = testData?.questions || testsList[0]?.questions || [];
     let correct = 0;
     const avgTimePerQuestion = Math.max(
       5,
-      Math.round(((testData?.durationMinutes || 15) * 60 - secondsRemaining) / (questions.length || 1))
+      Math.round(((testData?.durationMinutes || 20) * 60 - secondsRemaining) / (questions.length || 1))
     );
 
+    const topicStats = {};
     questions.forEach((q) => {
       const selectedIdx = selectedAnswers[q.id];
-      if (selectedIdx === q.correctIndex) {
-        correct++;
-      }
+      const correctIdx = q.correctIndex !== undefined ? q.correctIndex : q.correctAnswerIndex;
+      const isCorrect = selectedIdx !== undefined && Number(selectedIdx) === Number(correctIdx);
+      if (isCorrect) correct++;
+
+      const t = q.topic || 'General Mathematics';
+      if (!topicStats[t]) topicStats[t] = { correct: 0, total: 0 };
+      topicStats[t].total++;
+      if (isCorrect) topicStats[t].correct++;
+
       if (selectedIdx !== undefined) {
         recordAttempt({
           questionId: q.id,
           selectedAnswerIndex: selectedIdx,
-          subject: testData?.subject || 'Math',
+          isCorrect,
+          correctIndex: correctIdx,
+          subject: testData?.subject || 'Mathematics',
           topic: q.topic || 'Assessment',
           difficulty: q.difficulty || 'medium',
           timeSpentSeconds: avgTimePerQuestion
@@ -136,29 +235,167 @@ export const TestMode = () => {
       }
     });
 
-    const percentage = Math.round((correct / questions.length) * 100);
-    setTestScore({ correct, total: questions.length, percentage });
+    // Identify weak topic (lowest accuracy)
+    let weakestTopic = 'Fractions & Decimals';
+    let lowestAcc = 1.0;
+    Object.entries(topicStats).forEach(([top, stats]) => {
+      const acc = stats.total > 0 ? (stats.correct / stats.total) : 0;
+      if (acc < lowestAcc) {
+        lowestAcc = acc;
+        weakestTopic = top;
+      }
+    });
+
+    const weakTopicsList = Object.entries(topicStats)
+      .filter(([_, stats]) => (stats.correct / stats.total) < 0.70)
+      .map(([top]) => top);
+
+    const percentage = Math.round((correct / (questions.length || 1)) * 100);
+    const scoreResult = {
+      correct,
+      total: questions.length,
+      percentage,
+      weakTopic: weakestTopic,
+      weakTopics: weakTopicsList.length > 0 ? weakTopicsList : [weakestTopic],
+      reason: `Your diagnostic results show that ${weakestTopic} needs more practice. Let's begin with foundational questions.`,
+      autoSubmitted: Boolean(submissionMeta?.autoSubmitted),
+      violationCount: submissionMeta?.violationCount || 0,
+      violationReason: submissionMeta?.violationReason || null
+    };
+
+    setTestScore(scoreResult);
     setTestCompleted(true);
     setConfirmModalOpen(false);
+    setViolationModalOpen(false);
     setReviewQuestionIdx(0);
 
-    // Server-authoritative post-test submission
-    submitQuizAnswers({
-      quizType: 'post_test',
-      subject: testData?.subject || 'Math',
-      topic: 'Assessment',
-      answers: questions.map((q) => ({
-        questionId: q.id,
-        selectedOptionIndex: selectedAnswers[q.id],
-        isCorrect: selectedAnswers[q.id] === q.correctIndex
-      }))
-    }).catch((err) => console.warn('Could not record official post_test:', err));
+    // Clear local cache for completed test
+    if (testData?.id) {
+      try {
+        localStorage.removeItem(`adaptiq_test_answers_${testData.id}`);
+      } catch (_) {}
+    }
+
+    // Submit attempt to server
+    try {
+      const token = localStorage.getItem('token');
+      await fetch(`/api/assessments/${testData?.id || 'aps-g7-math-diag-2026'}/submit`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {})
+        },
+        body: JSON.stringify({
+          studentId: user?.id || user?._id || 'stu-g7-001',
+          studentName: user?.name || user?.fullName || 'Aarav Patel',
+          rollNumber: user?.rollNumber || 'APS-07-001',
+          answers: selectedAnswers,
+          score: correct,
+          maxScore: questions.length,
+          scorePercentage: percentage,
+          weakTopic: weakestTopic,
+          weakTopics: weakTopicsList,
+          autoSubmitted: Boolean(submissionMeta?.autoSubmitted),
+          violationCount: submissionMeta?.violationCount || 0,
+          violationReason: submissionMeta?.violationReason || null
+        })
+      });
+    } catch (err) {
+      console.warn('Assessment submit server notification warning:', err);
+    }
 
     const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!prefersReducedMotion && percentage >= 70) {
+    if (!prefersReducedMotion && percentage >= 70 && !submissionMeta?.autoSubmitted) {
       confetti({ particleCount: 60, spread: 75, origin: { y: 0.6 } });
     }
   };
+
+  // Proctoring & Anti-Cheat Enforcement Listeners
+  useEffect(() => {
+    if (!activeTestId || !testData || !testStarted || testCompleted) return;
+
+    const triggerViolation = (reason) => {
+      if (isSubmittingRef.current || testCompleted) return;
+      const now = Date.now();
+      // Debounce by 1500ms to prevent double strikes from simultaneous events (blur + visibilitychange)
+      if (now - lastViolationTimeRef.current < 1500) return;
+      lastViolationTimeRef.current = now;
+
+      setViolationCount((prev) => {
+        const next = prev + 1;
+        setLastViolationReason(reason);
+
+        if (next >= 3) {
+          handleAutoSubmit(3, reason);
+          return 3;
+        } else {
+          setViolationModalOpen(true);
+          return next;
+        }
+      });
+    };
+
+    // 1. Tab switch or window minimize
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        triggerViolation('Browser tab switched or window minimized');
+      }
+    };
+
+    // 2. Application switch / window blur
+    const handleWindowBlur = () => {
+      if (!isSubmittingRef.current) {
+        triggerViolation('Application switch or window focus lost');
+      }
+    };
+
+    // 3. Fullscreen exit
+    const handleFullscreenChange = () => {
+      const isFS = Boolean(document.fullscreenElement);
+      setIsFullscreen(isFS);
+      if (!isFS && !isSubmittingRef.current) {
+        triggerViolation('Exited full-screen examination mode');
+      }
+    };
+
+    // 4. Block context menu, cut/copy/paste
+    const handleContextMenu = (e) => e.preventDefault();
+    const handleCopy = (e) => e.preventDefault();
+    const handleCut = (e) => e.preventDefault();
+    const handlePaste = (e) => e.preventDefault();
+
+    // 5. Block devtools & inspector key combinations
+    const handleKeyDown = (e) => {
+      if (
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j')) ||
+        (e.ctrlKey && (e.key === 'u' || e.key === 'U'))
+      ) {
+        e.preventDefault();
+        triggerViolation('Restricted developer shortcut attempted');
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('blur', handleWindowBlur);
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('contextmenu', handleContextMenu);
+    document.addEventListener('copy', handleCopy);
+    document.addEventListener('cut', handleCut);
+    document.addEventListener('paste', handlePaste);
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('blur', handleWindowBlur);
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      document.removeEventListener('contextmenu', handleContextMenu);
+      document.removeEventListener('copy', handleCopy);
+      document.removeEventListener('cut', handleCut);
+      document.removeEventListener('paste', handlePaste);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [activeTestId, testData, testStarted, testCompleted]);
 
   // Phase 3: Keyboard-Driven Assessment Shortcuts for Timed Tests
   const activeQuestions = testData?.questions || MOCK_TESTS[0].questions;
@@ -182,13 +419,134 @@ export const TestMode = () => {
     },
     canNextQuestion: !isLastActiveQuestion,
     onNextQuestion: () => setCurrentQuestionIndex((prev) => prev + 1),
-    isDisabled: !activeTestId || !testData || testCompleted || confirmModalOpen
+    isDisabled: !testData || !testStarted || testCompleted || confirmModalOpen || violationModalOpen
   });
+
+  // =========================================================================
+  // VIEW 0: PRE-FLIGHT INSTITUTIONAL PROCTORING TERMINAL & FULLSCREEN LAUNCH
+  // =========================================================================
+  if (testData && !testCompleted && !testStarted) {
+    const questions = testData.questions || MOCK_TESTS[0].questions;
+    return (
+      <div className="min-h-screen bg-slate-900 text-white flex flex-col justify-between p-4 sm:p-8">
+        {/* Top Institutional Header */}
+        <div className="max-w-4xl mx-auto w-full flex items-center justify-between border-b border-slate-800 pb-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center font-black text-white text-base shadow-glow-primary">
+              APS
+            </div>
+            <div>
+              <h1 className="text-sm sm:text-base font-extrabold tracking-tight text-white">
+                Asian Public School, Sohna
+              </h1>
+              <p className="text-[11px] font-mono text-cyan-300">
+                CBSE Affiliation No. 530587 • Digital Examination Center
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-rose-500/20 text-rose-300 border border-rose-500/40 flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-rose-500 animate-ping" />
+              Proctored CBT Mode
+            </span>
+          </div>
+        </div>
+
+        {/* Center Terminal Box */}
+        <div className="max-w-2xl mx-auto w-full my-6 bg-slate-950/80 border-2 border-indigo-500/30 rounded-3xl p-6 sm:p-10 shadow-elevated space-y-6">
+          <div className="space-y-1.5 text-center">
+            <span className="text-[11px] font-black uppercase tracking-widest text-indigo-400">
+              CBSE Class VII • Standardized Academic Evaluation
+            </span>
+            <h2 className="text-xl sm:text-2xl font-black text-white">
+              {testData.title}
+            </h2>
+            <p className="text-xs text-slate-400 leading-relaxed max-w-lg mx-auto">
+              {testData.description || 'Institutional baseline diagnostic evaluation.'}
+            </p>
+          </div>
+
+          {/* Candidate & Paper Verification Strip */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 p-3 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs">
+            <div>
+              <span className="text-[10px] font-mono uppercase text-slate-400 block">Candidate</span>
+              <span className="font-bold text-white truncate block">{user?.name || user?.fullName || 'Aarav Patel'}</span>
+            </div>
+            <div>
+              <span className="text-[10px] font-mono uppercase text-slate-400 block">Roll Number</span>
+              <span className="font-bold text-cyan-300 font-mono block">{user?.rollNumber || 'APS-07-001'}</span>
+            </div>
+            <div>
+              <span className="text-[10px] font-mono uppercase text-slate-400 block">Duration</span>
+              <span className="font-bold text-amber-400 font-mono block">{testData.durationMinutes || 20} Minutes</span>
+            </div>
+            <div>
+              <span className="text-[10px] font-mono uppercase text-slate-400 block">Questions</span>
+              <span className="font-bold text-emerald-400 font-mono block">{questions.length} Items</span>
+            </div>
+          </div>
+
+          {/* Mandatory Anti-Cheat & Examination Protocol */}
+          <div className="space-y-3 p-4 rounded-2xl bg-indigo-950/40 border border-indigo-800/60">
+            <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-amber-400">
+              <ShieldAlert className="w-4 h-4 text-amber-400" />
+              <span>Mandatory Anti-Cheat & Examination Protocol</span>
+            </div>
+            <ul className="space-y-2 text-xs text-slate-300">
+              <li className="flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-indigo-600/30 text-indigo-300 border border-indigo-500/40 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">1</span>
+                <span><strong>Exclusive Fullscreen Mode:</strong> Starting the test locks your screen into fullscreen. Exiting fullscreen is recorded as an infraction.</span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-indigo-600/30 text-indigo-300 border border-indigo-500/40 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">2</span>
+                <span><strong>Zero-Tolerance Window Switching:</strong> Navigating away from this tab, opening other applications, or minimizing the browser immediately registers a violation.</span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-rose-600/30 text-rose-300 border border-rose-500/40 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">3</span>
+                <span><strong className="text-rose-300">3-Strike Auto-Submission:</strong> You receive a maximum of 2 warnings. On the <span className="underline decoration-rose-500 font-bold">3rd violation</span>, your exam will automatically submit and lock.</span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="w-5 h-5 rounded-full bg-indigo-600/30 text-indigo-300 border border-indigo-500/40 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">4</span>
+                <span><strong>Clipboard & Inspection Guard:</strong> Right-click, copy-paste, and developer shortcuts are locked during this test.</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Action Button */}
+          <div className="space-y-3 pt-2">
+            <Button
+              variant="glow"
+              size="lg"
+              fullWidth
+              onClick={handleStartExam}
+              className="py-4 text-sm font-black tracking-wide"
+            >
+              Begin Proctored Examination (Enter Fullscreen) ▶
+            </Button>
+            <div className="text-center">
+              <button
+                type="button"
+                onClick={() => navigate('/test')}
+                className="text-xs text-slate-400 hover:text-white transition-colors"
+              >
+                ← Return to Assessment Catalog
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="max-w-4xl mx-auto w-full text-center text-[11px] text-slate-500 border-t border-slate-800 pt-3">
+          Asian Public School, Sohna, Gurugram • Institutional CBT Security Engine • Zero External APIs
+        </div>
+      </div>
+    );
+  }
 
   // ==========================================
   // VIEW 1: ACTIVE TIMED TEST EXECUTION SCREEN
   // ==========================================
-  if (activeTestId && testData && !testCompleted) {
+  if (testData && !testCompleted && testStarted) {
     const questions = testData.questions || MOCK_TESTS[0].questions;
     const currentQ = questions[currentQuestionIndex];
     const answeredCount = Object.keys(selectedAnswers).length;
@@ -196,7 +554,7 @@ export const TestMode = () => {
     const isLastQuestion = currentQuestionIndex === questions.length - 1;
 
     return (
-      <div className="min-h-screen bg-slate-100/60 dark:bg-slate-950 pb-16 transition-colors">
+      <div className="min-h-screen bg-slate-100/60 dark:bg-slate-950 pb-16 transition-colors select-none">
         {/* Visually Distinguished Test Banner (Solid Dark Navy / Amber) */}
         <div className="bg-slate-900 text-white px-4 sm:px-8 py-3.5 shadow-md sticky top-0 z-30 border-b border-slate-800">
           <div className="max-w-5xl mx-auto flex items-center justify-between">
@@ -212,14 +570,37 @@ export const TestMode = () => {
               </div>
             </div>
 
-            {/* Countdown Clock Display */}
-            <div className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl font-mono text-sm font-bold border ${
-              secondsRemaining < 180
-                ? 'bg-rose-950 text-rose-300 border-rose-600 animate-pulse'
-                : 'bg-slate-800 text-white border-slate-700'
-            }`}>
-              <Clock className="w-4 h-4 text-amber-400" />
-              <span>{formatCountdown(secondsRemaining)}</span>
+            {/* Right side controls: Proctoring Status & Countdown Clock */}
+            <div className="flex items-center gap-3">
+              {/* Proctoring Status Pill */}
+              <div className={`hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold border transition-colors ${
+                violationCount === 0
+                  ? 'bg-emerald-950/70 text-emerald-300 border-emerald-600/60'
+                  : violationCount === 1
+                  ? 'bg-amber-950/80 text-amber-300 border-amber-500 animate-pulse'
+                  : 'bg-rose-950 text-rose-300 border-rose-500 animate-pulse'
+              }`}>
+                {violationCount === 0 ? (
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                ) : (
+                  <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
+                )}
+                <span>
+                  {violationCount === 0
+                    ? 'Proctoring Secure • 0/3 Strikes'
+                    : `⚠️ Strike ${violationCount}/3 (${violationCount === 2 ? 'FINAL WARNING' : 'Warning'})`}
+                </span>
+              </div>
+
+              {/* Countdown Clock Display */}
+              <div className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl font-mono text-sm font-bold border ${
+                secondsRemaining < 180
+                  ? 'bg-rose-950 text-rose-300 border-rose-600 animate-pulse'
+                  : 'bg-slate-800 text-white border-slate-700'
+              }`}>
+                <Clock className="w-4 h-4 text-amber-400" />
+                <span>{formatCountdown(secondsRemaining)}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -371,6 +752,60 @@ export const TestMode = () => {
             </Button>
           </div>
         </Modal>
+
+        {/* Anti-Cheat Proctoring Violation Warning Modal (Strikes 1 & 2) */}
+        {violationModalOpen && violationCount < 3 && (
+          <div className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4">
+            <div className="max-w-md w-full bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-8 shadow-2xl border-2 border-rose-500 space-y-5">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-2xl bg-rose-100 dark:bg-rose-950/60 border border-rose-300 dark:border-rose-700 flex items-center justify-center text-rose-600 shrink-0">
+                  <AlertTriangle className="w-6 h-6 text-rose-600" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-black uppercase tracking-wider text-rose-600 dark:text-rose-400 block">
+                    Academic Integrity Monitor
+                  </span>
+                  <h3 className="text-lg font-black text-slate-900 dark:text-white">
+                    {violationCount === 1 ? 'Proctoring Warning (1 of 3)' : 'CRITICAL FINAL WARNING (2 of 3)'}
+                  </h3>
+                </div>
+              </div>
+
+              {/* Strike Visual Indicator */}
+              <div className="grid grid-cols-3 gap-2">
+                <div className="p-2 rounded-xl text-center text-xs font-bold bg-rose-500 text-white shadow">
+                  Strike 1 ⚠️
+                </div>
+                <div className={`p-2 rounded-xl text-center text-xs font-bold ${
+                  violationCount >= 2 ? 'bg-rose-500 text-white shadow' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 border border-slate-200 dark:border-slate-700'
+                }`}>
+                  Strike 2 🚨
+                </div>
+                <div className="p-2 rounded-xl text-center text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-400 border border-slate-200 dark:border-slate-700">
+                  Strike 3 🛑 Auto-Submit
+                </div>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 text-xs text-rose-900 dark:text-rose-200 space-y-1.5">
+                <p className="font-bold">Incident Detected: {lastViolationReason}</p>
+                <p className="text-[11px] leading-relaxed">
+                  {violationCount === 1 
+                    ? 'Leaving the examination window or exiting full-screen mode is strictly recorded by the assessment server. Please return to fullscreen immediately.'
+                    : 'You have committed 2 out of 3 allowed infractions. Any further attempt to switch tabs, minimize the window, or lose focus will IMMEDIATELY auto-submit your exam.'}
+                </p>
+              </div>
+
+              <Button
+                variant="glow"
+                fullWidth
+                size="lg"
+                onClick={handleResumeFullscreen}
+              >
+                Return to Fullscreen & Resume Assessment ▶
+              </Button>
+            </div>
+          </div>
+        )}
       </div>
     );
   }
@@ -378,7 +813,7 @@ export const TestMode = () => {
   // =========================================================================
   // VIEW 2: POST-TEST RESULTS & COMPREHENSIVE SOLVED ANSWERS / EXPLANATION
   // =========================================================================
-  if (activeTestId && testCompleted && testScore) {
+  if (testCompleted && testScore) {
     const questions = testData?.questions || MOCK_TESTS[0].questions;
     const currentReviewQ = questions[reviewQuestionIdx] || questions[0];
     const userSelectedIdx = selectedAnswers[currentReviewQ.id];
@@ -387,15 +822,43 @@ export const TestMode = () => {
     return (
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 animate-fadeIn">
         
+        {/* Academic Integrity Infraction Alert (If auto-submitted due to 3 violations) */}
+        {testScore.autoSubmitted && (
+          <div className="bg-gradient-to-r from-rose-900 via-rose-950 to-slate-900 border-2 border-rose-500 text-white rounded-3xl p-6 sm:p-7 shadow-xl space-y-2 text-left">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-rose-600 flex items-center justify-center shrink-0">
+                <ShieldAlert className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <span className="text-[10px] font-black uppercase tracking-wider text-rose-300">
+                  Academic Integrity Monitor • System Auto-Submission
+                </span>
+                <h3 className="text-base sm:text-lg font-black text-white">
+                  Examination Terminated on 3rd Proctoring Violation
+                </h3>
+              </div>
+            </div>
+            <p className="text-xs text-rose-200 leading-relaxed">
+              This examination was forcibly sealed and auto-submitted after 3 consecutive proctoring infractions ({testScore.violationReason || 'Excessive Window/Tab Switching'}). Answers completed up to the moment of termination have been sealed and forwarded for administrative evaluation.
+            </p>
+          </div>
+        )}
+
         {/* Top Score Banner */}
         <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-10 shadow-card text-center">
           <div className="w-16 h-16 rounded-2xl bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-cyan-400 flex items-center justify-center text-3xl mx-auto mb-3 shadow-glow-primary">
             🎓
           </div>
-          <Badge variant="primary" size="md" className="mb-2">Official Timed Assessment Results</Badge>
+          <Badge variant={testScore.autoSubmitted ? "danger" : "primary"} size="md" className="mb-2">
+            {testScore.autoSubmitted ? 'Auto-Submitted • Proctoring Lock' : 'Official Timed Assessment Results'}
+          </Badge>
           
           <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white">
-            {testScore.percentage >= 70 ? 'Proficiency Milestone Achieved!' : 'Assessment Complete - Learning Gaps Identified'}
+            {testScore.autoSubmitted
+              ? 'Assessment Locked & Auto-Submitted'
+              : testScore.percentage >= 70
+              ? 'Proficiency Milestone Achieved!'
+              : 'Assessment Complete - Learning Gaps Identified'}
           </h1>
           <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm mt-1 mb-6">
             {testData?.title} • Standardized across Easy, Medium, Hard, and Very Hard questions.
@@ -410,15 +873,61 @@ export const TestMode = () => {
               <span className="text-[10px] uppercase font-bold text-slate-400 block">Correct</span>
               <span className="text-3xl font-extrabold text-slate-900 dark:text-white">{testScore.correct} / {testScore.total}</span>
             </div>
-            <div className="bg-emerald-50 dark:bg-emerald-950/60 p-4 rounded-2xl border border-emerald-200 dark:border-emerald-800">
-              <span className="text-[10px] uppercase font-bold text-emerald-600 block">Status</span>
-              <span className="text-3xl font-extrabold text-emerald-600">{testScore.percentage >= 70 ? 'PASS' : 'RETRY'}</span>
+            <div className={`p-4 rounded-2xl border ${
+              testScore.autoSubmitted
+                ? 'bg-rose-50 dark:bg-rose-950/60 border-rose-200 dark:border-rose-800 text-rose-600'
+                : 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-200 dark:border-emerald-800 text-emerald-600'
+            }`}>
+              <span className="text-[10px] uppercase font-bold block">Status</span>
+              <span className="text-xl sm:text-2xl font-extrabold">
+                {testScore.autoSubmitted ? 'VIOLATION' : testScore.percentage >= 70 ? 'PASS' : 'RETRY'}
+              </span>
             </div>
           </div>
 
+          {/* Diagnostic Weakness & Adaptive Practice Remediation Banner */}
+          {testScore.weakTopic && (
+            <div className="p-5 rounded-2xl bg-gradient-to-r from-amber-500/10 via-indigo-500/10 to-purple-500/10 border-2 border-indigo-500/40 text-left space-y-3 mb-6">
+              <div className="flex items-center gap-2">
+                <AlertTriangle className="w-5 h-5 text-amber-500 shrink-0" />
+                <span className="text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400">
+                  Targeted Learning Gap Identified: {testScore.weakTopic}
+                </span>
+              </div>
+              <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
+                "{testScore.reason || `Your diagnostic results show that ${testScore.weakTopic} needs more practice. Let's begin with foundational questions.`}"
+              </p>
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
+                <span className="text-xs text-slate-500 dark:text-slate-400">
+                  Adaptive practice calibrated with 10 questions adjusting in difficulty.
+                </span>
+                <Button
+                  variant="primary"
+                  size="sm"
+                  icon={ArrowRight}
+                  onClick={() => navigate(`/practice?subject=Mathematics&topic=${encodeURIComponent(testScore.weakTopic)}&autostart=true&reason=${encodeURIComponent(testScore.reason)}`)}
+                  className="font-extrabold text-xs shadow-md"
+                >
+                  Launch Adaptive Practice ({testScore.weakTopic}) →
+                </Button>
+              </div>
+            </div>
+          )}
+
           <div className="flex flex-wrap justify-center gap-3">
+            {testScore.weakTopic && (
+              <Button
+                variant="primary"
+                size="sm"
+                icon={Zap}
+                onClick={() => navigate(`/practice?subject=Mathematics&topic=${encodeURIComponent(testScore.weakTopic)}&autostart=true&reason=${encodeURIComponent(testScore.reason)}`)}
+                className="font-bold text-xs"
+              >
+                Start Adaptive Practice ({testScore.weakTopic})
+              </Button>
+            )}
             <Button
-              variant="primary"
+              variant="outline"
               size="sm"
               onClick={() => navigate('/report?subject=Math')}
             >
@@ -427,9 +936,9 @@ export const TestMode = () => {
             <Button
               variant="outline"
               size="sm"
-              onClick={() => navigate('/select')}
+              onClick={() => navigate('/dashboard')}
             >
-              Back to Subject Portals
+              Back to Dashboard
             </Button>
           </div>
         </div>
@@ -445,7 +954,7 @@ export const TestMode = () => {
                 Detailed Solutions & Concept Explanations
               </h2>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                Select any question below to inspect step-by-step solved methodology, pedagogical rules, and Socratic AI guidance.
+                Select any question below to inspect step-by-step solved methodology, pedagogical rules, and conceptual breakdown.
               </p>
             </div>
             <span className="text-xs font-bold text-indigo-600 dark:text-cyan-400 bg-indigo-50 dark:bg-slate-800 px-3 py-1 rounded-full border border-indigo-100 dark:border-slate-700">
@@ -600,18 +1109,18 @@ export const TestMode = () => {
               </motion.div>
             )}
 
-            {/* Socratic AI Tutor Prompt Link (Always Available in Review) */}
+            {/* Targeted Practice on This Topic */}
             <div className="p-4 rounded-2xl bg-gradient-to-r from-indigo-50/80 to-cyan-50/80 dark:from-slate-800 dark:to-indigo-950/60 border border-indigo-200 dark:border-indigo-800 flex flex-col sm:flex-row items-center justify-between gap-3 mt-4">
               <div>
-                <h5 className="font-bold text-xs text-slate-900 dark:text-white">Still confused about this problem?</h5>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400">Our context-aware Socratic AI Tutor can walk you through an everyday analogy or similar practice question.</p>
+                <h5 className="font-bold text-xs text-slate-900 dark:text-white">Strengthen Concept Mastery in {currentReviewQ.topic}</h5>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400">Launch a 10-question adaptive practice session calibrated to your current performance.</p>
               </div>
               <Button
                 size="sm"
                 variant="primary"
-                onClick={() => navigate(`/tutor?topic=${encodeURIComponent(currentReviewQ.topic)}&problem=${encodeURIComponent(currentReviewQ.questionText)}`)}
+                onClick={() => navigate(`/practice?subject=Mathematics&topic=${encodeURIComponent(currentReviewQ.topic)}&autostart=true`)}
               >
-                Discuss with AI Tutor →
+                Practice This Topic →
               </Button>
             </div>
 
@@ -626,18 +1135,53 @@ export const TestMode = () => {
   // ==========================================
   // VIEW 3: TIMED TEST HUB & CATALOG
   // ==========================================
+  const CATEGORIES = [
+    'All',
+    'Diagnostic Assessments',
+    'Chapter Assessments',
+    'Topic Quizzes',
+    'Periodic Assessments',
+    'Half-Yearly Examinations',
+    'Annual Examinations',
+    'Adaptive Tests',
+    'Olympiad / Competitive Prep',
+    'Board / Pre-Board Mock Exams'
+  ];
+
+  const studentGrade = user?.gradeLevel || user?.grade || 7;
+
+  const filteredTests = testsList.filter((t) => {
+    // Lock tests strictly to student's enrolled grade
+    if (role === 'student' && t.gradeLevel && t.gradeLevel !== studentGrade) {
+      return false;
+    }
+    const matchesCategory = selectedCategory === 'All' || t.category === selectedCategory || (selectedCategory === 'Diagnostic Assessments' && t.type === 'Diagnostic');
+    const matchesSubject = selectedSubject === 'All' || (t.subject || '').includes(selectedSubject);
+    const textTarget = `${t.title} ${t.description || ''} ${t.subject || ''} ${t.assignedBy || ''}`.toLowerCase();
+    const matchesSearch = textTarget.includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSubject && matchesSearch;
+  });
+
+  const featuredTest = testsList.find(t => t.gradeLevel === studentGrade && t.isFeatured) 
+    || testsList.find(t => t.gradeLevel === studentGrade) 
+    || testsList.find(t => t.id === 'aps-g7-diagnostic-pre') 
+    || testsList[0];
+
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 animate-fadeIn">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 animate-fadeIn">
+      {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-200 dark:border-slate-800">
         <div>
           <div className="flex items-center gap-2">
             <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-              Standardized Timed Assessments
+              School Assessment Centre
             </h1>
-            <Badge variant="warning" size="sm">4-Tier Levels</Badge>
+            <Badge variant="primary" size="sm">
+              {role === 'student' ? `Class ${studentGrade} Catalog` : '9 Test Catalogs'}
+            </Badge>
           </div>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-            Formal evaluations across Easy, Medium, Hard, and Very Hard tiers to measure pre/post growth deltas.
+            Standardized evaluations for Asian Public School across Diagnostic, Chapter, Periodic, Board Mocks, and Olympiad tiers.
           </p>
         </div>
 
@@ -653,48 +1197,186 @@ export const TestMode = () => {
         )}
       </div>
 
+      {/* Featured Institutional Assessment: Dynamically adapted to current grade */}
+      {featuredTest && (
+        <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-elevated border-2 border-indigo-500/40 relative overflow-hidden space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div className="flex items-center gap-2">
+              <span className="px-2.5 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-indigo-500/30 text-cyan-300 border border-indigo-400/40">
+                Institutional Demonstration Feature
+              </span>
+              <span className="px-2.5 py-1 rounded-full text-[11px] font-bold bg-white/10 text-slate-200 border border-white/20">
+                CBSE 2026–2027 • Class {featuredTest.gradeLevel === 3 ? 'III (Primary)' : featuredTest.gradeLevel === 7 ? 'VII (Middle)' : featuredTest.gradeLevel === 10 ? 'X (Secondary)' : featuredTest.gradeLevel || 'VII'}
+              </span>
+            </div>
+            <div className="flex items-center gap-3 text-xs font-mono font-bold text-cyan-300">
+              <span className="flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5 text-amber-400" />
+                {featuredTest.durationMinutes || 25} Minutes
+              </span>
+              <span className="flex items-center gap-1">
+                <Layers className="w-3.5 h-3.5 text-indigo-400" />
+                {featuredTest.questions?.length || 12} Balanced Questions
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-xl sm:text-2xl font-black tracking-tight text-white">
+              {featuredTest.title}
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-3xl leading-relaxed">
+              {featuredTest.description}
+            </p>
+          </div>
+
+          {/* Competencies Breakdown Strip */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 text-[11px]">
+            <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
+              <span className="text-indigo-300 font-bold block">
+                {featuredTest.gradeLevel === 3 ? '📚 Primary Literacy & Numeracy' : '📐 Mathematics Competencies'}
+              </span>
+              <span className="text-slate-300">
+                {featuredTest.gradeLevel === 3 ? 'Arithmetic, shapes, sight words, grammar' : 'Integers, Fractions, Angles, Algebra, Ratios'}
+              </span>
+            </div>
+            <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
+              <span className="text-cyan-300 font-bold block">
+                {featuredTest.gradeLevel === 3 ? '🌿 Environmental Awareness' : '🔬 Science Competencies'}
+              </span>
+              <span className="text-slate-300">
+                {featuredTest.gradeLevel === 3 ? 'Living things, habitats, seasons, plants' : 'Plants, Heat, Acids, Motion, Current, Light'}
+              </span>
+            </div>
+            <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
+              <span className="text-amber-300 font-bold block">⚡ 3 Difficulty Tiers</span>
+              <span className="text-slate-300">Easy (4), Medium (4), Hard (4)</span>
+            </div>
+            <div className="p-2.5 rounded-xl bg-white/5 border border-white/10">
+              <span className="text-emerald-300 font-bold block">📈 Real-Time Calibration</span>
+              <span className="text-slate-300">Rasch Ability & BKT Mastery Profiling</span>
+            </div>
+          </div>
+
+          <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
+            <span className="text-xs text-slate-300">
+              Assigned By: <strong>{featuredTest.assignedBy}</strong>
+            </span>
+            <div className="flex items-center gap-2">
+              <Button
+                variant="glow"
+                size="md"
+                onClick={() => navigate(`/test?id=${featuredTest.id}`)}
+                iconRight={ArrowRight}
+              >
+                Launch Class {featuredTest.gradeLevel || 7} Assessment →
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Search and Category Filters */}
+      <div className="space-y-4">
+        {/* Search & Subject Bar */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-card">
+          <div className="relative flex-1 w-full">
+            <input
+              type="text"
+              placeholder="Search assessment title, topic, or grade..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full px-4 py-2 text-xs rounded-xl border border-slate-200 dark:border-slate-700 outline-none focus:ring-1 focus:ring-indigo-600 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white"
+            />
+          </div>
+
+          <div className="flex items-center bg-slate-100 dark:bg-slate-800 p-1 rounded-xl border border-slate-200 dark:border-slate-700">
+            {['All', 'Math', 'Science', 'STEM'].map((subj) => (
+              <button
+                key={subj}
+                onClick={() => setSelectedSubject(subj)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                  selectedSubject === subj
+                    ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-white shadow-subtle'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                }`}
+              >
+                {subj}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* 9 Category Pills */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+          {CATEGORIES.map((cat) => {
+            const isSelected = selectedCategory === cat;
+            return (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all border ${
+                  isSelected
+                    ? 'bg-indigo-600 text-white border-indigo-600 shadow-subtle'
+                    : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:border-slate-300'
+                }`}
+              >
+                {cat}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       {/* Tests Catalog Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {testsList.map((test) => (
-          <Card key={test.id} hoverEffect className="p-6 sm:p-8 flex flex-col justify-between border border-slate-200 dark:border-slate-800">
+        {filteredTests.map((test) => (
+          <Card key={test.id} hoverEffect className="p-6 sm:p-7 flex flex-col justify-between border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <Badge variant={test.subject === 'Math' ? 'primary' : 'success'} size="sm">
-                  {test.subject} Assessment
-                </Badge>
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <Badge variant={test.subject?.includes('Math') ? 'primary' : 'success'} size="sm">
+                    {test.subject}
+                  </Badge>
+                  {test.category && (
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
+                      {test.type || test.category}
+                    </span>
+                  )}
+                </div>
                 <span className="text-xs font-mono font-bold text-slate-500 flex items-center gap-1">
                   <Clock className="w-3.5 h-3.5 text-amber-500" />
                   {test.durationMinutes} Mins
                 </span>
               </div>
 
-              <h3 className="text-xl font-extrabold text-slate-900 dark:text-white mb-2">{test.title}</h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-4">{test.description}</p>
+              <h3 className="text-lg font-extrabold text-slate-900 dark:text-white mb-1.5">{test.title}</h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-4 line-clamp-2">{test.description}</p>
 
-              <div className="space-y-1.5 text-xs text-slate-600 dark:text-slate-400 mb-6 bg-slate-50 dark:bg-slate-800/60 p-3 rounded-xl border border-slate-200/80 dark:border-slate-700">
+              <div className="space-y-1.5 text-xs text-slate-600 dark:text-slate-400 mb-5 bg-slate-50 dark:bg-slate-800/60 p-3 rounded-xl border border-slate-200/80 dark:border-slate-700">
                 <div className="flex justify-between">
                   <span>Questions Graded:</span>
-                  <span className="font-bold text-slate-900 dark:text-white">{test.questions?.length || 4} Questions (L1 - L4)</span>
+                  <span className="font-bold text-slate-900 dark:text-white">{test.questions?.length || test.questionCount || 10} Questions</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Assigned By:</span>
                   <span className="font-medium text-slate-700 dark:text-slate-300">{test.assignedBy}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Due Status:</span>
+                  <span>Status / Schedule:</span>
                   <span className="font-bold text-amber-600">{test.dueDate}</span>
                 </div>
               </div>
             </div>
 
             <Button
-              variant="primary"
+              variant={test.isFeatured ? "glow" : "primary"}
               size="md"
               fullWidth
               onClick={() => navigate(`/test?id=${test.id}`)}
               iconRight={ArrowRight}
             >
-              Start 4-Tier Assessment →
+              Start Assessment →
             </Button>
           </Card>
         ))}

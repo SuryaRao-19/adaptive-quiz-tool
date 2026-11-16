@@ -1,128 +1,148 @@
 const express = require('express');
 const router = express.Router();
-const rateLimit = require('express-rate-limit');
-const keys = require('../config/keys');
+const syntheticStore = require('../services/syntheticStore');
 
-// Rate limiter for support submissions: maximum 10 requests per 15 minutes per IP
-const supportLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 10,
-  standardHeaders: true,
-  legacyHeaders: false,
-  message: {
-    success: false,
-    errorType: 'RATE_LIMITED',
-    message: 'Too many submissions from this IP address. Please try again after 15 minutes.'
-  }
-});
-
-// GET /api/support/config - returns whether backend Web3Forms proxy is configured
+// GET /api/support/config
 router.get('/config', (req, res) => {
-  const isConfigured = Boolean(keys.WEB3FORMS_ACCESS_KEY && keys.WEB3FORMS_ACCESS_KEY.length > 5);
   res.json({
     success: true,
-    configured: isConfigured,
-    provider: 'Web3Forms',
-    service: 'AdaptIQ Support Gateway'
+    provider: 'Internal Database Support System',
+    service: 'AdaptIQ Asian Public School Support Gateway'
   });
 });
 
-// POST /api/support/submit - optional backend proxy to keep Web3Forms credentials server-side
-router.post('/submit', supportLimiter, async (req, res) => {
+// GET /api/support/tickets - List all support tickets
+router.get('/tickets', (req, res) => {
+  try {
+    const { status, category, assignedTo } = req.query;
+    const tickets = syntheticStore.getTickets({ status, category, assignedTo });
+    return res.status(200).json({
+      success: true,
+      count: tickets.length,
+      data: tickets
+    });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+});
+
+// GET /api/support/tickets/:id - Get ticket details
+router.get('/tickets/:id', (req, res) => {
+  try {
+    const ticket = syntheticStore.getTicketById(req.params.id);
+    if (!ticket) {
+      return res.status(404).json({ success: false, message: 'Support ticket not found.' });
+    }
+    return res.status(200).json({ success: true, data: ticket });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+});
+
+// POST /api/support/tickets - Submit new support ticket (from Help & Feedback)
+router.post('/tickets', (req, res) => {
   try {
     const {
-      formType = 'contact_enquiry',
+      senderName,
       name,
+      senderRole,
+      role,
+      senderEmail,
       email,
+      studentId,
       subject,
-      message,
-      botcheck,
-      category,
       bugTitle,
-      stepsToReproduce,
-      expectedBehaviour,
-      actualBehaviour,
-      deviceInfo
+      message,
+      description,
+      category,
+      priority,
+      assignedTo
     } = req.body;
 
-    // 1. Honeypot Spam Check
-    if (botcheck && String(botcheck).trim() !== '') {
-      return res.status(400).json({
-        success: false,
-        errorType: 'SPAM_REJECTED',
-        message: 'Bot submission detected and rejected.'
-      });
-    }
-
-    // 2. Validate mandatory message or description
-    const content = message || actualBehaviour || '';
-    if (!content || String(content).trim().length < 5) {
-      return res.status(400).json({
-        success: false,
-        errorType: 'VALIDATION_ERROR',
-        message: 'Message content is required.'
-      });
-    }
-
-    // 3. Resolve Access Key (Server-side key preferred; optional client override)
-    const accessKey = keys.WEB3FORMS_ACCESS_KEY || req.body.access_key;
-    if (!accessKey) {
-      return res.status(503).json({
-        success: false,
-        errorType: 'MISSING_ACCESS_KEY',
-        message: 'Web3Forms access key is not configured on the server.'
-      });
-    }
-
-    // 4. Construct clean, safe payload
-    const payload = {
-      access_key: accessKey,
-      subject: subject || `[AdaptIQ] ${formType.toUpperCase()}: ${name || 'User'}`,
-      from_name: 'AdaptIQ Support Gateway',
-      name: (name || 'Anonymous User').slice(0, 80),
-      email: email ? String(email).trim().slice(0, 100) : 'support@adaptiq.edu',
-      form_type: formType,
-      category: category || 'General',
-      message: String(content).slice(0, 5000),
-      submitted_at: new Date().toISOString()
-    };
-
-    if (bugTitle) payload.bug_title = String(bugTitle).slice(0, 120);
-    if (stepsToReproduce) payload.steps_to_reproduce = String(stepsToReproduce).slice(0, 1500);
-    if (expectedBehaviour) payload.expected_behaviour = String(expectedBehaviour).slice(0, 800);
-    if (deviceInfo) payload.device_diagnostics = JSON.stringify(deviceInfo);
-
-    // 5. Forward to Web3Forms API
-    const response = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
-      body: JSON.stringify(payload)
+    const ticket = syntheticStore.addTicket({
+      senderName: senderName || name || 'Anonymous User',
+      senderRole: senderRole || role || 'student',
+      senderEmail: senderEmail || email || 'user@asianpublicschool.edu',
+      studentId: studentId || null,
+      subject: subject || bugTitle || 'Help & Support Request',
+      message: message || description || '',
+      category: category || 'GENERAL',
+      priority: priority || 'MEDIUM',
+      assignedTo: assignedTo || 'Mrs. Ananya Sharma'
     });
 
-    const data = await response.json();
-
-    if (response.ok && data.success) {
-      return res.status(200).json({
-        success: true,
-        message: data.message || 'Submission successfully transmitted to support.'
-      });
-    } else {
-      return res.status(400).json({
-        success: false,
-        errorType: 'API_ERROR',
-        message: data.message || 'Remote email delivery failed.'
-      });
-    }
-  } catch (err) {
-    console.error('[Web3Forms Gateway Proxy Error]:', err.message);
-    return res.status(500).json({
-      success: false,
-      errorType: 'SERVER_ERROR',
-      message: 'Failed to process support request. Please try again later.'
+    return res.status(201).json({
+      success: true,
+      message: `Support ticket ${ticket.ticketNumber} created successfully.`,
+      data: ticket
     });
+  } catch (error) {
+    return res.status(400).json({ success: false, message: error.message });
+  }
+});
+
+// Backward compatible submission route
+router.post('/submit', (req, res) => {
+  try {
+    const { name, email, subject, message, bugTitle, description, category } = req.body;
+    const ticket = syntheticStore.addTicket({
+      senderName: name || 'User',
+      senderEmail: email,
+      subject: subject || bugTitle || 'Support Enquiry',
+      message: message || description || '',
+      category: category || 'GENERAL'
+    });
+    return res.status(200).json({
+      success: true,
+      message: 'Support request recorded into internal support inbox.',
+      ticketNumber: ticket.ticketNumber
+    });
+  } catch (error) {
+    return res.status(400).json({ success: false, message: error.message });
+  }
+});
+
+// POST /api/support/tickets/:id/reply - Reply to a ticket
+router.post('/tickets/:id/reply', (req, res) => {
+  try {
+    const { responderName, responderRole, message, newStatus } = req.body;
+    if (!message || !message.trim()) {
+      return res.status(400).json({ success: false, message: 'Reply message cannot be empty.' });
+    }
+    const ticket = syntheticStore.addTicketResponse(req.params.id, {
+      responderName,
+      responderRole,
+      message: message.trim(),
+      newStatus
+    });
+    if (!ticket) {
+      return res.status(404).json({ success: false, message: 'Ticket not found.' });
+    }
+    return res.status(200).json({
+      success: true,
+      message: 'Response posted successfully.',
+      data: ticket
+    });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+});
+
+// PATCH /api/support/tickets/:id - Update status or assignment
+router.patch('/tickets/:id', (req, res) => {
+  try {
+    const updates = req.body;
+    const ticket = syntheticStore.updateTicket(req.params.id, updates);
+    if (!ticket) {
+      return res.status(404).json({ success: false, message: 'Ticket not found.' });
+    }
+    return res.status(200).json({
+      success: true,
+      message: 'Ticket updated successfully.',
+      data: ticket
+    });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
   }
 });
 

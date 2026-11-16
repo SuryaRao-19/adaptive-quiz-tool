@@ -1,0 +1,349 @@
+{
+  "schoolCode": "APS-2026-DEMO",
+  "totalTokensUsed": 146650,
+  "totalCostUsd": 0.0896,
+  "recordsCount": 61,
+  "todayTokensUsed": 22250,
+  "todayCostUsd": 0.0146,
+  "perModel": {
+    "omni-auto": {
+      "calls": 37,
+      "tokens": 72300,
+      "costUsd": 0.0445
+    },
+    "omni-fast-flash": {
+      "calls": 14,
+      "tokens": 42100,
+      "costUsd": 0.0126
+    },
+    "gemini-3.8-flash": {
+      "calls": 8,
+      "tokens": 28250,
+      "costUsd": 0.0282
+    },
+    "omni-reasoning-r1": {
+      "calls": 2,
+      "tokens": 4000,
+      "costUsd": 0.0043
+    }
+  },
+  "perFeature": {
+    "ai_tutor_socratic": {
+      "calls": 24,
+      "tokens": 84200,
+      "costUsd": 0.0505
+    },
+    "step_by_step_solution": {
+      "calls": 10,
+      "tokens": 36400,
+      "costUsd": 0.0218
+    },
+    "question_generation": {
+      "calls": 6,
+      "tokens": 18250,
+      "costUsd": 0.011
+    },
+    "misconception_diagnosis": {
+      "calls": 2,
+      "tokens": 4000,
+      "costUsd": 0.0029
+    },
+    "ai_tutor_chat": {
+      "calls": 19,
+      "tokens": 3800,
+      "costUsd": 0.0034
+    }
+  },
+  "perStudent": {
+    "std-07-001": {
+      "name": "Aarav Patel",
+      "grade": 7,
+      "dailyTokens": 4200,
+      "totalTokens": 16500
+    },
+    "std-07-003": {
+      "name": "Rohan Gupta",
+      "grade": 7,
+      "dailyTokens": 6800,
+      "totalTokens": 24100
+    },
+    "std-09-001": {
+      "name": "Kabir Kapoor",
+      "grade": 9,
+      "dailyTokens": 3100,
+      "totalTokens": 12200
+    },
+    "student-test-01": {
+      "name": "Student",
+      "grade": 7,
+      "dailyTokens": 3400,
+      "totalTokens": 3400
+    }
+  },
+  "usageHistory": [
+    {
+      "id": "usg-mwjkvhje",
+      "studentId": "student-test-01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0.00019999999999999998,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T18:09:23.595Z"
+    },
+    {
+      "id": "usg-mwjks4ap",
+      "studentId": "student-test-01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0.00019999999999999998,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T18:06:46.465Z"
+    },
+    {
+      "id": "usg-mwjkqjq6",
+      "studentId": "student-test-01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0.00019999999999999998,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T18:05:33.150Z"
+    },
+    {
+      "id": "usg-mwjixx5i",
+      "studentId": "student-test-01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0.00019999999999999998,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T17:15:17.910Z"
+    },
+    {
+      "id": "usg-mwjiqfpy",
+      "studentId": "student-test-01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0.00019999999999999998,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T17:09:28.726Z"
+    },
+    {
+      "id": "usg-mwjioauj",
+      "studentId": "student-test-01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0.00019999999999999998,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T17:07:49.099Z"
+    },
+    {
+      "id": "usg-mwjia4yc",
+      "studentId": "student-test-01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0.00019999999999999998,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T16:56:48.276Z"
+    },
+    {
+      "id": "usg-mwji90bt",
+      "studentId": "student-test-01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0.00019999999999999998,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T16:55:55.625Z"
+    },
+    {
+      "id": "usg-mwji7rev",
+      "studentId": "student-test-01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0.00019999999999999998,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T16:54:57.415Z"
+    },
+    {
+      "id": "usg-mwji75vr",
+      "studentId": "student-test-01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0.00019999999999999998,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T16:54:29.511Z"
+    },
+    {
+      "id": "usg-mwjafxpx",
+      "studentId": "student-test-01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0.00019999999999999998,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T13:17:21.909Z"
+    },
+    {
+      "id": "usg-mwja3p9l",
+      "studentId": "student-test-01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0.00019999999999999998,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T13:07:51.081Z"
+    },
+    {
+      "id": "usg-mwja2hlu",
+      "studentId": "student-test-01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0.00019999999999999998,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T13:06:54.498Z"
+    },
+    {
+      "id": "usg-mwj1kfwb",
+      "studentId": "student-test-01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0.00019999999999999998,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T09:08:55.547Z"
+    },
+    {
+      "id": "usg-mwj0wu2g",
+      "studentId": "student-test-01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0.00019999999999999998,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T08:50:34.168Z"
+    },
+    {
+      "id": "usg-mwj0unhm",
+      "studentId": "student-test-01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0.00019999999999999998,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T08:48:52.330Z"
+    },
+    {
+      "id": "usg-mwj0tql6",
+      "studentId": "student-test-01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0.00019999999999999998,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T08:48:09.690Z"
+    },
+    {
+      "id": "usg-mwj0n0lz",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T08:42:56.087Z"
+    },
+    {
+      "id": "usg-mwj0gy01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0,
+      "durationMs": 0,
+      "timestamp": "2026-11-16T08:38:12.769Z"
+    }
+  ]
+}

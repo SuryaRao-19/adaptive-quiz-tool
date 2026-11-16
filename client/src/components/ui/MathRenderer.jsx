@@ -12,24 +12,31 @@ import katex from 'katex';
  */
 export const MathRenderer = ({ 
   content = '', 
+  math = '',
+  text = '',
+  children,
   className = '', 
   inline = false,
   tag = 'span' 
 }) => {
+  const rawInput = content || math || text || (typeof children === 'string' ? children : '') || '';
+
   const renderedHtml = useMemo(() => {
-    if (!content || typeof content !== 'string') {
+    if (!rawInput || typeof rawInput !== 'string') {
       return '';
     }
 
+    const stringContent = String(rawInput);
+
     // Check if string contains math delimiters or common LaTeX commands
-    const hasMath = /\$|\\\(|\\\[|\\frac|\\sqrt|\\times|\\div|\\pm|\\le|\\ge|\\pi|\^|_/.test(content);
+    const hasMath = /\$|\\\(|\\\[|\\frac|\\sqrt|\\times|\\div|\\pm|\\le|\\ge|\\pi|\^|_/.test(stringContent);
     if (!hasMath) {
-      return content;
+      return stringContent;
     }
 
     // Strategy: Split by $$...$$ (display math) and $...$ (inline math)
     const regex = /(\$\$[\s\S]*?\$\$|\$[^\$]+?\$|\\\[[\s\S]*?\\\]|\\\([\s\S]*?\\\))/g;
-    const parts = content.split(regex);
+    const parts = stringContent.split(regex);
 
     return parts.map((part) => {
       if (!part) return '';
@@ -84,7 +91,7 @@ export const MathRenderer = ({
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;');
     }).join('');
-  }, [content]);
+  }, [rawInput]);
 
   const Tag = tag;
 

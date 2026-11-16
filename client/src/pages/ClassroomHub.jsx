@@ -28,15 +28,23 @@ import {
   UploadCloud,
   Printer,
   Key,
-  ShieldCheck
+  ShieldCheck,
+  ClipboardList,
+  Radio,
+  CheckSquare,
+  Calendar,
+  Award,
+  BrainCircuit,
+  Activity
 } from 'lucide-react';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { Badge } from '../components/ui/Badge';
 import { Modal } from '../components/ui/Modal';
-import { MOCK_CLASSES, MOCK_CLASS_ROSTER } from '../services/mockData';
+import { MOCK_CLASSES, MOCK_CLASS_ROSTER, MOCK_STUDENTS_ROSTER } from '../services/mockData';
 import { getMyClasses, createClass, joinClass as apiJoinClass, importClassRoster } from '../services/classService';
 import { getClassAnalytics } from '../services/progressService';
+import { getTeacherClassrooms } from '../services/teacherAssessmentService';
 
 export const ClassroomHub = () => {
   const { user, role, switchRole, enrolledClasses, joinClass } = useContext(AuthContext);
@@ -76,6 +84,9 @@ export const ClassroomHub = () => {
   // Toast message
   const [toastMessage, setToastMessage] = useState('');
 
+  // Teacher Mode 6 Dedicated Tabs: 'overview' | 'students' | 'assessments' | 'results' | 'attendance' | 'insights'
+  const [classroomTab, setClassroomTab] = useState('overview');
+
   // Roster Import & Desk Cards State
   const [importModalOpen, setImportModalOpen] = useState(false);
   const [parsedRoster, setParsedRoster] = useState([]);
@@ -85,11 +96,11 @@ export const ClassroomHub = () => {
   const [deskCards, setDeskCards] = useState([]);
 
   const downloadSampleTemplate = () => {
-    const csvContent = "data:text/csv;charset=utf-8,student_name,roll_number\nAarav Sharma,001\nDiya Patel,002\nRohan Gupta,003\nAnanya Reddy,004\nVikram Malhotra,005\n";
+    const csvContent = "data:text/csv;charset=utf-8,student_name,grade,section,roll_number,email\nAarav Sharma,7,7-A,APS-07-021,aarav.sharma@asianpublicschool.edu\nDiya Patel,7,7-A,APS-07-022,diya.patel@asianpublicschool.edu\nRohan Gupta,7,7-A,APS-07-023,rohan.gupta@asianpublicschool.edu\nAnanya Reddy,7,7-A,APS-07-024,ananya.reddy@asianpublicschool.edu\nVikram Malhotra,7,7-A,APS-07-025,vikram.malhotra@asianpublicschool.edu\n";
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "adaptiq_roster_template.csv");
+    link.setAttribute("download", "asian_public_school_roster_template.csv");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -113,9 +124,12 @@ export const ClassroomHub = () => {
       const headers = lines[0].split(',').map(h => h.trim().toLowerCase().replace(/['"]/g, ''));
       const nameIdx = headers.findIndex(h => h.includes('name'));
       const rollIdx = headers.findIndex(h => h.includes('roll') || h.includes('id') || h.includes('number'));
+      const gradeIdx = headers.findIndex(h => h.includes('grade') || h.includes('class'));
+      const sectionIdx = headers.findIndex(h => h.includes('section') || h.includes('sec'));
+      const emailIdx = headers.findIndex(h => h.includes('email') || h.includes('mail'));
 
       if (nameIdx === -1 || rollIdx === -1) {
-        setImportValidation({ error: "Required columns missing. Expected headers: 'student_name' and 'roll_number'." });
+        setImportValidation({ error: "Required columns missing. Expected headers: 'student_name' and 'roll_number' (optional: 'grade', 'section', 'email')." });
         return;
       }
 
@@ -128,23 +142,35 @@ export const ClassroomHub = () => {
         const cols = lines[i].split(',').map(c => c.trim().replace(/^["']|["']$/g, ''));
         const studentName = cols[nameIdx] || '';
         const rollNumber = cols[rollIdx] || '';
+        const rawGrade = gradeIdx !== -1 && cols[gradeIdx] ? cols[gradeIdx] : '7';
+        const section = sectionIdx !== -1 && cols[sectionIdx] ? cols[sectionIdx] : '7-A';
+        const email = emailIdx !== -1 && cols[emailIdx] ? cols[emailIdx] : '';
 
         if (!studentName || !rollNumber || rollNumber.length < 2) {
-          invalidRows.push({ row: i + 1, studentName, rollNumber, reason: 'Missing name or roll number' });
+          invalidRows.push({ row: i + 1, studentName, rollNumber, reason: 'Missing name or roll number (minimum 2 characters)' });
+          continue;
+        }
+
+        const parsedGrade = parseInt(rawGrade, 10);
+        if (isNaN(parsedGrade) || parsedGrade < 1 || parsedGrade > 12) {
+          invalidRows.push({ row: i + 1, studentName, rollNumber, reason: `Invalid grade '${rawGrade}'. Grade must be numeric between 1 and 12.` });
           continue;
         }
 
         const normalizedRoll = rollNumber.toUpperCase();
         if (seenRolls.has(normalizedRoll)) {
           duplicateCount++;
-          invalidRows.push({ row: i + 1, studentName, rollNumber, reason: `Duplicate roll number ${normalizedRoll}` });
+          invalidRows.push({ row: i + 1, studentName, rollNumber: normalizedRoll, reason: `Duplicate roll number ${normalizedRoll} in uploaded file` });
           continue;
         }
         seenRolls.add(normalizedRoll);
 
         validRows.push({
           student_name: studentName,
-          roll_number: normalizedRoll
+          grade: parsedGrade,
+          section,
+          roll_number: normalizedRoll,
+          email
         });
       }
 
@@ -189,15 +215,33 @@ export const ClassroomHub = () => {
 
   const fetchClasses = async () => {
     try {
+      if (role === 'teacher' || activeRoleView === 'teacher') {
+        try {
+          const tRes = await getTeacherClassrooms();
+          if (tRes && tRes.classrooms && tRes.classrooms.length > 0) {
+            setClassesList(tRes.classrooms);
+            setSelectedClassId(tRes.classrooms[0].id || tRes.classrooms[0]._id);
+            setLoadingClasses(false);
+            return;
+          }
+        } catch (_) {}
+      }
       const res = await getMyClasses();
-      if (res.success && res.classes) {
+      if (res.success && res.classes && res.classes.length > 0) {
         setClassesList(res.classes);
         if (res.classes.length > 0) {
           setSelectedClassId(res.classes[0]._id || res.classes[0].id);
         }
+      } else if (MOCK_CLASSES && MOCK_CLASSES.length > 0) {
+        setClassesList(MOCK_CLASSES);
+        setSelectedClassId(MOCK_CLASSES[0].id);
       }
     } catch (e) {
       console.warn('Error fetching classes:', e);
+      if (MOCK_CLASSES && MOCK_CLASSES.length > 0) {
+        setClassesList(MOCK_CLASSES);
+        setSelectedClassId(MOCK_CLASSES[0].id);
+      }
     } finally {
       setLoadingClasses(false);
     }
@@ -205,7 +249,7 @@ export const ClassroomHub = () => {
 
   useEffect(() => {
     fetchClasses();
-  }, []);
+  }, [activeRoleView]);
 
   useEffect(() => {
     if (!selectedClassId) {
@@ -217,16 +261,47 @@ export const ClassroomHub = () => {
     }).catch(() => {});
   }, [selectedClassId]);
 
-  // Current selected class data
-  const currentClass = classesList.find((c) => (c._id || c.id) === selectedClassId) || classesList[0] || {
-    name: 'No Active Class',
-    joinCode: '------',
-    subject: 'Math',
-    studentIds: []
+  // Current selected class data with comprehensive school metadata
+  const foundClass = classesList.find((c) => (c._id || c.id) === selectedClassId) || classesList[0];
+  const currentClass = foundClass ? {
+    ...foundClass,
+    grade: foundClass.grade || foundClass.gradeLevel || 7,
+    gradeLevel: foundClass.gradeLevel || foundClass.grade || 7,
+    section: foundClass.section || 'A',
+    subject: foundClass.subject || 'Mathematics',
+    teacherName: foundClass.teacherName || user?.name || 'Mrs. Ananya Sharma',
+    joinCode: foundClass.joinCode || 'APS7AM'
+  } : {
+    id: 'APS7AM',
+    name: 'Grade 7-A Mathematics',
+    grade: 7,
+    gradeLevel: 7,
+    section: '7-A',
+    subject: 'Mathematics',
+    joinCode: 'APS7AM',
+    teacherName: 'Mrs. Ananya Sharma',
+    studentCount: 28,
+    avgMastery: 78
   };
 
-  // Filtered Roster from live backend
-  const liveRoster = classAnalytics?.roster || [];
+  // Filtered Roster from live backend with fallback to Asian Public School cohort roster
+  const baseRoster = (classAnalytics?.roster && classAnalytics.roster.length > 0)
+    ? classAnalytics.roster
+    : (MOCK_STUDENTS_ROSTER || []).map(s => ({
+        id: s.id,
+        name: s.name,
+        email: `${s.name.toLowerCase().replace(/\s+/g, '.')}@asianpublicschool.edu`,
+        roll: s.rollNumber,
+        attempts: 18,
+        accuracy: s.mastery,
+        mastery: s.mastery,
+        status: s.mastery >= 70 ? 'on_track' : 'needs_attention',
+        preScore: Math.max(40, s.mastery - 22),
+        postScore: s.mastery,
+        weakTopics: s.mastery < 70 ? ['Rational Numbers & Sign Rules'] : [],
+        lastActive: 'Today, 10:15 AM'
+      }));
+  const liveRoster = baseRoster;
   const filteredRoster = liveRoster.filter((s) => {
     const sName = (s?.name || s?.fullName || '').toLowerCase();
     const sEmail = (s?.email || '').toLowerCase();
@@ -759,57 +834,101 @@ export const ClassroomHub = () => {
             </div>
           ) : (
             <>
-              {/* Class Selector Bar & Primary Action */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-card">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-cyan-400 flex items-center justify-center font-bold text-lg shrink-0">
-                    <School className="w-5 h-5" />
+              {/* Classroom Master Banner */}
+              <Card className="p-5 sm:p-6 bg-gradient-to-r from-indigo-900 via-indigo-950 to-slate-900 text-white rounded-3xl border border-indigo-800/60 shadow-xl overflow-hidden relative">
+                <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+                <div className="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                  <div className="space-y-2">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <Badge variant="primary" size="sm" className="bg-indigo-500/20 text-indigo-300 border-indigo-500/30">
+                        Grade {currentClass.grade || currentClass.gradeLevel || 7} • Section {currentClass.section || 'A'}
+                      </Badge>
+                      <Badge variant="outline" size="sm" className="text-slate-300 border-slate-700">
+                        {currentClass.subject || 'Mathematics'}
+                      </Badge>
+                      <span className="text-xs text-slate-400">CBSE Affiliation 2130089</span>
+                    </div>
+                    <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white">
+                      {currentClass.name || `Grade ${currentClass.grade || 7} ${currentClass.subject || 'Mathematics'}`}
+                    </h2>
+                    <p className="text-xs text-slate-300 flex flex-wrap items-center gap-3">
+                      <span>Assigned Teacher: <strong className="text-white">{currentClass.teacherName || user?.name || 'Mrs. Ananya Sharma'}</strong></span>
+                      <span>•</span>
+                      <span>Passcode: <code className="bg-white/10 px-2 py-0.5 rounded font-mono font-bold text-cyan-300">{currentClass.joinCode}</code></span>
+                      <span>•</span>
+                      <span>Enrolled: <strong className="text-white">{liveRoster.length} students</strong></span>
+                    </p>
                   </div>
-                  <div className="min-w-0">
-                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block truncate">
-                      Active Classroom Cohort
-                    </label>
-                    <div className="relative inline-block mt-0.5 max-w-full">
+
+                  {/* Class Selector Dropdown & Quick Create */}
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
+                    <div className="bg-white/10 backdrop-blur-md p-2 rounded-2xl border border-white/10 flex items-center gap-2">
+                      <School className="w-4 h-4 text-cyan-400 shrink-0 ml-1" />
                       <select
                         value={selectedClassId}
                         onChange={(e) => setSelectedClassId(e.target.value)}
-                        className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white font-bold text-xs sm:text-sm rounded-xl px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer max-w-full truncate"
+                        className="bg-transparent text-white font-bold text-xs sm:text-sm focus:outline-none cursor-pointer pr-3"
                       >
                         {classesList.map((c) => (
-                          <option key={c._id || c.id} value={c._id || c.id}>
+                          <option key={c._id || c.id} value={c._id || c.id} className="text-slate-900 bg-white">
                             {c.name} ({c.joinCode})
                           </option>
                         ))}
                       </select>
                     </div>
+
+                    <Button
+                      onClick={() => setCreateModalOpen(true)}
+                      variant="primary"
+                      size="sm"
+                      icon={Plus}
+                      className="bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold text-xs"
+                    >
+                      New Class
+                    </Button>
                   </div>
                 </div>
+              </Card>
 
-                <div className="flex flex-wrap items-center gap-2.5 shrink-0 self-stretch sm:self-auto">
-                  <Button
-                    onClick={() => {
-                      setImportValidation(null);
-                      setParsedRoster([]);
-                      setImportModalOpen(true);
-                    }}
-                    variant="outline"
-                    size="sm"
-                    icon={UploadCloud}
-                    className="w-full sm:w-auto min-h-[44px] sm:min-h-[38px] text-xs font-bold"
-                  >
-                    Import Roster (CSV)
-                  </Button>
-                  <Button
-                    onClick={() => setCreateModalOpen(true)}
-                    variant="primary"
-                    size="sm"
-                    icon={Plus}
-                    className="w-full sm:w-auto min-h-[44px] sm:min-h-[38px] text-xs font-bold"
-                  >
-                    Create New Class
-                  </Button>
-                </div>
+              {/* 6 Dedicated Classroom Tabs Navigation Bar */}
+              <div className="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 overflow-x-auto no-scrollbar py-1">
+                {[
+                  { id: 'overview', label: 'Overview', icon: BookOpen },
+                  { id: 'students', label: `Students (${liveRoster.length})`, icon: Users },
+                  { id: 'assessments', label: 'Assessments', icon: ClipboardList, badge: 'Live' },
+                  { id: 'results', label: 'Results & Analytics', icon: TrendingUp },
+                  { id: 'attendance', label: 'Attendance', icon: Calendar },
+                  { id: 'insights', label: 'Learning Insights', icon: Sparkles, badge: 'BKT' },
+                ].map((tab) => {
+                  const Icon = tab.icon;
+                  const isActive = classroomTab === tab.id;
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => setClassroomTab(tab.id)}
+                      className={`flex items-center gap-2 px-4 py-2.5 rounded-2xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all border ${
+                        isActive
+                          ? 'bg-indigo-600 text-white border-indigo-600 shadow-sm'
+                          : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800'
+                      }`}
+                    >
+                      <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-slate-400'}`} />
+                      <span>{tab.label}</span>
+                      {tab.badge && (
+                        <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
+                          isActive ? 'bg-white/20 text-white' : 'bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-cyan-400'
+                        }`}>
+                          {tab.badge}
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
               </div>
+
+              {/* TAB 1: OVERVIEW */}
+              {classroomTab === 'overview' && (
+                <div className="space-y-6">
 
               {/* Quick Metrics for Selected Class: Responsive Grid (1 col mobile, 2 tablet, 4 desktop) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
@@ -865,6 +984,165 @@ export const ClassroomHub = () => {
                   </span>
                 </Card>
               </div>
+
+                  {/* 4 Quick Actions */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <Card 
+                      onClick={() => navigate('/teacher/live-test')}
+                      className="p-5 bg-gradient-to-br from-rose-50 to-white dark:from-slate-900 dark:to-slate-800 border-2 border-rose-200 dark:border-rose-900/40 hover:shadow-lg transition-all cursor-pointer group"
+                    >
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center font-bold">
+                          <Radio className="w-5 h-5 animate-pulse" />
+                        </div>
+                        <Badge variant="danger" size="sm">Active Exam</Badge>
+                      </div>
+                      <h4 className="font-extrabold text-slate-900 dark:text-white group-hover:text-rose-600 transition-colors">
+                        Launch Live Test
+                      </h4>
+                      <p className="text-xs text-slate-500 mt-1">Supervise running exams, extend time, pause or finish session.</p>
+                    </Card>
+
+                    <Card 
+                      onClick={() => navigate('/teacher/grading')}
+                      className="p-5 bg-gradient-to-br from-amber-50 to-white dark:from-slate-900 dark:to-slate-800 border-2 border-amber-200 dark:border-amber-900/40 hover:shadow-lg transition-all cursor-pointer group"
+                    >
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center font-bold">
+                          <CheckSquare className="w-5 h-5" />
+                        </div>
+                        <Badge variant="warning" size="sm">4 Pending</Badge>
+                      </div>
+                      <h4 className="font-extrabold text-slate-900 dark:text-white group-hover:text-amber-600 transition-colors">
+                        Submissions & Grading
+                      </h4>
+                      <p className="text-xs text-slate-500 mt-1">Evaluate descriptive student answers and rubric feedback.</p>
+                    </Card>
+
+                    <Card 
+                      onClick={() => navigate(`/teacher/attendance?classId=${selectedClassId}`)}
+                      className="p-5 bg-gradient-to-br from-emerald-50 to-white dark:from-slate-900 dark:to-slate-800 border-2 border-emerald-200 dark:border-emerald-900/40 hover:shadow-lg transition-all cursor-pointer group"
+                    >
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center font-bold">
+                          <Calendar className="w-5 h-5" />
+                        </div>
+                        <Badge variant="success" size="sm">Today: 94%</Badge>
+                      </div>
+                      <h4 className="font-extrabold text-slate-900 dark:text-white group-hover:text-emerald-600 transition-colors">
+                        Take Attendance
+                      </h4>
+                      <p className="text-xs text-slate-500 mt-1">Mark daily classroom register and export monthly CSV.</p>
+                    </Card>
+
+                    <Card 
+                      onClick={() => navigate('/teacher/assessments')}
+                      className="p-5 bg-gradient-to-br from-indigo-50 to-white dark:from-slate-900 dark:to-slate-800 border-2 border-indigo-200 dark:border-indigo-900/40 hover:shadow-lg transition-all cursor-pointer group"
+                    >
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold">
+                          <Plus className="w-5 h-5" />
+                        </div>
+                        <Badge variant="primary" size="sm">Builder</Badge>
+                      </div>
+                      <h4 className="font-extrabold text-slate-900 dark:text-white group-hover:text-indigo-600 transition-colors">
+                        Create Assessment
+                      </h4>
+                      <p className="text-xs text-slate-500 mt-1">Author quizzes, load STEM diagnostic blueprints, or AI drafts.</p>
+                    </Card>
+                  </div>
+
+                  {/* Recent Assessments & Activity Grid */}
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    {/* Recent Assessments Card */}
+                    <Card className="p-6 border border-slate-200 dark:border-slate-800 shadow-card">
+                      <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+                        <div className="flex items-center gap-2.5">
+                          <ClipboardList className="w-5 h-5 text-indigo-600 dark:text-cyan-400" />
+                          <h3 className="font-extrabold text-base text-slate-900 dark:text-white">Recent Assessments</h3>
+                        </div>
+                        <Button 
+                          size="sm" 
+                          variant="outline" 
+                          onClick={() => setClassroomTab('assessments')}
+                          className="text-xs"
+                        >
+                          View All ({3})
+                        </Button>
+                      </div>
+
+                      <div className="divide-y divide-slate-100 dark:divide-slate-800 mt-2">
+                        <div className="py-3.5 flex items-center justify-between">
+                          <div>
+                            <div className="flex items-center gap-2">
+                              <h4 className="font-bold text-sm text-slate-900 dark:text-white">Initial STEM Diagnostic Pre-Test</h4>
+                              <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 animate-pulse">
+                                <Radio className="w-2.5 h-2.5" /> LIVE
+                              </span>
+                            </div>
+                            <p className="text-xs text-slate-500 mt-0.5">12 Questions (6 Math + 6 Science) • 20 Mins • 24 Marks</p>
+                          </div>
+                          <Button size="sm" variant="primary" onClick={() => navigate('/teacher/live-test')}>
+                            Monitor →
+                          </Button>
+                        </div>
+
+                        <div className="py-3.5 flex items-center justify-between">
+                          <div>
+                            <div className="flex items-center gap-2">
+                              <h4 className="font-bold text-sm text-slate-900 dark:text-white">Rational Numbers & Sign Rules</h4>
+                              <Badge variant="success" size="sm">Graded</Badge>
+                            </div>
+                            <p className="text-xs text-slate-500 mt-0.5">10 Questions • 15 Mins • Average Score: 76%</p>
+                          </div>
+                          <Button size="sm" variant="outline" onClick={() => navigate('/teacher/results')}>
+                            Results →
+                          </Button>
+                        </div>
+                      </div>
+                    </Card>
+
+                    {/* Classroom Telemetry Feed */}
+                    <Card className="p-6 border border-slate-200 dark:border-slate-800 shadow-card">
+                      <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800">
+                        <div className="flex items-center gap-2.5">
+                          <Activity className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                          <h3 className="font-extrabold text-base text-slate-900 dark:text-white">Classroom Activity Log</h3>
+                        </div>
+                        <Badge variant="primary" size="sm">Live Feed</Badge>
+                      </div>
+
+                      <div className="space-y-4 mt-4">
+                        <div className="flex items-start gap-3 text-xs">
+                          <div className="w-2 h-2 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
+                          <div>
+                            <p className="font-semibold text-slate-800 dark:text-slate-200">Morning attendance marked: 26/28 students present.</p>
+                            <span className="text-[11px] text-slate-400">2 hours ago</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3 text-xs">
+                          <div className="w-2 h-2 rounded-full bg-rose-500 mt-1.5 shrink-0" />
+                          <div>
+                            <p className="font-semibold text-slate-800 dark:text-slate-200">STEM Diagnostic Pre-Test session opened for Grade 7-A cohort.</p>
+                            <span className="text-[11px] text-slate-400">25 minutes ago</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start gap-3 text-xs">
+                          <div className="w-2 h-2 rounded-full bg-indigo-500 mt-1.5 shrink-0" />
+                          <div>
+                            <p className="font-semibold text-slate-800 dark:text-slate-200">Aarav Patel submitted STEM Diagnostic answers (Score: 22/24).</p>
+                            <span className="text-[11px] text-slate-400">12 minutes ago</span>
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 2: STUDENTS */}
+              {classroomTab === 'students' && (
+                <div className="space-y-4">
 
               {/* Controls Bar: Search, Status Filter, Export, Assign Test, View Switch */}
               <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3 p-3.5 sm:p-4 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-card">
@@ -1087,6 +1365,315 @@ export const ClassroomHub = () => {
                   </div>
                 </>
               )}
+                </div>
+              )}
+
+              {/* TAB 3: ASSESSMENTS */}
+              {classroomTab === 'assessments' && (
+                <div className="space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white">Cohort Assessment Register</h3>
+                      <p className="text-xs text-slate-500">Assessments calibrated and scheduled for {currentClass.name}</p>
+                    </div>
+                    <Button 
+                      onClick={() => navigate('/teacher/assessments')}
+                      variant="primary" 
+                      size="sm" 
+                      icon={Plus}
+                    >
+                      Create Assessment
+                    </Button>
+                  </div>
+
+                  <div className="space-y-4">
+                    {/* Assessment 1 - Live */}
+                    <Card className="p-5 border-2 border-rose-200 dark:border-rose-900/50 bg-gradient-to-r from-rose-50/30 via-white to-white dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 shadow-card">
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-2">
+                            <span className="inline-flex items-center gap-1 text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-rose-600 text-white animate-pulse">
+                              <Radio className="w-3 h-3" /> LIVE NOW
+                            </span>
+                            <Badge variant="primary" size="sm">CBSE Diagnostic</Badge>
+                          </div>
+                          <h4 className="text-base font-extrabold text-slate-900 dark:text-white">Initial School STEM Diagnostic Pre-Test</h4>
+                          <p className="text-xs text-slate-500">
+                            12 Questions (6 Mathematics + 6 Science) • Duration: 20 Mins • Max Marks: 24 • Invigilator: {currentClass.teacherName || 'Mrs. Ananya Sharma'}
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-2 shrink-0">
+                          <Button size="sm" variant="danger" icon={Radio} onClick={() => navigate('/teacher/live-test')}>
+                            Monitor Live Exam
+                          </Button>
+                          <Button size="sm" variant="outline" icon={CheckSquare} onClick={() => navigate('/teacher/grading')}>
+                            Evaluate
+                          </Button>
+                        </div>
+                      </div>
+                    </Card>
+
+                    {/* Assessment 2 - Graded */}
+                    <Card className="p-5 border border-slate-200 dark:border-slate-800 shadow-card">
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-2">
+                            <Badge variant="success" size="sm">Evaluated & Published</Badge>
+                            <Badge variant="outline" size="sm">Chapter 1 Checkpoint</Badge>
+                          </div>
+                          <h4 className="text-base font-extrabold text-slate-900 dark:text-white">Rational Numbers, Sign Rules & Decimals</h4>
+                          <p className="text-xs text-slate-500">
+                            10 Questions • Duration: 15 Mins • Max Marks: 20 • Cohort Average: 76.4%
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-2 shrink-0">
+                          <Button size="sm" variant="outline" icon={TrendingUp} onClick={() => navigate('/teacher/results')}>
+                            Class Analytics
+                          </Button>
+                          <Button size="sm" variant="outline" icon={Eye} onClick={() => navigate('/teacher/grading')}>
+                            Review Marking
+                          </Button>
+                        </div>
+                      </div>
+                    </Card>
+
+                    {/* Assessment 3 - Scheduled */}
+                    <Card className="p-5 border border-slate-200 dark:border-slate-800 shadow-card">
+                      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div className="space-y-1">
+                          <div className="flex items-center gap-2">
+                            <Badge variant="warning" size="sm">Scheduled</Badge>
+                            <Badge variant="outline" size="sm">Science Chapter 2</Badge>
+                          </div>
+                          <h4 className="text-base font-extrabold text-slate-900 dark:text-white">Photosynthesis, Plant Nutrition & Respiration</h4>
+                          <p className="text-xs text-slate-500">
+                            8 Questions • Duration: 15 Mins • Scheduled for Tomorrow at 10:00 AM IST
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-2 shrink-0">
+                          <Button size="sm" variant="outline" onClick={() => triggerToast("Assessment schedule confirmed!")}>
+                            Edit Schedule
+                          </Button>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                </div>
+              )}
+
+              {/* TAB 4: RESULTS */}
+              {classroomTab === 'results' && (
+                <div className="space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white">Class Academic Performance</h3>
+                      <p className="text-xs text-slate-500">Aggregated diagnostic marks and Bayesian Knowledge Tracing analysis</p>
+                    </div>
+                    <Button 
+                      onClick={() => navigate('/teacher/results')}
+                      variant="primary" 
+                      size="sm" 
+                      icon={TrendingUp}
+                    >
+                      Open Full Results Workspace
+                    </Button>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <Card className="p-5 text-center bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-200 dark:border-indigo-900">
+                      <span className="text-xs uppercase font-bold text-slate-500">Class Average Score</span>
+                      <p className="text-3xl font-extrabold text-indigo-600 dark:text-cyan-400 mt-1">74.8%</p>
+                      <span className="text-[11px] text-emerald-600 font-semibold">+8.2% vs Baseline Diagnostic</span>
+                    </Card>
+                    <Card className="p-5 text-center bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900">
+                      <span className="text-xs uppercase font-bold text-slate-500">Top Cohort Score</span>
+                      <p className="text-3xl font-extrabold text-emerald-600 mt-1">96.0%</p>
+                      <span className="text-[11px] text-slate-400">Sanya Kapoor (APS-07-009)</span>
+                    </Card>
+                    <Card className="p-5 text-center bg-amber-50/50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900">
+                      <span className="text-xs uppercase font-bold text-slate-500">Overall Pass Rate</span>
+                      <p className="text-3xl font-extrabold text-amber-600 mt-1">96.4%</p>
+                      <span className="text-[11px] text-slate-400">27 of 28 above passing threshold</span>
+                    </Card>
+                  </div>
+
+                  {/* CBSE Grade Distribution Table */}
+                  <Card className="p-6 border border-slate-200 dark:border-slate-800 shadow-card">
+                    <h4 className="font-extrabold text-sm text-slate-900 dark:text-white mb-4">
+                      CBSE Standard Letter Grade Distribution
+                    </h4>
+                    <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+                      <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 text-center border border-slate-200 dark:border-slate-700">
+                        <span className="text-xs font-bold text-indigo-600 block">Grade A1 (91-100%)</span>
+                        <span className="text-xl font-extrabold text-slate-900 dark:text-white">6</span>
+                        <span className="text-[10px] text-slate-400 block">21% of Class</span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 text-center border border-slate-200 dark:border-slate-700">
+                        <span className="text-xs font-bold text-cyan-600 block">Grade A2 (81-90%)</span>
+                        <span className="text-xl font-extrabold text-slate-900 dark:text-white">8</span>
+                        <span className="text-[10px] text-slate-400 block">29% of Class</span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 text-center border border-slate-200 dark:border-slate-700">
+                        <span className="text-xs font-bold text-emerald-600 block">Grade B1 (71-80%)</span>
+                        <span className="text-xl font-extrabold text-slate-900 dark:text-white">7</span>
+                        <span className="text-[10px] text-slate-400 block">25% of Class</span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 text-center border border-slate-200 dark:border-slate-700">
+                        <span className="text-xs font-bold text-amber-600 block">Grade B2 (61-70%)</span>
+                        <span className="text-xl font-extrabold text-slate-900 dark:text-white">4</span>
+                        <span className="text-[10px] text-slate-400 block">14% of Class</span>
+                      </div>
+                      <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 text-center border border-slate-200 dark:border-slate-700">
+                        <span className="text-xs font-bold text-rose-600 block">Grade C/D (&lt;60%)</span>
+                        <span className="text-xl font-extrabold text-rose-600">3</span>
+                        <span className="text-[10px] text-slate-400 block">11% (Intervention)</span>
+                      </div>
+                    </div>
+                  </Card>
+                </div>
+              )}
+
+              {/* TAB 5: ATTENDANCE */}
+              {classroomTab === 'attendance' && (
+                <div className="space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white">Cohort Attendance Overview</h3>
+                      <p className="text-xs text-slate-500">Official daily register and participation tracking</p>
+                    </div>
+                    <Button 
+                      onClick={() => navigate(`/teacher/attendance?classId=${selectedClassId}`)}
+                      variant="primary" 
+                      size="sm" 
+                      icon={Calendar}
+                    >
+                      Open Full Attendance Register
+                    </Button>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <Card className="p-5 text-center bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900">
+                      <span className="text-xs uppercase font-bold text-slate-500">Today's Attendance</span>
+                      <p className="text-3xl font-extrabold text-emerald-600 mt-1">94%</p>
+                      <span className="text-[11px] text-slate-400">26 Present • 1 Late • 1 Absent</span>
+                    </Card>
+                    <Card className="p-5 text-center bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                      <span className="text-xs uppercase font-bold text-slate-500">Weekly Average</span>
+                      <p className="text-3xl font-extrabold text-slate-900 dark:text-white mt-1">93.8%</p>
+                      <span className="text-[11px] text-slate-400">Across 5 academic days</span>
+                    </Card>
+                    <Card className="p-5 text-center bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                      <span className="text-xs uppercase font-bold text-slate-500">Monthly Target</span>
+                      <p className="text-3xl font-extrabold text-indigo-600 dark:text-cyan-400 mt-1">95.0%</p>
+                      <span className="text-[11px] text-emerald-600 font-semibold">On Track</span>
+                    </Card>
+                  </div>
+
+                  {/* 5-Day Attendance Sparkline */}
+                  <Card className="p-6 border border-slate-200 dark:border-slate-800 shadow-card">
+                    <h4 className="font-extrabold text-sm text-slate-900 dark:text-white mb-4">
+                      5-Day Classroom Attendance Trend
+                    </h4>
+                    <div className="grid grid-cols-5 gap-3">
+                      {[
+                        { day: 'Mon', date: 'Nov 10', rate: 96, present: 27 },
+                        { day: 'Tue', date: 'Nov 11', rate: 92, present: 25 },
+                        { day: 'Wed', date: 'Nov 12', rate: 94, present: 26 },
+                        { day: 'Thu', date: 'Nov 13', rate: 95, present: 26 },
+                        { day: 'Fri', date: 'Nov 14', rate: 94, present: 26 },
+                      ].map((d) => (
+                        <div key={d.day} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800 text-center border border-slate-200 dark:border-slate-700">
+                          <span className="text-xs font-bold text-slate-400 block">{d.day} ({d.date})</span>
+                          <span className="text-lg font-extrabold text-emerald-600 block mt-1">{d.rate}%</span>
+                          <span className="text-[10px] text-slate-500">{d.present}/28 Present</span>
+                        </div>
+                      ))}
+                    </div>
+                  </Card>
+                </div>
+              )}
+
+              {/* TAB 6: LEARNING INSIGHTS */}
+              {classroomTab === 'insights' && (
+                <div className="space-y-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white">AI Learning Insights & Gap Diagnostics</h3>
+                      <p className="text-xs text-slate-500">Bayesian Knowledge Tracing (BKT) and automated misconceptions analysis</p>
+                    </div>
+                    <Button 
+                      onClick={() => triggerToast("Personalized AI practice dispatched to all students needing attention!")}
+                      variant="primary" 
+                      size="sm" 
+                      icon={BrainCircuit}
+                    >
+                      Dispatch Adaptive Remediation
+                    </Button>
+                  </div>
+
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    {/* Critical Misconceptions */}
+                    <Card className="p-6 border border-slate-200 dark:border-slate-800 shadow-card">
+                      <div className="flex items-center gap-2 mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
+                        <AlertTriangle className="w-5 h-5 text-amber-500" />
+                        <h4 className="font-extrabold text-sm text-slate-900 dark:text-white">Foundational Misconceptions Detected</h4>
+                      </div>
+
+                      <div className="space-y-3.5">
+                        <div className="p-3.5 rounded-xl bg-rose-50/60 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-900/50">
+                          <div className="flex items-center justify-between">
+                            <span className="font-bold text-xs text-rose-800 dark:text-rose-300">Negative Sign Inversion</span>
+                            <Badge variant="danger" size="sm">4 Students Affected</Badge>
+                          </div>
+                          <p className="text-[11px] text-rose-700 dark:text-rose-400 mt-1">
+                            Subtracting a negative value (e.g. 5 - (-3)) is mistakenly treated as regular subtraction resulting in 2 rather than 8.
+                          </p>
+                        </div>
+
+                        <div className="p-3.5 rounded-xl bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/50">
+                          <div className="flex items-center justify-between">
+                            <span className="font-bold text-xs text-amber-800 dark:text-amber-300">Stomata vs Chloroplast Gas Exchange</span>
+                            <Badge variant="warning" size="sm">5 Students Affected</Badge>
+                          </div>
+                          <p className="text-[11px] text-amber-700 dark:text-amber-400 mt-1">
+                            Students confuse daytime stomatal transpiration opening with nighttime cellular respiration pathways.
+                          </p>
+                        </div>
+                      </div>
+                    </Card>
+
+                    {/* Students Requiring Intervention */}
+                    <Card className="p-6 border border-slate-200 dark:border-slate-800 shadow-card">
+                      <div className="flex items-center gap-2 mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
+                        <Users className="w-5 h-5 text-rose-500" />
+                        <h4 className="font-extrabold text-sm text-slate-900 dark:text-white">Students Requiring Intervention</h4>
+                      </div>
+
+                      <div className="divide-y divide-slate-100 dark:divide-slate-800">
+                        <div className="py-3 flex items-center justify-between">
+                          <div>
+                            <span className="font-bold text-xs text-slate-900 dark:text-white">Rohan Gupta (APS-07-003)</span>
+                            <p className="text-[11px] text-rose-600 font-medium">BKT Mastery: 52% • Weak Area: Rational Numbers</p>
+                          </div>
+                          <Button size="sm" variant="outline" className="text-xs" onClick={() => triggerToast("Remedial assignment sent to Rohan Gupta")}>
+                            Assign Practice
+                          </Button>
+                        </div>
+
+                        <div className="py-3 flex items-center justify-between">
+                          <div>
+                            <span className="font-bold text-xs text-slate-900 dark:text-white">Kabir Mehta (APS-07-005)</span>
+                            <p className="text-[11px] text-rose-600 font-medium">BKT Mastery: 58% • Weak Area: Decimals Division</p>
+                          </div>
+                          <Button size="sm" variant="outline" className="text-xs" onClick={() => triggerToast("Remedial assignment sent to Kabir Mehta")}>
+                            Assign Practice
+                          </Button>
+                        </div>
+                      </div>
+                    </Card>
+                  </div>
+                </div>
+              )}
             </>
           )}
         </div>
@@ -1304,9 +1891,9 @@ export const ClassroomHub = () => {
         <div className="space-y-4 my-2">
           <div className="p-4 bg-indigo-50/70 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-indigo-950 dark:text-indigo-200">
             <div>
-              <p className="font-bold">CSV Format Requirement:</p>
+              <p className="font-bold">Asian Public School CSV Roster Format:</p>
               <p className="text-slate-600 dark:text-slate-400 mt-0.5">
-                Columns: <code className="font-mono bg-white dark:bg-slate-800 px-1 py-0.5 rounded">student_name</code> and <code className="font-mono bg-white dark:bg-slate-800 px-1 py-0.5 rounded">roll_number</code>.
+                Headers: <code className="font-mono bg-white dark:bg-slate-800 px-1 py-0.5 rounded">student_name</code>, <code className="font-mono bg-white dark:bg-slate-800 px-1 py-0.5 rounded">grade</code>, <code className="font-mono bg-white dark:bg-slate-800 px-1 py-0.5 rounded">section</code>, <code className="font-mono bg-white dark:bg-slate-800 px-1 py-0.5 rounded">roll_number</code>, <code className="font-mono bg-white dark:bg-slate-800 px-1 py-0.5 rounded">email</code>
               </p>
             </div>
             <Button
@@ -1360,6 +1947,7 @@ export const ClassroomHub = () => {
                           <tr>
                             <th className="p-1.5">#</th>
                             <th className="p-1.5">Student Name</th>
+                            <th className="p-1.5">Grade / Sec</th>
                             <th className="p-1.5">Roll Number</th>
                           </tr>
                         </thead>
@@ -1368,6 +1956,7 @@ export const ClassroomHub = () => {
                             <tr key={rIdx}>
                               <td className="p-1.5 text-slate-400">{rIdx + 1}</td>
                               <td className="p-1.5 font-medium">{row.student_name}</td>
+                              <td className="p-1.5 text-slate-500">Grade {row.grade || 7} ({row.section || '7-A'})</td>
                               <td className="p-1.5 font-mono">{row.roll_number}</td>
                             </tr>
                           ))}

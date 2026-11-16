@@ -43,3 +43,5 @@ Thumbs.db
 # Testing & Coverage
 coverage/
 .nyc_output/
+temp_cdp_profile/
+

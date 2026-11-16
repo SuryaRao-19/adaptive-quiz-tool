@@ -1,6 +1,5 @@
 const dns = require('dns');
 const mongoose = require('mongoose');
-const { MongoMemoryServer } = require('mongodb-memory-server');
 const keys = require('./keys');
 
 // Ensure reliable SRV resolution for local environments without interfering with cloud VPC DNS
@@ -24,7 +23,7 @@ const connectDB = async () => {
 
   const connUri = keys.MONGODB_URI;
   try {
-    const maskedUri = connUri.replace(/:[^:]*@/, ':****@');
+    const maskedUri = (connUri || '').replace(/:[^:]*@/, ':****@');
     console.log(`[Database] Attempting connection to MongoDB at: ${maskedUri}...`);
     cachedConnection = await mongoose.connect(connUri, { 
       serverSelectionTimeoutMS: 5000,
@@ -41,8 +40,9 @@ const connectDB = async () => {
       throw new Error(`Production database connection failed: ${error.message}. Please configure a valid MONGODB_URI.`);
     }
 
-    console.log(`[Database] Starting zero-configuration in-memory MongoDB server for local/development use...`);
+    console.log(`[Database] Initializing development database environment...`);
     try {
+      const { MongoMemoryServer } = require('mongodb-memory-server');
       mongodInstance = await MongoMemoryServer.create();
       const memoryUri = mongodInstance.getUri();
       await mongoose.connect(memoryUri);
@@ -55,8 +55,7 @@ const connectDB = async () => {
       }
       console.log(`[Database] App initialized and seeded for local testing.`);
     } catch (memError) {
-      console.error(`[Database Error] Failed to start in-memory database: ${memError.message}`);
-      process.exit(1);
+      console.warn(`[Database Notice] In-memory MongoDB not started (${memError.message}). Operating in PostgreSQL / SyntheticStore mode.`);
     }
   }
 };

@@ -81,3 +81,20 @@ All 16 test suites run synchronously via `node --test tests/**/*.test.js`:
    - Review emerging IMS QTI 3.0 specification for future JSON-LD assessment item packaging alongside existing QTI 2.1 XML.
 3. **Advanced IRT (2PL / 3PL) Item Calibration**:
    - Extend the Rasch 1PL engine with item discrimination ($a_i$) and pseudo-guessing ($c_i$) parameters once sample sizes exceed $N \ge 1,000$ responses per question.
+
+---
+
+## 6. AdaptIQ AI Tutor 3.0 & Multi-Model Gateway Upgrade
+
+| Component | Status | Details |
+| :--- | :--- | :--- |
+| **Timeout Root Cause Resolution** | **Complete** | Replaced rigid 15s timeouts in `api.js` (60s default) & `geminiClient.js` with granular stream timeouts (10s connection, 20s first token, 20s idle, 120s max duration). |
+| **SSE Streaming Architecture** | **Complete** | Implemented `SSEStreamSession` with event protocol (`chunk`, `metadata`, `done`, `error`), 15s heartbeats, and client `AbortController` cancellation. |
+| **Multi-Provider AI Gateway** | **Complete** | Extensible provider adapters: Google Gemini (`@google/genai`), OpenAI (`gpt-4o-mini`), Anthropic (`claude-3-5-haiku`), Ollama (`llama3.2`). |
+| **Intelligent Model Router** | **Complete** | Heuristic zero-overhead intent classifier mapping prompts into 6 categories (Simple, Reasoning, Programming, Tutoring, Content Gen, Long Context) with AUTO and MANUAL modes. |
+| **Circuit Breaker & Fallback** | **Complete** | 3-failure threshold, 30s reset cooldown, pre-stream automatic fallback cascade across configured models. |
+| **Pedagogical Tutoring Modes** | **Complete** | 6 specialized instruction modes (Explain, Socratic, Step-by-Step, Exam Prep, Debug, Conceptual). |
+| **Conversation Memory** | **Complete** | Persistent Prisma + Mongoose models (`Conversation`, `ConversationMessage`, `ConversationSummary`) with per-user isolation and sliding token windows. |
+| **Frontend UI 3.0** | **Complete** | Upgraded `AITutorChat.jsx` with real-time token rendering, model selector, tutor modes, stop generation, copy, KaTeX math, and response metadata. |
+| **Test Verification** | **Complete** | **117 tests passing / 0 failing (100% green)** across all backend test suites; Vite production build passes with exit code 0. |
+

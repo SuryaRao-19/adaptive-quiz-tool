@@ -39,22 +39,19 @@ export const getWeb3FormsAccessKey = () => {
  * Checks whether Web3Forms has a validly configured access key.
  */
 export const isWeb3FormsConfigured = () => {
-  const key = getWeb3FormsAccessKey();
-  return Boolean(key && key.length > 5);
+  // AdaptIQ uses database-backed institutional support gateway
+  return true;
 };
 
 /**
  * Returns configuration status details for UI banners and diagnostics.
  */
 export const getWeb3FormsConfigStatus = () => {
-  const configured = isWeb3FormsConfigured();
   return {
-    isConfigured: configured,
-    envVarName: 'VITE_WEB3FORMS_ACCESS_KEY',
-    documentationUrl: 'https://docs.web3forms.com/',
-    statusMessage: configured
-      ? 'Web3Forms access key is configured.'
-      : 'Web3Forms access key is missing. Submissions will be blocked until VITE_WEB3FORMS_ACCESS_KEY is set.'
+    isConfigured: true,
+    envVarName: 'INTERNAL_DATABASE_SUPPORT',
+    documentationUrl: 'https://aps-school.in',
+    statusMessage: 'Asian Public School Institutional Support Gateway is active and database-backed.'
   };
 };
 
@@ -72,7 +69,7 @@ const postToWeb3Forms = async ({
 }) => {
   // 1. Spam Prevention: Honeypot check
   if (botcheck && botcheck.trim() !== '') {
-    console.warn('[Web3Forms] Honeypot triggered. Silently rejecting bot submission.');
+    console.warn('[Support] Honeypot triggered. Silently rejecting bot submission.');
     return {
       success: false,
       errorType: 'SPAM_REJECTED',
@@ -91,82 +88,73 @@ const postToWeb3Forms = async ({
     };
   }
 
-  // 3. Access Key Verification
-  const accessKey = getWeb3FormsAccessKey();
-  if (!accessKey) {
-    console.warn('[Web3Forms] Missing VITE_WEB3FORMS_ACCESS_KEY environment variable.');
-    return {
-      success: false,
-      errorType: 'MISSING_ACCESS_KEY',
-      message: 'Email service is currently unconfigured. Please configure VITE_WEB3FORMS_ACCESS_KEY in your environment.'
-    };
+  // 3. Category & Priority Mapping for Institutional Support System
+  let category = 'GENERAL';
+  let priority = 'MEDIUM';
+  if (formType === 'bug_report') {
+    category = 'TECHNICAL';
+    priority = 'HIGH';
+  } else if (formType === 'user_feedback') {
+    category = 'FEEDBACK';
+  } else if (subject && subject.toLowerCase().includes('curriculum')) {
+    category = 'CURRICULUM';
   }
 
-  // 4. Strict Sanitization: Remove any accidental sensitive fields
-  const forbiddenKeys = ['password', 'currentpassword', 'newpassword', 'pin', 'token', 'jwt', 'auth', 'studentpin'];
-  const sanitizedExtras = {};
-  for (const [k, v] of Object.entries(extraFields)) {
-    if (!forbiddenKeys.includes(k.toLowerCase())) {
-      sanitizedExtras[k] = typeof v === 'object' ? JSON.stringify(v) : String(v);
-    }
-  }
-
-  const timestampIso = new Date().toISOString();
-  const timestampHuman = new Date().toLocaleString();
-
-  // 5. Construct Web3Forms Form Data Payload
-  const payload = {
-    access_key: accessKey,
-    subject,
-    from_name: 'AdaptIQ Platform',
-    name: sanitizeText(name || 'AdaptIQ Visitor', 80),
-    email: email && isValidEmail(email) ? email.trim() : 'no-reply@adaptiq.edu',
-    replyto: email && isValidEmail(email) ? email.trim() : undefined,
-    // Web3Forms honeypot parameter (must be empty for human submissions)
-    botcheck: '',
-    form_type: formType,
-    submitted_at: timestampHuman,
-    submitted_at_iso: timestampIso,
-    message: sanitizeText(message, 5000),
-    ...sanitizedExtras
-  };
-
-  // 6. Network Dispatch
+  // 4. Save to Internal Institutional Support Database
   try {
-    const response = await fetch(WEB3FORMS_ENDPOINT, {
+    const internalRes = await fetch('/api/support/tickets', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      },
-      body: JSON.stringify(payload)
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        senderName: name || 'Student / Visitor',
+        senderEmail: email || 'visitor@asianpublicschool.edu',
+        subject: subject || 'Support Request',
+        message: message || '',
+        category,
+        priority
+      })
     });
 
-    const data = await response.json();
-
-    if (response.ok && data.success) {
+    const internalData = await internalRes.json();
+    if (internalRes.ok && internalData.success) {
       lastSubmissionTime = Date.now();
+      const ticketNum = internalData.data?.ticketNumber || 'APS-TK';
+      
+      // Optional mirror to external Web3Forms if key is present
+      const accessKey = getWeb3FormsAccessKey();
+      if (accessKey) {
+        try {
+          await fetch(WEB3FORMS_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({
+              access_key: accessKey,
+              subject,
+              name,
+              email,
+              message,
+              form_type: formType
+            })
+          });
+        } catch (_) {}
+      }
+
       return {
         success: true,
-        message: data.message || 'Your submission was delivered successfully.',
-        data
-      };
-    } else {
-      console.warn('[Web3Forms] API reported error:', data);
-      return {
-        success: false,
-        errorType: data.message?.includes('Access Key') ? 'INVALID_ACCESS_KEY' : 'API_ERROR',
-        message: data.message || 'Failed to submit form. Please verify the Web3Forms access key.'
+        message: `Your inquiry has been recorded as Support Ticket ${ticketNum}. An educator or administrator will respond shortly.`,
+        ticketNumber: ticketNum,
+        data: internalData.data
       };
     }
-  } catch (networkError) {
-    console.error('[Web3Forms] Network request failed:', networkError);
-    return {
-      success: false,
-      errorType: 'NETWORK_ERROR',
-      message: 'Network error communicating with email service. Please check your internet connection.'
-    };
+  } catch (err) {
+    console.warn('[Support] Internal ticket dispatch error:', err);
   }
+
+  return {
+    success: false,
+    errorType: 'SUBMISSION_ERROR',
+    message: 'Unable to connect to school support gateway. Please try again.'
+  };
 };
 
 /**

@@ -2,6 +2,16 @@
 // Routes via secure server-side proxy POST /api/chat with persisted MongoDB chat history
 // (Keys are kept strictly confidential on the server)
 import api from './api';
+export {
+  streamAITutorChat,
+  fetchAIModels,
+  fetchProviderHealth,
+  fetchConversations,
+  createConversation,
+  fetchConversationDetails,
+  clearConversationMessages,
+  deleteConversation
+} from './aiGatewayService';
 
 // Math & Science Specialized Socratic Heuristics Knowledge Base for fallback
 const KNOWLEDGE_BASE = {

@@ -1,0 +1,954 @@
+{
+  "curriculumProfile": {
+    "code": "APS-CBSE-2026",
+    "name": "Asian Public School Core Curriculum",
+    "board": "CBSE",
+    "description": "Standardized K-12 STEM & Humanities curriculum aligned with national pedagogical standards."
+  },
+  "grades": [
+    {
+      "level": 1,
+      "name": "Grade 1",
+      "stage": "PRIMARY"
+    },
+    {
+      "level": 2,
+      "name": "Grade 2",
+      "stage": "PRIMARY"
+    },
+    {
+      "level": 3,
+      "name": "Grade 3",
+      "stage": "PRIMARY"
+    },
+    {
+      "level": 4,
+      "name": "Grade 4",
+      "stage": "PRIMARY"
+    },
+    {
+      "level": 5,
+      "name": "Grade 5",
+      "stage": "MIDDLE"
+    },
+    {
+      "level": 6,
+      "name": "Grade 6",
+      "stage": "MIDDLE"
+    },
+    {
+      "level": 7,
+      "name": "Grade 7",
+      "stage": "MIDDLE"
+    },
+    {
+      "level": 8,
+      "name": "Grade 8",
+      "stage": "MIDDLE"
+    },
+    {
+      "level": 9,
+      "name": "Grade 9",
+      "stage": "SECONDARY"
+    },
+    {
+      "level": 10,
+      "name": "Grade 10",
+      "stage": "SECONDARY"
+    },
+    {
+      "level": 11,
+      "name": "Grade 11",
+      "stage": "SENIOR_SECONDARY"
+    },
+    {
+      "level": 12,
+      "name": "Grade 12",
+      "stage": "SENIOR_SECONDARY"
+    }
+  ],
+  "subjects": [
+    {
+      "code": "MATH",
+      "name": "Mathematics",
+      "category": "STEM",
+      "icon": "Calculator",
+      "color": "#4F46E5"
+    },
+    {
+      "code": "SCI",
+      "name": "Science",
+      "category": "STEM",
+      "icon": "FlaskConical",
+      "color": "#06B6D4"
+    },
+    {
+      "code": "ENG",
+      "name": "English",
+      "category": "LANGUAGES",
+      "icon": "BookOpen",
+      "color": "#10B981"
+    }
+  ],
+  "gradeCurricula": {
+    "3": {
+      "Mathematics": [
+        {
+          "chapterNumber": 1,
+          "title": "Fun with Numbers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "3-Digit Numbers & Place Value",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT3-1.1",
+                  "statement": "Understand place value and expanded forms of 3-digit numbers.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Number Sequences & Ordering",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT3-1.2",
+                  "statement": "Identify successor, predecessor, and number sequences.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Give and Take",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Addition with Regrouping",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT3-2.1",
+                  "statement": "Perform 3-digit addition with carryover.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Subtraction with Borrowing",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT3-2.2",
+                  "statement": "Perform 3-digit subtraction with borrowing.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "How Many Times?",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Multiplication Tables & Repeated Addition",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT3-3.1",
+                  "statement": "Master multiplication facts 2 through 10.",
+                  "taxonomyLevel": "REMEMBER"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Shapes, Designs and Time",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "2D Shapes and Vertices",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT3-4.1",
+                  "statement": "Identify sides, corners, and symmetry of plane figures.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Telling Time & Measurement",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT3-4.2",
+                  "statement": "Read analog clock faces and convert meters to centimeters.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "English": [
+        {
+          "chapterNumber": 1,
+          "title": "Grammar: Nouns and Pronouns",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Common, Proper and Collective Nouns",
+              "learningOutcomes": [
+                {
+                  "code": "LO-ENG3-1.1",
+                  "statement": "Distinguish common, proper, and collective nouns in sentences.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Grammar: Verbs and Tenses",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Action Verbs and Simple Past Tense",
+              "learningOutcomes": [
+                {
+                  "code": "LO-ENG3-2.1",
+                  "statement": "Form regular and irregular past tense verbs accurately.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Adjectives, Prepositions and Vocabulary",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Prepositions of Place and Direction",
+              "learningOutcomes": [
+                {
+                  "code": "LO-ENG3-3.1",
+                  "statement": "Use prepositions accurately in descriptive contexts.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Synonyms and Antonyms",
+              "learningOutcomes": [
+                {
+                  "code": "LO-ENG3-3.2",
+                  "statement": "Expand active vocabulary using synonyms and antonyms.",
+                  "taxonomyLevel": "REMEMBER"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Environmental Studies": [
+        {
+          "chapterNumber": 1,
+          "title": "The Living World: Plants and Animals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Plant Parts and Functions",
+              "learningOutcomes": [
+                {
+                  "code": "LO-EVS3-1.1",
+                  "statement": "Explain roles of roots, stems, leaves, and photosynthesis.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Animal Classifications and Diets",
+              "learningOutcomes": [
+                {
+                  "code": "LO-EVS3-1.2",
+                  "statement": "Classify animals into herbivores, carnivores, and omnivores.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Water O Water & Our Environment",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "States of Water and Water Conservation",
+              "learningOutcomes": [
+                {
+                  "code": "LO-EVS3-2.1",
+                  "statement": "Describe solid, liquid, and gas phases of water and conservation.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Food, Health and Sense Organs",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Human Senses and Balanced Diet",
+              "learningOutcomes": [
+                {
+                  "code": "LO-EVS3-3.1",
+                  "statement": "Identify the five senses and nutrients for growth.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Community Helpers and Neighborhood",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Civic Responsibilities and Environment",
+              "learningOutcomes": [
+                {
+                  "code": "LO-EVS3-4.1",
+                  "statement": "Demonstrate eco-friendly habits and community awareness.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "5": {
+      "Mathematics": [
+        {
+          "chapterNumber": 1,
+          "title": "Numbers and Place Value Operations",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Large Numbers & Indian/International Systems",
+              "learningOutcomes": [
+                {
+                  "code": "LO-M5-1.1",
+                  "statement": "Read, write, and compare numbers up to 8 digits.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Four Fundamental Operations with Estimation",
+              "learningOutcomes": [
+                {
+                  "code": "LO-M5-1.2",
+                  "statement": "Apply multi-digit multiplication and division in real-life problems.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Fractions and Decimals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Equivalent Fractions & Simplification",
+              "learningOutcomes": [
+                {
+                  "code": "LO-M5-2.1",
+                  "statement": "Convert between mixed and improper fractions and simplify.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Science": [
+        {
+          "chapterNumber": 1,
+          "title": "Human Body and Health",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Skeletal and Muscular Systems",
+              "learningOutcomes": [
+                {
+                  "code": "LO-S5-1.1",
+                  "statement": "Identify major bones and joints in the human skeleton.",
+                  "taxonomyLevel": "REMEMBER"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Nutrients and Deficiency Diseases",
+              "learningOutcomes": [
+                {
+                  "code": "LO-S5-1.2",
+                  "statement": "Classify essential food nutrients and explain deficiency symptoms.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "English": [
+        {
+          "chapterNumber": 1,
+          "title": "Grammar and Vocabulary Foundations",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Parts of Speech & Tenses",
+              "learningOutcomes": [
+                {
+                  "code": "LO-E5-1.1",
+                  "statement": "Identify transitive verbs and correct subject-verb agreement.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "7": {
+      "Mathematics": [
+        {
+          "chapterNumber": 1,
+          "title": "Integers and Rational Numbers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Operations on Integers & Properties",
+              "learningOutcomes": [
+                {
+                  "code": "LO-M7-1.1",
+                  "statement": "Perform sign rules for multiplication and division of integers.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Rational Numbers on Number Line",
+              "learningOutcomes": [
+                {
+                  "code": "LO-M7-1.2",
+                  "statement": "Represent and compare rational numbers on a number line.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Linear Equations in One Variable",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Algebraic Expressions & Transposition Method",
+              "learningOutcomes": [
+                {
+                  "code": "LO-M7-2.1",
+                  "statement": "Solve linear equations with one variable using balancing and transposition.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Lines and Angles & Triangles",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Complementary, Supplementary & Vertically Opposite Angles",
+              "learningOutcomes": [
+                {
+                  "code": "LO-M7-3.1",
+                  "statement": "Calculate missing angles using angle relationship theorems.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Science": [
+        {
+          "chapterNumber": 1,
+          "title": "Nutrition in Plants and Animals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Autotrophic Nutrition & Photosynthesis Equation",
+              "learningOutcomes": [
+                {
+                  "code": "LO-S7-1.1",
+                  "statement": "Describe raw materials, chlorophyll function, and chemical equation of photosynthesis.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Human Digestive System Organs and Enzymes",
+              "learningOutcomes": [
+                {
+                  "code": "LO-S7-1.2",
+                  "statement": "Trace food pathway and role of digestive enzymes from mouth to small intestine.",
+                  "taxonomyLevel": "ANALYZE"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Acids, Bases and Salts",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Natural and Synthetic Indicators & Neutralization",
+              "learningOutcomes": [
+                {
+                  "code": "LO-S7-2.1",
+                  "statement": "Predict color changes using litmus, phenolphthalein, and turmeric.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Motion and Time",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Uniform vs Non-Uniform Motion & Speed Calculation",
+              "learningOutcomes": [
+                {
+                  "code": "LO-S7-3.1",
+                  "statement": "Calculate speed using s = d/t and interpret distance-time graphs.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "English": [
+        {
+          "chapterNumber": 1,
+          "title": "Advanced Grammar & Mechanics",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Active and Passive Voice Transformation",
+              "learningOutcomes": [
+                {
+                  "code": "LO-E7-1.1",
+                  "statement": "Convert sentences between active and passive voice correctly.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Direct and Indirect Speech",
+              "learningOutcomes": [
+                {
+                  "code": "LO-E7-1.2",
+                  "statement": "Report statements and questions accurately following reporting verb rules.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "8": {
+      "Mathematics": [
+        {
+          "chapterNumber": 1,
+          "title": "Exponents and Powers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Laws of Exponents with Negative Indices",
+              "learningOutcomes": [
+                {
+                  "code": "LO-M8-1.1",
+                  "statement": "Apply exponent laws: a^m * a^n = a^(m+n) and (a^m)^n = a^(mn).",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Linear Equations and Factorization",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Algebraic Identities & Splitting Middle Term",
+              "learningOutcomes": [
+                {
+                  "code": "LO-M8-2.1",
+                  "statement": "Factorize quadratic expressions using algebraic identities.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Science": [
+        {
+          "chapterNumber": 1,
+          "title": "Cell Structure and Functions",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Prokaryotic vs Eukaryotic Cells & Organelles",
+              "learningOutcomes": [
+                {
+                  "code": "LO-S8-1.1",
+                  "statement": "Differentiate plant and animal cell organelles and their functions.",
+                  "taxonomyLevel": "ANALYZE"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Force, Pressure and Friction",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Contact vs Non-Contact Forces & Pressure = Force/Area",
+              "learningOutcomes": [
+                {
+                  "code": "LO-S8-2.1",
+                  "statement": "Calculate pressure exerted on surfaces and explain atmospheric pressure.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "English": [
+        {
+          "chapterNumber": 1,
+          "title": "Clause Analysis & Modals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Adverbial and Relative Clauses",
+              "learningOutcomes": [
+                {
+                  "code": "LO-E8-1.1",
+                  "statement": "Combine sentences using relative pronouns and subordinate conjunctions.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "9": {
+      "Mathematics": [
+        {
+          "chapterNumber": 1,
+          "title": "Number Systems and Polynomials",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Real Numbers & Rationalization of Denominators",
+              "learningOutcomes": [
+                {
+                  "code": "LO-M9-1.1",
+                  "statement": "Rationalize surd denominators using conjugate binomials.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Remainder Theorem & Factor Theorem",
+              "learningOutcomes": [
+                {
+                  "code": "LO-M9-1.2",
+                  "statement": "Find factors and zeros of polynomials using the factor theorem.",
+                  "taxonomyLevel": "ANALYZE"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Coordinate Geometry & Linear Equations in 2 Variables",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Cartesian Plane and Graphing ax + by + c = 0",
+              "learningOutcomes": [
+                {
+                  "code": "LO-M9-2.1",
+                  "statement": "Plot linear equations on the coordinate plane and find solutions.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Science": [
+        {
+          "chapterNumber": 1,
+          "title": "Matter in Our Surroundings & Atoms and Molecules",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "States of Matter & Latent Heat",
+              "learningOutcomes": [
+                {
+                  "code": "LO-S9-1.1",
+                  "statement": "Explain phase transitions using kinetic particle theory and latent heat.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Mole Concept and Chemical Formulae",
+              "learningOutcomes": [
+                {
+                  "code": "LO-S9-1.2",
+                  "statement": "Calculate molecular mass and convert between mass, moles, and Avogadro's number.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Motion, Force and Laws of Motion",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Kinematic Equations of Motion: v = u + at, s = ut + 0.5at^2",
+              "learningOutcomes": [
+                {
+                  "code": "LO-S9-2.1",
+                  "statement": "Derive and solve numerical problems using the three equations of motion.",
+                  "taxonomyLevel": "EVALUATE"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Newton's Three Laws & Conservation of Momentum",
+              "learningOutcomes": [
+                {
+                  "code": "LO-S9-2.2",
+                  "statement": "Apply F = ma and momentum conservation in collision scenarios.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "English": [
+        {
+          "chapterNumber": 1,
+          "title": "Formal Writing & Analytical Reasoning",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Analytical Paragraph Writing from Data/Charts",
+              "learningOutcomes": [
+                {
+                  "code": "LO-E9-1.1",
+                  "statement": "Synthesize statistical charts into concise analytical prose.",
+                  "taxonomyLevel": "CREATE"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "10": {
+      "Mathematics": [
+        {
+          "chapterNumber": 1,
+          "title": "Real Numbers & Quadratic Equations",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Fundamental Theorem of Arithmetic & Irrationality Proofs",
+              "learningOutcomes": [
+                {
+                  "code": "LO-M10-1.1",
+                  "statement": "Prove the irrationality of sqrt(2), sqrt(3), and sqrt(5) by contradiction.",
+                  "taxonomyLevel": "ANALYZE"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Quadratic Formula: x = [-b +- sqrt(b^2 - 4ac)] / 2a",
+              "learningOutcomes": [
+                {
+                  "code": "LO-M10-1.2",
+                  "statement": "Determine discriminant nature of roots and solve real-world quadratic problems.",
+                  "taxonomyLevel": "EVALUATE"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Arithmetic Progressions & Trigonometry",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "n-th Term and Sum of n Terms: S_n = n/2 [2a + (n-1)d]",
+              "learningOutcomes": [
+                {
+                  "code": "LO-M10-2.1",
+                  "statement": "Calculate terms and series sums in arithmetic sequences.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Trigonometric Ratios & Pythagorean Identities: sin^2 + cos^2 = 1",
+              "learningOutcomes": [
+                {
+                  "code": "LO-M10-2.2",
+                  "statement": "Prove trigonometric identities and solve heights & distances problems.",
+                  "taxonomyLevel": "EVALUATE"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "Science": [
+        {
+          "chapterNumber": 1,
+          "title": "Chemical Reactions and Equations",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Balancing Equations & Redox Reactions",
+              "learningOutcomes": [
+                {
+                  "code": "LO-S10-1.1",
+                  "statement": "Balance complex chemical equations and identify oxidizing/reducing agents.",
+                  "taxonomyLevel": "ANALYZE"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Electricity and Magnetic Effects",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Ohm's Law, Series and Parallel Resistor Networks",
+              "learningOutcomes": [
+                {
+                  "code": "LO-S10-2.1",
+                  "statement": "Calculate equivalent resistance, current, and Joule's heating (H = I^2 R t).",
+                  "taxonomyLevel": "EVALUATE"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Heredity and Evolution & Life Processes",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Mendelian Genetics: Monohybrid and Dihybrid Crosses",
+              "learningOutcomes": [
+                {
+                  "code": "LO-S10-3.1",
+                  "statement": "Construct Punnett squares for 3:1 and 9:3:3:1 phenotypic ratios.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "English": [
+        {
+          "chapterNumber": 1,
+          "title": "Discursive Comprehension & Rhetoric",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Tone, Inference, and Rhetorical Devices",
+              "learningOutcomes": [
+                {
+                  "code": "LO-E10-1.1",
+                  "statement": "Identify rhetorical devices, tone, and implicit authorial arguments.",
+                  "taxonomyLevel": "EVALUATE"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

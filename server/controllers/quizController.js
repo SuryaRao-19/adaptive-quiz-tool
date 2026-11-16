@@ -142,6 +142,35 @@ const getPracticeQuestion = async (req, res, next) => {
       if (question) servedDifficulty = question.difficulty;
     }
 
+    // Fallback 4: Pull from multi-grade question bank
+    if (!question) {
+      try {
+        const multiGradeQuestions = require('../data/multiGradeQuestions.json');
+        const userGrade = req.query.grade || req.user?.gradeLevel || req.user?.grade || 7;
+        const matching = multiGradeQuestions.filter(q => {
+          const qGrade = q.gradeLevel || q.grade;
+          if (userGrade && String(qGrade) !== String(userGrade)) return false;
+          if (subject && q.subject && q.subject.toLowerCase() !== subject.toLowerCase()) return false;
+          if (excludeIds && excludeIds.split(',').includes(String(q.id || q._id))) return false;
+          return true;
+        });
+
+        const topicMatching = matching.filter(q => q.topic && q.topic.toLowerCase().includes(topic.toLowerCase()));
+        const pool = topicMatching.length > 0 ? topicMatching : matching;
+
+        if (pool.length > 0) {
+          const candidate = pool.find(q => (q.difficulty || '').toLowerCase() === calculatedDifficulty) || pool[0];
+          question = {
+            ...candidate,
+            _id: candidate.id || candidate._id
+          };
+          servedDifficulty = (candidate.difficulty || 'medium').toLowerCase();
+        }
+      } catch (err) {
+        // Continue
+      }
+    }
+
     if (!question) {
       return res.status(404).json({ success: false, message: 'No questions currently available for this topic.' });
     }

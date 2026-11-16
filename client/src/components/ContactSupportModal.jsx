@@ -35,31 +35,11 @@ export const ContactSupportModal = ({
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      title="AdaptIQ Help, Feedback & Support"
-      subtitle="UN SDG 4 Aligned Learning • Connected via Web3Forms"
+      title="Asian Public School Help & Support"
+      subtitle="Integrated Academic Helpdesk • Connected to Teacher & Admin Portals"
       maxWidth="max-w-xl"
     >
       <div className="space-y-4">
-        {/* Missing Web3Forms Access Key Warning Banner (Non-blocking informative banner) */}
-        {!configured && (
-          <div className="p-3.5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 flex items-start gap-2.5 text-xs text-amber-800 dark:text-amber-300">
-            <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 flex-shrink-0 mt-0.5" />
-            <div className="space-y-1">
-              <p className="font-bold">Web3Forms Access Key Not Detected</p>
-              <p className="text-[11px] text-amber-700 dark:text-amber-400">
-                To receive submissions in your inbox, set <code className="font-mono bg-white dark:bg-slate-900 px-1 py-0.5 rounded font-bold">VITE_WEB3FORMS_ACCESS_KEY</code> in <code className="font-mono">client/.env</code>. Obtain your free key instantly at{' '}
-                <a
-                  href="https://web3forms.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline font-bold inline-flex items-center gap-0.5"
-                >
-                  web3forms.com <ExternalLink className="w-2.5 h-2.5" />
-                </a>.
-              </p>
-            </div>
-          </div>
-        )}
 
         {/* Tab Navigation Pill Group */}
         <div className="grid grid-cols-3 gap-1.5 p-1 rounded-2xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700">

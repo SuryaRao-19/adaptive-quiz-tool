@@ -146,7 +146,7 @@ const register = async (req, res, next) => {
 // @route POST /api/auth/login
 const login = async (req, res, next) => {
   try {
-    const rawId = req.body.email || req.body.username || req.body.rollNumber;
+    const rawId = req.body.email || req.body.username || req.body.rollNumber || req.body.identifier;
     const rawPass = req.body.password || req.body.pinCode;
 
     if (!rawId || !rawPass) {
@@ -173,6 +173,58 @@ const login = async (req, res, next) => {
     });
 
     if (!user) {
+      // Standalone SyntheticStore Fallback
+      try {
+        const syntheticStore = require('../services/syntheticStore');
+        const teachers = syntheticStore.getTeachers();
+        const staff = teachers.find(t => t.email.toLowerCase() === cleanId || t.email.toUpperCase() === cleanId.toUpperCase());
+        if (staff && staff.passwordHash) {
+          const isMatch = await bcrypt.compare(rawPass.toString(), staff.passwordHash);
+          if (isMatch) {
+            const token = generateToken(staff.id, staff.role.toLowerCase());
+            return res.status(200).json({
+              success: true,
+              token,
+              user: {
+                id: staff.id,
+                name: staff.name,
+                email: staff.email,
+                role: staff.role.toLowerCase(),
+                schoolId: staff.schoolId
+              }
+            });
+          }
+        }
+
+        const students = syntheticStore.getStudents();
+        const student = students.find(s => 
+          (s.rollNumber && s.rollNumber.toUpperCase() === cleanId.toUpperCase()) ||
+          (s.email && s.email.toLowerCase() === cleanId)
+        );
+        if (student && student.passwordHash) {
+          const isMatch = await bcrypt.compare(rawPass.toString(), student.passwordHash);
+          if (isMatch) {
+            const token = generateToken(student.id, 'student');
+            return res.status(200).json({
+              success: true,
+              token,
+              user: {
+                id: student.id,
+                name: student.name,
+                email: student.email,
+                rollNumber: student.rollNumber,
+                grade: student.gradeLevel || 7,
+                gradeLevel: student.gradeLevel || 7,
+                role: 'student',
+                classroomId: student.classroomId
+              }
+            });
+          }
+        }
+      } catch (synthErr) {
+        // Fall through to 401
+      }
+
       return res.status(401).json({ 
         success: false, 
         message: 'Invalid credentials. Please verify your email and password.' 
@@ -366,10 +418,72 @@ const changePassword = async (req, res, next) => {
   }
 };
 
+// @desc Student Login using Grade + Roll Number + Password
+// @route POST /api/auth/student-login
+const studentLogin = async (req, res, next) => {
+  try {
+    const { grade, rollNumber, password } = req.body;
+    const { authenticateStudentGradeRoll } = require('../services/authService');
+    const result = await authenticateStudentGradeRoll({ grade, rollNumber, password });
+    return res.status(200).json(result);
+  } catch (error) {
+    return res.status(401).json({
+      success: false,
+      requireActivation: Boolean(error.requireActivation),
+      message: error.message
+    });
+  }
+};
+
+// @desc Student First-Time Account Activation
+// @route POST /api/auth/student-activate
+const studentActivate = async (req, res, next) => {
+  try {
+    const { grade, rollNumber, activationCode, newPassword } = req.body;
+    const { activateStudentAccount } = require('../services/authService');
+    const result = await activateStudentAccount({ grade, rollNumber, activationCode, newPassword });
+    return res.status(200).json(result);
+  } catch (error) {
+    return res.status(400).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+// @desc Staff Login for Teachers and Principals
+// @route POST /api/auth/staff-login
+const staffLogin = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+    const { authenticateStaff } = require('../services/authService');
+    const result = await authenticateStaff({ email, password });
+    return res.status(200).json(result);
+  } catch (error) {
+    return res.status(401).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+// @desc Logout user
+// @route POST /api/auth/logout
+const logout = async (req, res) => {
+  return res.status(200).json({
+    success: true,
+    message: 'Logged out successfully.'
+  });
+};
+
 module.exports = {
   register,
   login,
   pinLogin,
+  studentLogin,
+  studentActivate,
+  staffLogin,
+  logout,
   getMe,
   updateProfile,
   changePassword

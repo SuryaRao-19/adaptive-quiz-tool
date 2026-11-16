@@ -101,3 +101,36 @@ npm run dev
    - 2 wrong in a row $\rightarrow$ De-escalates difficulty to reinforce basics.
    - Instant mistake feedback shows plain-language step-by-step explanations.
 5. **Post-Test & Report:** After completing 50 practice questions, the student unlocks the Post-Test and receives a side-by-side **Learning Growth Report** with verified percentage gains.
+
+---
+
+## 🤖 AdaptIQ AI Tutor 3.0 — Multi-Model Intelligent Learning System
+
+AdaptIQ integrates an enterprise-grade AI Gateway offering:
+
+- **Server-Sent Events (SSE) Streaming**: Token-by-token streaming with live cursor animation and instant generation stop.
+- **Granular Timeout Life-cycle**: Eliminates legacy 15s timeouts with 10s connection, 20s first-token, 20s idle-stream, and 120s max generation limits.
+- **Multi-Model Provider Adapters**:
+  - **Google Gemini**: `@google/genai` SDK (`gemini-3.8-flash`, `gemini-2.0-flash`, `gemini-1.5-flash`, `gemini-2.5-pro`).
+  - **OpenAI**: Native fetch streaming (`gpt-4o-mini`, `gpt-4o`).
+  - **Anthropic**: Native fetch streaming (`claude-3-5-haiku`, `claude-3-5-sonnet`).
+  - **Ollama**: Local on-premise inference (`llama3.2`, `deepseek-r1:7b`).
+- **Zero-Overhead Intent Classifier**: Heuristically maps student questions to 6 categories (`SIMPLE`, `EDUCATIONAL_REASONING`, `PROGRAMMING`, `TUTORING`, `CONTENT_GENERATION`, `LONG_CONTEXT`).
+- **Circuit Breaker & Fallback**: 3-failure threshold with 30s cooldown and automatic pre-stream fallback cascade.
+- **6 Pedagogical Tutoring Modes**: `Explain`, `Socratic`, `Step-by-Step`, `Exam Prep`, `Debug Code`, `Intuition/Analogies`.
+- **Persistent Conversation Memory**: Per-user isolated conversations with sliding token windows (`Conversation`, `ConversationMessage`, `ConversationSummary`).
+- **Academic Integrity Guard**: Automatically disables AI Tutor during active test mode.
+
+### AI Endpoints
+| Method | Route | Description |
+| :--- | :--- | :--- |
+| `POST` | `/api/ai/chat/stream` | Real-time SSE streaming Socratic chat |
+| `POST` | `/api/ai/chat` | Unary conversational chat |
+| `GET` | `/api/ai/models` | List configured models & capabilities |
+| `GET` | `/api/ai/providers/health` | Provider health & circuit breaker metrics |
+| `GET` | `/api/ai/conversations` | List user conversations |
+| `POST` | `/api/ai/conversations` | Create new conversation |
+| `GET` | `/api/ai/conversations/:id` | Fetch conversation messages |
+| `DELETE` | `/api/ai/conversations/:id` | Delete conversation |
+| `DELETE` | `/api/ai/conversations/:id/messages` | Clear conversation messages |
+

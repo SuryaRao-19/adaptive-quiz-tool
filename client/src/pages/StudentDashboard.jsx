@@ -1,26 +1,26 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useSearchParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { 
-  LineChart, 
-  Line, 
-  BarChart, 
-  Bar, 
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip, 
-  ResponsiveContainer, 
-  Legend 
+import {
+  LineChart,
+  Line,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  Legend
 } from 'recharts';
-import { 
-  Flame, 
-  Trophy, 
-  TrendingUp, 
-  CheckCircle2, 
-  AlertTriangle, 
-  ArrowRight, 
-  BrainCircuit, 
+import {
+  Flame,
+  Trophy,
+  TrendingUp,
+  CheckCircle2,
+  AlertTriangle,
+  ArrowRight,
+  BrainCircuit,
   Clock,
   BookOpen,
   Sparkles,
@@ -52,6 +52,13 @@ const CURRICULUM_SYLLABUS = {
     { topic: "Cell Structure", attempted: 0, correct: 0, mastery: 0, status: "needs_practice" },
     { topic: "Acids, Bases & Salts", attempted: 0, correct: 0, mastery: 0, status: "needs_practice" },
     { topic: "States of Matter", attempted: 0, correct: 0, mastery: 0, status: "needs_practice" }
+  ],
+  English: [
+    { topic: "Active & Passive Voice", attempted: 0, correct: 0, mastery: 0, status: "needs_practice" },
+    { topic: "Direct & Indirect Speech", attempted: 0, correct: 0, mastery: 0, status: "needs_practice" },
+    { topic: "Relative Clauses", attempted: 0, correct: 0, mastery: 0, status: "needs_practice" },
+    { topic: "Analytical Paragraphs", attempted: 0, correct: 0, mastery: 0, status: "needs_practice" },
+    { topic: "Reading Comprehension", attempted: 0, correct: 0, mastery: 0, status: "needs_practice" }
   ]
 };
 
@@ -136,17 +143,16 @@ export const StudentDashboard = () => {
 
         {/* Subject Switcher Pills */}
         <div className="flex items-center self-start sm:self-auto bg-slate-100 dark:bg-slate-800 p-1 rounded-2xl border border-slate-200/80 dark:border-slate-700 w-full sm:w-auto justify-center">
-          {['Math', 'Science'].map(s => (
+          {['Math', 'Science', 'English'].map(s => (
             <button
               key={s}
               onClick={() => setSearchParams({ subject: s })}
-              className={`flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all text-center ${
-                activeSubject === s
-                  ? 'bg-white dark:bg-slate-900 text-indigo-700 dark:text-cyan-400 shadow-card'
-                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
-              }`}
+              className={`flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all text-center ${activeSubject === s
+                ? 'bg-white dark:bg-slate-900 text-indigo-700 dark:text-cyan-400 shadow-card'
+                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                }`}
             >
-              {s === 'Math' ? '📐 Mathematics' : '🔬 Science'}
+              {s === 'Math' ? '📐 Mathematics' : s === 'Science' ? '🔬 Science' : '📖 English'}
             </button>
           ))}
         </div>
@@ -173,12 +179,12 @@ export const StudentDashboard = () => {
                 <div>
                   <div className="flex items-center gap-2">
                     <h2 className="text-[clamp(1.1rem,2.5vw,1.35rem)] font-black text-slate-900 dark:text-white leading-snug">
-                      Welcome, {displayName}! 0% Baseline in {activeSubject}
+                      Welcome to AdaptIQ!
                     </h2>
                     <Badge variant="cyan" size="sm">New Learner</Badge>
                   </div>
                   <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-xl leading-relaxed">
-                    All curriculum competencies are initialized at 0%. Practice adaptive questions or join a classroom cohort to calibrate real-time mastery!
+                    Welcome to AdaptIQ! Complete your first practice session or diagnostic test to see your personalized learning trajectory, strengths, and recommendations.
                   </p>
                 </div>
               </div>
@@ -187,20 +193,20 @@ export const StudentDashboard = () => {
                 <Button
                   size="sm"
                   variant="primary"
+                  iconRight={ArrowRight}
+                  onClick={() => navigate('/test?id=aps-g7-math-diag-2026')}
+                  className="flex-1 sm:flex-initial shadow-subtle font-bold"
+                >
+                  Start Diagnostic Test
+                </Button>
+                <Button
+                  size="sm"
+                  variant="outline"
                   iconRight={Play}
                   onClick={() => navigate(`/practice?subject=${activeSubject}`)}
                   className="flex-1 sm:flex-initial"
                 >
                   Start Practice
-                </Button>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  iconRight={ArrowRight}
-                  onClick={() => navigate(`/select?subject=${activeSubject}`)}
-                  className="flex-1 sm:flex-initial"
-                >
-                  Take Diagnostic
                 </Button>
                 <Button
                   size="sm"
@@ -214,6 +220,32 @@ export const StudentDashboard = () => {
               </div>
             </motion.div>
           )}
+
+          {/* Asian Public School Grade 7 Pilot Diagnostic Assessment Banner */}
+          <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-5 sm:p-6 border-2 border-indigo-500/50 shadow-elevated flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div className="space-y-1.5">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-indigo-500/30 text-cyan-300 border border-indigo-400/40">
+                  Mandatory Pilot Assessment • CBSE Class VII
+                </span>
+                <span className="text-xs text-indigo-200">20 Questions • 20 Minutes</span>
+              </div>
+              <h3 className="text-base sm:text-lg font-extrabold text-white">
+                Asian Public School — Grade 7 Mathematics Diagnostic Assessment
+              </h3>
+              <p className="text-xs text-slate-300 max-w-2xl leading-relaxed">
+                Baseline assessment across Integers, Fractions & Decimals, Rational Numbers, Equations, Expressions, Geometry, and Ratios. Results automatically calibrate your personalized adaptive practice.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => navigate('/test?id=aps-g7-math-diag-2026')}
+              className="px-5 py-2.5 rounded-xl bg-white text-indigo-950 hover:bg-indigo-50 font-black text-xs shrink-0 shadow-lg border border-slate-200 flex items-center gap-2 cursor-pointer transition-all hover:scale-105 active:scale-95"
+            >
+              <span>Start Diagnostic Test</span>
+              <Play className="w-3.5 h-3.5 fill-indigo-950 text-indigo-950" />
+            </button>
+          </div>
 
           {/* Quick Option to Join Classroom Cohort (Shown in Overview) */}
           <Card className="p-5 sm:p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-card">
@@ -314,7 +346,7 @@ export const StudentDashboard = () => {
 
           {/* Recommended Practice Banner for Weak Areas */}
           {weakTopics.length > 0 && weakTopics[0] && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               className="bg-amber-50/90 dark:bg-amber-950/30 border border-amber-200/90 dark:border-amber-800/80 rounded-3xl p-5 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 shadow-subtle"
@@ -370,13 +402,12 @@ export const StudentDashboard = () => {
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: idx * 0.05 }}
                       whileHover={{ y: -3 }}
-                      className={`p-4 sm:p-5 rounded-2xl border transition-all duration-200 flex flex-col justify-between ${
-                        t.status === 'mastered'
-                          ? 'bg-emerald-50/40 dark:bg-emerald-950/20 border-emerald-200/80 dark:border-emerald-800'
-                          : t.status === 'needs_practice'
+                      className={`p-4 sm:p-5 rounded-2xl border transition-all duration-200 flex flex-col justify-between ${t.status === 'mastered'
+                        ? 'bg-emerald-50/40 dark:bg-emerald-950/20 border-emerald-200/80 dark:border-emerald-800'
+                        : t.status === 'needs_practice'
                           ? 'bg-amber-50/40 dark:bg-amber-950/20 border-amber-200/80 dark:border-amber-800'
                           : 'bg-indigo-50/30 dark:bg-indigo-950/20 border-indigo-200/80 dark:border-indigo-800'
-                      }`}
+                        }`}
                     >
                       <div>
                         <div className="flex justify-between items-start gap-2 mb-2">

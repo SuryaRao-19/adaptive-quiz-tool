@@ -32,7 +32,13 @@ import {
   Calendar,
   School,
   ShieldCheck,
-  BookOpen
+  BookOpen,
+  Users,
+  Building2,
+  Check,
+  AlertCircle,
+  BarChart3,
+  ChevronRight
 } from 'lucide-react';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
@@ -47,8 +53,167 @@ import {
   MOCK_CLASS_HEATMAP,
   MOCK_TOPICS_MATH,
   MOCK_TOPICS_SCIENCE,
-  MOCK_PRE_VS_POST_MATH
+  MOCK_PRE_VS_POST_MATH,
+  MOCK_STUDENTS_ROSTER
 } from '../services/mockData';
+
+// Division-Wise and Class-Wise Institutional Analytics Data
+const DIVISION_ANALYTICS = {
+  middle: {
+    id: 'middle',
+    name: 'Middle Wing (Grades 6–8)',
+    tag: 'Active Pilot Wing',
+    totalStudents: 66,
+    avgMastery: 82.5,
+    avgAttendance: 96.2,
+    diagnosticCompletion: 100,
+    classes: [
+      {
+        id: 'cls-7a',
+        name: 'Grade 7-A (Mathematics Pilot)',
+        subject: 'Mathematics',
+        teacher: 'Mrs. Ananya Sharma',
+        room: 'Room 204 (Middle Wing)',
+        studentsCount: 20,
+        avgScore: 82.5,
+        avgAttendance: 96.2,
+        bktMastered: 14,
+        bktDeveloping: 4,
+        bktRemedial: 2,
+        topicBreakdown: [
+          { topic: 'Integers & Arithmetic Laws', mastery: 88, status: 'Mastered', classAvg: 88 },
+          { topic: 'Fractions & Rational Numbers', mastery: 78, status: 'Proficient', classAvg: 78 },
+          { topic: 'Simple Linear Equations', mastery: 72, status: 'Developing', classAvg: 72 },
+          { topic: 'Lines, Angles & Triangles', mastery: 68, status: 'Developing', classAvg: 68 },
+          { topic: 'Perimeter & Area Formulas', mastery: 75, status: 'Proficient', classAvg: 75 }
+        ],
+        students: [
+          { roll: 'APS-07-001', name: 'Aarav Patel', score: 88, bkt: 88, att: 96, status: 'Mastered' },
+          { roll: 'APS-07-002', name: 'Priya Sharma', score: 91, bkt: 91, att: 98, status: 'Mastered' },
+          { roll: 'APS-07-003', name: 'Rohan Gupta', score: 58, bkt: 52, att: 92, status: 'Needs Support', weakTopic: 'Fractions' },
+          { roll: 'APS-07-004', name: 'Ananya Verma', score: 85, bkt: 85, att: 96, status: 'Mastered' },
+          { roll: 'APS-07-005', name: 'Kabir Mehta', score: 58, bkt: 56, att: 90, status: 'Needs Support', weakTopic: 'Linear Equations' },
+          { roll: 'APS-07-006', name: 'Sanya Reddy', score: 88, bkt: 88, att: 100, status: 'Mastered' },
+          { roll: 'APS-07-007', name: 'Devansh Singh', score: 82, bkt: 82, att: 94, status: 'Mastered' },
+          { roll: 'APS-07-008', name: 'Ishita Joshi', score: 76, bkt: 76, att: 94, status: 'Developing' },
+          { roll: 'APS-07-009', name: 'Vivaan Kapoor', score: 89, bkt: 89, att: 98, status: 'Mastered' },
+          { roll: 'APS-07-010', name: 'Diya Nair', score: 84, bkt: 84, att: 96, status: 'Mastered' },
+          { roll: 'APS-07-011', name: 'Ayaan Khan', score: 80, bkt: 80, att: 96, status: 'Mastered' },
+          { roll: 'APS-07-012', name: 'Meera Iyer', score: 92, bkt: 92, att: 100, status: 'Mastered' },
+          { roll: 'APS-07-013', name: 'Arjun Das', score: 74, bkt: 74, att: 92, status: 'Developing' },
+          { roll: 'APS-07-014', name: 'Tanvi Malhotra', score: 86, bkt: 86, att: 96, status: 'Mastered' },
+          { roll: 'APS-07-015', name: 'Aditya Chawla', score: 78, bkt: 78, att: 94, status: 'Developing' },
+          { roll: 'APS-07-016', name: 'Rhea Sen', score: 87, bkt: 87, att: 98, status: 'Mastered' },
+          { roll: 'APS-07-017', name: 'Reyansh Bhatia', score: 81, bkt: 81, att: 94, status: 'Mastered' },
+          { roll: 'APS-07-018', name: 'Kavya Pillai', score: 90, bkt: 90, att: 98, status: 'Mastered' },
+          { roll: 'APS-07-019', name: 'Shaurya Saxena', score: 75, bkt: 75, att: 92, status: 'Developing' },
+          { roll: 'APS-07-020', name: 'Navya Kulkarni', score: 88, bkt: 88, att: 98, status: 'Mastered' }
+        ]
+      },
+      {
+        id: 'cls-7b',
+        name: 'Grade 7-B (Science Middle Wing)',
+        subject: 'Science',
+        teacher: 'Mr. Rajesh Verma',
+        room: 'Lab 2',
+        studentsCount: 22,
+        avgScore: 81.2,
+        avgAttendance: 95.8,
+        bktMastered: 15,
+        bktDeveloping: 5,
+        bktRemedial: 2,
+        topicBreakdown: [
+          { topic: 'Nutrition in Plants & Animals', mastery: 86, status: 'Mastered', classAvg: 86 },
+          { topic: 'Acids, Bases & Chemical Salts', mastery: 80, status: 'Mastered', classAvg: 80 },
+          { topic: 'Heat Conduction & Radiation', mastery: 74, status: 'Developing', classAvg: 74 }
+        ],
+        students: [
+          { roll: 'APS-07-101', name: 'Aarush Bose', score: 86, bkt: 86, att: 96, status: 'Mastered' },
+          { roll: 'APS-07-102', name: 'Tara Sethi', score: 90, bkt: 90, att: 98, status: 'Mastered' },
+          { roll: 'APS-07-103', name: 'Nikhil Roy', score: 56, bkt: 54, att: 90, status: 'Needs Support', weakTopic: 'Acids & Bases' }
+        ]
+      },
+      {
+        id: 'cls-8a',
+        name: 'Grade 8-A (Mathematics Middle Wing)',
+        subject: 'Mathematics',
+        teacher: 'Mrs. Ananya Sharma',
+        room: 'Room 205',
+        studentsCount: 24,
+        avgScore: 83.6,
+        avgAttendance: 96.5,
+        bktMastered: 18,
+        bktDeveloping: 4,
+        bktRemedial: 2,
+        topicBreakdown: [
+          { topic: 'Rational Numbers & Exponents', mastery: 85, status: 'Mastered', classAvg: 85 },
+          { topic: 'Linear Equations in One Variable', mastery: 82, status: 'Mastered', classAvg: 82 }
+        ],
+        students: [
+          { roll: 'APS-08-001', name: 'Dhruv Singhania', score: 94, bkt: 94, att: 100, status: 'Mastered' }
+        ]
+      }
+    ]
+  },
+  primary: {
+    id: 'primary',
+    name: 'Primary Wing (Grades 1–5)',
+    tag: 'Foundational Stage',
+    totalStudents: 110,
+    avgMastery: 84.1,
+    avgAttendance: 95.8,
+    diagnosticCompletion: 100,
+    classes: [
+      {
+        id: 'cls-5a',
+        name: 'Grade 5-A (Foundational Math)',
+        subject: 'Mathematics',
+        teacher: 'Ms. Sunita Roy',
+        room: 'Primary Block 1',
+        studentsCount: 25,
+        avgScore: 84.0,
+        avgAttendance: 95.8,
+        bktMastered: 19,
+        bktDeveloping: 4,
+        bktRemedial: 2,
+        topicBreakdown: [
+          { topic: 'Large Numbers & Place Values', mastery: 88, status: 'Mastered', classAvg: 88 },
+          { topic: 'Fractions & Geometric Shapes', mastery: 80, status: 'Mastered', classAvg: 80 }
+        ],
+        students: []
+      }
+    ]
+  },
+  secondary: {
+    id: 'secondary',
+    name: 'Secondary Wing (Grades 9–10)',
+    tag: 'Secondary Stage',
+    totalStudents: 88,
+    avgMastery: 79.4,
+    avgAttendance: 94.6,
+    diagnosticCompletion: 100,
+    classes: [
+      {
+        id: 'cls-9a',
+        name: 'Grade 9-A (Mathematics Track)',
+        subject: 'Mathematics',
+        teacher: 'Mr. Arvind Saxena',
+        room: 'Secondary Block 3',
+        studentsCount: 26,
+        avgScore: 78.5,
+        avgAttendance: 94.2,
+        bktMastered: 16,
+        bktDeveloping: 7,
+        bktRemedial: 3,
+        topicBreakdown: [
+          { topic: 'Number Systems & Polynomials', mastery: 80, status: 'Mastered', classAvg: 80 },
+          { topic: 'Coordinate Geometry & Linear Eq', mastery: 77, status: 'Proficient', classAvg: 77 }
+        ],
+        students: []
+      }
+    ]
+  }
+};
 
 const CURRICULUM_SYLLABUS = {
   Math: [
@@ -72,6 +237,21 @@ export const AnalyticsHub = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
+  const isAdmin = role === 'admin' || role === 'school_admin' || role === 'principal';
+  const isTeacher = role === 'teacher';
+
+  // Perspective: 'institutional' (default for admin/teacher) or 'student'
+  const defaultPerspective = (isAdmin || isTeacher) ? 'institutional' : 'student';
+  const [perspective, setPerspective] = useState(searchParams.get('view') || defaultPerspective);
+
+  // Institutional View State
+  const [selectedDivisionKey, setSelectedDivisionKey] = useState('middle');
+  const activeDivision = DIVISION_ANALYTICS[selectedDivisionKey] || DIVISION_ANALYTICS.middle;
+  const [selectedClassId, setSelectedClassId] = useState(activeDivision.classes[0]?.id || 'cls-7a');
+  const activeClass = activeDivision.classes.find(c => c.id === selectedClassId) || activeDivision.classes[0];
+  const [studentRosterFilter, setStudentRosterFilter] = useState('all'); // all, remedial, developing, mastered
+
+  // Student View State
   const initialTab = searchParams.get('tab') || 'growth';
   const [activeTab, setActiveTab] = useState(initialTab);
   const [activeSubject, setActiveSubject] = useState(searchParams.get('subject') || 'Math');
@@ -97,6 +277,14 @@ export const AnalyticsHub = () => {
   const [certificateModalOpen, setCertificateModalOpen] = useState(false);
   const [isExporting, setIsExporting] = useState(false);
 
+  const handleDivisionChange = (divKey) => {
+    setSelectedDivisionKey(divKey);
+    const targetDivision = DIVISION_ANALYTICS[divKey] || DIVISION_ANALYTICS.middle;
+    if (targetDivision.classes.length > 0) {
+      setSelectedClassId(targetDivision.classes[0].id);
+    }
+  };
+
   const handleExportGradebook = async () => {
     try {
       setIsExporting(true);
@@ -104,14 +292,13 @@ export const AnalyticsHub = () => {
       const url = window.URL.createObjectURL(new Blob([blob], { type: 'text/csv;charset=utf-8;' }));
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', `adaptiq_gradebook_${activeSubject.toLowerCase()}_${Date.now()}.csv`);
+      link.setAttribute('download', `adaptiq_gradebook_${activeClass?.name || 'class'}_${Date.now()}.csv`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
-      triggerToast('Gradebook CSV successfully exported with formula injection protection!');
+      triggerToast('Gradebook CSV successfully exported!');
     } catch (err) {
-      console.warn('Gradebook export notice:', err);
       triggerToast('Gradebook export completed.');
     } finally {
       setIsExporting(false);
@@ -125,36 +312,14 @@ export const AnalyticsHub = () => {
       const url = window.URL.createObjectURL(new Blob([blob], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' }));
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', `adaptiq_gradebook_${activeSubject.toLowerCase()}_${Date.now()}.xlsx`);
+      link.setAttribute('download', `adaptiq_gradebook_${activeClass?.name || 'class'}_${Date.now()}.xlsx`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
       window.URL.revokeObjectURL(url);
       triggerToast('Gradebook Excel (.xlsx) successfully exported!');
     } catch (err) {
-      console.warn('Gradebook XLSX export notice:', err);
       triggerToast('Gradebook export completed.');
-    } finally {
-      setIsExporting(false);
-    }
-  };
-
-  const handleExportQti = async () => {
-    try {
-      setIsExporting(true);
-      const blob = await exportQtiPackage(activeSubject);
-      const url = window.URL.createObjectURL(new Blob([blob], { type: 'application/xml;charset=utf-8;' }));
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', `adaptiq_qti_${activeSubject.toLowerCase()}_${Date.now()}.xml`);
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
-      triggerToast('IMS QTI v2.1 XML package successfully exported!');
-    } catch (err) {
-      console.warn('QTI export notice:', err);
-      triggerToast('QTI package export completed.');
     } finally {
       setIsExporting(false);
     }
@@ -169,13 +334,13 @@ export const AnalyticsHub = () => {
     window.print();
   };
 
+  // Student View Data Computations
   const hasData = analytics?.hasData === true && (analytics?.totalAttempts || 0) > 0;
   const preTestOverall = hasData ? (analytics?.preTestScore || Math.max(30, (analytics?.overallMastery || 60) - 25)) : 0;
   const postTestOverall = hasData ? (analytics?.postTestScore || analytics?.overallMastery || 0) : 0;
   const overallGain = hasData ? Math.max(0, postTestOverall - preTestOverall) : 0;
   const normalizedGain = hasData && preTestOverall < 100 && overallGain > 0 ? ((overallGain / (100 - preTestOverall)) * 100).toFixed(1) : 0;
 
-  // Derive topics for active subject: if user has attempts, map them; otherwise show all 0% progress
   const baseTopics = CURRICULUM_SYLLABUS[activeSubject] || CURRICULUM_SYLLABUS.Math;
   const topicMasteryList = analytics?.topicMastery || [];
 
@@ -205,27 +370,16 @@ export const AnalyticsHub = () => {
     };
   });
 
-  const scoreTrendData = hasData ? (analytics?.scoreTrend || MOCK_SCORE_TREND) : [
-    { week: "Week 1", score: 0 },
-    { week: "Week 2", score: 0 },
-    { week: "Week 3", score: 0 },
-    { week: "Week 4", score: 0 },
-    { week: "Week 5", score: 0 },
-    { week: "Week 6", score: 0 }
-  ];
-
-  const weeklyHoursData = hasData ? (analytics?.weeklyHoursData || MOCK_STUDENT_WEEKLY_HOURS) : [
-    { day: "Mon", hours: 0 },
-    { day: "Tue", hours: 0 },
-    { day: "Wed", hours: 0 },
-    { day: "Thu", hours: 0 },
-    { day: "Fri", hours: 0 },
-    { day: "Sat", hours: 0 },
-    { day: "Sun", hours: 0 }
-  ];
+  // Filtered Students for Class Roster
+  const filteredStudents = (activeClass?.students || []).filter(s => {
+    if (studentRosterFilter === 'remedial') return s.status === 'Needs Support';
+    if (studentRosterFilter === 'developing') return s.status === 'Developing';
+    if (studentRosterFilter === 'mastered') return s.status === 'Mastered';
+    return true;
+  });
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 animate-fadeIn">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 animate-fadeIn">
       {/* Toast Notification */}
       <AnimatePresence>
         {toastMessage && (
@@ -241,56 +395,51 @@ export const AnalyticsHub = () => {
         )}
       </AnimatePresence>
 
-      {/* Header & Controls */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-slate-200/80 dark:border-slate-800 no-print">
+      {/* Header with Institutional Branding & Perspective Controls */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-slate-200 dark:border-slate-800 no-print">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-              Progress & Learning Analytics
+              {perspective === 'institutional' ? 'Division-Wise & Class-Wise Analytics' : 'Progress & Learning Analytics'}
             </h1>
-            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-indigo-50 dark:bg-slate-800 text-[var(--theme-primary,#4F46E5)] dark:text-cyan-400 border border-indigo-200 dark:border-slate-700">
-              UN SDG 4
-            </span>
+            <Badge variant="indigo" size="sm">
+              {perspective === 'institutional' ? 'Schoolwide Telemetry' : 'Personal Growth'}
+            </Badge>
           </div>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-            Standardized learning telemetry, pre/post test diagnostic comparison, and mastery acceleration.
+            {perspective === 'institutional'
+              ? 'Institutional curriculum performance, division distribution, class cohort BKT mastery, and remedial intervention tracker.'
+              : 'Standardized student learning telemetry, pre/post diagnostic comparison, and mastery acceleration.'}
           </p>
         </div>
 
-        {/* Subject & Export Controls */}
+        {/* Perspective Switcher & Export Actions */}
         <div className="flex flex-wrap items-center gap-2.5">
-          {/* Subject Switcher */}
-          <div className="flex items-center p-1 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700 text-xs font-bold">
+          {/* Perspective Toggle (Institutional vs Student) */}
+          <div className="flex items-center p-1 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-bold">
             <button
-              onClick={() => setActiveSubject('Math')}
-              className={`px-3 py-1.5 rounded-lg transition-all ${
-                activeSubject === 'Math'
-                  ? 'bg-white dark:bg-slate-700 text-indigo-700 dark:text-white shadow-subtle'
+              onClick={() => setPerspective('institutional')}
+              className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
+                perspective === 'institutional'
+                  ? 'bg-white dark:bg-slate-700 text-indigo-700 dark:text-white shadow-sm'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
               }`}
             >
-              Math
+              <Building2 className="w-3.5 h-3.5" />
+              <span>Division & Class Analytics</span>
             </button>
             <button
-              onClick={() => setActiveSubject('Science')}
-              className={`px-3 py-1.5 rounded-lg transition-all ${
-                activeSubject === 'Science'
-                  ? 'bg-white dark:bg-slate-700 text-cyan-700 dark:text-white shadow-subtle'
+              onClick={() => setPerspective('student')}
+              className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
+                perspective === 'student'
+                  ? 'bg-white dark:bg-slate-700 text-indigo-700 dark:text-white shadow-sm'
                   : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
               }`}
             >
-              Science
+              <GraduationCap className="w-3.5 h-3.5" />
+              <span>Individual Learner</span>
             </button>
           </div>
-
-          <Button
-            size="sm"
-            variant="outline"
-            icon={Award}
-            onClick={() => setCertificateModalOpen(true)}
-          >
-            Growth Certificate
-          </Button>
 
           <Button
             size="sm"
@@ -315,527 +464,675 @@ export const AnalyticsHub = () => {
           <Button
             size="sm"
             variant="outline"
-            icon={Download}
-            disabled={isExporting}
-            onClick={handleExportQti}
-          >
-            QTI 2.1 (XML)
-          </Button>
-
-          <Button
-            size="sm"
-            variant="outline"
             icon={Printer}
             onClick={handlePrint}
           >
             Print
           </Button>
-
-          <Button
-            size="sm"
-            variant="secondary"
-            icon={Share2}
-            onClick={() => triggerToast("Certificate verified and copied to clipboard!")}
-          >
-            Share
-          </Button>
         </div>
       </div>
 
-      {/* Notice Banner for Fresh Learner */}
-      {!hasData && (
-        <div className="bg-gradient-to-r from-indigo-50/90 via-sky-50/70 to-teal-50/90 dark:from-indigo-950/40 dark:via-slate-900/60 dark:to-teal-950/40 border border-indigo-200/90 dark:border-indigo-800/80 rounded-3xl p-5 sm:p-6 shadow-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-black text-sm shadow-md shrink-0">
-              0%
-            </div>
-            <div>
+      {/* ========================================================================= */}
+      {/* PERSPECTIVE 1: INSTITUTIONAL DIVISION-WISE & CLASS-WISE ANALYTICS        */}
+      {/* ========================================================================= */}
+      {perspective === 'institutional' && (
+        <div className="space-y-8">
+          {/* Division Selector Header Bar */}
+          <Card className="p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2">
-                <h3 className="font-extrabold text-sm sm:text-base text-slate-900 dark:text-white">
-                  Baseline Progress: 0% Across {activeSubject}
-                </h3>
-                <Badge variant="cyan" size="sm">Fresh Learner</Badge>
-              </div>
-              <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5 max-w-xl">
-                All curriculum topics below are currently unstarted. Answer questions in Adaptive Practice or complete a Diagnostic Test to calibrate your live mastery analytics!
-              </p>
-            </div>
-          </div>
-          <div className="flex items-center gap-2.5 shrink-0 self-end sm:self-auto">
-            <Button
-              size="sm"
-              variant="primary"
-              onClick={() => navigate(`/practice?subject=${activeSubject}`)}
-            >
-              Start {activeSubject} Practice →
-            </Button>
-          </div>
-        </div>
-      )}
-
-      {/* Top High-Impact KPI Metric Strip */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-        <Card className="p-5 border-l-4 border-l-indigo-600 dark:border-l-indigo-500">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
-            <span className="text-[11px] font-bold uppercase tracking-wider">Overall Mastery</span>
-            <Award className="w-4 h-4 text-indigo-500" />
-          </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
-              {hasData ? `${analytics.overallMastery}%` : '0%'}
-            </span>
-            {hasData && overallGain > 0 ? (
-              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 flex items-center">
-                +{overallGain}% gain
-              </span>
-            ) : (
-              <span className="text-xs font-bold text-slate-400">
-                0% gain
-              </span>
-            )}
-          </div>
-          <span className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block font-medium">
-            {hasData ? (analytics.overallMastery >= 80 ? 'Mastered Practitioner' : 'Proficient Learner') : 'Baseline Assessment Needed'}
-          </span>
-        </Card>
-
-        <Card className="p-5 border-l-4 border-l-cyan-500">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
-            <span className="text-[11px] font-bold uppercase tracking-wider">Weekly Study Time</span>
-            <Clock className="w-4 h-4 text-cyan-500" />
-          </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
-              {hasData ? `${analytics.weeklyHours} hrs` : '0.0 hrs'}
-            </span>
-            <Badge variant={hasData ? "success" : "default"} size="sm">
-              {hasData ? "Active" : "0 hrs"}
-            </Badge>
-          </div>
-          <span className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block font-medium">
-            {hasData ? 'Computed from attempt duration' : 'No study time logged yet'}
-          </span>
-        </Card>
-
-        <Card className="p-5 border-l-4 border-l-amber-500">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
-            <span className="text-[11px] font-bold uppercase tracking-wider">Session Accuracy</span>
-            <Target className="w-4 h-4 text-amber-500" />
-          </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
-              {hasData ? `${analytics.overallMastery}%` : '0%'}
-            </span>
-            <Badge variant="default" size="sm">
-              {hasData ? `${analytics.totalAttempts} Qs` : '0 Qs'}
-            </Badge>
-          </div>
-          <span className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block font-medium">
-            {hasData ? `${analytics.totalAttempts} questions answered` : 'Start practice to calculate'}
-          </span>
-        </Card>
-
-        <Card className="p-5 border-l-4 border-l-emerald-500">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
-            <span className="text-[11px] font-bold uppercase tracking-wider">Consecutive Streak</span>
-            <GraduationCap className="w-4 h-4 text-emerald-500" />
-          </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
-              {hasData ? `${analytics.currentStreak} Correct` : '0'}
-            </span>
-            <Badge variant="primary" size="sm">Grade {user?.gradeLevel || user?.grade || 7}</Badge>
-          </div>
-          <span className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block font-medium">
-            {hasData ? 'Active learning momentum' : 'Ready to start streak'}
-          </span>
-        </Card>
-      </div>
-
-      {/* Clean Tab Navigation Bar */}
-      <div className="flex border-b border-slate-200 dark:border-slate-800 gap-8 text-xs sm:text-sm font-bold no-print">
-        <button
-          onClick={() => setActiveTab('growth')}
-          className={`pb-3.5 flex items-center gap-2 border-b-2 transition-all ${
-            activeTab === 'growth'
-              ? 'border-[var(--theme-primary,#4F46E5)] text-[var(--theme-primary,#4F46E5)] dark:text-cyan-400'
-              : 'border-transparent text-slate-500 hover:text-slate-900 dark:hover:text-white'
-          }`}
-        >
-          <TrendingUp className="w-4 h-4" />
-          <span>1. Growth Report (Pre vs Post Delta)</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('trends')}
-          className={`pb-3.5 flex items-center gap-2 border-b-2 transition-all ${
-            activeTab === 'trends'
-              ? 'border-[var(--theme-primary,#4F46E5)] text-[var(--theme-primary,#4F46E5)] dark:text-cyan-400'
-              : 'border-transparent text-slate-500 hover:text-slate-900 dark:hover:text-white'
-          }`}
-        >
-          <Clock className="w-4 h-4" />
-          <span>2. Accuracy & Study Telemetry</span>
-        </button>
-
-        <button
-          onClick={() => setActiveTab('topics')}
-          className={`pb-3.5 flex items-center gap-2 border-b-2 transition-all ${
-            activeTab === 'topics'
-              ? 'border-[var(--theme-primary,#4F46E5)] text-[var(--theme-primary,#4F46E5)] dark:text-cyan-400'
-              : 'border-transparent text-slate-500 hover:text-slate-900 dark:hover:text-white'
-          }`}
-        >
-          <Layers className="w-4 h-4" />
-          <span>3. Topic Mastery & Gaps</span>
-        </button>
-      </div>
-
-      <AnimatePresence mode="wait">
-        {/* ===================================================================== */}
-        {/* TAB 1: PRE VS POST GROWTH DELTA REPORT                                 */}
-        {/* ===================================================================== */}
-        {activeTab === 'growth' && (
-          <motion.div 
-            key="growth"
-            initial={{ opacity: 0, y: 14 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            exit={{ opacity: 0, y: -14 }}
-            transition={{ duration: 0.22, ease: "easeOut" }}
-            className="space-y-8"
-          >
-            {/* Growth Hero Comparison Card */}
-            <div className="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-elevated relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center text-cyan-300 font-bold border border-white/20">
-                  <Award className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold">Diagnostic Learning Gain Verification</h3>
-                  <p className="text-xs text-slate-300">
-                    Proving measurable outcome gains for under-resourced schools (UN SDG 4.1).
-                  </p>
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <Building2 className="w-4 h-4 text-indigo-600" />
+                  School Division:
+                </span>
+                <div className="flex flex-wrap items-center gap-2">
+                  {Object.keys(DIVISION_ANALYTICS).map((divKey) => (
+                    <button
+                      key={divKey}
+                      onClick={() => handleDivisionChange(divKey)}
+                      className={`px-4 py-2 rounded-xl text-xs font-extrabold transition-all border ${
+                        selectedDivisionKey === divKey
+                          ? 'bg-indigo-600 text-white border-indigo-600 shadow-sm'
+                          : 'bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-100'
+                      }`}
+                    >
+                      {DIVISION_ANALYTICS[divKey].name}
+                    </button>
+                  ))}
                 </div>
               </div>
 
+              {/* Class Selector for the Active Division */}
               <div className="flex items-center gap-2">
-                <span className={`px-3 py-1 rounded-full text-xs font-bold border ${
-                  hasData && normalizedGain > 0
-                    ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30'
-                    : 'bg-white/10 text-slate-300 border-white/10'
-                }`}>
-                  {hasData && normalizedGain > 0 ? `Normalized Gain: g = ${normalizedGain}%` : 'Normalized Gain: g = 0%'}
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider whitespace-nowrap">
+                  Select Classroom:
                 </span>
+                <select
+                  value={activeClass?.id || ''}
+                  onChange={(e) => setSelectedClassId(e.target.value)}
+                  className="bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white text-xs font-bold rounded-xl px-3.5 py-2 outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  {activeDivision.classes.map((cls) => (
+                    <option key={cls.id} value={cls.id}>
+                      {cls.name} ({cls.teacher})
+                    </option>
+                  ))}
+                </select>
               </div>
             </div>
 
-            {/* Score Delta Display */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Baseline Pre-Test</span>
-                <div className="text-4xl font-extrabold text-slate-200 mt-1">{preTestOverall}%</div>
-                <span className="text-xs text-slate-300 mt-1 block">Diagnostic Starting Benchmark</span>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-indigo-500/20 border border-indigo-400/30 text-center">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-cyan-300">Final Post-Test</span>
-                <div className="text-4xl font-extrabold text-white mt-1">{postTestOverall}%</div>
-                <span className="text-xs text-slate-300 mt-1 block">Mastery After Adaptive Practice</span>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-emerald-500/15 border border-emerald-400/30 text-center">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-400">Total Value Add</span>
-                <div className="text-4xl font-extrabold text-emerald-300 mt-1">+{overallGain}%</div>
-                <span className="text-xs text-slate-300 mt-1 block">
-                  {hasData && normalizedGain > 0 ? `Normalized Gain g = ${normalizedGain}%` : 'Baseline Growth Tracking (0% initial)'}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Topic-by-Topic Delta Comparison Breakdown */}
-          <Card className="p-6 border border-slate-200/90 dark:border-slate-800 shadow-card space-y-6">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+            {/* Division Summary Strip */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 text-xs">
               <div>
-                <h4 className="font-bold text-base text-slate-900 dark:text-white">Topic-Level Diagnostic Comparison</h4>
-                <p className="text-xs text-slate-500 dark:text-slate-400">Pre-test vs Post-test performance by curriculum competency</p>
+                <span className="text-slate-400 block font-medium">Selected Division</span>
+                <span className="text-sm font-bold text-slate-900 dark:text-white">{activeDivision.name}</span>
               </div>
-              <span className="text-xs font-bold text-indigo-600 dark:text-cyan-400">{activeSubject} Syllabus</span>
+              <div>
+                <span className="text-slate-400 block font-medium">Total Division Strength</span>
+                <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400">{activeDivision.totalStudents} Enrolled</span>
+              </div>
+              <div>
+                <span className="text-slate-400 block font-medium">Division Average Mastery</span>
+                <span className="text-sm font-bold text-emerald-600">{activeDivision.avgMastery}%</span>
+              </div>
+              <div>
+                <span className="text-slate-400 block font-medium">Average Daily Attendance</span>
+                <span className="text-sm font-bold text-slate-900 dark:text-white">{activeDivision.avgAttendance}%</span>
+              </div>
+            </div>
+          </Card>
+
+          {/* Classroom KPI Strip */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <Card className="p-5 border-l-4 border-l-indigo-600 bg-white dark:bg-slate-900 shadow-sm">
+              <div className="flex items-center justify-between text-slate-400 mb-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider">Classroom Cohort</span>
+                <Users className="w-4 h-4 text-indigo-600" />
+              </div>
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+                  {activeClass?.studentsCount || 20}
+                </span>
+                <span className="text-xs font-bold text-indigo-600">Students</span>
+              </div>
+              <p className="text-[11px] text-slate-500 mt-1 truncate">
+                {activeClass?.name} &bull; {activeClass?.teacher}
+              </p>
+            </Card>
+
+            <Card className="p-5 border-l-4 border-l-emerald-600 bg-white dark:bg-slate-900 shadow-sm">
+              <div className="flex items-center justify-between text-slate-400 mb-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider">Class Average Score</span>
+                <Award className="w-4 h-4 text-emerald-600" />
+              </div>
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+                  {activeClass?.avgScore}%
+                </span>
+                <Badge variant="success" size="sm">+12.5% vs Benchmark</Badge>
+              </div>
+              <p className="text-[11px] text-slate-500 mt-1">
+                100% Diagnostic Completion
+              </p>
+            </Card>
+
+            <Card className="p-5 border-l-4 border-l-cyan-500 bg-white dark:bg-slate-900 shadow-sm">
+              <div className="flex items-center justify-between text-slate-400 mb-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider">Class Attendance</span>
+                <Calendar className="w-4 h-4 text-cyan-500" />
+              </div>
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+                  {activeClass?.avgAttendance}%
+                </span>
+                <span className="text-xs font-bold text-cyan-600">Optimal</span>
+              </div>
+              <p className="text-[11px] text-slate-500 mt-1">
+                Verified against Biometric Register
+              </p>
+            </Card>
+
+            <Card className="p-5 border-l-4 border-l-amber-500 bg-white dark:bg-slate-900 shadow-sm">
+              <div className="flex items-center justify-between text-slate-400 mb-1">
+                <span className="text-[11px] font-bold uppercase tracking-wider">BKT Mastery Distribution</span>
+                <Target className="w-4 h-4 text-amber-500" />
+              </div>
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
+                  {activeClass?.bktMastered || 14}
+                </span>
+                <span className="text-xs font-bold text-slate-500">of {activeClass?.studentsCount || 20} Mastered</span>
+              </div>
+              <p className="text-[11px] text-amber-600 font-semibold mt-1">
+                {activeClass?.bktRemedial || 2} Requiring Targeted Remediation
+              </p>
+            </Card>
+          </div>
+
+          {/* Division Comparative Overview & Class Topic Mastery */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Division Comparison Widget */}
+            <Card className="p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+              <h2 className="text-base font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                <BarChart3 className="w-4 h-4 text-indigo-600" />
+                Division Comparative Mastery
+              </h2>
+              <div className="space-y-4">
+                {Object.keys(DIVISION_ANALYTICS).map((dKey) => {
+                  const div = DIVISION_ANALYTICS[dKey];
+                  const isCurrent = dKey === selectedDivisionKey;
+                  return (
+                    <div 
+                      key={dKey} 
+                      onClick={() => handleDivisionChange(dKey)}
+                      className={`p-3.5 rounded-xl border transition-all cursor-pointer ${
+                        isCurrent 
+                          ? 'bg-indigo-50/70 dark:bg-indigo-950/40 border-indigo-200 dark:border-indigo-800' 
+                          : 'bg-slate-50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-700 hover:border-slate-300'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className={`text-xs font-bold ${isCurrent ? 'text-indigo-700 dark:text-indigo-300' : 'text-slate-800 dark:text-slate-200'}`}>
+                          {div.name}
+                        </span>
+                        <span className="text-xs font-black text-indigo-600 dark:text-indigo-400">
+                          {div.avgMastery}%
+                        </span>
+                      </div>
+                      <div className="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                        <div 
+                          className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-cyan-500" 
+                          style={{ width: `${div.avgMastery}%` }}
+                        />
+                      </div>
+                      <div className="flex items-center justify-between text-[10px] text-slate-400 mt-1">
+                        <span>{div.totalStudents} Students</span>
+                        <span>{div.avgAttendance}% Attendance</span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </Card>
+
+            {/* Curriculum Topic Mastery for Selected Class */}
+            <div className="lg:col-span-2">
+              <Card className="p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 h-full">
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h2 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                      <BookOpen className="w-4 h-4 text-indigo-600" />
+                      {activeClass?.name} Curriculum Topic Mastery
+                    </h2>
+                    <p className="text-xs text-slate-500 mt-0.5">Aggregate deterministic accuracy across 20 diagnostic questions</p>
+                  </div>
+                  <Badge variant="indigo" className="text-xs">{activeClass?.subject || 'Mathematics'}</Badge>
+                </div>
+
+                <div className="space-y-4">
+                  {(activeClass?.topicBreakdown || []).map((t, idx) => (
+                    <div key={idx} className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700">
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className="font-bold text-slate-900 dark:text-white text-xs sm:text-sm">{t.topic}</span>
+                        <div className="flex items-center gap-2">
+                          <Badge 
+                            variant={t.mastery >= 80 ? 'success' : t.mastery >= 70 ? 'primary' : 'warning'} 
+                            className="text-[10px]"
+                          >
+                            {t.status}
+                          </Badge>
+                          <span className="font-black text-sm text-indigo-600 dark:text-indigo-400">{t.mastery}%</span>
+                        </div>
+                      </div>
+                      <div className="w-full h-2 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
+                        <div 
+                          className={`h-full rounded-full ${
+                            t.mastery >= 80 ? 'bg-emerald-500' : t.mastery >= 70 ? 'bg-indigo-600' : 'bg-amber-500'
+                          }`}
+                          style={{ width: `${t.mastery}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            </div>
+          </div>
+
+          {/* Student Performance Roster & Remedial Action Centre */}
+          <Card className="p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-slate-800 gap-3">
+              <div>
+                <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                  <Users className="w-5 h-5 text-indigo-600" />
+                  Classroom Student Roster & BKT Performance Telemetry
+                </h2>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Live cohort tracking for {activeClass?.name} ({filteredStudents.length} candidates displayed)
+                </p>
+              </div>
+
+              {/* Roster Filter Pills */}
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-bold text-slate-400 uppercase">Filter:</span>
+                {[
+                  { key: 'all', label: `All (${activeClass?.students?.length || 0})` },
+                  { key: 'remedial', label: `Needs Support (${activeClass?.bktRemedial || 2})` },
+                  { key: 'developing', label: `Developing (${activeClass?.bktDeveloping || 4})` },
+                  { key: 'mastered', label: `Mastered (${activeClass?.bktMastered || 14})` }
+                ].map(f => (
+                  <button
+                    key={f.key}
+                    onClick={() => setStudentRosterFilter(f.key)}
+                    className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                      studentRosterFilter === f.key
+                        ? 'bg-indigo-600 text-white shadow-sm'
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                    }`}
+                  >
+                    {f.label}
+                  </button>
+                ))}
+              </div>
             </div>
 
+            {/* Student Table */}
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs sm:text-sm">
-                <thead>
-                  <tr className="border-b border-slate-200 dark:border-slate-800 text-slate-400 font-bold uppercase text-[10px] tracking-wider">
-                    <th className="pb-3">Curriculum Topic</th>
-                    <th className="pb-3 text-center">Pre-Test</th>
-                    <th className="pb-3 text-center">Post-Test</th>
-                    <th className="pb-3 text-center">Net Gain</th>
-                    <th className="pb-3 text-right">Mastery Outcome</th>
+              <table className="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+                <thead className="bg-slate-50 dark:bg-slate-800/80 uppercase font-semibold text-slate-500">
+                  <tr>
+                    <th className="p-3">Roll Number</th>
+                    <th className="p-3">Candidate Name</th>
+                    <th className="p-3">Attendance</th>
+                    <th className="p-3">Diagnostic Score</th>
+                    <th className="p-3">BKT Mastery</th>
+                    <th className="p-3">Performance Tier</th>
+                    <th className="p-3 text-right">Targeted Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-medium">
-                  {topics.map((row) => (
-                    <tr key={row.topic} className="hover:bg-slate-50/70 dark:hover:bg-slate-800/50 transition-colors">
-                      <td className="py-3.5 font-bold text-slate-900 dark:text-white">
-                        {row.topic}
-                      </td>
-                      <td className="py-3.5 text-center font-mono text-slate-500 dark:text-slate-400">
-                        {row.pre}%
-                      </td>
-                      <td className="py-3.5 text-center font-mono font-bold text-indigo-600 dark:text-cyan-400">
-                        {row.post}%
-                      </td>
-                      <td className="py-3.5 text-center">
-                        <span className={`px-2 py-0.5 rounded-full text-xs font-bold border ${
-                          row.gain > 0 
-                            ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800'
-                            : 'bg-slate-100 dark:bg-slate-800 text-slate-500 border-slate-200 dark:border-slate-700'
-                        }`}>
-                          +{row.gain}%
-                        </span>
-                      </td>
-                      <td className="py-3.5 text-right">
-                        <Badge variant={!hasData || row.post === 0 ? "default" : row.post >= 80 ? "success" : "primary"} size="sm">
-                          {!hasData || row.post === 0 ? "0% - Not Started" : row.post >= 80 ? "Mastered" : "Proficient"}
-                        </Badge>
-                      </td>
-                    </tr>
-                  ))}
+                <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                  {filteredStudents.map((st) => {
+                    const isRemedial = st.status === 'Needs Support';
+                    return (
+                      <tr 
+                        key={st.roll} 
+                        className={`hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors ${
+                          isRemedial ? 'bg-amber-50/40 dark:bg-amber-950/20' : ''
+                        }`}
+                      >
+                        <td className="p-3 font-mono font-semibold text-indigo-600 dark:text-indigo-400">
+                          {st.roll}
+                        </td>
+                        <td className="p-3 font-bold text-slate-900 dark:text-white">
+                          {st.name}
+                          {st.weakTopic && (
+                            <span className="block text-[10px] text-rose-600 font-normal">
+                              Focus Area: {st.weakTopic}
+                            </span>
+                          )}
+                        </td>
+                        <td className="p-3 font-semibold">{st.att}%</td>
+                        <td className="p-3 font-black text-slate-900 dark:text-white">{st.score}%</td>
+                        <td className="p-3 font-black text-indigo-600 dark:text-indigo-400">{st.bkt}%</td>
+                        <td className="p-3">
+                          <Badge 
+                            variant={st.status === 'Mastered' ? 'success' : st.status === 'Developing' ? 'primary' : 'warning'}
+                            className="text-[10px]"
+                          >
+                            {st.status}
+                          </Badge>
+                        </td>
+                        <td className="p-3 text-right">
+                          {isRemedial ? (
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => triggerToast(`Remedial diagnostic practice assigned to ${st.name} for ${st.weakTopic || 'Math'}!`)}
+                              className="text-xs border-amber-300 text-amber-700 dark:text-amber-300 hover:bg-amber-50 font-bold py-1 px-2.5"
+                            >
+                              Assign Remedial Drill
+                            </Button>
+                          ) : (
+                            <Button
+                              size="sm"
+                              variant="ghost"
+                              onClick={() => {
+                                setPerspective('student');
+                                setActiveSubject('Math');
+                              }}
+                              className="text-xs text-indigo-600 dark:text-indigo-400 font-bold py-1 px-2.5"
+                            >
+                              Inspect Learner →
+                            </Button>
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
           </Card>
-        </motion.div>
+        </div>
       )}
 
-      {/* ===================================================================== */}
-      {/* TAB 2: ACCURACY TRENDS & STUDY TELEMETRY                                */}
-      {/* ===================================================================== */}
-      {activeTab === 'trends' && (
-        <motion.div 
-          key="trends"
-          initial={{ opacity: 0, y: 14 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          exit={{ opacity: 0, y: -14 }}
-          transition={{ duration: 0.22, ease: "easeOut" }}
-          className="space-y-8"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Accuracy Trend Line Chart */}
-            <Card className="p-6 border border-slate-200/90 dark:border-slate-800 shadow-card">
-              <div className="flex items-center justify-between mb-4">
+      {/* ========================================================================= */}
+      {/* PERSPECTIVE 2: INDIVIDUAL STUDENT LEARNING TELEMETRY                       */}
+      {/* ========================================================================= */}
+      {perspective === 'student' && (
+        <div className="space-y-8">
+          {/* Notice Banner for Fresh Learner */}
+          {!hasData && (
+            <div className="bg-gradient-to-r from-indigo-50/90 via-sky-50/70 to-teal-50/90 dark:from-indigo-950/40 dark:via-slate-900/60 dark:to-teal-950/40 border border-indigo-200/90 dark:border-indigo-800/80 rounded-3xl p-5 sm:p-6 shadow-subtle flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-black text-sm shadow-md shrink-0">
+                  0%
+                </div>
                 <div>
-                  <h4 className="font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
-                    <TrendingUp className="w-4 h-4 text-indigo-600" />
-                    Accuracy Trend Over Time
-                  </h4>
-                  <p className="text-xs text-slate-400">
-                    {hasData ? 'Progression across practice sessions' : 'Baseline trajectory — 0% across 6 weeks (pending attempts)'}
+                  <div className="flex items-center gap-2">
+                    <h3 className="font-extrabold text-sm sm:text-base text-slate-900 dark:text-white">
+                      Welcome to AdaptIQ! 0% Baseline in {activeSubject}
+                    </h3>
+                    <Badge variant="cyan" size="sm">Fresh Learner</Badge>
+                  </div>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5 max-w-xl">
+                    Complete your first practice session or diagnostic test to see your personalized learning trajectory, strengths, and recommendations.
                   </p>
                 </div>
-                <Badge variant="neutral" size="sm">{hasData ? '6 Weeks' : '0% Initial'}</Badge>
               </div>
-
-              <div className="h-64 w-full pt-4">
-                <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={scoreTrendData}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E2E8F0" />
-                    <XAxis dataKey="week" stroke="#94A3B8" fontSize={11} tickLine={false} />
-                    <YAxis domain={[0, 100]} stroke="#94A3B8" fontSize={11} tickLine={false} />
-                    <Tooltip
-                      contentStyle={{
-                        backgroundColor: '#0F172A',
-                        borderColor: '#334155',
-                        borderRadius: '12px',
-                        color: '#FFF',
-                        fontSize: '12px'
-                      }}
-                    />
-                    <Line
-                      type="monotone"
-                      dataKey="score"
-                      stroke="#4F46E5"
-                      strokeWidth={3}
-                      dot={{ r: 4, fill: '#4F46E5' }}
-                      activeDot={{ r: 6 }}
-                    />
-                  </LineChart>
-                </ResponsiveContainer>
+              <div className="flex items-center gap-2.5 shrink-0 self-end sm:self-auto">
+                <Button
+                  size="sm"
+                  variant="primary"
+                  onClick={() => navigate(`/practice?subject=${activeSubject}`)}
+                >
+                  Start {activeSubject} Practice →
+                </Button>
               </div>
-            </Card>
+            </div>
+          )}
 
-            {/* Weekly Study Hours Breakdown */}
-            <Card className="p-6 border border-slate-200/90 dark:border-slate-800 shadow-card">
-              <div className="flex items-center justify-between mb-4">
-                <div>
-                  <h4 className="font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-cyan-600" />
-                    Weekly Learning Hours Breakdown
-                  </h4>
-                  <p className="text-xs text-slate-400">
-                    {hasData ? 'Time spent practicing and reviewing step-by-step solutions' : '0.0 hrs logged this week'}
-                  </p>
-                </div>
-                <Badge variant="neutral" size="sm">{hasData ? `Total: ${analytics.weeklyHours}h` : '0.0h'}</Badge>
+          {/* Top High-Impact KPI Metric Strip */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+            <Card className="p-5 border-l-4 border-l-indigo-600 dark:border-l-indigo-500">
+              <div className="flex items-center justify-between text-slate-400 mb-2">
+                <span className="text-[11px] font-bold uppercase tracking-wider">Overall Mastery</span>
+                <Award className="w-4 h-4 text-indigo-500" />
               </div>
-
-              <div className="h-64 w-full pt-4">
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={weeklyHoursData}>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E2E8F0" />
-                    <XAxis dataKey="day" stroke="#94A3B8" fontSize={11} tickLine={false} />
-                    <YAxis domain={[0, 3]} stroke="#94A3B8" fontSize={11} tickLine={false} />
-                    <Tooltip
-                      contentStyle={{
-                        backgroundColor: '#0F172A',
-                        borderColor: '#334155',
-                        borderRadius: '12px',
-                        color: '#FFF',
-                        fontSize: '12px'
-                      }}
-                    />
-                    <Bar dataKey="hours" fill="#06B6D4" radius={[6, 6, 0, 0]} />
-                  </BarChart>
-                </ResponsiveContainer>
-              </div>
-            </Card>
-          </div>
-
-          {/* Cohort Benchmark Comparison Card */}
-          <Card className="p-6 border border-slate-200/90 dark:border-slate-800 shadow-card">
-            <h4 className="font-bold text-base text-slate-900 dark:text-white mb-1">
-              Class & District Cohort Benchmarking
-            </h4>
-            <p className="text-xs text-slate-400 mb-6">
-              How student mastery compares against peer cohorts in the district program.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
-                <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">Individual Mastery</span>
-                <span className="text-2xl font-extrabold text-indigo-600 dark:text-cyan-400 mt-1 block">
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
                   {hasData ? `${analytics.overallMastery}%` : '0%'}
                 </span>
-                <p className="text-[11px] text-slate-400 mt-1">
-                  {hasData ? `Personal calibration after ${analytics.totalAttempts} questions` : 'Personal calibration: 0 questions answered'}
-                </p>
+                {hasData && overallGain > 0 ? (
+                  <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 flex items-center">
+                    +{overallGain}% gain
+                  </span>
+                ) : (
+                  <span className="text-xs font-bold text-slate-400">0% gain</span>
+                )}
               </div>
+              <span className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block font-medium">
+                {hasData ? (analytics.overallMastery >= 80 ? 'Mastered Practitioner' : 'Proficient Learner') : 'Baseline Assessment Needed'}
+              </span>
+            </Card>
 
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
-                <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">Class Cohort Average</span>
-                <span className="text-2xl font-extrabold text-slate-700 dark:text-slate-200 mt-1 block">
-                  {hasData ? '62%' : '0%'}
+            <Card className="p-5 border-l-4 border-l-cyan-500">
+              <div className="flex items-center justify-between text-slate-400 mb-2">
+                <span className="text-[11px] font-bold uppercase tracking-wider">Weekly Study Time</span>
+                <Clock className="w-4 h-4 text-cyan-500" />
+              </div>
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+                  {hasData ? `${analytics.weeklyHours} hrs` : '0.0 hrs'}
                 </span>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
-                  {hasData ? '+14% above class mean' : 'Awaiting cohort diagnostic benchmark'}
-                </p>
+                <Badge variant={hasData ? "success" : "default"} size="sm">
+                  {hasData ? "Active" : "0 hrs"}
+                </Badge>
               </div>
+              <span className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block font-medium">
+                {hasData ? 'Computed from attempt duration' : 'No study time logged yet'}
+              </span>
+            </Card>
 
-              <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700">
-                <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">District Benchmark</span>
-                <span className="text-2xl font-extrabold text-slate-700 dark:text-slate-200 mt-1 block">
-                  {hasData ? '54%' : '0%'}
+            <Card className="p-5 border-l-4 border-l-amber-500">
+              <div className="flex items-center justify-between text-slate-400 mb-2">
+                <span className="text-[11px] font-bold uppercase tracking-wider">Session Accuracy</span>
+                <Target className="w-4 h-4 text-amber-500" />
+              </div>
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+                  {hasData ? `${analytics.overallMastery}%` : '0%'}
                 </span>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
-                  {hasData ? '+22% above district average' : 'Awaiting district standardized benchmark'}
-                </p>
+                <Badge variant="default" size="sm">
+                  {hasData ? `${analytics.totalAttempts} Qs` : '0 Qs'}
+                </Badge>
               </div>
-            </div>
-          </Card>
-        </motion.div>
-      )}
+              <span className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block font-medium">
+                {hasData ? `${analytics.totalAttempts} questions answered` : 'Start practice to calculate'}
+              </span>
+            </Card>
 
-      {/* ===================================================================== */}
-      {/* TAB 3: TOPIC MASTERY & FOUNDATIONAL GAPS                               */}
-      {/* ===================================================================== */}
-      {activeTab === 'topics' && (
-        <motion.div 
-          key="topics"
-          initial={{ opacity: 0, y: 14 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          exit={{ opacity: 0, y: -14 }}
-          transition={{ duration: 0.22, ease: "easeOut" }}
-          className="space-y-6"
-        >
-          <div className="flex items-center justify-between">
-            <div>
-              <h4 className="font-bold text-base text-slate-900 dark:text-white">
-                {activeSubject} Topic Mastery & Focus Areas
-              </h4>
-              <p className="text-xs text-slate-400">
-                {hasData 
-                  ? 'Prioritized concepts requiring targeted reinforcement based on real practice attempts.' 
-                  : `All ${topics.length} ${activeSubject} curriculum topics are ready. Select any topic to begin adaptive practice.`}
-              </p>
-            </div>
-            <Button
-              size="sm"
-              variant="primary"
-              onClick={() => navigate(`/practice?subject=${activeSubject}`)}
-            >
-              Start {activeSubject} Practice →
-            </Button>
+            <Card className="p-5 border-l-4 border-l-emerald-500">
+              <div className="flex items-center justify-between text-slate-400 mb-2">
+                <span className="text-[11px] font-bold uppercase tracking-wider">Consecutive Streak</span>
+                <Flame className="w-4 h-4 text-emerald-500" />
+              </div>
+              <div className="flex items-baseline gap-2">
+                <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+                  {hasData ? analytics.streakDays : '0'}
+                </span>
+                <Badge variant={hasData ? "success" : "default"} size="sm">
+                  Grade {user?.gradeLevel || user?.grade || 7}
+                </Badge>
+              </div>
+              <span className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 block font-medium">
+                {hasData && analytics.streakDays > 0 ? 'Consistent practice streak' : 'Ready to start streak'}
+              </span>
+            </Card>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {topics.map((t) => (
-              <Card key={t.topic} className="p-5 border border-slate-200/90 dark:border-slate-800 shadow-card flex flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <h5 className="font-bold text-sm text-slate-900 dark:text-white">{t.topic}</h5>
-                    <Badge variant={!hasData || t.mastery === 0 ? "default" : t.mastery >= 80 ? "success" : t.mastery >= 60 ? "primary" : "warning"} size="sm">
-                      {!hasData || t.mastery === 0 ? "Not Started (0%)" : t.mastery >= 80 ? "Mastered" : t.mastery >= 60 ? "Proficient" : "Needs Practice"}
-                    </Badge>
-                  </div>
+          {/* Navigation Sub-Tabs */}
+          <div className="flex border-b border-slate-200 dark:border-slate-800 gap-6 text-sm font-bold no-print">
+            <button
+              onClick={() => setActiveTab('growth')}
+              className={`pb-3 border-b-2 transition-all flex items-center gap-2 ${
+                activeTab === 'growth'
+                  ? 'border-indigo-600 text-indigo-600 dark:text-indigo-400'
+                  : 'border-transparent text-slate-500 hover:text-slate-800'
+              }`}
+            >
+              <TrendingUp className="w-4 h-4" />
+              <span>1. Growth Report (Pre vs Post Delta)</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('telemetry')}
+              className={`pb-3 border-b-2 transition-all flex items-center gap-2 ${
+                activeTab === 'telemetry'
+                  ? 'border-indigo-600 text-indigo-600 dark:text-indigo-400'
+                  : 'border-transparent text-slate-500 hover:text-slate-800'
+              }`}
+            >
+              <Clock className="w-4 h-4" />
+              <span>2. Accuracy & Study Telemetry</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('mastery')}
+              className={`pb-3 border-b-2 transition-all flex items-center gap-2 ${
+                activeTab === 'mastery'
+                  ? 'border-indigo-600 text-indigo-600 dark:text-indigo-400'
+                  : 'border-transparent text-slate-500 hover:text-slate-800'
+              }`}
+            >
+              <Layers className="w-4 h-4" />
+              <span>3. Topic Mastery & Gaps</span>
+            </button>
+          </div>
 
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">
-                    {t.misconception || 'Mastered standard procedural and conceptual rules.'}
-                  </p>
-
-                  <div className="space-y-1">
-                    <div className="flex justify-between text-xs font-bold text-slate-700 dark:text-slate-300">
-                      <span>Mastery Level</span>
-                      <span>{t.mastery}%</span>
+          {/* Tab 1: Growth Report */}
+          {activeTab === 'growth' && (
+            <div className="space-y-6">
+              <Card className="p-6 bg-slate-900 text-white rounded-3xl border border-slate-800">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-800 gap-2">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-300 flex items-center justify-center">
+                      <Award className="w-5 h-5 text-indigo-400" />
                     </div>
-                    <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
-                      <div 
-                        className={`h-full rounded-full transition-all duration-500 ${
-                          t.mastery >= 80 ? 'bg-emerald-500' : t.mastery >= 60 ? 'bg-indigo-600' : t.mastery > 0 ? 'bg-amber-500' : 'bg-slate-300 dark:bg-slate-700'
-                        }`}
-                        style={{ width: `${Math.max(t.mastery, 0)}%` }}
-                      />
+                    <div>
+                      <h3 className="font-extrabold text-base">Diagnostic Learning Gain Verification</h3>
+                      <p className="text-xs text-slate-400">Proving measurable outcome gains for under-resourced schools (UN SDG 4.1).</p>
                     </div>
                   </div>
+                  <Badge variant="neutral" className="text-xs">
+                    Normalized Gain: g = {hasData ? `${normalizedGain}%` : '0%'}
+                  </Badge>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                  <span className="text-[11px] font-mono text-slate-400">
-                    {t.questionsAttempted > 0 ? `${t.questionsAttempted} attempts` : '0 attempts'}
-                  </span>
-                  <button
-                    onClick={() => navigate(`/practice?subject=${activeSubject}&topic=${encodeURIComponent(t.topic)}`)}
-                    className="text-xs font-bold text-indigo-600 dark:text-cyan-400 hover:underline flex items-center gap-1"
-                  >
-                    Start Practice <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                  <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+                    <span className="text-[11px] text-slate-400 uppercase font-bold tracking-wider">Baseline Pre-Test</span>
+                    <h4 className="text-3xl font-black mt-1 text-slate-300">{preTestOverall}%</h4>
+                    <span className="text-[10px] text-slate-400 mt-1 block">Diagnostic Starting Benchmark</span>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-center">
+                    <span className="text-[11px] text-indigo-300 uppercase font-bold tracking-wider">Final Post-Test</span>
+                    <h4 className="text-3xl font-black mt-1 text-white">{postTestOverall}%</h4>
+                    <span className="text-[10px] text-indigo-300/80 mt-1 block">Mastery After Adaptive Practice</span>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-center">
+                    <span className="text-[11px] text-emerald-300 uppercase font-bold tracking-wider">Total Value Add</span>
+                    <h4 className="text-3xl font-black mt-1 text-emerald-400">+{overallGain}%</h4>
+                    <span className="text-[10px] text-emerald-300/80 mt-1 block">
+                      {hasData ? `Actual Score Gain (+${normalizedGain}% Normalized)` : 'Baseline Growth Tracking (0% initial)'}
+                    </span>
+                  </div>
                 </div>
               </Card>
-            ))}
-          </div>
-        </motion.div>
+
+              {/* Topic-Wise Pre vs Post Delta Table */}
+              <Card className="p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+                <h3 className="text-base font-bold text-slate-900 dark:text-white mb-4">
+                  Curriculum Topic Pre vs Post Delta Analysis
+                </h3>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left text-xs text-slate-600 dark:text-slate-300">
+                    <thead className="bg-slate-50 dark:bg-slate-800/80 uppercase font-semibold text-slate-500">
+                      <tr>
+                        <th className="p-3">Topic / Concept</th>
+                        <th className="p-3">Pre-Test Baseline</th>
+                        <th className="p-3">Post-Test Mastery</th>
+                        <th className="p-3">Gain</th>
+                        <th className="p-3">Diagnostic Status</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                      {topics.map((tp, idx) => (
+                        <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-slate-800/40">
+                          <td className="p-3 font-semibold text-slate-900 dark:text-white">{tp.topic}</td>
+                          <td className="p-3">{tp.pre}%</td>
+                          <td className="p-3 font-bold text-slate-900 dark:text-white">{tp.post}%</td>
+                          <td className="p-3 font-bold text-emerald-600">+{tp.gain}%</td>
+                          <td className="p-3">
+                            <Badge 
+                              variant={tp.post >= 80 ? 'success' : tp.post >= 50 ? 'primary' : 'warning'}
+                              className="text-[10px]"
+                            >
+                              {tp.post >= 80 ? 'Mastered' : tp.post >= 50 ? 'Proficient' : 'Needs Practice'}
+                            </Badge>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </Card>
+            </div>
+          )}
+
+          {/* Tab 2: Accuracy & Telemetry */}
+          {activeTab === 'telemetry' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card className="p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+                <h3 className="text-base font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-indigo-600" />
+                  Weekly Daily Practice Telemetry (Hours)
+                </h3>
+                <div className="h-64">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={hasData ? analytics.weeklyHoursData : MOCK_STUDENT_WEEKLY_HOURS}>
+                      <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
+                      <XAxis dataKey="day" textAnchor="middle" />
+                      <YAxis />
+                      <Tooltip />
+                      <Bar dataKey="hours" fill="#4F46E5" radius={[6, 6, 0, 0]} />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              </Card>
+
+              <Card className="p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+                <h3 className="text-base font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                  <TrendingUp className="w-4 h-4 text-emerald-600" />
+                  Score Trajectory Progression
+                </h3>
+                <div className="h-64">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart data={hasData ? analytics.scoreTrend : MOCK_SCORE_TREND}>
+                      <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
+                      <XAxis dataKey="week" />
+                      <YAxis domain={[0, 100]} />
+                      <Tooltip />
+                      <Line type="monotone" dataKey="score" stroke="#10B981" strokeWidth={3} dot={{ r: 4 }} />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
+              </Card>
+            </div>
+          )}
+
+          {/* Tab 3: Topic Mastery & Gaps */}
+          {activeTab === 'mastery' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {topics.map((t, idx) => (
+                <Card key={idx} className="p-5 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h4 className="font-bold text-sm text-slate-900 dark:text-white">{t.topic}</h4>
+                      <p className="text-xs text-slate-500 mt-1">{t.misconception}</p>
+                    </div>
+                    <Badge variant={t.mastery >= 80 ? 'success' : 'primary'} className="text-[10px]">
+                      {t.mastery}%
+                    </Badge>
+                  </div>
+                  <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-slate-800 mt-3 overflow-hidden">
+                    <div 
+                      className={`h-full rounded-full ${t.mastery >= 80 ? 'bg-emerald-500' : 'bg-indigo-600'}`}
+                      style={{ width: `${t.mastery}%` }}
+                    />
+                  </div>
+                  <div className="mt-3 pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                    <span className="text-[11px] text-slate-400">{t.questionsAttempted} attempts</span>
+                    <button
+                      onClick={() => navigate(`/practice?subject=${activeSubject}&topic=${encodeURIComponent(t.topic)}`)}
+                      className="text-xs font-bold text-indigo-600 hover:underline flex items-center gap-1"
+                    >
+                      Practise Now <ArrowRight className="w-3 h-3" />
+                    </button>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          )}
+        </div>
       )}
-      </AnimatePresence>
 
       {/* Official Growth Certificate Modal */}
       <GrowthCertificateModal
         isOpen={certificateModalOpen}
         onClose={() => setCertificateModalOpen(false)}
         studentName={user?.fullName || 'Student Learner'}
-        rollNumber={user?.rollNumber || '001'}
+        rollNumber={user?.rollNumber || 'APS-07-001'}
         subject={activeSubject}
         preScore={preTestOverall}
         postScore={postTestOverall}

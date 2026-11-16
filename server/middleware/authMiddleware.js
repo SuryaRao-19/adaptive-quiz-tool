@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const { prisma } = require('../config/prisma');
 const User = require('../models/User');
 const Class = require('../models/Class');
+const syntheticStore = require('../services/syntheticStore');
 
 const verifyToken = async (req, res, next) => {
   try {
@@ -45,9 +46,55 @@ const verifyToken = async (req, res, next) => {
 
     // 2. Fallback to Mongoose if not found in Prisma
     if (!user && decoded.id) {
-      const mongooseUser = await User.findById(decoded.id).select('-passwordHash');
-      if (mongooseUser) {
-        user = mongooseUser;
+      try {
+        const mongooseUser = await User.findById(decoded.id).select('-passwordHash');
+        if (mongooseUser) {
+          user = mongooseUser;
+        }
+      } catch (_) {}
+    }
+
+    // 3. Fallback to SyntheticStore or decoded JWT claims for Institutional Pilots
+    if (!user && decoded.id) {
+      const synStudent = syntheticStore.getStudents().find(s => 
+        s.id === decoded.id || s.rollNumber === decoded.rollNumber || s.email === decoded.email
+      );
+      if (synStudent) {
+        user = {
+          _id: synStudent.id,
+          id: synStudent.id,
+          name: synStudent.name,
+          email: synStudent.email,
+          role: 'student',
+          gradeLevel: synStudent.gradeLevel || 7,
+          rollNumber: synStudent.rollNumber,
+          section: synStudent.section || '7-A',
+          studentProfile: { id: synStudent.id, grade: synStudent.gradeLevel || 7, rollNumber: synStudent.rollNumber }
+        };
+      } else {
+        const synTeacher = syntheticStore.getTeachers().find(t => 
+          t.id === decoded.id || t.email === decoded.email
+        );
+        if (synTeacher) {
+          user = {
+            _id: synTeacher.id,
+            id: synTeacher.id,
+            name: synTeacher.name,
+            email: synTeacher.email,
+            role: synTeacher.role || 'teacher'
+          };
+        } else if (decoded.role && (decoded.name || decoded.email)) {
+          user = {
+            _id: decoded.id,
+            id: decoded.id,
+            name: decoded.name || 'User',
+            email: decoded.email,
+            role: decoded.role,
+            gradeLevel: decoded.gradeLevel || decoded.grade || 7,
+            rollNumber: decoded.rollNumber,
+            studentProfile: decoded.role === 'student' ? { id: decoded.id, rollNumber: decoded.rollNumber } : undefined
+          };
+        }
       }
     }
 

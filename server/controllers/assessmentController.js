@@ -1,4 +1,5 @@
-const { prisma } = require('../config/prisma');
+const { prisma, getDatabaseStatus } = require('../config/prisma');
+const syntheticStore = require('../services/syntheticStore');
 const {
   startAttempt,
   recordAnswerEvent,
@@ -14,40 +15,90 @@ const {
 // @route GET /api/assessments
 const listAssessments = async (req, res, next) => {
   try {
-    const { classroomId, subject, assessmentType } = req.query;
-    const where = {};
+    if (getDatabaseStatus() === 'connected') {
+      try {
+        const { classroomId, subject, assessmentType } = req.query;
+        const where = {};
 
-    if (classroomId) where.classroomId = classroomId;
-    if (subject && subject !== 'All') where.subject = subject;
-    if (assessmentType) where.assessmentType = assessmentType;
+        if (classroomId) where.classroomId = classroomId;
+        if (subject && subject !== 'All') where.subject = subject;
+        if (assessmentType) where.assessmentType = assessmentType;
 
-    const assessments = await prisma.assessment.findMany({
-      where,
-      include: {
-        items: {
+        const assessments = await prisma.assessment.findMany({
+          where,
           include: {
-            question: {
-              select: {
-                id: true,
-                subject: true,
-                topic: true,
-                difficulty: true,
-                questionText: true,
-                options: true
-              }
+            items: {
+              include: {
+                question: {
+                  select: {
+                    id: true,
+                    subject: true,
+                    topic: true,
+                    difficulty: true,
+                    questionText: true,
+                    options: true
+                  }
+                }
+              },
+              orderBy: { itemOrder: 'asc' }
             }
           },
-          orderBy: { itemOrder: 'asc' }
-        }
-      },
-      orderBy: { createdAt: 'desc' }
-    });
+          orderBy: { createdAt: 'desc' }
+        });
 
-    res.status(200).json({
+        if (assessments.length > 0) {
+          return res.status(200).json({
+            success: true,
+            count: assessments.length,
+            assessments
+          });
+        }
+      } catch (err) {
+        console.warn('[AssessmentController] Prisma list query fallback:', err.message);
+      }
+    }
+
+    // SyntheticStore fallback
+    const synAssessments = syntheticStore.getAssessments();
+    return res.status(200).json({
       success: true,
-      count: assessments.length,
-      assessments
+      count: synAssessments.length,
+      assessments: synAssessments
     });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// @desc Get single assessment details by ID
+// @route GET /api/assessments/:id
+const getAssessmentDetails = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const synAssessment = syntheticStore.getAssessments().find(a => a.id === id);
+    if (synAssessment) {
+      return res.status(200).json({
+        success: true,
+        assessment: synAssessment
+      });
+    }
+
+    if (getDatabaseStatus() === 'connected') {
+      const assessment = await prisma.assessment.findUnique({
+        where: { id },
+        include: {
+          items: {
+            include: { question: true },
+            orderBy: { itemOrder: 'asc' }
+          }
+        }
+      });
+      if (assessment) {
+        return res.status(200).json({ success: true, assessment });
+      }
+    }
+
+    return res.status(404).json({ success: false, message: 'Assessment not found.' });
   } catch (error) {
     next(error);
   }
@@ -230,8 +281,107 @@ const getAttemptDetails = async (req, res, next) => {
   }
 };
 
+// @desc Direct assessment submission & auto-scoring endpoint
+// @route POST /api/assessments/:id/submit
+const submitAssessmentHandler = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const {
+      studentId,
+      studentName,
+      rollNumber,
+      answers = {},
+      score,
+      maxScore = 20,
+      scorePercentage,
+      weakTopic,
+      weakTopics
+    } = req.body;
+
+    const assessment = syntheticStore.getAssessments().find(a => a.id === id);
+    const questions = assessment?.questions || [];
+
+    // Server-side recalculation/verification of score if questions exist
+    let verifiedCorrect = 0;
+    const topicStats = {};
+
+    questions.forEach(q => {
+      const correctIdx = q.correctAnswerIndex ?? q.correctIndex;
+      const userSelected = answers[q.id];
+      const isCorrect = userSelected !== undefined && Number(userSelected) === correctIdx;
+      if (isCorrect) verifiedCorrect++;
+
+      const t = q.topic || 'General Mathematics';
+      if (!topicStats[t]) topicStats[t] = { correct: 0, total: 0 };
+      topicStats[t].total++;
+      if (isCorrect) topicStats[t].correct++;
+    });
+
+    const finalCorrect = questions.length > 0 ? verifiedCorrect : (score ?? 0);
+    const finalMax = questions.length > 0 ? questions.length : maxScore;
+    const finalPercentage = Math.round((finalCorrect / finalMax) * 100);
+
+    // Identify weak topic (lowest accuracy)
+    let computedWeakTopic = weakTopic;
+    if (!computedWeakTopic && Object.keys(topicStats).length > 0) {
+      let lowest = 1.0;
+      Object.entries(topicStats).forEach(([top, stats]) => {
+        const acc = stats.total > 0 ? (stats.correct / stats.total) : 0;
+        if (acc < lowest) {
+          lowest = acc;
+          computedWeakTopic = top;
+        }
+      });
+    }
+
+    const computedWeakTopics = Object.entries(topicStats)
+      .filter(([_, stats]) => (stats.correct / stats.total) < 0.70)
+      .map(([top]) => top);
+
+    const attempt = syntheticStore.addAttempt({
+      assessmentId: id,
+      assessmentTitle: assessment?.title || 'Asian Public School — Grade 7 Mathematics Diagnostic Assessment',
+      studentId: studentId || req.user?.id || req.user?._id || 'stu-g7-001',
+      studentName: studentName || req.user?.name || req.user?.fullName || 'Aarav Patel',
+      rollNumber: rollNumber || req.user?.rollNumber || 'APS-07-001',
+      gradeLevel: assessment?.gradeLevel || 7,
+      score: finalCorrect,
+      totalScore: finalCorrect,
+      maxScore: finalMax,
+      scorePercentage: finalPercentage,
+      correctCount: finalCorrect,
+      totalQuestions: finalMax,
+      finalBktMastery: finalPercentage / 100,
+      weakTopic: computedWeakTopic || 'Fractions and Decimals',
+      weakTopics: computedWeakTopics.length > 0 ? computedWeakTopics : (computedWeakTopic ? [computedWeakTopic] : []),
+      autoSubmitted: Boolean(req.body.autoSubmitted),
+      violationCount: Number(req.body.violationCount) || 0,
+      violationReason: req.body.violationReason || null,
+      status: req.body.autoSubmitted ? 'AUTO_SUBMITTED_VIOLATION' : 'SUBMITTED'
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: 'Assessment attempt submitted and graded successfully.',
+      attempt,
+      metrics: {
+        score: finalCorrect,
+        maxScore: finalMax,
+        percentage: finalPercentage,
+        weakTopic: computedWeakTopic || 'Fractions and Decimals',
+        weakTopics: computedWeakTopics,
+        reason: `Your diagnostic results show that ${computedWeakTopic || 'this topic'} needs more practice. Let's begin with foundational questions.`
+      }
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   listAssessments,
+  getAssessmentDetails,
+  submitAssessmentHandler,
   createAssessment,
   startAssessmentAttempt,
   submitAnswerEvent,
