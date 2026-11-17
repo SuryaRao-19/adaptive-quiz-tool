@@ -12,6 +12,14 @@ const path = require('path');
 const DATA_FILE_PATH = path.join(__dirname, '../data/syntheticSchoolData.json');
 let inMemoryStore = null;
 
+// Statically required so Vercel / serverless bundlers trace and bundle this JSON file into the Lambda distribution
+let staticSeedData = null;
+try {
+  staticSeedData = require('../data/syntheticSchoolData.json');
+} catch (e) {
+  staticSeedData = null;
+}
+
 function loadStore() {
   if (!inMemoryStore) {
     if (fs.existsSync(DATA_FILE_PATH)) {
@@ -19,31 +27,41 @@ function loadStore() {
         const raw = fs.readFileSync(DATA_FILE_PATH, 'utf8');
         inMemoryStore = JSON.parse(raw);
       } catch (err) {
-        console.error('[SyntheticStore] Error reading data file, re-initializing:', err.message);
+        console.error('[SyntheticStore] Error reading data file, using static fallback:', err.message);
         inMemoryStore = null;
       }
     }
     
-    // If still null, trigger generator
+    // If not loaded from disk, use static seed data (bundled in Lambda)
+    if (!inMemoryStore && staticSeedData) {
+      inMemoryStore = JSON.parse(JSON.stringify(staticSeedData));
+    }
+    
+    // If still null, trigger generator (local development only)
     if (!inMemoryStore) {
       try {
         require('../scripts/generateSyntheticSchoolData');
-        const raw = fs.readFileSync(DATA_FILE_PATH, 'utf8');
-        inMemoryStore = JSON.parse(raw);
+        if (fs.existsSync(DATA_FILE_PATH)) {
+          const raw = fs.readFileSync(DATA_FILE_PATH, 'utf8');
+          inMemoryStore = JSON.parse(raw);
+        }
       } catch (genErr) {
         console.error('[SyntheticStore] Generator fallback error:', genErr.message);
-        inMemoryStore = {
-          school: { name: 'Asian Public School — AdaptIQ Demo', code: 'APS-2026-DEMO' },
-          teachers: [],
-          classrooms: [],
-          students: [],
-          assessments: [],
-          assignments: [],
-          attendance: [],
-          attempts: [],
-          answerEvents: []
-        };
       }
+    }
+
+    if (!inMemoryStore) {
+      inMemoryStore = {
+        school: { name: 'Asian Public School — AdaptIQ Demo', code: 'APS-2026-DEMO' },
+        teachers: [],
+        classrooms: [],
+        students: [],
+        assessments: [],
+        assignments: [],
+        attendance: [],
+        attempts: [],
+        answerEvents: []
+      };
     }
   }
   return inMemoryStore;
@@ -54,7 +72,8 @@ function persistStore() {
   try {
     fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(inMemoryStore, null, 2), 'utf8');
   } catch (err) {
-    console.error('[SyntheticStore] Error persisting to disk:', err.message);
+    // In serverless environments (e.g. AWS Lambda / Vercel), disk is read-only.
+    // In-memory mutations remain active for the duration of the warm container.
   }
 }
 
@@ -332,7 +351,8 @@ function findStudentByGradeAndRoll(grade, rollNumber) {
   const g = parseInt(grade, 10);
   const cleanRoll = String(rollNumber || '').trim().toUpperCase();
   return (store.students || []).find(
-    s => (s.grade === g || s.gradeLevel === g) && String(s.rollNumber || '').trim().toUpperCase() === cleanRoll
+    s => (parseInt(s.grade, 10) === g || parseInt(s.gradeLevel, 10) === g || !s.grade) && 
+         String(s.rollNumber || '').trim().toUpperCase() === cleanRoll
   );
 }
 

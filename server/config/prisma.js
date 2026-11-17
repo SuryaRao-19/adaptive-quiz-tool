@@ -8,11 +8,17 @@ let isConnected = false;
 
 function getRawPrismaClient() {
   if (!rawPrismaInstance) {
-    rawPrismaInstance = new PrismaClient({
-      log: process.env.NODE_ENV === 'development' 
-        ? ['error', 'warn'] 
-        : ['error'],
-    });
+    try {
+      rawPrismaInstance = new PrismaClient({
+        log: process.env.NODE_ENV === 'development' 
+          ? ['error', 'warn'] 
+          : ['error'],
+      });
+    } catch (err) {
+      console.warn('[PrismaClient] Initialization deferred / unavailable:', err.message);
+      rawPrismaInstance = null;
+      isConnected = false;
+    }
   }
   return rawPrismaInstance;
 }
@@ -27,18 +33,30 @@ const disconnectedModelProxy = new Proxy({}, {
 // Safe Prisma Proxy ensuring immediate fallback when Postgres is not available
 const safePrisma = new Proxy({}, {
   get(target, prop) {
+    // If not connected, avoid invoking PrismaClient constructor completely
+    if (!isConnected) {
+      if (prop === '$connect' || prop === '$disconnect') {
+        return () => Promise.resolve();
+      }
+      if (prop === '$queryRaw') {
+        return () => Promise.reject(new Error('PostgreSQL is not connected (Prisma operation $queryRaw skipped)'));
+      }
+      if (prop === '$transaction') {
+        return () => Promise.reject(new Error('PostgreSQL is not connected (Prisma $transaction skipped)'));
+      }
+      return disconnectedModelProxy;
+    }
+
     const raw = getRawPrismaClient();
+    if (!raw) {
+      return disconnectedModelProxy;
+    }
+
     if (prop === '$queryRaw' || prop === '$connect' || prop === '$disconnect') {
       return raw[prop].bind(raw);
     }
     if (prop === '$transaction') {
-      if (!isConnected) {
-        return () => Promise.reject(new Error('PostgreSQL is not connected (Prisma $transaction skipped)'));
-      }
       return raw.$transaction.bind(raw);
-    }
-    if (!isConnected) {
-      return disconnectedModelProxy;
     }
     const val = raw[prop];
     if (typeof val === 'function') {
@@ -63,6 +81,10 @@ async function verifyDatabaseConnection() {
   }
 
   const client = getRawPrismaClient();
+  if (!client) {
+    isConnected = false;
+    return { ok: false, status: 'client_unavailable', error: 'PrismaClient initialization unavailable' };
+  }
   try {
     const pingPromise = client.$queryRaw`SELECT 1 as ping`;
     const timeoutPromise = new Promise((_, reject) => 

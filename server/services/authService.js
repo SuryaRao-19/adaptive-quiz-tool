@@ -150,43 +150,100 @@ async function authenticateUser({ identifier, password }) {
 
   const cleanId = String(identifier).trim().toLowerCase();
 
-  // Find user by email or rollNumber
-  let user = await prisma.user.findFirst({
-    where: {
-      OR: [
-        { email: cleanId },
-        { email: cleanId.toUpperCase() },
-        { studentProfile: { rollNumber: cleanId.toUpperCase() } }
-      ]
-    },
-    include: { studentProfile: true }
-  });
+  // 1. Try Prisma if connected
+  try {
+    const { getDatabaseStatus } = require('../config/prisma');
+    if (getDatabaseStatus() === 'connected') {
+      let user = await prisma.user.findFirst({
+        where: {
+          OR: [
+            { email: cleanId },
+            { email: cleanId.toUpperCase() },
+            { studentProfile: { rollNumber: cleanId.toUpperCase() } }
+          ]
+        },
+        include: { studentProfile: true }
+      });
 
-  if (!user || !user.passwordHash) {
-    throw new Error('Invalid credentials. Please verify your email and password.');
-  }
+      if (user && user.passwordHash) {
+        const isMatch = await bcrypt.compare(String(password), user.passwordHash);
+        if (!isMatch) {
+          throw new Error('Invalid credentials. Please verify your email and password.');
+        }
 
-  const isMatch = await bcrypt.compare(String(password), user.passwordHash);
-  if (!isMatch) {
-    throw new Error('Invalid credentials. Please verify your email and password.');
-  }
+        const token = generateAuthToken(user, user.studentProfile?.id);
 
-  const token = generateAuthToken(user, user.studentProfile?.id);
-
-  return {
-    success: true,
-    token,
-    user: {
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      role: user.role.toLowerCase(),
-      avatar: user.avatar,
-      themePreference: user.themePreference,
-      gradeLevel: user.gradeLevel,
-      studentId: user.studentProfile?.id || null
+        return {
+          success: true,
+          token,
+          user: {
+            id: user.id,
+            name: user.name,
+            email: user.email,
+            role: user.role.toLowerCase(),
+            avatar: user.avatar,
+            themePreference: user.themePreference,
+            gradeLevel: user.gradeLevel,
+            studentId: user.studentProfile?.id || null
+          }
+        };
+      }
     }
-  };
+  } catch (err) {
+    if (err.message && err.message.includes('Invalid credentials')) {
+      throw err;
+    }
+    // Fall through to SyntheticStore
+  }
+
+  // 2. SyntheticStore fallback (Demonstration / Serverless Environment)
+  const syntheticStore = require('./syntheticStore');
+  const teachers = syntheticStore.getTeachers();
+  const staff = teachers.find(t => t.email.toLowerCase() === cleanId || t.email.toUpperCase() === cleanId.toUpperCase());
+  if (staff && staff.passwordHash) {
+    const isMatch = await bcrypt.compare(String(password), staff.passwordHash);
+    if (!isMatch) {
+      throw new Error('Invalid credentials. Please verify your email and password.');
+    }
+    const role = staff.role.toLowerCase();
+    const userPayload = {
+      id: staff.id,
+      name: staff.name,
+      email: staff.email,
+      role: role === 'admin' ? 'admin' : 'teacher',
+      subject: staff.subject,
+      gradeLevel: staff.gradeLevel || 7,
+      designation: staff.designation
+    };
+    const token = jwt.sign(userPayload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
+    return { success: true, token, user: userPayload };
+  }
+
+  const students = syntheticStore.getStudents();
+  const student = students.find(s => 
+    (s.rollNumber && s.rollNumber.toUpperCase() === cleanId.toUpperCase()) ||
+    (s.email && s.email.toLowerCase() === cleanId)
+  );
+  if (student && student.passwordHash) {
+    const isMatch = await bcrypt.compare(String(password), student.passwordHash);
+    if (!isMatch) {
+      throw new Error('Invalid credentials. Please verify your email and password.');
+    }
+    const userPayload = {
+      id: student.id,
+      name: student.name,
+      email: student.email,
+      rollNumber: student.rollNumber,
+      grade: student.grade || student.gradeLevel || 7,
+      gradeLevel: student.gradeLevel || student.grade || 7,
+      role: 'student',
+      classroomId: student.classroomId
+    };
+    const token = jwt.sign(userPayload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
+    return { success: true, token, user: userPayload };
+  }
+
+  throw new Error('Invalid credentials. Please verify your email and password.');
 }
 
 /**
