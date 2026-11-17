@@ -26,7 +26,9 @@ import {
   CheckSquare,
   TrendingUp,
   ClipboardList,
-  Radio
+  Radio,
+  Bell,
+  Target
 } from 'lucide-react';
 import { ContactSupportModal } from '../ContactSupportModal';
 
@@ -65,10 +67,14 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
   let navItems = [];
   if (isAdmin) {
     navItems = [
-      { label: "Institutional Overview", to: "/dashboard", icon: Home, badge: "GPS Admin" },
+      { label: "Institutional Overview", to: "/dashboard", icon: Home, badge: "Principal" },
+      { label: "Curriculum Coverage", to: "/curriculum-coverage", icon: BookOpen, badge: "Classes 1-12" },
       { label: "Classrooms & Sections", to: "/classes", icon: Users },
       { label: "Question Bank Manager", to: "/question-bank", icon: Layers, badge: "Grades 1-12" },
+      { label: "Examination Centre", to: "/examinations", icon: Award },
       { label: "Schoolwide Analytics", to: "/metrics", icon: BarChart3 },
+      { label: "School Announcements", to: "/announcements", icon: Bell },
+      { label: "Academic Calendar", to: "/calendar", icon: Calendar },
       { label: "Reference Library", to: "/library", icon: FileText },
       { label: "Settings & Profile", to: "/settings", icon: Settings },
       { label: "Help & Support", to: "/support", icon: HelpCircle },
@@ -77,38 +83,53 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
     navItems = [
       { label: "Dashboard", to: "/dashboard", icon: Home },
       { label: "My Classes", to: "/classes", icon: Users },
+      { label: "My Courses", to: "/courses", icon: BookOpen },
+      { label: "Lesson Planner", to: "/lesson-planner", icon: Layers },
+      { label: "Question Bank", to: "/question-bank", icon: Layers, badge: "CBSE" },
+      { label: "Learning Resources", to: "/library", icon: FileText },
+      { label: "Assignments", to: "/teacher/assignments", icon: CheckSquare },
       { label: "Assessment Centre", to: "/teacher/assessments", icon: ClipboardList },
+      { label: "Examination Centre", to: "/teacher/examinations", icon: Award },
       { label: "Live Test Centre", to: "/teacher/live-test", icon: Radio, badge: "Live" },
       { label: "Submissions", to: "/teacher/grading", icon: CheckSquare },
       { label: "Grading", to: "/teacher/results", icon: TrendingUp },
       { label: "Attendance", to: "/teacher/attendance", icon: Calendar },
-      { label: "Question Bank", to: "/question-bank", icon: Layers, badge: "Grades 1-12" },
-      { label: "Learning Resources", to: "/library", icon: FileText },
+      { label: "Student Performance", to: "/metrics", icon: BarChart3 },
+      { label: "Announcements", to: "/announcements", icon: Bell },
       { label: "Reports", to: "/teacher/reports", icon: BookOpen },
+      { label: "Support Inbox", to: "/support", icon: HelpCircle },
       { label: "Settings", to: "/settings", icon: Settings },
     ];
   } else if (isParent) {
     navItems = [
       { label: "Parent Dashboard", to: "/dashboard", icon: Home, badge: "Guardian" },
       { label: "Ward Performance", to: "/parent", icon: BarChart3 },
-      { label: "Attendance Record", to: "/parent", icon: Calendar },
-      { label: "School Circulars", to: "/parent", icon: FileText },
-      { label: "Reference Library", to: "/library", icon: BookOpen },
+      { label: "Attendance Record", to: "/attendance", icon: Calendar },
+      { label: "School Announcements", to: "/announcements", icon: Bell },
+      { label: "Academic Calendar", to: "/calendar", icon: Calendar },
+      { label: "Reference Library", to: "/library", icon: FileText },
       { label: "Settings", to: "/settings", icon: Settings },
       { label: "Help & Support", to: "/support", icon: HelpCircle },
     ];
   } else {
-    // Dedicated Student Navigation
+    // Dedicated Student Navigation (16 modules)
     navItems = [
-      { label: "Overview", to: "/dashboard", icon: Home },
-      { label: "My Learning", to: "/my-learning", icon: GraduationCap },
-      { label: "Practice Mode", to: "/practice", icon: BrainCircuit, badge: "Adaptive" },
-      { label: "Test Mode", to: "/test", icon: Clock, badge: "Timed" },
+      { label: "Dashboard", to: "/dashboard", icon: Home },
+      { label: "My Courses", to: "/courses", icon: BookOpen },
+      { label: "My Lessons", to: "/lessons", icon: Layers },
+      { label: "Assignments", to: "/assignments", icon: CheckSquare },
+      { label: "Assessments", to: "/test", icon: Clock, badge: "Timed" },
+      { label: "Practice Centre", to: "/practice-centre", icon: Target, badge: "NCERT" },
+      { label: "Adaptive Learning", to: "/practice", icon: BrainCircuit, badge: "Adaptive" },
+      { label: "Revision Deck", to: "/my-learning", icon: GraduationCap },
       { label: "Step-by-Step Solutions", to: "/solutions", icon: BookOpen },
       { label: "Reference Library", to: "/library", icon: FileText },
-      { label: "Progress & Analytics", to: "/metrics", icon: BarChart3 },
+      { label: "My Progress", to: "/metrics", icon: BarChart3 },
+      { label: "Attendance", to: "/attendance", icon: Calendar },
+      { label: "Announcements", to: "/announcements", icon: Bell },
+      { label: "Calendar", to: "/calendar", icon: Calendar },
       { label: "Settings", to: "/settings", icon: Settings },
-      { label: "Help & Feedback", to: "/support", icon: HelpCircle },
+      { label: "Help & Support", to: "/support", icon: HelpCircle },
     ];
   }
 
@@ -141,7 +162,7 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-1.5">
-                <span className="font-extrabold text-sm tracking-tight text-slate-900 dark:text-white truncate">AdaptIQ</span>
+                <span className="font-extrabold text-sm tracking-tight text-slate-900 dark:text-white truncate">Greenwood DLP</span>
                 <span className="text-[9px] font-bold uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 px-1.5 py-0.5 rounded border border-indigo-200 dark:border-indigo-800 shrink-0">
                   {isTeacher ? 'Teacher' : isAdmin ? 'Principal' : isParent ? 'Parent' : 'Grade 7'}
                 </span>
@@ -180,17 +201,19 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
                   const active = navActive || isActive;
                   return `flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold transition-all duration-150 ${
                     active
-                      ? 'bg-[var(--theme-primary-light,#EEF2FF)] text-[var(--theme-primary,#4F46E5)] font-bold shadow-subtle border border-[var(--theme-primary-border,#C7D2FE)] dark:bg-slate-800 dark:text-cyan-400 dark:border-slate-700'
+                      ? 'bg-[#173E2B] text-white font-bold shadow-sm border border-[#173E2B]'
                       : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100/80 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white'
                   }`;
                 }}
               >
                 <div className="flex items-center gap-3">
-                  <Icon className={`w-4 h-4 ${isActive ? 'text-[var(--theme-primary,#4F46E5)] dark:text-cyan-400' : 'text-slate-400'}`} />
+                  <Icon className={`w-4 h-4 ${isActive ? 'text-[#D9A441]' : 'text-slate-400'}`} />
                   <span>{item.label}</span>
                 </div>
                 {item.badge && (
-                  <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-mono">
+                  <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded font-mono ${
+                    isActive ? 'bg-[#D9A441] text-[#173E2B]' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300'
+                  }`}>
                     {item.badge}
                   </span>
                 )}

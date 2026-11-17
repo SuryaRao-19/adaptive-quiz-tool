@@ -709,7 +709,7 @@ export const ParentPortal = () => {
                 <span className="text-xs text-slate-500">2026-10-10</span>
               </div>
               <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
-                Dear Parents, AdaptIQ deterministic diagnostic assessments for Class VII Middle Wing commence next week. Real-time telemetry will reflect on your guardian portal upon submission.
+                Dear Parents, Greenwood Public School diagnostic assessments for Class VII Middle Wing commence next week. Real-time telemetry will reflect on your guardian portal upon submission.
               </p>
             </div>
           </div>

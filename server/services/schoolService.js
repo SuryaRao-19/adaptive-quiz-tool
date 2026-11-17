@@ -10,7 +10,7 @@ const curriculumData = require('../data/curriculumData.json');
 const GREENWOOD_PUBLIC_SCHOOL_DEFAULT = {
   id: 'school-gps-001',
   name: 'Greenwood Public School',
-  tenantName: 'Greenwood Public School — AdaptIQ Demonstration Environment',
+  tenantName: 'Greenwood Public School — AdaptIQ LMS 4.0 Demonstration Environment',
   code: 'GPS-2026',
   officialSchoolCode: '40643',
   board: 'CBSE',
@@ -24,8 +24,58 @@ const GREENWOOD_PUBLIC_SCHOOL_DEFAULT = {
   website: 'https://www.greenwoodgurgaon.com',
   curriculumUrl: 'https://www.greenwoodgurgaon.com',
   established: 2002,
-  aboutUs: 'Greenwood Public School, founded in 2002, is a premium school which is affiliated with the Central Board of Secondary Education (CBSE), has an educational strategy that is dynamic in approach and in conformity with the evolving demands of society.',
+  aboutUs: 'Greenwood Public School, founded in 2002, is a premium school affiliated with the Central Board of Secondary Education (CBSE), offering dynamic, learner-centered education from Pre-Primary through Senior Secondary (Classes 1–12).',
   openingHours: 'Mon - Sat : 07:30 A.M - 03:00 P.M, Sun : Closed',
+  campuses: [
+    {
+      id: 'campus-sector-9',
+      name: 'Senior Secondary Campus (Main Wing)',
+      type: 'Senior Secondary & Middle School (Classes 1–12)',
+      address: 'Huda Site No.-1, Sector -9, Gurugram, Haryana - 122001',
+      phones: '0124 - 4200807 / 808, +91-9354482819 / 9990395520',
+      email: 'info@greenwoodgurgaon.com',
+      cbseAffiliation: '530649',
+      schoolCode: '40643',
+      gradesCovered: 'Classes 1–12'
+    },
+    {
+      id: 'campus-sector-10a',
+      name: 'Junior Wing & Kindergarten Campus',
+      type: 'Primary & Pre-Primary Wing (Pre-Nursery, Nursery, LKG, UKG)',
+      address: '1589, Housing Board Colony Rd, opp. Community Centre, Housing Board Colony, Sector 10A, Gurugram, Haryana 122001',
+      googleMapsUrl: 'https://maps.google.com/maps?sca_esv=7bfc6db5b28830ae&client=opera-gx&hs=D02&mstk=AUtExfAPj6i6jZEtYyOybuBLkwn0JPJZp9VDYmba3dff48y18X9nrFvy4v2W3oSCk2XZCIY-8i3yORaZTMpCVSotG7bDLSbsAgTQs-asbXOsffXpoVrqvsEM2fGd2pfyKfC57JodCIECvMCrISzMClFlz-bSlKWiSuY&hl=en&pvq=Cg0vZy8xMWM0OHNjd2Y5gAEBkAEB&fvr=1&vet=10CAAQoqAOahcKEwi4tIO6g4-YAxUAAAAAHQAAAAAQCQ..i&cs=1&um=1&ie=UTF-8&fb=1&gl=in&sa=X&ftid=0x390d1789448cde8d:0x42d657e65889e24c',
+      phones: '0124 - 4200807 / 808, +91-9354482819',
+      email: 'info@greenwoodgurgaon.com',
+      gradesCovered: 'Pre-Nursery, Nursery, LKG, UKG'
+    }
+  ],
+  academicStructure: {
+    stages: [
+      { stage: 'PRE_PRIMARY', name: 'Pre-Primary Wing', grades: ['Pre-Nursery', 'Nursery', 'LKG', 'UKG'], campusId: 'campus-sector-10a' },
+      { stage: 'PRIMARY', name: 'Primary Wing', grades: ['Grade 1', 'Grade 2', 'Grade 3', 'Grade 4', 'Grade 5'], campusId: 'campus-sector-9' },
+      { stage: 'MIDDLE', name: 'Middle Wing (Live Pilot: Grade 7)', grades: ['Grade 6', 'Grade 7', 'Grade 8'], campusId: 'campus-sector-9' },
+      { stage: 'SECONDARY', name: 'Secondary Wing', grades: ['Grade 9', 'Grade 10'], campusId: 'campus-sector-9' },
+      { stage: 'SENIOR_SECONDARY', name: 'Senior Secondary Wing', grades: ['Grade 11', 'Grade 12'], campusId: 'campus-sector-9' }
+    ],
+    sections: ['A', 'B', 'C', 'D'],
+    streams: {
+      science: {
+        name: 'Science Stream',
+        combinations: ['PCM + Computer Science', 'PCB + Physical Education', 'PCMB Dual STEM'],
+        subjects: ['Physics', 'Chemistry', 'Mathematics (PCM)', 'Biology (PCB)', 'Computer Science', 'English Core']
+      },
+      commerce: {
+        name: 'Commerce Stream',
+        combinations: ['Commerce with Mathematics', 'Commerce with Informatics Practices'],
+        subjects: ['Accountancy', 'Business Studies', 'Economics', 'Applied Mathematics', 'English Core']
+      },
+      humanities: {
+        name: 'Humanities & Liberal Arts',
+        combinations: ['Social Sciences & Psychology', 'Public Policy & Media Studies'],
+        subjects: ['History', 'Political Science', 'Psychology', 'Sociology', 'Economics', 'English Core']
+      }
+    }
+  },
   levels: {
     prePrimary: 'Pre-Nursery, Nursery, LKG, UKG',
     primary: 'Grades 1–5',

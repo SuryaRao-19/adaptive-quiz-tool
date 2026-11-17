@@ -227,10 +227,10 @@ export const PerformanceMetrics = () => {
                     <Line
                       type="monotone"
                       dataKey="score"
-                      stroke="#4F46E5"
+                      stroke="#173E2B"
                       strokeWidth={3}
-                      dot={{ r: 4, fill: '#4F46E5', stroke: '#fff', strokeWidth: 2 }}
-                      activeDot={{ r: 6, fill: '#06B6D4' }}
+                      dot={{ r: 4, fill: '#173E2B', stroke: '#fff', strokeWidth: 2 }}
+                      activeDot={{ r: 6, fill: '#D9A441' }}
                     />
                   </LineChart>
                 </ResponsiveContainer>

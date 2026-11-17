@@ -11,8 +11,9 @@ export const Card = ({
   const Component = hoverEffect ? motion.div : 'div';
   const motionProps = hoverEffect
     ? {
-        whileHover: { y: -3, transition: { duration: 0.2 } },
-        className: `cursor-pointer transition-shadow duration-200 hover:shadow-card-hover`
+        whileHover: { y: -3, transition: { duration: 0.2, ease: 'easeOut' } },
+        whileTap: { scale: 0.99 },
+        className: `cursor-pointer transition-all duration-200 hover:shadow-card-hover hover:border-[#416B50]/60`
       }
     : {};
 

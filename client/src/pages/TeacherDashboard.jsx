@@ -360,7 +360,7 @@ export const TeacherDashboard = () => {
 
       {/* Part 2: 6 KPI Metric Cards Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5 sm:gap-4">
-        <Card className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <Card hoverEffect className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
           <div className="flex items-center justify-between text-slate-500">
             <span className="text-[11px] font-bold uppercase tracking-wider">Assigned Students</span>
             <Users className="w-4 h-4 text-indigo-500" />
@@ -371,7 +371,7 @@ export const TeacherDashboard = () => {
           <span className="text-[11px] text-slate-400 block mt-0.5">Grade 7-A Roster</span>
         </Card>
 
-        <Card className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <Card hoverEffect className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
           <div className="flex items-center justify-between text-slate-500">
             <span className="text-[11px] font-bold uppercase tracking-wider">Active Classes</span>
             <School className="w-4 h-4 text-cyan-500" />
@@ -382,7 +382,7 @@ export const TeacherDashboard = () => {
           <span className="text-[11px] text-slate-400 block mt-0.5">Grade 7-A Pilot</span>
         </Card>
 
-        <Card className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <Card hoverEffect className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
           <div className="flex items-center justify-between text-slate-500">
             <span className="text-[11px] font-bold uppercase tracking-wider">Upcoming Tests</span>
             <Clock className="w-4 h-4 text-amber-500" />
@@ -393,7 +393,7 @@ export const TeacherDashboard = () => {
           <span className="text-[11px] text-slate-400 block mt-0.5">Scheduled this week</span>
         </Card>
 
-        <Card className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <Card hoverEffect className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
           <div className="flex items-center justify-between text-slate-500">
             <span className="text-[11px] font-bold uppercase tracking-wider">Pending Submissions</span>
             <ClipboardList className="w-4 h-4 text-purple-500" />
@@ -404,7 +404,7 @@ export const TeacherDashboard = () => {
           <span className="text-[11px] text-slate-400 block mt-0.5">Active exam sessions</span>
         </Card>
 
-        <Card className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <Card hoverEffect className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
           <div className="flex items-center justify-between text-slate-500">
             <span className="text-[11px] font-bold uppercase tracking-wider">Pending Grading</span>
             <CheckSquare className="w-4 h-4 text-rose-500" />
@@ -415,7 +415,7 @@ export const TeacherDashboard = () => {
           <span className="text-[11px] text-rose-500 dark:text-rose-400 font-semibold block mt-0.5">Descriptive items</span>
         </Card>
 
-        <Card className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <Card hoverEffect className="p-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
           <div className="flex items-center justify-between text-slate-500">
             <span className="text-[11px] font-bold uppercase tracking-wider">Today's Attendance</span>
             <Calendar className="w-4 h-4 text-emerald-500" />

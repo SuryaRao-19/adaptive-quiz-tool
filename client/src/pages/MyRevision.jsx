@@ -14,7 +14,8 @@ import {
   BrainCircuit,
   Eye,
   Check,
-  X
+  X,
+  BookOpen
 } from 'lucide-react';
 import { Badge } from '../components/ui/Badge';
 import { Button } from '../components/ui/Button';

@@ -3,34 +3,45 @@ import React, { createContext, useState, useEffect } from 'react';
 export const ThemeContext = createContext();
 
 export const THEMES = {
+  // Institutional Greenwood Theme (Primary)
+  'greenwood': {
+    id: 'greenwood',
+    name: 'Greenwood Forest & Gold (Official)',
+    category: 'Institutional',
+    roleTag: 'all',
+    accentColor: '#173E2B',
+    goldColor: '#D9A441',
+    bgClass: 'theme-greenwood',
+    description: 'Official Greenwood Public School institutional identity: Deep Forest Green (#173E2B) and Warm Gold (#D9A441).'
+  },
   // Student Themes
   'student-indigo': {
     id: 'student-indigo',
-    name: 'Student Indigo (Focus & Streaks)',
+    name: 'Student Forest Focus (Streaks)',
     category: 'Student',
     roleTag: 'student',
-    accentColor: '#4F46E5',
+    accentColor: '#173E2B',
     bgClass: 'theme-student-indigo',
-    description: 'Crisp indigo and cyan with energetic streak multipliers and gamified feedback.'
+    description: 'Crisp forest green and gold with energetic streak multipliers and gamified feedback.'
   },
   'student-neon': {
     id: 'student-neon',
-    name: 'Student Cyber Arcade (Vibrant)',
+    name: 'Student Cyber Arcade (Green & Gold)',
     category: 'Student',
     roleTag: 'student',
-    accentColor: '#8B5CF6',
+    accentColor: '#10B981',
     bgClass: 'theme-student-neon',
-    description: 'High-energy electric violet and cyan accents for active practice engagement.'
+    description: 'High-energy emerald and warm gold accents for active practice engagement.'
   },
   // Teacher Themes
   'teacher-navy': {
     id: 'teacher-navy',
-    name: 'Teacher Academic Navy (Institutional)',
+    name: 'Teacher Academic Forest (Institutional)',
     category: 'Teacher',
     roleTag: 'teacher',
-    accentColor: '#1E3A8A',
+    accentColor: '#173E2B',
     bgClass: 'theme-teacher-navy',
-    description: 'Deep authoritative Oxford navy with high-contrast cohort gradebook styling.'
+    description: 'Deep authoritative Greenwood forest green with high-contrast cohort gradebook styling.'
   },
   'teacher-emerald': {
     id: 'teacher-emerald',
@@ -64,15 +75,16 @@ export const THEMES = {
 
 export const ThemeProvider = ({ children }) => {
   const [currentTheme, setCurrentTheme] = useState(() => {
-    return localStorage.getItem('adaptiq_theme') || 'student-indigo';
+    return localStorage.getItem('greenwood_theme') || 'greenwood';
   });
 
   useEffect(() => {
-    localStorage.setItem('adaptiq_theme', currentTheme);
+    localStorage.setItem('greenwood_theme', currentTheme);
     const root = document.documentElement;
     
     // Remove existing theme classes
     root.classList.remove(
+      'theme-greenwood',
       'theme-student-indigo', 
       'theme-student-neon', 
       'theme-teacher-navy', 
@@ -98,11 +110,7 @@ export const ThemeProvider = ({ children }) => {
 
   // Helper to switch to role default theme
   const applyRoleDefaultTheme = (role) => {
-    if (role === 'teacher') {
-      setTheme('teacher-navy');
-    } else {
-      setTheme('student-indigo');
-    }
+    setTheme('greenwood');
   };
 
   return (

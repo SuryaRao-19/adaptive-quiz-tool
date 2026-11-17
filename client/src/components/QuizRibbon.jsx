@@ -41,14 +41,14 @@ export const QuizRibbon = ({
         {/* Left: Question counter and batch progress */}
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1.5 font-bold text-slate-900 dark:text-white">
-            <span className="text-base sm:text-lg text-[var(--theme-primary,#4F46E5)]">{currentIndex}</span>
+            <span className="text-base sm:text-lg text-[var(--theme-primary,#173E2B)]">{currentIndex}</span>
             <span className="text-slate-400 font-normal">/</span>
             <span className="text-slate-600 dark:text-slate-300">{totalQuestions}</span>
           </div>
 
           <div className="w-24 sm:w-36 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden border border-slate-200 dark:border-slate-700">
             <div 
-              className="h-full bg-[var(--theme-primary,#4F46E5)] rounded-full transition-all duration-300"
+              className="h-full bg-[var(--theme-primary,#173E2B)] rounded-full transition-all duration-300"
               style={{ width: `${progressPercentage}%` }}
               role="progressbar"
               aria-valuenow={progressPercentage}

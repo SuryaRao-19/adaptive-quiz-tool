@@ -25,7 +25,7 @@ export const AuthScreen = () => {
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  // Active Tab: 'student' | 'staff'
+  // Active Tab: 'student' | 'staff' | 'parent'
   const [activeTab, setActiveTab] = useState('student');
 
   // Student Mode: 'login' | 'activate'
@@ -42,6 +42,10 @@ export const AuthScreen = () => {
   // Staff Form
   const [staffEmail, setStaffEmail] = useState('sharma.math@greenwoodgurgaon.com');
   const [staffPassword, setStaffPassword] = useState('teacher123');
+
+  // Parent Form
+  const [parentIdentifier, setParentIdentifier] = useState('vikram.patel@greenwoodgurgaon.com');
+  const [parentPassword, setParentPassword] = useState('parent123');
 
   // Status & Feedback
   const [loading, setLoading] = useState(false);
@@ -147,47 +151,86 @@ export const AuthScreen = () => {
     }
   };
 
+  // Handle Parent Login Submit
+  const handleParentLogin = async (e) => {
+    e.preventDefault();
+    setErrorMsg('');
+    setSuccessMsg('');
+    setLoading(true);
+
+    try {
+      const res = await axios.post('/api/auth/staff-login', {
+        email: parentIdentifier.trim(),
+        password: parentPassword
+      });
+
+      if (res.data.success && res.data.token) {
+        login(res.data.token, res.data.user);
+        setSuccessMsg(`Welcome, ${res.data.user.name}! Redirecting to Parent Connect...`);
+        setTimeout(() => {
+          navigate('/dashboard');
+        }, 600);
+      }
+    } catch (err) {
+      setErrorMsg(err.response?.data?.message || 'Invalid parent email/phone or password.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8 font-sans">
+    <div className="min-h-screen bg-[#F4F6F1] dark:bg-slate-950 flex flex-col justify-center py-12 sm:px-6 lg:px-8 font-sans">
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center space-y-2">
-        <div className="w-14 h-14 rounded-2xl bg-indigo-600 text-white flex items-center justify-center mx-auto shadow-lg shadow-indigo-500/20">
+        <div className="w-14 h-14 rounded-2xl bg-[#173E2B] text-[#D9A441] flex items-center justify-center mx-auto shadow-lg shadow-[#173E2B]/20 border border-[#D9A441]/40">
           <School className="w-8 h-8" />
         </div>
-        <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+        <h1 className="text-2xl font-black text-[#173E2B] dark:text-white tracking-tight">
           Greenwood Public School
         </h1>
         <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider">
-          Sector-9, Gurugram &bull; CBSE Affiliation No: 530649 &bull; School Code: 40643
+          Main Campus: Sector-9 &bull; Junior Wing: Sector 10A &bull; CBSE 530649 &bull; Code: 40643
         </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-lg px-4">
         <Card className="p-6 sm:p-8 shadow-elevated border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
           {/* Main Role Tabs */}
-          <div className="grid grid-cols-2 gap-2 p-1 bg-slate-100 dark:bg-slate-800 rounded-xl mb-6">
+          <div className="grid grid-cols-3 gap-1.5 p-1 bg-slate-100 dark:bg-slate-800 rounded-xl mb-6">
             <button
               type="button"
               onClick={() => { setActiveTab('student'); setErrorMsg(''); setSuccessMsg(''); }}
-              className={`py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-2 ${
+              className={`py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
                 activeTab === 'student'
-                  ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-cyan-400 shadow-sm'
+                  ? 'bg-[#173E2B] text-white shadow-sm'
                   : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              <GraduationCap className="w-4 h-4" />
-              <span>Student Portal</span>
+              <GraduationCap className="w-4 h-4 shrink-0" />
+              <span>Student</span>
             </button>
             <button
               type="button"
               onClick={() => { setActiveTab('staff'); setErrorMsg(''); setSuccessMsg(''); }}
-              className={`py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-2 ${
+              className={`py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
                 activeTab === 'staff'
-                  ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-cyan-400 shadow-sm'
+                  ? 'bg-[#173E2B] text-white shadow-sm'
                   : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
               }`}
             >
-              <ShieldCheck className="w-4 h-4" />
-              <span>Staff & Principal</span>
+              <ShieldCheck className="w-4 h-4 shrink-0" />
+              <span>Staff / Admin</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => { setActiveTab('parent'); setErrorMsg(''); setSuccessMsg(''); }}
+              className={`py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
+                activeTab === 'parent'
+                  ? 'bg-[#173E2B] text-white shadow-sm'
+                  : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
+              }`}
+            >
+              <Users className="w-4 h-4 shrink-0" />
+              <span>Parent</span>
             </button>
           </div>
 
@@ -242,7 +285,7 @@ export const AuthScreen = () => {
                       Student Roll Number *
                     </label>
                     <Input
-                      placeholder="e.g. APS-07-001"
+                      placeholder="e.g. GPS-07-001"
                       value={studentRoll}
                       onChange={(e) => setStudentRoll(e.target.value.toUpperCase())}
                       required
@@ -289,14 +332,14 @@ export const AuthScreen = () => {
                     <div className="flex flex-wrap gap-2">
                       <button
                         type="button"
-                        onClick={() => { setStudentGrade(7); setStudentRoll('APS-07-001'); setStudentPassword('Student@123'); }}
+                        onClick={() => { setStudentGrade(7); setStudentRoll('GPS-07-001'); setStudentPassword('Student@123'); }}
                         className="px-2 py-1 rounded bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-mono text-[10px] font-bold border border-indigo-200"
                       >
                         Aarav Patel (Gr 7)
                       </button>
                       <button
                         type="button"
-                        onClick={() => { setStudentGrade(7); setStudentRoll('APS-07-002'); setStudentPassword('Student@123'); }}
+                        onClick={() => { setStudentGrade(7); setStudentRoll('GPS-07-002'); setStudentPassword('Student@123'); }}
                         className="px-2 py-1 rounded bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-mono text-[10px] font-bold border border-indigo-200"
                       >
                         Priya Sharma (Gr 7)
@@ -331,7 +374,7 @@ export const AuthScreen = () => {
                         Roll Number *
                       </label>
                       <Input
-                        placeholder="APS-07-003"
+                        placeholder="GPS-07-003"
                         value={studentRoll}
                         onChange={(e) => setStudentRoll(e.target.value.toUpperCase())}
                         required
@@ -344,7 +387,7 @@ export const AuthScreen = () => {
                       School Activation Code *
                     </label>
                     <Input
-                      placeholder="e.g. APS-ACT-7003"
+                      placeholder="e.g. GPS-ACT-7003"
                       value={activationCode}
                       onChange={(e) => setActivationCode(e.target.value.toUpperCase())}
                       required
@@ -458,6 +501,58 @@ export const AuthScreen = () => {
                     Dr. K. S. Raman (Principal & Director)
                   </button>
                 </div>
+              </div>
+            </form>
+          )}
+          {/* TAB 3: PARENT PORTAL */}
+          {activeTab === 'parent' && (
+            <form onSubmit={handleParentLogin} className="space-y-4">
+              <div>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                  Registered Parent Email / Phone *
+                </label>
+                <Input
+                  type="text"
+                  placeholder="e.g. vikram.patel@greenwoodgurgaon.com or +91 98110 54321"
+                  value={parentIdentifier}
+                  onChange={(e) => setParentIdentifier(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                  Parent Access Password *
+                </label>
+                <Input
+                  type="password"
+                  placeholder="Enter your parent portal password"
+                  value={parentPassword}
+                  onChange={(e) => setParentPassword(e.target.value)}
+                  required
+                />
+              </div>
+
+              <Button
+                type="submit"
+                variant="primary"
+                disabled={loading}
+                className="w-full py-2.5 font-bold text-xs"
+                iconRight={ArrowRight}
+              >
+                {loading ? 'Authenticating...' : 'Sign In as Parent / Guardian'}
+              </Button>
+
+              {/* Quick Fill Demo Credentials */}
+              <div className="mt-4 p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-[11px] space-y-1.5">
+                <span className="font-bold text-slate-500 uppercase tracking-wider block">Demo Parent Account:</span>
+                <button
+                  type="button"
+                  onClick={() => { setParentIdentifier('vikram.patel@greenwoodgurgaon.com'); setParentPassword('parent123'); }}
+                  className="w-full p-1.5 rounded bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 font-mono text-[10px] font-bold border border-amber-200 dark:border-amber-800 text-left"
+                >
+                  Mr. Vikram Patel (Parent of Aarav Patel &bull; GPS-07-001)
+                </button>
               </div>
             </form>
           )}

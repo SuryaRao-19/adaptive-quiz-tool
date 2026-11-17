@@ -47,7 +47,7 @@ export const SolutionsHub = () => {
   // Bookmarks state (saved in localStorage)
   const [bookmarkedIds, setBookmarkedIds] = useState(() => {
     try {
-      const saved = localStorage.getItem('adaptiq_bookmarked_solutions');
+      const saved = localStorage.getItem('greenwood_bookmarked_solutions') || localStorage.getItem('adaptiq_bookmarked_solutions');
       return saved ? JSON.parse(saved) : ['sol-01'];
     } catch {
       return ['sol-01'];
@@ -59,7 +59,7 @@ export const SolutionsHub = () => {
     setBookmarkedIds(prev => {
       const next = prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id];
       try {
-        localStorage.setItem('adaptiq_bookmarked_solutions', JSON.stringify(next));
+        localStorage.setItem('greenwood_bookmarked_solutions', JSON.stringify(next));
       } catch {}
       return next;
     });

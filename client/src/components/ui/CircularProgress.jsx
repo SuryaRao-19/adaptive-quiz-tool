@@ -14,14 +14,14 @@ export const CircularProgress = ({
   const strokeDashoffset = circumference - (percentage / 100) * circumference;
 
   const colorMap = {
-    indigo: '#4F46E5',
+    indigo: '#173E2B',
     emerald: '#10B981',
-    amber: '#F59E0B',
+    amber: '#D9A441',
     rose: '#F43F5E'
   };
 
   const strokeColor = colorMap[color] || (
-    percentage >= 80 ? '#10B981' : percentage >= 60 ? '#4F46E5' : '#F59E0B'
+    percentage >= 80 ? '#10B981' : percentage >= 60 ? '#173E2B' : '#D9A441'
   );
 
   return (

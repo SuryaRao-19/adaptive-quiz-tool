@@ -26,7 +26,7 @@ export const ClassResults = () => {
   const navigate = useNavigate();
 
   const [classesList, setClassesList] = useState([]);
-  const [selectedClassId, setSelectedClassId] = useState('cls-aps-7a');
+  const [selectedClassId, setSelectedClassId] = useState('cls-gps-7a');
   const [selectedSubject, setSelectedSubject] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
   const [resultsData, setResultsData] = useState(null);
@@ -50,11 +50,11 @@ export const ClassResults = () => {
           setClassesList(res);
           setSelectedClassId(res[0].id);
         } else {
-          setClassesList([{ id: 'cls-aps-7a', name: 'Grade 7-A Mathematics (Pilot)', joinCode: 'APS7M' }]);
+          setClassesList([{ id: 'cls-gps-7a', name: 'Grade 7-A Mathematics (Pilot)', joinCode: 'GPS7M' }]);
         }
       })
       .catch(() => {
-        setClassesList([{ id: 'cls-aps-7a', name: 'Grade 7-A Mathematics (Pilot)', joinCode: 'APS7M' }]);
+        setClassesList([{ id: 'cls-gps-7a', name: 'Grade 7-A Mathematics (Pilot)', joinCode: 'GPS7M' }]);
       });
   }, []);
 

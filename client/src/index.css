@@ -10,7 +10,7 @@
   }
 
   body {
-    @apply bg-[#F8FAFC] text-slate-900 font-sans antialiased transition-colors duration-200;
+    @apply bg-[#F4F6F1] text-[#1C2520] font-sans antialiased transition-colors duration-200;
   }
 
   /* Cyber Midnight (Dark Theme) Global Overrides */
@@ -19,73 +19,84 @@
   }
 }
 
-/* Accessible Semantic Design Tokens */
+/* Accessible Semantic Design Tokens — Greenwood Public School Institutional Theme */
 :root {
-  --color-background: #F8FAFC;
+  --color-background: #F4F6F1;
   --color-surface: #FFFFFF;
-  --color-surface-raised: #F1F5F9;
-  --color-text-primary: #0F172A;
+  --color-surface-raised: #EAEFE7;
+  --color-text-primary: #1E293B;
   --color-text-secondary: #475569;
-  --color-border: #E2E8F0;
-  --color-primary: #4F46E5;
-  --color-primary-hover: #4338CA;
-  --color-accent: #06B6D4;
+  --color-border: #DDE5DA;
+  --color-primary: #173E2B;
+  --color-primary-hover: #123021;
+  --color-accent: #D9A441;
   --color-success: #16A34A;
   --color-error: #DC2626;
   --color-warning: #D97706;
-  --color-focus-ring: #4F46E5;
+  --color-focus-ring: #D9A441;
 
-  --theme-primary: #4F46E5;
-  --theme-primary-hover: #4338CA;
-  --theme-primary-light: #EEF2FF;
-  --theme-primary-border: #C7D2FE;
-  --theme-accent: #06B6D4;
+  --theme-primary: #173E2B;
+  --theme-primary-hover: #123021;
+  --theme-primary-light: #F4F6F1;
+  --theme-primary-border: #416B50;
+  --theme-accent: #D9A441;
+}
+
+html.theme-greenwood {
+  --color-primary: #173E2B;
+  --color-primary-hover: #123021;
+  --color-focus-ring: #D9A441;
+  --theme-primary: #173E2B;
+  --theme-primary-hover: #123021;
+  --theme-primary-light: #F4F6F1;
+  --theme-primary-border: #416B50;
+  --theme-accent: #D9A441;
 }
 
 /* 1. Student Themes */
 html.theme-student-indigo {
-  --color-primary: #4F46E5;
-  --color-primary-hover: #4338CA;
-  --color-focus-ring: #4F46E5;
-  --theme-primary: #4F46E5;
-  --theme-primary-hover: #4338CA;
-  --theme-primary-light: #EEF2FF;
-  --theme-primary-border: #C7D2FE;
-  --theme-accent: #06B6D4;
+  --color-primary: #173E2B;
+  --color-primary-hover: #123021;
+  --color-focus-ring: #D9A441;
+  --theme-primary: #173E2B;
+  --theme-primary-hover: #123021;
+  --theme-primary-light: #F4F6F1;
+  --theme-primary-border: #416B50;
+  --theme-accent: #D9A441;
 }
 
 html.theme-student-neon {
-  --color-primary: #7C3AED;
-  --color-primary-hover: #6D28D9;
-  --color-focus-ring: #7C3AED;
-  --theme-primary: #7C3AED;
-  --theme-primary-hover: #6D28D9;
-  --theme-primary-light: #F5F3FF;
-  --theme-primary-border: #DDD6FE;
-  --theme-accent: #06B6D4;
+  --color-primary: #173E2B;
+  --color-primary-hover: #123021;
+  --color-focus-ring: #D9A441;
+  --theme-primary: #173E2B;
+  --theme-primary-hover: #123021;
+  --theme-primary-light: #F4F6F1;
+  --theme-primary-border: #416B50;
+  --theme-accent: #D9A441;
 }
 
 /* 2. Teacher Themes */
 html.theme-teacher-navy {
-  --color-primary: #1E3A8A;
-  --color-primary-hover: #172554;
-  --color-focus-ring: #1E3A8A;
-  --theme-primary: #1E3A8A;
-  --theme-primary-hover: #172554;
-  --theme-primary-light: #EFF6FF;
-  --theme-primary-border: #BFDBFE;
-  --theme-accent: #3B82F6;
+  --color-primary: #173E2B;
+  --color-primary-hover: #123021;
+  --color-focus-ring: #D9A441;
+  --theme-primary: #173E2B;
+  --theme-primary-hover: #123021;
+  --theme-primary-light: #F4F6F1;
+  --theme-primary-border: #416B50;
+  --theme-accent: #D9A441;
 }
 
 html.theme-teacher-emerald {
-  --color-primary: #059669;
-  --color-primary-hover: #047857;
-  --color-focus-ring: #059669;
-  --theme-primary: #059669;
-  --theme-primary-hover: #047857;
-  --theme-primary-light: #ECFDF5;
-  --theme-primary-border: #A7F3D0;
-  --theme-accent: #D97706;
+  --color-primary: #173E2B;
+  --color-primary-hover: #123021;
+  --color-focus-ring: #D9A441;
+  --theme-primary: #173E2B;
+  --theme-primary-hover: #123021;
+  --theme-primary-light: #F4F6F1;
+  --theme-primary-border: #416B50;
+  --theme-accent: #D9A441;
 }
 
 /* 3. Universal Themes */
@@ -103,20 +114,20 @@ html.theme-sunset {
 /* 4. Cyber Midnight (Dark Mode) */
 html.theme-midnight,
 html.dark {
-  --color-background: #0B0F19;
-  --color-surface: #111827;
-  --color-surface-raised: #1E293B;
-  --color-text-primary: #F8FAFC;
-  --color-text-secondary: #94A3B8;
-  --color-border: #1E293B;
-  --color-primary: #38BDF8;
-  --color-primary-hover: #0284C7;
-  --color-focus-ring: #38BDF8;
-  --theme-primary: #38BDF8;
-  --theme-primary-hover: #0284C7;
-  --theme-primary-light: rgba(56, 189, 248, 0.12);
-  --theme-primary-border: #0284C7;
-  --theme-accent: #818CF8;
+  --color-background: #0B1510;
+  --color-surface: #101E17;
+  --color-surface-raised: #182C22;
+  --color-text-primary: #F4F6F1;
+  --color-text-secondary: #A4BCA2;
+  --color-border: #1E3A2B;
+  --color-primary: #10B981;
+  --color-primary-hover: #059669;
+  --color-focus-ring: #D9A441;
+  --theme-primary: #10B981;
+  --theme-primary-hover: #059669;
+  --theme-primary-light: rgba(16, 185, 129, 0.15);
+  --theme-primary-border: #059669;
+  --theme-accent: #D9A441;
 }
 
 /* Respect user's motion preference (WCAG 2.2 AA) */
@@ -137,7 +148,7 @@ html.dark {
   outline-offset: 2px;
 }
 .focus-ring:focus-visible {
-  outline: 2px solid var(--color-focus-ring, #4F46E5);
+  outline: 2px solid var(--color-focus-ring, #173E2B);
   outline-offset: 2px;
 }
 
@@ -215,4 +226,78 @@ html.dark ::-webkit-scrollbar-thumb {
     border: none !important;
     padding: 0 !important;
   }
+}
+
+/* Greenwood Public School Smooth Animations & UI Transitions */
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes goldPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(217, 164, 65, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 16px 4px rgba(217, 164, 65, 0.25);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInSlideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-gold-pulse {
+  animation: goldPulse 2.5s infinite ease-in-out;
+}
+
+.transition-smooth {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-interactive {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+
+.card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -6px rgba(23, 62, 43, 0.12), 0 4px 8px -2px rgba(23, 62, 43, 0.04);
+  border-color: #416B50;
+}
+
+/* Micro-interaction Button Physics */
+.btn-interactive {
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1), filter 0.15s ease;
+}
+.btn-interactive:hover {
+  transform: translateY(-1px);
+}
+.btn-interactive:active {
+  transform: scale(0.98);
+}
+
+/* Golden Shimmer Effect for Institutional Highlights */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-highlight {
+  background: linear-gradient(90deg, rgba(217, 164, 65, 0.08) 25%, rgba(217, 164, 65, 0.22) 50%, rgba(217, 164, 65, 0.08) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+/* Smooth Table & Metric Row Physics */
+.row-interactive {
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+.row-interactive:hover {
+  background-color: rgba(65, 107, 80, 0.04);
 }

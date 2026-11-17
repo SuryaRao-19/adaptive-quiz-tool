@@ -16,6 +16,7 @@ import {
 import { Button } from '../components/ui/Button';
 import { ProgressBar } from '../components/ui/ProgressBar';
 import { DifficultyBadge } from '../components/ui/DifficultyBadge';
+import { Badge } from '../components/ui/Badge';
 import { Modal } from '../components/ui/Modal';
 import { MathRenderer } from '../components/ui/MathRenderer';
 import { QuizRibbon } from '../components/QuizRibbon';
@@ -64,7 +65,14 @@ export const QuizInterface = () => {
         setLoading(true);
         const res = await getPreTestQuestions(subject);
         if (res.questions && res.questions.length > 0) {
-          setQuestions(res.questions);
+          const seen = new Set();
+          const uniqueQ = res.questions.filter(q => {
+            const key = String(q._id || q.id || q.questionText);
+            if (seen.has(key)) return false;
+            seen.add(key);
+            return true;
+          });
+          setQuestions(uniqueQ);
           setLoading(false);
           return;
         }

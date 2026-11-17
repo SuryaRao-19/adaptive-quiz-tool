@@ -569,12 +569,22 @@ export const QuestionBankManager = () => {
               aria-label="Filter by question format"
               className="px-3 py-2 rounded-xl text-xs font-semibold bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 min-h-[38px]"
             >
-              <option value="All">All Formats</option>
-              <option value="MCQ">MCQ (Single-Choice)</option>
-              <option value="MULTIPLE_SELECT">Multiple-Select</option>
-              <option value="NUMERICAL">Numerical Answer</option>
+              <option value="All">All 15 Formats</option>
+              <option value="MCQ">Single-Answer MCQ</option>
+              <option value="MULTIPLE_SELECT">Multiple-Select MCQ</option>
+              <option value="TRUE_FALSE">True / False</option>
+              <option value="FILL_BLANKS">Fill in the Blanks</option>
+              <option value="MATCH_FOLLOWING">Match the Following</option>
               <option value="SHORT_ANSWER">Short Answer</option>
-              <option value="DESCRIPTIVE">Descriptive</option>
+              <option value="LONG_ANSWER">Long Answer</option>
+              <option value="NUMERICAL">Numerical Problems</option>
+              <option value="CASE_BASED">Case-Based Question</option>
+              <option value="COMPETENCY_BASED">Competency-Based Question</option>
+              <option value="ASSERTION_REASON">Assertion & Reason</option>
+              <option value="DIAGRAM_BASED">Diagram-Based Question</option>
+              <option value="PRACTICAL_APPLICATION">Practical Application</option>
+              <option value="READING_COMPREHENSION">Reading Comprehension</option>
+              <option value="ORAL_ACTIVITY">Oral / Activity-Based</option>
             </select>
 
             {/* Subject Filter */}
@@ -722,8 +732,8 @@ export const QuestionBankManager = () => {
                       {q.difficulty?.toUpperCase()}
                     </Badge>
                     {q.source === 'curated_curriculum' && (
-                      <Badge variant="primary" size="sm" className="font-semibold">
-                        APS Verified
+                      <Badge variant="primary" size="sm" className="font-semibold bg-[#173E2B] text-white">
+                        NCERT / GPS Verified
                       </Badge>
                     )}
                     {q.source === 'ai_generated' && (

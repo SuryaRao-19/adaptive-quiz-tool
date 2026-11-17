@@ -1,5 +1,1535 @@
 [
   {
+    "id": "ingest-gps-g07-mwkvuk7v",
+    "title": "Greenwood Public School Class VII Math Syllabus",
+    "schoolCode": "40643",
+    "affiliationNumber": "530649",
+    "sourceUrl": "https://www.greenwoodgurgaon.com",
+    "gradeLevel": 7,
+    "gradeRoman": "VII",
+    "subject": "Mathematics",
+    "status": "PUBLISHED",
+    "uploadedBy": "Curriculum Coordinator",
+    "uploadedAt": "2026-11-17T16:04:22.364Z",
+    "reviewedBy": "teacher-ananya",
+    "reviewedAt": "2026-11-17T16:04:22.365Z",
+    "publishedAt": "2026-11-17T16:04:22.365Z",
+    "chaptersCount": 2,
+    "topicsCount": 4,
+    "learningOutcomesCount": 8,
+    "extractedContent": {
+      "chapters": [
+        {
+          "chapterNumber": 1,
+          "title": "Integers and Rational Numbers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Properties of Integer Addition",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.1",
+                  "statement": "Closure, Commutative, Associative.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Multiplication and Division",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.2",
+                  "statement": "Sign rules and distributive property.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.2",
+                  "statement": "Apply commutative property",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.3",
+                  "statement": "solve integers multi-step equations.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Fractions and Decimals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Unlike Fractions",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.1",
+                  "statement": "Finding LCM and common denominators.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Decimal Arithmetic",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.2",
+                  "statement": "Division of decimals by integers.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-2.2.2",
+                  "statement": "Evaluate operations on fractions",
+                  "taxonomyLevel": "UNDERSTAND"
+                },
+                {
+                  "code": "LO-MAT7-2.2.3",
+                  "statement": "reduce to simplest form.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "validationScore": 96,
+    "validationNotes": "Extracted and structured via AdaptIQ Ingestion OCR & NLP parser.",
+    "publishedBy": "Curriculum Lead"
+  },
+  {
+    "id": "ingest-gps-g07-mwkt8tif",
+    "title": "Greenwood Public School Class VII Math Syllabus",
+    "schoolCode": "40643",
+    "affiliationNumber": "530649",
+    "sourceUrl": "https://www.greenwoodgurgaon.com",
+    "gradeLevel": 7,
+    "gradeRoman": "VII",
+    "subject": "Mathematics",
+    "status": "PUBLISHED",
+    "uploadedBy": "Curriculum Coordinator",
+    "uploadedAt": "2026-11-17T14:51:28.744Z",
+    "reviewedBy": "teacher-ananya",
+    "reviewedAt": "2026-11-17T14:51:28.745Z",
+    "publishedAt": "2026-11-17T14:51:28.746Z",
+    "chaptersCount": 2,
+    "topicsCount": 4,
+    "learningOutcomesCount": 8,
+    "extractedContent": {
+      "chapters": [
+        {
+          "chapterNumber": 1,
+          "title": "Integers and Rational Numbers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Properties of Integer Addition",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.1",
+                  "statement": "Closure, Commutative, Associative.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Multiplication and Division",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.2",
+                  "statement": "Sign rules and distributive property.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.2",
+                  "statement": "Apply commutative property",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.3",
+                  "statement": "solve integers multi-step equations.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Fractions and Decimals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Unlike Fractions",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.1",
+                  "statement": "Finding LCM and common denominators.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Decimal Arithmetic",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.2",
+                  "statement": "Division of decimals by integers.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-2.2.2",
+                  "statement": "Evaluate operations on fractions",
+                  "taxonomyLevel": "UNDERSTAND"
+                },
+                {
+                  "code": "LO-MAT7-2.2.3",
+                  "statement": "reduce to simplest form.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "validationScore": 96,
+    "validationNotes": "Extracted and structured via AdaptIQ Ingestion OCR & NLP parser.",
+    "publishedBy": "Curriculum Lead"
+  },
+  {
+    "id": "ingest-gps-g07-mwkt6qal",
+    "title": "Greenwood Public School Class VII Math Syllabus",
+    "schoolCode": "40643",
+    "affiliationNumber": "530649",
+    "sourceUrl": "https://www.greenwoodgurgaon.com",
+    "gradeLevel": 7,
+    "gradeRoman": "VII",
+    "subject": "Mathematics",
+    "status": "PUBLISHED",
+    "uploadedBy": "Curriculum Coordinator",
+    "uploadedAt": "2026-11-17T14:49:51.262Z",
+    "reviewedBy": "teacher-ananya",
+    "reviewedAt": "2026-11-17T14:49:51.263Z",
+    "publishedAt": "2026-11-17T14:49:51.264Z",
+    "chaptersCount": 2,
+    "topicsCount": 4,
+    "learningOutcomesCount": 8,
+    "extractedContent": {
+      "chapters": [
+        {
+          "chapterNumber": 1,
+          "title": "Integers and Rational Numbers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Properties of Integer Addition",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.1",
+                  "statement": "Closure, Commutative, Associative.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Multiplication and Division",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.2",
+                  "statement": "Sign rules and distributive property.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.2",
+                  "statement": "Apply commutative property",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.3",
+                  "statement": "solve integers multi-step equations.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Fractions and Decimals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Unlike Fractions",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.1",
+                  "statement": "Finding LCM and common denominators.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Decimal Arithmetic",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.2",
+                  "statement": "Division of decimals by integers.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-2.2.2",
+                  "statement": "Evaluate operations on fractions",
+                  "taxonomyLevel": "UNDERSTAND"
+                },
+                {
+                  "code": "LO-MAT7-2.2.3",
+                  "statement": "reduce to simplest form.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "validationScore": 96,
+    "validationNotes": "Extracted and structured via AdaptIQ Ingestion OCR & NLP parser.",
+    "publishedBy": "Curriculum Lead"
+  },
+  {
+    "id": "ingest-gps-g07-mwks2e6x",
+    "title": "Greenwood Public School Class VII Math Syllabus",
+    "schoolCode": "40643",
+    "affiliationNumber": "530649",
+    "sourceUrl": "https://www.greenwoodgurgaon.com",
+    "gradeLevel": 7,
+    "gradeRoman": "VII",
+    "subject": "Mathematics",
+    "status": "PUBLISHED",
+    "uploadedBy": "Curriculum Coordinator",
+    "uploadedAt": "2026-11-17T14:18:29.337Z",
+    "reviewedBy": "teacher-ananya",
+    "reviewedAt": "2026-11-17T14:18:29.338Z",
+    "publishedAt": "2026-11-17T14:18:29.339Z",
+    "chaptersCount": 2,
+    "topicsCount": 4,
+    "learningOutcomesCount": 8,
+    "extractedContent": {
+      "chapters": [
+        {
+          "chapterNumber": 1,
+          "title": "Integers and Rational Numbers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Properties of Integer Addition",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.1",
+                  "statement": "Closure, Commutative, Associative.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Multiplication and Division",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.2",
+                  "statement": "Sign rules and distributive property.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.2",
+                  "statement": "Apply commutative property",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.3",
+                  "statement": "solve integers multi-step equations.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Fractions and Decimals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Unlike Fractions",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.1",
+                  "statement": "Finding LCM and common denominators.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Decimal Arithmetic",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.2",
+                  "statement": "Division of decimals by integers.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-2.2.2",
+                  "statement": "Evaluate operations on fractions",
+                  "taxonomyLevel": "UNDERSTAND"
+                },
+                {
+                  "code": "LO-MAT7-2.2.3",
+                  "statement": "reduce to simplest form.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "validationScore": 96,
+    "validationNotes": "Extracted and structured via AdaptIQ Ingestion OCR & NLP parser.",
+    "publishedBy": "Curriculum Lead"
+  },
+  {
+    "id": "ingest-gps-g07-mwkrafu4",
+    "title": "Greenwood Public School Class VII Math Syllabus",
+    "schoolCode": "40643",
+    "affiliationNumber": "530649",
+    "sourceUrl": "https://www.greenwoodgurgaon.com",
+    "gradeLevel": 7,
+    "gradeRoman": "VII",
+    "subject": "Mathematics",
+    "status": "PUBLISHED",
+    "uploadedBy": "Curriculum Coordinator",
+    "uploadedAt": "2026-11-17T13:56:45.100Z",
+    "reviewedBy": "teacher-ananya",
+    "reviewedAt": "2026-11-17T13:56:45.101Z",
+    "publishedAt": "2026-11-17T13:56:45.102Z",
+    "chaptersCount": 2,
+    "topicsCount": 4,
+    "learningOutcomesCount": 8,
+    "extractedContent": {
+      "chapters": [
+        {
+          "chapterNumber": 1,
+          "title": "Integers and Rational Numbers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Properties of Integer Addition",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.1",
+                  "statement": "Closure, Commutative, Associative.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Multiplication and Division",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.2",
+                  "statement": "Sign rules and distributive property.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.2",
+                  "statement": "Apply commutative property",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.3",
+                  "statement": "solve integers multi-step equations.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Fractions and Decimals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Unlike Fractions",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.1",
+                  "statement": "Finding LCM and common denominators.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Decimal Arithmetic",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.2",
+                  "statement": "Division of decimals by integers.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-2.2.2",
+                  "statement": "Evaluate operations on fractions",
+                  "taxonomyLevel": "UNDERSTAND"
+                },
+                {
+                  "code": "LO-MAT7-2.2.3",
+                  "statement": "reduce to simplest form.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "validationScore": 96,
+    "validationNotes": "Extracted and structured via AdaptIQ Ingestion OCR & NLP parser.",
+    "publishedBy": "Curriculum Lead"
+  },
+  {
+    "id": "ingest-gps-g07-mwkr5u0v",
+    "title": "Greenwood Public School Class VII Math Syllabus",
+    "schoolCode": "40643",
+    "affiliationNumber": "530649",
+    "sourceUrl": "https://www.greenwoodgurgaon.com",
+    "gradeLevel": 7,
+    "gradeRoman": "VII",
+    "subject": "Mathematics",
+    "status": "PUBLISHED",
+    "uploadedBy": "Curriculum Coordinator",
+    "uploadedAt": "2026-11-17T13:53:10.208Z",
+    "reviewedBy": "teacher-ananya",
+    "reviewedAt": "2026-11-17T13:53:10.209Z",
+    "publishedAt": "2026-11-17T13:53:10.210Z",
+    "chaptersCount": 2,
+    "topicsCount": 4,
+    "learningOutcomesCount": 8,
+    "extractedContent": {
+      "chapters": [
+        {
+          "chapterNumber": 1,
+          "title": "Integers and Rational Numbers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Properties of Integer Addition",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.1",
+                  "statement": "Closure, Commutative, Associative.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Multiplication and Division",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.2",
+                  "statement": "Sign rules and distributive property.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.2",
+                  "statement": "Apply commutative property",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.3",
+                  "statement": "solve integers multi-step equations.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Fractions and Decimals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Unlike Fractions",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.1",
+                  "statement": "Finding LCM and common denominators.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Decimal Arithmetic",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.2",
+                  "statement": "Division of decimals by integers.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-2.2.2",
+                  "statement": "Evaluate operations on fractions",
+                  "taxonomyLevel": "UNDERSTAND"
+                },
+                {
+                  "code": "LO-MAT7-2.2.3",
+                  "statement": "reduce to simplest form.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "validationScore": 96,
+    "validationNotes": "Extracted and structured via AdaptIQ Ingestion OCR & NLP parser.",
+    "publishedBy": "Curriculum Lead"
+  },
+  {
+    "id": "ingest-gps-g07-mwkr56wx",
+    "title": "Greenwood Public School Class VII Math Syllabus",
+    "schoolCode": "40643",
+    "affiliationNumber": "530649",
+    "sourceUrl": "https://www.greenwoodgurgaon.com",
+    "gradeLevel": 7,
+    "gradeRoman": "VII",
+    "subject": "Mathematics",
+    "status": "PUBLISHED",
+    "uploadedBy": "Curriculum Coordinator",
+    "uploadedAt": "2026-11-17T13:52:40.257Z",
+    "reviewedBy": "teacher-ananya",
+    "reviewedAt": "2026-11-17T13:52:40.258Z",
+    "publishedAt": "2026-11-17T13:52:40.259Z",
+    "chaptersCount": 2,
+    "topicsCount": 4,
+    "learningOutcomesCount": 8,
+    "extractedContent": {
+      "chapters": [
+        {
+          "chapterNumber": 1,
+          "title": "Integers and Rational Numbers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Properties of Integer Addition",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.1",
+                  "statement": "Closure, Commutative, Associative.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Multiplication and Division",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.2",
+                  "statement": "Sign rules and distributive property.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.2",
+                  "statement": "Apply commutative property",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.3",
+                  "statement": "solve integers multi-step equations.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Fractions and Decimals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Unlike Fractions",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.1",
+                  "statement": "Finding LCM and common denominators.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Decimal Arithmetic",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.2",
+                  "statement": "Division of decimals by integers.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-2.2.2",
+                  "statement": "Evaluate operations on fractions",
+                  "taxonomyLevel": "UNDERSTAND"
+                },
+                {
+                  "code": "LO-MAT7-2.2.3",
+                  "statement": "reduce to simplest form.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "validationScore": 96,
+    "validationNotes": "Extracted and structured via AdaptIQ Ingestion OCR & NLP parser.",
+    "publishedBy": "Curriculum Lead"
+  },
+  {
+    "id": "ingest-gps-g07-mwkr4bxt",
+    "title": "Greenwood Public School Class VII Math Syllabus",
+    "schoolCode": "40643",
+    "affiliationNumber": "530649",
+    "sourceUrl": "https://www.greenwoodgurgaon.com",
+    "gradeLevel": 7,
+    "gradeRoman": "VII",
+    "subject": "Mathematics",
+    "status": "PUBLISHED",
+    "uploadedBy": "Curriculum Coordinator",
+    "uploadedAt": "2026-11-17T13:52:00.114Z",
+    "reviewedBy": "teacher-ananya",
+    "reviewedAt": "2026-11-17T13:52:00.115Z",
+    "publishedAt": "2026-11-17T13:52:00.116Z",
+    "chaptersCount": 2,
+    "topicsCount": 4,
+    "learningOutcomesCount": 8,
+    "extractedContent": {
+      "chapters": [
+        {
+          "chapterNumber": 1,
+          "title": "Integers and Rational Numbers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Properties of Integer Addition",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.1",
+                  "statement": "Closure, Commutative, Associative.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Multiplication and Division",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.2",
+                  "statement": "Sign rules and distributive property.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.2",
+                  "statement": "Apply commutative property",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.3",
+                  "statement": "solve integers multi-step equations.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Fractions and Decimals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Unlike Fractions",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.1",
+                  "statement": "Finding LCM and common denominators.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Decimal Arithmetic",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.2",
+                  "statement": "Division of decimals by integers.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-2.2.2",
+                  "statement": "Evaluate operations on fractions",
+                  "taxonomyLevel": "UNDERSTAND"
+                },
+                {
+                  "code": "LO-MAT7-2.2.3",
+                  "statement": "reduce to simplest form.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "validationScore": 96,
+    "validationNotes": "Extracted and structured via AdaptIQ Ingestion OCR & NLP parser.",
+    "publishedBy": "Curriculum Lead"
+  },
+  {
+    "id": "ingest-gps-g07-mwkqsqaz",
+    "title": "Greenwood Public School Class VII Math Syllabus",
+    "schoolCode": "40643",
+    "affiliationNumber": "530649",
+    "sourceUrl": "https://www.greenwoodgurgaon.com",
+    "gradeLevel": 7,
+    "gradeRoman": "VII",
+    "subject": "Mathematics",
+    "status": "PUBLISHED",
+    "uploadedBy": "Curriculum Coordinator",
+    "uploadedAt": "2026-11-17T13:42:58.860Z",
+    "reviewedBy": "teacher-ananya",
+    "reviewedAt": "2026-11-17T13:42:58.861Z",
+    "publishedAt": "2026-11-17T13:42:58.862Z",
+    "chaptersCount": 2,
+    "topicsCount": 4,
+    "learningOutcomesCount": 8,
+    "extractedContent": {
+      "chapters": [
+        {
+          "chapterNumber": 1,
+          "title": "Integers and Rational Numbers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Properties of Integer Addition",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.1",
+                  "statement": "Closure, Commutative, Associative.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Multiplication and Division",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.2",
+                  "statement": "Sign rules and distributive property.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.2",
+                  "statement": "Apply commutative property",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.3",
+                  "statement": "solve integers multi-step equations.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Fractions and Decimals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Unlike Fractions",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.1",
+                  "statement": "Finding LCM and common denominators.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Decimal Arithmetic",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.2",
+                  "statement": "Division of decimals by integers.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-2.2.2",
+                  "statement": "Evaluate operations on fractions",
+                  "taxonomyLevel": "UNDERSTAND"
+                },
+                {
+                  "code": "LO-MAT7-2.2.3",
+                  "statement": "reduce to simplest form.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "validationScore": 96,
+    "validationNotes": "Extracted and structured via AdaptIQ Ingestion OCR & NLP parser.",
+    "publishedBy": "Curriculum Lead"
+  },
+  {
+    "id": "ingest-gps-g07-mwkqgun4",
+    "title": "Greenwood Public School Class VII Math Syllabus",
+    "schoolCode": "40643",
+    "affiliationNumber": "530649",
+    "sourceUrl": "https://www.greenwoodgurgaon.com",
+    "gradeLevel": 7,
+    "gradeRoman": "VII",
+    "subject": "Mathematics",
+    "status": "PUBLISHED",
+    "uploadedBy": "Curriculum Coordinator",
+    "uploadedAt": "2026-11-17T13:33:44.608Z",
+    "reviewedBy": "teacher-ananya",
+    "reviewedAt": "2026-11-17T13:33:44.609Z",
+    "publishedAt": "2026-11-17T13:33:44.610Z",
+    "chaptersCount": 2,
+    "topicsCount": 4,
+    "learningOutcomesCount": 8,
+    "extractedContent": {
+      "chapters": [
+        {
+          "chapterNumber": 1,
+          "title": "Integers and Rational Numbers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Properties of Integer Addition",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.1",
+                  "statement": "Closure, Commutative, Associative.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Multiplication and Division",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.2",
+                  "statement": "Sign rules and distributive property.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.2",
+                  "statement": "Apply commutative property",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.3",
+                  "statement": "solve integers multi-step equations.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Fractions and Decimals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Unlike Fractions",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.1",
+                  "statement": "Finding LCM and common denominators.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Decimal Arithmetic",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.2",
+                  "statement": "Division of decimals by integers.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-2.2.2",
+                  "statement": "Evaluate operations on fractions",
+                  "taxonomyLevel": "UNDERSTAND"
+                },
+                {
+                  "code": "LO-MAT7-2.2.3",
+                  "statement": "reduce to simplest form.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "validationScore": 96,
+    "validationNotes": "Extracted and structured via AdaptIQ Ingestion OCR & NLP parser.",
+    "publishedBy": "Curriculum Lead"
+  },
+  {
+    "id": "ingest-gps-g07-mwkq79mw",
+    "title": "Greenwood Public School Class VII Math Syllabus",
+    "schoolCode": "40643",
+    "affiliationNumber": "530649",
+    "sourceUrl": "https://www.greenwoodgurgaon.com",
+    "gradeLevel": 7,
+    "gradeRoman": "VII",
+    "subject": "Mathematics",
+    "status": "PUBLISHED",
+    "uploadedBy": "Curriculum Coordinator",
+    "uploadedAt": "2026-11-17T13:26:17.480Z",
+    "reviewedBy": "teacher-ananya",
+    "reviewedAt": "2026-11-17T13:26:17.481Z",
+    "publishedAt": "2026-11-17T13:26:17.482Z",
+    "chaptersCount": 2,
+    "topicsCount": 4,
+    "learningOutcomesCount": 8,
+    "extractedContent": {
+      "chapters": [
+        {
+          "chapterNumber": 1,
+          "title": "Integers and Rational Numbers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Properties of Integer Addition",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.1",
+                  "statement": "Closure, Commutative, Associative.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Multiplication and Division",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.2",
+                  "statement": "Sign rules and distributive property.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.2",
+                  "statement": "Apply commutative property",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.3",
+                  "statement": "solve integers multi-step equations.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Fractions and Decimals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Unlike Fractions",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.1",
+                  "statement": "Finding LCM and common denominators.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Decimal Arithmetic",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.2",
+                  "statement": "Division of decimals by integers.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-2.2.2",
+                  "statement": "Evaluate operations on fractions",
+                  "taxonomyLevel": "UNDERSTAND"
+                },
+                {
+                  "code": "LO-MAT7-2.2.3",
+                  "statement": "reduce to simplest form.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "validationScore": 96,
+    "validationNotes": "Extracted and structured via AdaptIQ Ingestion OCR & NLP parser.",
+    "publishedBy": "Curriculum Lead"
+  },
+  {
+    "id": "ingest-gps-g07-mwkpwdye",
+    "title": "Greenwood Public School Class VII Math Syllabus",
+    "schoolCode": "40643",
+    "affiliationNumber": "530649",
+    "sourceUrl": "https://www.greenwoodgurgaon.com",
+    "gradeLevel": 7,
+    "gradeRoman": "VII",
+    "subject": "Mathematics",
+    "status": "PUBLISHED",
+    "uploadedBy": "Curriculum Coordinator",
+    "uploadedAt": "2026-11-17T13:17:49.863Z",
+    "reviewedBy": "teacher-ananya",
+    "reviewedAt": "2026-11-17T13:17:49.864Z",
+    "publishedAt": "2026-11-17T13:17:49.864Z",
+    "chaptersCount": 2,
+    "topicsCount": 4,
+    "learningOutcomesCount": 8,
+    "extractedContent": {
+      "chapters": [
+        {
+          "chapterNumber": 1,
+          "title": "Integers and Rational Numbers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Properties of Integer Addition",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.1",
+                  "statement": "Closure, Commutative, Associative.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Multiplication and Division",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.2",
+                  "statement": "Sign rules and distributive property.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.2",
+                  "statement": "Apply commutative property",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.3",
+                  "statement": "solve integers multi-step equations.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Fractions and Decimals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Unlike Fractions",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.1",
+                  "statement": "Finding LCM and common denominators.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Decimal Arithmetic",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.2",
+                  "statement": "Division of decimals by integers.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-2.2.2",
+                  "statement": "Evaluate operations on fractions",
+                  "taxonomyLevel": "UNDERSTAND"
+                },
+                {
+                  "code": "LO-MAT7-2.2.3",
+                  "statement": "reduce to simplest form.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "validationScore": 96,
+    "validationNotes": "Extracted and structured via AdaptIQ Ingestion OCR & NLP parser.",
+    "publishedBy": "Curriculum Lead"
+  },
+  {
+    "id": "ingest-gps-g07-mwkphi5o",
+    "title": "Greenwood Public School Class VII Math Syllabus",
+    "schoolCode": "40643",
+    "affiliationNumber": "530649",
+    "sourceUrl": "https://www.greenwoodgurgaon.com",
+    "gradeLevel": 7,
+    "gradeRoman": "VII",
+    "subject": "Mathematics",
+    "status": "PUBLISHED",
+    "uploadedBy": "Curriculum Coordinator",
+    "uploadedAt": "2026-11-17T13:06:15.468Z",
+    "reviewedBy": "teacher-ananya",
+    "reviewedAt": "2026-11-17T13:06:15.469Z",
+    "publishedAt": "2026-11-17T13:06:15.470Z",
+    "chaptersCount": 2,
+    "topicsCount": 4,
+    "learningOutcomesCount": 8,
+    "extractedContent": {
+      "chapters": [
+        {
+          "chapterNumber": 1,
+          "title": "Integers and Rational Numbers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Properties of Integer Addition",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.1",
+                  "statement": "Closure, Commutative, Associative.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Multiplication and Division",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.2",
+                  "statement": "Sign rules and distributive property.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.2",
+                  "statement": "Apply commutative property",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.3",
+                  "statement": "solve integers multi-step equations.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Fractions and Decimals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Unlike Fractions",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.1",
+                  "statement": "Finding LCM and common denominators.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Decimal Arithmetic",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.2",
+                  "statement": "Division of decimals by integers.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-2.2.2",
+                  "statement": "Evaluate operations on fractions",
+                  "taxonomyLevel": "UNDERSTAND"
+                },
+                {
+                  "code": "LO-MAT7-2.2.3",
+                  "statement": "reduce to simplest form.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "validationScore": 96,
+    "validationNotes": "Extracted and structured via AdaptIQ Ingestion OCR & NLP parser.",
+    "publishedBy": "Curriculum Lead"
+  },
+  {
+    "id": "ingest-gps-g07-mwkp98b6",
+    "title": "Greenwood Public School Class VII Math Syllabus",
+    "schoolCode": "40643",
+    "affiliationNumber": "530649",
+    "sourceUrl": "https://www.greenwoodgurgaon.com",
+    "gradeLevel": 7,
+    "gradeRoman": "VII",
+    "subject": "Mathematics",
+    "status": "PUBLISHED",
+    "uploadedBy": "Curriculum Coordinator",
+    "uploadedAt": "2026-11-17T12:59:49.458Z",
+    "reviewedBy": "teacher-ananya",
+    "reviewedAt": "2026-11-17T12:59:49.459Z",
+    "publishedAt": "2026-11-17T12:59:49.460Z",
+    "chaptersCount": 2,
+    "topicsCount": 4,
+    "learningOutcomesCount": 8,
+    "extractedContent": {
+      "chapters": [
+        {
+          "chapterNumber": 1,
+          "title": "Integers and Rational Numbers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Properties of Integer Addition",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.1",
+                  "statement": "Closure, Commutative, Associative.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Multiplication and Division",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.2",
+                  "statement": "Sign rules and distributive property.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.2",
+                  "statement": "Apply commutative property",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.3",
+                  "statement": "solve integers multi-step equations.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Fractions and Decimals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Unlike Fractions",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.1",
+                  "statement": "Finding LCM and common denominators.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Decimal Arithmetic",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.2",
+                  "statement": "Division of decimals by integers.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-2.2.2",
+                  "statement": "Evaluate operations on fractions",
+                  "taxonomyLevel": "UNDERSTAND"
+                },
+                {
+                  "code": "LO-MAT7-2.2.3",
+                  "statement": "reduce to simplest form.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "validationScore": 96,
+    "validationNotes": "Extracted and structured via AdaptIQ Ingestion OCR & NLP parser.",
+    "publishedBy": "Curriculum Lead"
+  },
+  {
+    "id": "ingest-gps-g07-mwkov0pg",
+    "title": "Greenwood Public School Class VII Math Syllabus",
+    "schoolCode": "40643",
+    "affiliationNumber": "530649",
+    "sourceUrl": "https://www.greenwoodgurgaon.com",
+    "gradeLevel": 7,
+    "gradeRoman": "VII",
+    "subject": "Mathematics",
+    "status": "PUBLISHED",
+    "uploadedBy": "Curriculum Coordinator",
+    "uploadedAt": "2026-11-17T12:48:46.420Z",
+    "reviewedBy": "teacher-ananya",
+    "reviewedAt": "2026-11-17T12:48:46.422Z",
+    "publishedAt": "2026-11-17T12:48:46.423Z",
+    "chaptersCount": 2,
+    "topicsCount": 4,
+    "learningOutcomesCount": 8,
+    "extractedContent": {
+      "chapters": [
+        {
+          "chapterNumber": 1,
+          "title": "Integers and Rational Numbers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Properties of Integer Addition",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.1",
+                  "statement": "Closure, Commutative, Associative.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Multiplication and Division",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.2",
+                  "statement": "Sign rules and distributive property.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.2",
+                  "statement": "Apply commutative property",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.3",
+                  "statement": "solve integers multi-step equations.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Fractions and Decimals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Unlike Fractions",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.1",
+                  "statement": "Finding LCM and common denominators.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Decimal Arithmetic",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.2",
+                  "statement": "Division of decimals by integers.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-2.2.2",
+                  "statement": "Evaluate operations on fractions",
+                  "taxonomyLevel": "UNDERSTAND"
+                },
+                {
+                  "code": "LO-MAT7-2.2.3",
+                  "statement": "reduce to simplest form.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "validationScore": 96,
+    "validationNotes": "Extracted and structured via AdaptIQ Ingestion OCR & NLP parser.",
+    "publishedBy": "Curriculum Lead"
+  },
+  {
     "id": "ingest-gps-g07-mwkcx785",
     "title": "Greenwood Public School Class VII Math Syllabus",
     "schoolCode": "40643",

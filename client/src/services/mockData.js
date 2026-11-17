@@ -124,7 +124,7 @@ export const MOCK_PARENT = {
 
 export const MOCK_CLASSES = [
   {
-    id: "cls-aps-7a",
+    id: "cls-gps-7a",
     name: "Grade 7-A Mathematics (Pilot)",
     subject: "Mathematics",
     grade: 7,
@@ -214,14 +214,14 @@ export const MOCK_RECENT_ACTIVITY = [
 
 export const MOCK_TESTS = [
   {
-  "id": "aps-g7-math-diag-2026",
+  "id": "gps-g7-math-diag-2026",
   "title": "Greenwood Public School — Grade 7 Mathematics Diagnostic Assessment",
   "type": "Diagnostic",
   "category": "Diagnostic Assessments",
   "gradeLevel": 7,
   "subject": "Mathematics",
   "assignedBy": "Mrs. Ananya Sharma • Mathematics Department",
-  "classId": "cls-aps-7a",
+  "classId": "cls-gps-7a",
   "questionCount": 20,
   "durationMinutes": 20,
   "dueDate": "Mandatory Diagnostic Pilot",
@@ -230,7 +230,7 @@ export const MOCK_TESTS = [
   "description": "Official institutional diagnostic assessment measuring foundational readiness across 7 CBSE Mathematics topics (Integers, Fractions & Decimals, Rational Numbers, Simple Equations, Algebraic Expressions, Geometry & Mensuration, Ratio & Proportion).",
   "questions": [
     {
-      "id": "aps-g7-m-int-01",
+      "id": "gps-g7-m-int-01",
       "subject": "Mathematics",
       "topic": "Integers",
       "difficulty": "easy",
@@ -265,7 +265,7 @@ export const MOCK_TESTS = [
       "misconception": "Sign reversal error with subtraction of negative integers."
     },
     {
-      "id": "aps-g7-m-int-02",
+      "id": "gps-g7-m-int-02",
       "subject": "Mathematics",
       "topic": "Integers",
       "difficulty": "medium",
@@ -295,7 +295,7 @@ export const MOCK_TESTS = [
       "misconception": "Sign propagation error across chained multiplication and division."
     },
     {
-      "id": "aps-g7-m-int-03",
+      "id": "gps-g7-m-int-03",
       "subject": "Mathematics",
       "topic": "Integers",
       "difficulty": "hard",
@@ -325,7 +325,7 @@ export const MOCK_TESTS = [
       "misconception": "Directional integer confusion in real-world temperature deltas."
     },
     {
-      "id": "aps-g7-m-frac-01",
+      "id": "gps-g7-m-frac-01",
       "subject": "Mathematics",
       "topic": "Fractions and Decimals",
       "difficulty": "easy",
@@ -355,7 +355,7 @@ export const MOCK_TESTS = [
       "misconception": "Omitting irreducible form reduction."
     },
     {
-      "id": "aps-g7-m-frac-02",
+      "id": "gps-g7-m-frac-02",
       "subject": "Mathematics",
       "topic": "Fractions and Decimals",
       "difficulty": "medium",
@@ -385,7 +385,7 @@ export const MOCK_TESTS = [
       "misconception": "Inverting dividend instead of divisor during fraction division."
     },
     {
-      "id": "aps-g7-m-frac-03",
+      "id": "gps-g7-m-frac-03",
       "subject": "Mathematics",
       "topic": "Fractions and Decimals",
       "difficulty": "medium",
@@ -415,7 +415,7 @@ export const MOCK_TESTS = [
       "misconception": "Decimal placement summation error in multiplication."
     },
     {
-      "id": "aps-g7-m-frac-04",
+      "id": "gps-g7-m-frac-04",
       "subject": "Mathematics",
       "topic": "Fractions and Decimals",
       "difficulty": "hard",
@@ -445,7 +445,7 @@ export const MOCK_TESTS = [
       "misconception": "Division of decimals by decimals decimal-shift error."
     },
     {
-      "id": "aps-g7-m-rat-01",
+      "id": "gps-g7-m-rat-01",
       "subject": "Mathematics",
       "topic": "Rational Numbers",
       "difficulty": "easy",
@@ -475,7 +475,7 @@ export const MOCK_TESTS = [
       "misconception": "Incomplete reduction to lowest terms."
     },
     {
-      "id": "aps-g7-m-rat-02",
+      "id": "gps-g7-m-rat-02",
       "subject": "Mathematics",
       "topic": "Rational Numbers",
       "difficulty": "medium",
@@ -510,7 +510,7 @@ export const MOCK_TESTS = [
       "misconception": "Adding denominators instead of finding LCM."
     },
     {
-      "id": "aps-g7-m-rat-03",
+      "id": "gps-g7-m-rat-03",
       "subject": "Mathematics",
       "topic": "Rational Numbers",
       "difficulty": "hard",
@@ -545,7 +545,7 @@ export const MOCK_TESTS = [
       "misconception": "Transposition sign change failure."
     },
     {
-      "id": "aps-g7-m-eq-01",
+      "id": "gps-g7-m-eq-01",
       "subject": "Mathematics",
       "topic": "Simple Linear Equations",
       "difficulty": "easy",
@@ -575,7 +575,7 @@ export const MOCK_TESTS = [
       "misconception": "Inverse operation confusion during transposition."
     },
     {
-      "id": "aps-g7-m-eq-02",
+      "id": "gps-g7-m-eq-02",
       "subject": "Mathematics",
       "topic": "Simple Linear Equations",
       "difficulty": "medium",
@@ -605,7 +605,7 @@ export const MOCK_TESTS = [
       "misconception": "Failure to distribute multiplier across all terms inside parentheses."
     },
     {
-      "id": "aps-g7-m-eq-03",
+      "id": "gps-g7-m-eq-03",
       "subject": "Mathematics",
       "topic": "Simple Linear Equations",
       "difficulty": "hard",
@@ -640,7 +640,7 @@ export const MOCK_TESTS = [
       "misconception": "Omitting perimeter factor of 2 in algebraic representation."
     },
     {
-      "id": "aps-g7-m-alg-01",
+      "id": "gps-g7-m-alg-01",
       "subject": "Mathematics",
       "topic": "Algebraic Expressions",
       "difficulty": "easy",
@@ -675,7 +675,7 @@ export const MOCK_TESTS = [
       "misconception": "Conflating addition of terms with multiplication of variables."
     },
     {
-      "id": "aps-g7-m-alg-02",
+      "id": "gps-g7-m-alg-02",
       "subject": "Mathematics",
       "topic": "Algebraic Expressions",
       "difficulty": "medium",
@@ -710,7 +710,7 @@ export const MOCK_TESTS = [
       "misconception": "Squaring negative numbers without brackets yielding negative results."
     },
     {
-      "id": "aps-g7-m-alg-03",
+      "id": "gps-g7-m-alg-03",
       "subject": "Mathematics",
       "topic": "Algebraic Expressions",
       "difficulty": "medium",
@@ -740,7 +740,7 @@ export const MOCK_TESTS = [
       "misconception": "Incomplete sign distribution during polynomial subtraction."
     },
     {
-      "id": "aps-g7-m-geo-01",
+      "id": "gps-g7-m-geo-01",
       "subject": "Mathematics",
       "topic": "Geometry and Basic Mensuration",
       "difficulty": "easy",
@@ -775,7 +775,7 @@ export const MOCK_TESTS = [
       "misconception": "Conflating complementary (90°) and supplementary (180°) angles."
     },
     {
-      "id": "aps-g7-m-geo-02",
+      "id": "gps-g7-m-geo-02",
       "subject": "Mathematics",
       "topic": "Geometry and Basic Mensuration",
       "difficulty": "hard",
@@ -810,7 +810,7 @@ export const MOCK_TESTS = [
       "misconception": "Conflating boundary length conservation with area conservation."
     },
     {
-      "id": "aps-g7-m-ratprop-01",
+      "id": "gps-g7-m-ratprop-01",
       "subject": "Mathematics",
       "topic": "Ratio and Proportion",
       "difficulty": "medium",
@@ -840,7 +840,7 @@ export const MOCK_TESTS = [
       "misconception": "Additive error in ratio compounding."
     },
     {
-      "id": "aps-g7-m-ratprop-02",
+      "id": "gps-g7-m-ratprop-02",
       "subject": "Mathematics",
       "topic": "Ratio and Proportion",
       "difficulty": "medium",
@@ -872,14 +872,14 @@ export const MOCK_TESTS = [
   ]
 },
   {
-    id: "aps-g7-diagnostic-pre",
+    id: "gps-g7-diagnostic-pre",
     title: "Greenwood Public School — Grade 7 STEM Diagnostic Pre-Test",
     type: "Diagnostic",
     category: "Diagnostic Assessments",
     gradeLevel: 7,
     subject: "STEM (Math & Science)",
     assignedBy: "Academic Directorate, Greenwood Public School",
-    classId: "APS-7A",
+    classId: "GPS-7A",
     questionCount: 12,
     durationMinutes: 25,
     dueDate: "Mandatory Baseline",
@@ -1034,14 +1034,14 @@ export const MOCK_TESTS = [
     ]
   },
   {
-    id: "aps-g7-growth-post",
+    id: "gps-g7-growth-post",
     title: "Greenwood Public School — Grade 7 STEM Summative Growth Post-Test",
     type: "Diagnostic",
     category: "Diagnostic Assessments",
     gradeLevel: 7,
     subject: "STEM (Math & Science)",
     assignedBy: "Academic Directorate, Greenwood Public School",
-    classId: "APS-7A",
+    classId: "GPS-7A",
     questionCount: 12,
     durationMinutes: 25,
     dueDate: "Post-Intervention Review",
@@ -1295,7 +1295,7 @@ export const MOCK_TESTS = [
     gradeLevel: 7,
     subject: "STEM",
     assignedBy: "Curriculum Cell, Greenwood Public School",
-    classId: "APS-7A",
+    classId: "GPS-7A",
     questionCount: 8,
     durationMinutes: 20,
     dueDate: "Next Week",
@@ -1310,7 +1310,7 @@ export const MOCK_TESTS = [
     gradeLevel: 7,
     subject: "Math",
     assignedBy: "Academic Controller, Greenwood Public School",
-    classId: "APS-7A",
+    classId: "GPS-7A",
     questionCount: 15,
     durationMinutes: 45,
     dueDate: "Term 1 Schedule",
@@ -1325,7 +1325,7 @@ export const MOCK_TESTS = [
     gradeLevel: 7,
     subject: "STEM",
     assignedBy: "Academic Council, Greenwood Public School",
-    classId: "APS-7A",
+    classId: "GPS-7A",
     questionCount: 20,
     durationMinutes: 60,
     dueDate: "March 2027",
@@ -1340,7 +1340,7 @@ export const MOCK_TESTS = [
     gradeLevel: 7,
     subject: "Math",
     assignedBy: "AdaptIQ Adaptive Engine",
-    classId: "APS-7A",
+    classId: "GPS-7A",
     questionCount: 10,
     durationMinutes: 20,
     dueDate: "Self-Paced",
@@ -1355,7 +1355,7 @@ export const MOCK_TESTS = [
     gradeLevel: 7,
     subject: "STEM",
     assignedBy: "Talent Development Cell",
-    classId: "APS-7A",
+    classId: "GPS-7A",
     questionCount: 15,
     durationMinutes: 30,
     dueDate: "Open Challenge",
@@ -1363,14 +1363,14 @@ export const MOCK_TESTS = [
     description: "High-order thinking skills (HOTS) and non-routine problem solving for national competitive benchmarks."
   },
   {
-  "id": "aps-g3-diagnostic-pre",
+  "id": "gps-g3-diagnostic-pre",
   "title": "Greenwood Public School — Grade 3 Primary Wing Diagnostic Pre-Test",
   "type": "Diagnostic",
   "category": "Diagnostic Assessments",
   "gradeLevel": 3,
   "subject": "Primary (Math, English & EVS)",
   "assignedBy": "Primary Wing Directorate, Greenwood Public School",
-  "classId": "APS-3A",
+  "classId": "GPS-3A",
   "questionCount": 12,
   "durationMinutes": 20,
   "dueDate": "Mandatory Baseline",
@@ -1633,14 +1633,14 @@ export const MOCK_TESTS = [
   ]
 },
   {
-  "id": "aps-g10-diagnostic-pre",
+  "id": "gps-g10-diagnostic-pre",
   "title": "Greenwood Public School — Grade 10 Secondary STEM Pre-Board Diagnostic",
   "type": "Diagnostic",
   "category": "Diagnostic Assessments",
   "gradeLevel": 10,
   "subject": "STEM (Mathematics & Science)",
   "assignedBy": "Senior Secondary Directorate, Greenwood Public School",
-  "classId": "APS-10A",
+  "classId": "GPS-10A",
   "questionCount": 12,
   "durationMinutes": 30,
   "dueDate": "Pre-Board Calibration",
@@ -2476,7 +2476,7 @@ export const MOCK_TESTS = [
     gradeLevel: 10,
     subject: "Math",
     assignedBy: "Senior Secondary Board, Greenwood Public School",
-    classId: "APS-10A",
+    classId: "GPS-10A",
     questionCount: 20,
     durationMinutes: 60,
     dueDate: "Board Preparation",
@@ -3542,7 +3542,7 @@ export const MOCK_CLASS_ROSTER = [
 export const MOCK_HISTOGRAM_DISTRIBUTION = [
   { range: "0 - 40%", count: 2, label: "Foundational Gap", color: "#F43F5E" },
   { range: "41 - 60%", count: 6, label: "Needs Practice", color: "#F59E0B" },
-  { range: "61 - 80%", count: 12, label: "Proficient", color: "#6366F1" },
+  { range: "61 - 80%", count: 12, label: "Proficient", color: "#173E2B" },
   { range: "81 - 100%", count: 8, label: "Mastered", color: "#10B981" }
 ];
 

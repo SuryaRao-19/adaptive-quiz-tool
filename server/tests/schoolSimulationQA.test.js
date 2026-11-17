@@ -1,6 +1,6 @@
 /**
  * ADAPTIQ 2.0 — COMPLETE SCHOOL SIMULATION & QA TEST SUITE
- * Institutional Demonstration: Asian Public School (APS-2026-DEMO)
+ * Institutional Demonstration: Greenwood Public School (GPS-2026-DEMO)
  * 
  * Comprehensive 25-Case Integration & End-to-End Test Suite + Boundary & Negative Cases:
  * 1. Administrator Authentication

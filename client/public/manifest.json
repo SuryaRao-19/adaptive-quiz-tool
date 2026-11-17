@@ -1,12 +1,12 @@
 {
-  "name": "AdaptIQ — Adaptive STEM Practice Tool",
-  "short_name": "AdaptIQ",
-  "description": "AI-Powered Adaptive Learning & Diagnostic Practice for Math & Science (UN SDG 4).",
+  "name": "Greenwood Public School — Digital Learning Platform",
+  "short_name": "Greenwood DLP",
+  "description": "Greenwood Public School Digital Learning Platform & Adaptive Learning System (CBSE Affiliation: 530649).",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#F8FAFC",
-  "theme_color": "#4F46E5",
+  "background_color": "#F4F6F1",
+  "theme_color": "#173E2B",
   "icons": [
     {
       "src": "/favicon.ico",

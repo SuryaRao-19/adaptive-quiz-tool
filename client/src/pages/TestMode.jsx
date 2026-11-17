@@ -196,7 +196,19 @@ export const TestMode = () => {
     if (activeTestId) {
       const found = testsList.find((t) => t.id === activeTestId);
       if (found) {
-        setTestData(found);
+        // Guarantee deduplicated non-repeating questions
+        const seenQKeys = new Set();
+        const uniqueQList = (found.questions || []).filter(q => {
+          const key = String(q.id || q._id || q.questionText || '');
+          if (!key || seenQKeys.has(key)) return false;
+          seenQKeys.add(key);
+          return true;
+        });
+
+        setTestData({
+          ...found,
+          questions: uniqueQList
+        });
         const savedAnswers = JSON.parse(localStorage.getItem(`adaptiq_test_answers_${found.id}`) || '{}');
         setSelectedAnswers(savedAnswers);
         setSecondsRemaining((found.durationMinutes || 20) * 60);
@@ -216,18 +228,27 @@ export const TestMode = () => {
           .then(data => {
             if (data.success && data.assessment) {
               const a = data.assessment;
+              const rawQuestions = a.questions || (a.items ? a.items.map(item => item.question) : []);
+              const seenQKeys = new Set();
+              const uniqueQuestions = rawQuestions.filter(q => {
+                const key = String(q.id || q._id || q.questionText || '');
+                if (!key || seenQKeys.has(key)) return false;
+                seenQKeys.add(key);
+                return true;
+              });
+
               const formatted = {
                 id: a.id,
                 title: a.title,
                 subject: a.subject || 'Mathematics',
                 gradeLevel: a.gradeLevel || 7,
                 durationMinutes: a.durationMinutes || 20,
-                questionCount: a.questions?.length || a.questionCount || a.questionIds?.length || 10,
+                questionCount: uniqueQuestions.length || a.questionCount || 10,
                 totalMarks: a.totalMarks || a.maxScore || 100,
                 category: a.assessmentType || 'Classroom Assessment',
                 type: a.assessmentType || 'Summative',
                 instructions: a.instructions || 'Standard school assessment.',
-                questions: a.questions || (a.items ? a.items.map(item => item.question) : []),
+                questions: uniqueQuestions,
                 isLive: Boolean(a.isLive),
                 status: a.status || 'PUBLISHED',
                 assignedBy: a.teacherName || 'Mrs. Ananya Sharma'
@@ -419,7 +440,7 @@ export const TestMode = () => {
     // Submit attempt to server
     try {
       const token = localStorage.getItem('token');
-      await fetch(`/api/assessments/${testData?.id || 'aps-g7-math-diag-2026'}/submit`, {
+      await fetch(`/api/assessments/${testData?.id || 'gps-g7-math-diag-2026'}/submit`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -428,7 +449,7 @@ export const TestMode = () => {
         body: JSON.stringify({
           studentId: user?.id || user?._id || 'stu-g7-001',
           studentName: user?.name || user?.fullName || 'Aarav Patel',
-          rollNumber: user?.rollNumber || 'APS-07-001',
+          rollNumber: user?.rollNumber || 'GPS-07-001',
           answers: selectedAnswers,
           score: correct,
           maxScore: questions.length,
@@ -614,7 +635,7 @@ export const TestMode = () => {
             </div>
             <div>
               <span className="text-[10px] font-mono uppercase text-slate-400 block">Roll Number</span>
-              <span className="font-bold text-cyan-300 font-mono block">{user?.rollNumber || 'APS-07-001'}</span>
+              <span className="font-bold text-cyan-300 font-mono block">{user?.rollNumber || 'GPS-07-001'}</span>
             </div>
             <div>
               <span className="text-[10px] font-mono uppercase text-slate-400 block">Duration</span>
@@ -1176,7 +1197,7 @@ export const TestMode = () => {
               <button
                 onClick={() => setReviewActiveTab('steps')}
                 className={`pb-3 flex items-center gap-2 border-b-2 transition-all ${reviewActiveTab === 'steps'
-                    ? 'border-[var(--theme-primary,#4F46E5)] text-[var(--theme-primary,#4F46E5)] dark:text-cyan-400'
+                    ? 'border-[var(--theme-primary,#173E2B)] text-[var(--theme-primary,#173E2B)] dark:text-emerald-400'
                     : 'border-transparent text-slate-500 hover:text-slate-900 dark:hover:text-white'
                   }`}
               >
@@ -1187,7 +1208,7 @@ export const TestMode = () => {
               <button
                 onClick={() => setReviewActiveTab('explanation')}
                 className={`pb-3 flex items-center gap-2 border-b-2 transition-all ${reviewActiveTab === 'explanation'
-                    ? 'border-[var(--theme-primary,#4F46E5)] text-[var(--theme-primary,#4F46E5)] dark:text-cyan-400'
+                    ? 'border-[var(--theme-primary,#173E2B)] text-[var(--theme-primary,#173E2B)] dark:text-emerald-400'
                     : 'border-transparent text-slate-500 hover:text-slate-900 dark:hover:text-white'
                   }`}
               >
@@ -1201,8 +1222,8 @@ export const TestMode = () => {
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-3 pt-2">
                 {currentReviewQ.steps ? (
                   currentReviewQ.steps.map((s, sIdx) => (
-                    <div key={sIdx} className="p-4 rounded-2xl bg-white dark:bg-slate-800 border-l-4 border-l-[var(--theme-primary,#4F46E5)] border border-slate-200 dark:border-slate-700 shadow-sm space-y-1">
-                      <span className="font-bold text-xs text-[var(--theme-primary,#4F46E5)] dark:text-cyan-400 block">
+                    <div key={sIdx} className="p-4 rounded-2xl bg-white dark:bg-slate-800 border-l-4 border-l-[var(--theme-primary,#173E2B)] border border-slate-200 dark:border-slate-700 shadow-sm space-y-1">
+                      <span className="font-bold text-xs text-[var(--theme-primary,#173E2B)] dark:text-emerald-400 block">
                         {s.step}
                       </span>
                       <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-mono">
@@ -1223,7 +1244,7 @@ export const TestMode = () => {
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4 pt-2">
                 <div className="p-5 rounded-2xl bg-indigo-50/60 dark:bg-indigo-950/30 border border-indigo-200 dark:border-indigo-800 space-y-2">
                   <div className="flex items-center gap-2 text-indigo-900 dark:text-indigo-300 font-bold text-xs">
-                    <Sparkles className="w-4 h-4 text-[var(--theme-primary,#4F46E5)] dark:text-cyan-400" />
+                    <Sparkles className="w-4 h-4 text-[var(--theme-primary,#173E2B)] dark:text-emerald-400" />
                     <span>Underlying Core Theorem / Pedagogical Concept</span>
                   </div>
                   <p className="text-xs sm:text-sm text-indigo-950 dark:text-indigo-200 leading-relaxed">
@@ -1283,8 +1304,8 @@ export const TestMode = () => {
   const studentGrade = user?.gradeLevel || user?.grade || 7;
 
   const filteredTests = testsList.filter((t) => {
-    // Lock tests strictly to student's enrolled grade (if grade specified)
-    if (role === 'student' && t.gradeLevel && parseInt(t.gradeLevel, 10) !== parseInt(studentGrade, 10)) {
+    // Lock tests to student's enrolled grade (allow teacher-created custom assessments and matching grades)
+    if (role === 'student' && t.gradeLevel && parseInt(t.gradeLevel, 10) !== parseInt(studentGrade, 10) && !t.isCustom && !t.id?.startsWith('custom-') && !t.id?.startsWith('asm-')) {
       return false;
     }
     const matchesCategory =
@@ -1303,7 +1324,7 @@ export const TestMode = () => {
 
   const featuredTest = testsList.find(t => t.gradeLevel === studentGrade && t.isFeatured)
     || testsList.find(t => t.gradeLevel === studentGrade)
-    || testsList.find(t => t.id === 'aps-g7-diagnostic-pre')
+    || testsList.find(t => t.id === 'gps-g7-diagnostic-pre')
     || testsList[0];
 
   return (

@@ -34,6 +34,14 @@ import { QuestionBankManager } from './pages/QuestionBankManager';
 import { StyleGuide } from './pages/StyleGuide';
 import { ContactSupportPage } from './pages/ContactSupportPage';
 import { ParentPortal } from './pages/ParentPortal';
+import { CourseManagement } from './pages/CourseManagement';
+import { LessonPlanner } from './pages/LessonPlanner';
+import { AssignmentManager } from './pages/AssignmentManager';
+import { AnnouncementHub } from './pages/AnnouncementHub';
+import { AcademicCalendar } from './pages/AcademicCalendar';
+import { ExaminationCentre } from './pages/ExaminationCentre';
+import { PracticeCentre } from './pages/PracticeCentre';
+import { CurriculumCoverageDashboard } from './pages/CurriculumCoverageDashboard';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
 // Protected App Shell Route Wrapper
@@ -302,6 +310,112 @@ export const App = () => {
               }
             />
 
+            {/* LMS 4.0 Core Academic & Classroom Workspaces */}
+            <Route
+              path="/courses"
+              element={
+                <ProtectedRoute>
+                  <CourseManagement />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/teacher/courses"
+              element={
+                <ProtectedRoute>
+                  <CourseManagement />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/lessons"
+              element={
+                <ProtectedRoute>
+                  <LessonPlanner />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/lesson-planner"
+              element={
+                <ProtectedRoute>
+                  <LessonPlanner />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/teacher/lesson-planner"
+              element={
+                <ProtectedRoute>
+                  <LessonPlanner />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/assignments"
+              element={
+                <ProtectedRoute>
+                  <AssignmentManager />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/teacher/assignments"
+              element={
+                <ProtectedRoute>
+                  <AssignmentManager />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/announcements"
+              element={
+                <ProtectedRoute>
+                  <AnnouncementHub />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/calendar"
+              element={
+                <ProtectedRoute>
+                  <AcademicCalendar />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/attendance"
+              element={
+                <ProtectedRoute>
+                  <AttendanceManager />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/examinations"
+              element={
+                <ProtectedRoute>
+                  <ExaminationCentre />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/teacher/examinations"
+              element={
+                <ProtectedRoute>
+                  <ExaminationCentre />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/practice-centre"
+              element={
+                <ProtectedRoute>
+                  <PracticeCentre />
+                </ProtectedRoute>
+              }
+            />
+
             <Route
               path="/metrics"
               element={
@@ -325,6 +439,15 @@ export const App = () => {
               element={
                 <ProtectedRoute>
                   <SolutionsHub />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/curriculum-coverage"
+              element={
+                <ProtectedRoute>
+                  <CurriculumCoverageDashboard />
                 </ProtectedRoute>
               }
             />

@@ -124,7 +124,7 @@ export const LandingPage = () => {
             className="text-base sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed font-normal"
           >
             In crowded classrooms, one-size-fits-all tests leave foundational learning gaps behind.
-            <strong className="text-slate-900 dark:text-white font-semibold"> AdaptIQ</strong> diagnoses weak topics in Math and Science, adjusts question difficulty in real time, and proves measurable growth.
+            <strong className="text-slate-900 dark:text-white font-semibold"> Greenwood Adaptive Learning</strong> diagnoses weak topics in Math and Science, adjusts question difficulty in real time, and proves measurable growth.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -436,9 +436,9 @@ export const LandingPage = () => {
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
-              <span className="font-extrabold text-slate-800 dark:text-white">AdaptIQ 3.0</span>
-              <span>• AI Adaptive Learning Engine</span>
-              <span>• UN SDG 4 Aligned</span>
+              <span className="font-extrabold text-slate-800 dark:text-white">Greenwood Public School</span>
+              <span>• Digital Learning Platform</span>
+              <span>• CBSE Affiliation No: 530649</span>
             </div>
 
             <div className="flex flex-wrap items-center gap-6">

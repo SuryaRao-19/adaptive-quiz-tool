@@ -46,11 +46,10 @@ export const ContactSupportModal = ({
           <button
             type="button"
             onClick={() => setActiveTab('contact')}
-            className={`py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
-              activeTab === 'contact'
+            className={`py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${activeTab === 'contact'
                 ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-cyan-400 shadow-subtle'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-            }`}
+              }`}
           >
             <Mail className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">Contact Us</span>
@@ -60,11 +59,10 @@ export const ContactSupportModal = ({
           <button
             type="button"
             onClick={() => setActiveTab('feedback')}
-            className={`py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
-              activeTab === 'feedback'
+            className={`py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${activeTab === 'feedback'
                 ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-cyan-400 shadow-subtle'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-            }`}
+              }`}
           >
             <MessageSquare className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">User Feedback</span>
@@ -74,11 +72,10 @@ export const ContactSupportModal = ({
           <button
             type="button"
             onClick={() => setActiveTab('bug')}
-            className={`py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
-              activeTab === 'bug'
+            className={`py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${activeTab === 'bug'
                 ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-cyan-400 shadow-subtle'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
-            }`}
+              }`}
           >
             <Bug className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">Report Bug</span>

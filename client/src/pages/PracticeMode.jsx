@@ -545,22 +545,59 @@ export const PracticeMode = () => {
   const [isLoadingQuestions, setIsLoadingQuestions] = useState(false);
 
   // Keep track of served question IDs to prevent duplicate questions in session
-  const [usedQuestionIds, setUsedQuestionIds] = useState(new Set());
+  const [usedQuestionIds, setUsedQuestionIds] = useState(() => {
+    try {
+      const stored = sessionStorage.getItem(`gps_used_q_${effectiveGrade}_${configSubject}`);
+      return stored ? new Set(JSON.parse(stored)) : new Set();
+    } catch (_) {
+      return new Set();
+    }
+  });
 
   // Load questions when session starts or subject changes
   const loadQuestionsForSession = async (subj, top, count = 10) => {
     setIsLoadingQuestions(true);
     try {
+      const excludeArray = Array.from(usedQuestionIds);
       const res = await getQuestions({
         grade: effectiveGrade,
         subject: subj,
-        topic: selectedMode === 'mixed' ? 'All' : top
+        topic: selectedMode === 'mixed' ? 'All' : top,
+        exclude: excludeArray.join(','),
+        limit: count * 3
       });
 
       if (res && res.success && Array.isArray(res.questions) && res.questions.length > 0) {
+        // Strict deduplication by ID and normalized text
+        const seen = new Set();
+        const unique = [];
+        for (const q of res.questions) {
+          const qId = String(q._id || q.id || '');
+          const qText = (q.questionText || q.statement || '').toLowerCase().trim();
+          if ((qId && seen.has(qId)) || (qText && seen.has(qText))) continue;
+          if (qId) seen.add(qId);
+          if (qText) seen.add(qText);
+          unique.push(q);
+        }
+
         // Shuffle deterministically
-        const shuffled = [...res.questions].sort(() => 0.5 - Math.random());
-        setQuestionsList(shuffled.slice(0, count));
+        const shuffled = [...unique].sort(() => 0.5 - Math.random());
+        const selectedSlice = shuffled.slice(0, count);
+
+        // Record selected IDs into usedQuestionIds
+        setUsedQuestionIds(prev => {
+          const nextSet = new Set(prev);
+          selectedSlice.forEach(q => {
+            const id = String(q._id || q.id || '');
+            if (id) nextSet.add(id);
+          });
+          try {
+            sessionStorage.setItem(`gps_used_q_${effectiveGrade}_${subj}`, JSON.stringify(Array.from(nextSet)));
+          } catch (_) {}
+          return nextSet;
+        });
+
+        setQuestionsList(selectedSlice);
       } else {
         // Verified in-client fallback pool
         const fallbacks = getCuratedFallbackQuestions(effectiveGrade, subj, top, count);
@@ -597,7 +634,6 @@ export const PracticeMode = () => {
     setCurrentXP(0);
     setIsCompleted(false);
     setRevisionDeckAdded(false);
-    setUsedQuestionIds(new Set());
     setCurrentLevelKey(configDifficulty === 'adaptive' ? 'medium' : configDifficulty);
 
     loadQuestionsForSession(configSubject, selectedTopic, count).then(() => {

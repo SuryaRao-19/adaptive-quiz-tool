@@ -124,7 +124,7 @@ export const DiagnosticResults = () => {
                 {chartData.map((entry, index) => (
                   <Cell
                     key={`cell-${index}`}
-                    fill={entry.accuracy >= 80 ? '#10B981' : entry.accuracy >= 60 ? '#6366F1' : '#F59E0B'}
+                    fill={entry.accuracy >= 80 ? '#10B981' : entry.accuracy >= 60 ? '#173E2B' : '#D9A441'}
                   />
                 ))}
               </Bar>

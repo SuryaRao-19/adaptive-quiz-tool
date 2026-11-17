@@ -25,7 +25,7 @@ export const AppShell = ({ children }) => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 font-sans antialiased text-slate-800 dark:text-slate-100 flex flex-col">
+    <div className="min-h-screen bg-[#F4F6F1] dark:bg-[#0B1510] font-sans antialiased text-[#1C2520] dark:text-slate-100 flex flex-col">
       {/* 1. Global Top Bar (Full width across top, h-12, z-50) */}
       <DemoSwitcherBar onMobileMenuClick={() => setIsMobileOpen(true)} />
 

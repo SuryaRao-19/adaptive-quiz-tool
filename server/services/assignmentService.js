@@ -96,10 +96,80 @@ function createAssignment(data) {
   return newAssignment;
 }
 
+let submissionsStore = [
+  {
+    id: 'sub-01',
+    assignmentId: 'asg-01',
+    studentId: 'student_demo_01',
+    studentName: 'Aarav Patel',
+    rollNumber: 'GPS-07-001',
+    status: 'Submitted',
+    submittedAt: '2026-11-17T14:30:00.000Z',
+    textAnswer: 'Attached PDF contains solved questions 1 to 10 with verified checks for each root.',
+    marksAwarded: 24,
+    maxMarks: 25,
+    feedback: 'Outstanding step-by-step transposition Aarav! Excellent precision on handling negative coefficients.',
+    graded: true,
+    gradedBy: 'Mrs. Ananya Sharma'
+  }
+];
+
+function submitAssignment(assignmentId, studentData = {}, submissionPayload = {}) {
+  const asg = demoAssignments.find(a => a.id === assignmentId);
+  if (!asg) throw new Error('Assignment not found');
+  
+  const studentId = studentData.id || studentData.studentId || 'student_demo_01';
+  const existingIndex = submissionsStore.findIndex(s => s.assignmentId === assignmentId && s.studentId === studentId);
+  
+  const submission = {
+    id: existingIndex >= 0 ? submissionsStore[existingIndex].id : `sub-${Date.now()}`,
+    assignmentId,
+    studentId,
+    studentName: studentData.name || 'Aarav Patel',
+    rollNumber: studentData.rollNumber || 'GPS-07-001',
+    status: 'Submitted',
+    submittedAt: new Date().toISOString(),
+    textAnswer: submissionPayload.textAnswer || '',
+    attachmentUrl: submissionPayload.attachmentUrl || null,
+    marksAwarded: null,
+    maxMarks: asg.maxMarks || 25,
+    feedback: 'Awaiting teacher evaluation.',
+    graded: false
+  };
+
+  if (existingIndex >= 0) {
+    submissionsStore[existingIndex] = submission;
+  } else {
+    submissionsStore.push(submission);
+    asg.submittedCount = (asg.submittedCount || 0) + 1;
+  }
+
+  return submission;
+}
+
+function gradeAssignment(assignmentId, submissionId, { marksAwarded, feedback, gradedBy } = {}) {
+  const sub = submissionsStore.find(s => s.id === submissionId || (s.assignmentId === assignmentId && s.id === submissionId));
+  if (!sub) throw new Error('Submission not found');
+  sub.marksAwarded = Number(marksAwarded);
+  sub.feedback = feedback || 'Graded.';
+  sub.graded = true;
+  sub.gradedBy = gradedBy || 'Teacher';
+  sub.status = 'Graded';
+  return sub;
+}
+
+function getSubmissions(assignmentId) {
+  return submissionsStore.filter(s => s.assignmentId === assignmentId);
+}
+
 module.exports = {
   getAssignmentsForStudent,
   getAssignmentsForTeacher,
   createAssignment,
-  demoAssignments
+  submitAssignment,
+  gradeAssignment,
+  getSubmissions,
+  demoAssignments,
+  submissionsStore
 };
 

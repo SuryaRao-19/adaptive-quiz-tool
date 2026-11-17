@@ -96,11 +96,11 @@ export const ClassroomHub = () => {
   const [deskCards, setDeskCards] = useState([]);
 
   const downloadSampleTemplate = () => {
-    const csvContent = "data:text/csv;charset=utf-8,student_name,grade,section,roll_number,email\nAarav Sharma,7,7-A,APS-07-021,aarav.sharma@asianpublicschool.edu\nDiya Patel,7,7-A,APS-07-022,diya.patel@asianpublicschool.edu\nRohan Gupta,7,7-A,APS-07-023,rohan.gupta@asianpublicschool.edu\nAnanya Reddy,7,7-A,APS-07-024,ananya.reddy@asianpublicschool.edu\nVikram Malhotra,7,7-A,APS-07-025,vikram.malhotra@asianpublicschool.edu\n";
+    const csvContent = "data:text/csv;charset=utf-8,student_name,grade,section,roll_number,email\nAarav Sharma,7,7-A,GPS-07-021,aarav.sharma@greenwoodgurgaon.com\nDiya Patel,7,7-A,GPS-07-022,diya.patel@greenwoodgurgaon.com\nRohan Gupta,7,7-A,GPS-07-023,rohan.gupta@greenwoodgurgaon.com\nAnanya Reddy,7,7-A,GPS-07-024,ananya.reddy@greenwoodgurgaon.com\nVikram Malhotra,7,7-A,GPS-07-025,vikram.malhotra@greenwoodgurgaon.com\n";
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "asian_public_school_roster_template.csv");
+    link.setAttribute("download", "greenwood_public_school_roster_template.csv");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -270,9 +270,9 @@ export const ClassroomHub = () => {
     section: foundClass.section || 'A',
     subject: foundClass.subject || 'Mathematics',
     teacherName: foundClass.teacherName || user?.name || 'Mrs. Ananya Sharma',
-    joinCode: foundClass.joinCode || 'APS7AM'
+    joinCode: foundClass.joinCode || 'GPS7AM'
   } : {
-    id: 'APS7AM',
+    id: 'GPS7AM',
     name: 'Grade 7-A Mathematics',
     grade: 7,
     gradeLevel: 7,
@@ -1488,7 +1488,7 @@ export const ClassroomHub = () => {
                     <Card className="p-5 text-center bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900">
                       <span className="text-xs uppercase font-bold text-slate-500">Top Cohort Score</span>
                       <p className="text-3xl font-extrabold text-emerald-600 mt-1">96.0%</p>
-                      <span className="text-[11px] text-slate-400">Sanya Kapoor (APS-07-009)</span>
+                      <span className="text-[11px] text-slate-400">Sanya Kapoor (GPS-07-009)</span>
                     </Card>
                     <Card className="p-5 text-center bg-amber-50/50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-900">
                       <span className="text-xs uppercase font-bold text-slate-500">Overall Pass Rate</span>
@@ -1652,7 +1652,7 @@ export const ClassroomHub = () => {
                       <div className="divide-y divide-slate-100 dark:divide-slate-800">
                         <div className="py-3 flex items-center justify-between">
                           <div>
-                            <span className="font-bold text-xs text-slate-900 dark:text-white">Rohan Gupta (APS-07-003)</span>
+                            <span className="font-bold text-xs text-slate-900 dark:text-white">Rohan Gupta (GPS-07-003)</span>
                             <p className="text-[11px] text-rose-600 font-medium">BKT Mastery: 52% • Weak Area: Rational Numbers</p>
                           </div>
                           <Button size="sm" variant="outline" className="text-xs" onClick={() => triggerToast("Remedial assignment sent to Rohan Gupta")}>
@@ -1662,7 +1662,7 @@ export const ClassroomHub = () => {
 
                         <div className="py-3 flex items-center justify-between">
                           <div>
-                            <span className="font-bold text-xs text-slate-900 dark:text-white">Kabir Mehta (APS-07-005)</span>
+                            <span className="font-bold text-xs text-slate-900 dark:text-white">Kabir Mehta (GPS-07-005)</span>
                             <p className="text-[11px] text-rose-600 font-medium">BKT Mastery: 58% • Weak Area: Decimals Division</p>
                           </div>
                           <Button size="sm" variant="outline" className="text-xs" onClick={() => triggerToast("Remedial assignment sent to Kabir Mehta")}>

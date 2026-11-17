@@ -87,7 +87,7 @@ export const SubjectSelection = () => {
         animate={{ opacity: 1, y: 0 }}
         className="text-center max-w-2xl mx-auto space-y-3"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--theme-primary-light,#EEF2FF)] dark:bg-slate-800 border border-[var(--theme-primary-border,#C7D2FE)] dark:border-slate-700 text-xs font-semibold text-[var(--theme-primary,#4F46E5)] dark:text-cyan-400 shadow-subtle">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--theme-primary-light,#F4F6F1)] dark:bg-[#101E17] border border-[var(--theme-primary-border,#416B50)] dark:border-emerald-800 text-xs font-semibold text-[var(--theme-primary,#173E2B)] dark:text-emerald-400 shadow-subtle">
           <Sparkles className="w-3.5 h-3.5" />
           <span>Curriculum Learning Hub</span>
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
@@ -117,7 +117,7 @@ export const SubjectSelection = () => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`relative px-4 py-2 rounded-xl transition-all duration-200 ${
                     isActive 
-                      ? 'text-[var(--theme-primary,#4F46E5)] dark:text-cyan-400 font-extrabold shadow-sm' 
+                      ? 'text-[var(--theme-primary,#173E2B)] dark:text-emerald-400 font-extrabold shadow-sm' 
                       : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                   }`}
                 >
@@ -164,7 +164,7 @@ export const SubjectSelection = () => {
                   >
                     <div>
                       <div className="flex items-center justify-between mb-4">
-                        <div className="w-12 h-12 rounded-2xl bg-[var(--theme-primary,#4F46E5)] text-white flex items-center justify-center font-bold text-xl shadow-glow-primary group-hover:scale-105 transition-transform">
+                        <div className="w-12 h-12 rounded-2xl bg-[var(--theme-primary,#173E2B)] text-white flex items-center justify-center font-bold text-xl shadow-glow-primary group-hover:scale-105 transition-transform">
                           <BrainCircuit className="w-6 h-6" />
                         </div>
                         <span className="px-2.5 py-1 rounded-full text-xs font-bold bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
@@ -172,7 +172,7 @@ export const SubjectSelection = () => {
                         </span>
                       </div>
 
-                      <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white mb-2 group-hover:text-[var(--theme-primary,#4F46E5)] dark:group-hover:text-cyan-400 transition-colors">
+                      <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white mb-2 group-hover:text-[var(--theme-primary,#173E2B)] dark:group-hover:text-emerald-400 transition-colors">
                         Adaptive Practice Mode
                       </h2>
                       <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">

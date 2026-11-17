@@ -32,7 +32,7 @@ export const AttendanceManager = () => {
   const navigate = useNavigate();
 
   const [classesList, setClassesList] = useState([]);
-  const [selectedClassId, setSelectedClassId] = useState('cls-aps-7a');
+  const [selectedClassId, setSelectedClassId] = useState('cls-gps-7a');
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
   const [attendanceData, setAttendanceData] = useState(null);
   const [roster, setRoster] = useState([]);
@@ -58,11 +58,11 @@ export const AttendanceManager = () => {
           setClassesList(res);
           setSelectedClassId(res[0].id);
         } else {
-          setClassesList([{ id: 'cls-aps-7a', name: 'Grade 7-A Mathematics (Pilot)', joinCode: 'APS7M' }]);
+          setClassesList([{ id: 'cls-gps-7a', name: 'Grade 7-A Mathematics (Pilot)', joinCode: 'GPS7M' }]);
         }
       })
       .catch(() => {
-        setClassesList([{ id: 'cls-aps-7a', name: 'Grade 7-A Mathematics (Pilot)', joinCode: 'APS7M' }]);
+        setClassesList([{ id: 'cls-gps-7a', name: 'Grade 7-A Mathematics (Pilot)', joinCode: 'GPS7M' }]);
       });
   }, []);
 
@@ -83,14 +83,14 @@ export const AttendanceManager = () => {
 
   const fallbackMockRoster = () => {
     const defaultRoster = [
-      { studentId: 'stu-1', rollNumber: 'APS-07-001', name: 'Aarav Patel', status: 'PRESENT', remarks: '' },
-      { studentId: 'stu-2', rollNumber: 'APS-07-002', name: 'Priya Sharma', status: 'PRESENT', remarks: '' },
-      { studentId: 'stu-3', rollNumber: 'APS-07-003', name: 'Rohan Gupta', status: 'LATE', remarks: 'Bus delay 15m' },
-      { studentId: 'stu-4', rollNumber: 'APS-07-004', name: 'Ananya Verma', status: 'PRESENT', remarks: '' },
-      { studentId: 'stu-5', rollNumber: 'APS-07-005', name: 'Kabir Mehta', status: 'ABSENT', remarks: 'Medical leave' },
-      { studentId: 'stu-6', rollNumber: 'APS-07-006', name: 'Sanya Reddy', status: 'PRESENT', remarks: '' },
-      { studentId: 'stu-7', rollNumber: 'APS-07-007', name: 'Devansh Singh', status: 'PRESENT', remarks: '' },
-      { studentId: 'stu-8', rollNumber: 'APS-07-008', name: 'Ishita Joshi', status: 'EXCUSED', remarks: 'Inter-school debate' }
+      { studentId: 'stu-1', rollNumber: 'GPS-07-001', name: 'Aarav Patel', status: 'PRESENT', remarks: '' },
+      { studentId: 'stu-2', rollNumber: 'GPS-07-002', name: 'Priya Sharma', status: 'PRESENT', remarks: '' },
+      { studentId: 'stu-3', rollNumber: 'GPS-07-003', name: 'Rohan Gupta', status: 'LATE', remarks: 'Bus delay 15m' },
+      { studentId: 'stu-4', rollNumber: 'GPS-07-004', name: 'Ananya Verma', status: 'PRESENT', remarks: '' },
+      { studentId: 'stu-5', rollNumber: 'GPS-07-005', name: 'Kabir Mehta', status: 'ABSENT', remarks: 'Medical leave' },
+      { studentId: 'stu-6', rollNumber: 'GPS-07-006', name: 'Sanya Reddy', status: 'PRESENT', remarks: '' },
+      { studentId: 'stu-7', rollNumber: 'GPS-07-007', name: 'Devansh Singh', status: 'PRESENT', remarks: '' },
+      { studentId: 'stu-8', rollNumber: 'GPS-07-008', name: 'Ishita Joshi', status: 'EXCUSED', remarks: 'Inter-school debate' }
     ];
     setAttendanceData({
       stats: { total: 8, present: 5, late: 1, absent: 1, excused: 1, percentage: 75 }

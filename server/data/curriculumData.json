@@ -91,106 +91,60 @@
     }
   ],
   "gradeCurricula": {
-    "3": {
+    "1": {
       "Mathematics": [
         {
           "chapterNumber": 1,
-          "title": "Fun with Numbers",
+          "title": "Finding the Furry Cat (Pre-Number)",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "3-Digit Numbers & Place Value",
-              "learningOutcomes": [
-                {
-                  "code": "LO-MAT3-1.1",
-                  "statement": "Understand place value and expanded forms of 3-digit numbers.",
-                  "taxonomyLevel": "UNDERSTAND"
-                }
-              ]
-            },
-            {
-              "topicNumber": 2,
-              "title": "Number Sequences & Ordering",
-              "learningOutcomes": [
-                {
-                  "code": "LO-MAT3-1.2",
-                  "statement": "Identify successor, predecessor, and number sequences.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "Spatial Relationships (Inside/Outside, Bigger/Smaller)"
             }
           ]
         },
         {
           "chapterNumber": 2,
-          "title": "Give and Take",
+          "title": "What is Long? What is Round? (Shapes)",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Addition with Regrouping",
-              "learningOutcomes": [
-                {
-                  "code": "LO-MAT3-2.1",
-                  "statement": "Perform 3-digit addition with carryover.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
-            },
-            {
-              "topicNumber": 2,
-              "title": "Subtraction with Borrowing",
-              "learningOutcomes": [
-                {
-                  "code": "LO-MAT3-2.2",
-                  "statement": "Perform 3-digit subtraction with borrowing.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "2D and 3D Basic Shapes & Rolling/Sliding"
             }
           ]
         },
         {
           "chapterNumber": 3,
-          "title": "How Many Times?",
+          "title": "Mango Treat (Numbers 1 to 9)",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Multiplication Tables & Repeated Addition",
-              "learningOutcomes": [
-                {
-                  "code": "LO-MAT3-3.1",
-                  "statement": "Master multiplication facts 2 through 10.",
-                  "taxonomyLevel": "REMEMBER"
-                }
-              ]
+              "title": "Counting and Number Recognition up to 9"
             }
           ]
         },
         {
           "chapterNumber": 4,
-          "title": "Shapes, Designs and Time",
+          "title": "Making Ten (Numbers 10 to 20)",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "2D Shapes and Vertices",
-              "learningOutcomes": [
-                {
-                  "code": "LO-MAT3-4.1",
-                  "statement": "Identify sides, corners, and symmetry of plane figures.",
-                  "taxonomyLevel": "UNDERSTAND"
-                }
-              ]
-            },
+              "title": "Grouping into Tens and Ones"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 5,
+          "title": "How Many? (Addition & Subtraction)",
+          "status": "ACTIVE",
+          "topics": [
             {
-              "topicNumber": 2,
-              "title": "Telling Time & Measurement",
-              "learningOutcomes": [
-                {
-                  "code": "LO-MAT3-4.2",
-                  "statement": "Read analog clock faces and convert meters to centimeters.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "topicNumber": 1,
+              "title": "Single-Digit Addition and Subtraction Facts"
             }
           ]
         }
@@ -198,63 +152,34 @@
       "English": [
         {
           "chapterNumber": 1,
-          "title": "Grammar: Nouns and Pronouns",
+          "title": "Two Little Hands (Rhymes & Greetings)",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Common, Proper and Collective Nouns",
-              "learningOutcomes": [
-                {
-                  "code": "LO-ENG3-1.1",
-                  "statement": "Distinguish common, proper, and collective nouns in sentences.",
-                  "taxonomyLevel": "UNDERSTAND"
-                }
-              ]
+              "title": "Sight Words and Action Rhymes"
             }
           ]
         },
         {
           "chapterNumber": 2,
-          "title": "Grammar: Verbs and Tenses",
+          "title": "Picture Time (Vocabulary Building)",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Action Verbs and Simple Past Tense",
-              "learningOutcomes": [
-                {
-                  "code": "LO-ENG3-2.1",
-                  "statement": "Form regular and irregular past tense verbs accurately.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "Naming Familiar Objects and Animals"
             }
           ]
         },
         {
           "chapterNumber": 3,
-          "title": "Adjectives, Prepositions and Vocabulary",
+          "title": "Fun with Letters (Alphabet Phonics)",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Prepositions of Place and Direction",
-              "learningOutcomes": [
-                {
-                  "code": "LO-ENG3-3.1",
-                  "statement": "Use prepositions accurately in descriptive contexts.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
-            },
-            {
-              "topicNumber": 2,
-              "title": "Synonyms and Antonyms",
-              "learningOutcomes": [
-                {
-                  "code": "LO-ENG3-3.2",
-                  "statement": "Expand active vocabulary using synonyms and antonyms.",
-                  "taxonomyLevel": "REMEMBER"
-                }
-              ]
+              "title": "Letter-Sound Associations"
             }
           ]
         }
@@ -262,80 +187,344 @@
       "Environmental Studies": [
         {
           "chapterNumber": 1,
-          "title": "The Living World: Plants and Animals",
+          "title": "My Body and Five Senses",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Plant Parts and Functions",
-              "learningOutcomes": [
-                {
-                  "code": "LO-EVS3-1.1",
-                  "statement": "Explain roles of roots, stems, leaves, and photosynthesis.",
-                  "taxonomyLevel": "UNDERSTAND"
-                }
-              ]
-            },
-            {
-              "topicNumber": 2,
-              "title": "Animal Classifications and Diets",
-              "learningOutcomes": [
-                {
-                  "code": "LO-EVS3-1.2",
-                  "statement": "Classify animals into herbivores, carnivores, and omnivores.",
-                  "taxonomyLevel": "UNDERSTAND"
-                }
-              ]
+              "title": "Functions of Sense Organs"
             }
           ]
         },
         {
           "chapterNumber": 2,
-          "title": "Water O Water & Our Environment",
+          "title": "My Family and Home",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "States of Water and Water Conservation",
-              "learningOutcomes": [
-                {
-                  "code": "LO-EVS3-2.1",
-                  "statement": "Describe solid, liquid, and gas phases of water and conservation.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "Family Members and Cooperation"
             }
           ]
         },
         {
           "chapterNumber": 3,
-          "title": "Food, Health and Sense Organs",
+          "title": "Plants and Animals Around Us",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Human Senses and Balanced Diet",
-              "learningOutcomes": [
-                {
-                  "code": "LO-EVS3-3.1",
-                  "statement": "Identify the five senses and nutrients for growth.",
-                  "taxonomyLevel": "UNDERSTAND"
-                }
-              ]
+              "title": "Living Beings in the School & Home"
+            }
+          ]
+        }
+      ]
+    },
+    "2": {
+      "Mathematics": [
+        {
+          "chapterNumber": 1,
+          "title": "What is Long, What is Round?",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Attributes of Objects"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Counting in Groups",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Skip Counting by 2s, 5s and 10s"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "How Much Can You Carry? (Weight)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Heavier vs Lighter Estimation"
             }
           ]
         },
         {
           "chapterNumber": 4,
-          "title": "Community Helpers and Neighborhood",
+          "title": "Patterns Around Us",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Civic Responsibilities and Environment",
-              "learningOutcomes": [
-                {
-                  "code": "LO-EVS3-4.1",
-                  "statement": "Demonstrate eco-friendly habits and community awareness.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "Repeating Sequences and Shapes"
+            }
+          ]
+        }
+      ],
+      "English": [
+        {
+          "chapterNumber": 1,
+          "title": "My Bicycle & Action Words",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Verbs and Everyday Sentences"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Picture Reading & Storytelling",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Sequencing Events in a Picture Story"
+            }
+          ]
+        }
+      ],
+      "Environmental Studies": [
+        {
+          "chapterNumber": 1,
+          "title": "Clean Habits and Good Health",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Personal Hygiene & Nutrition"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Air, Water and Seasons",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Sources of Clean Water and Weather Changes"
+            }
+          ]
+        }
+      ]
+    },
+    "3": {
+      "Mathematics": [
+        {
+          "chapterNumber": 1,
+          "title": "Where to Look From (Perspective & Symmetry)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Top, Front, Side Views & Mirror Halves"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Fun with Numbers (3-Digit Place Value)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Expanded Form and Comparison up to 999"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Give and Take (Addition & Subtraction)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "2-Digit and 3-Digit Addition with Regrouping"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "How Many Times? (Multiplication)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Repeated Addition and Multiplication Tables"
+            }
+          ]
+        }
+      ],
+      "English": [
+        {
+          "chapterNumber": 1,
+          "title": "The Magic Garden & Good Morning",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Nouns, Descriptive Words and Reading Comprehension"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Bird Talk & Nina and the Baby Sparrows",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Pronouns and Animal Habitat Sentences"
+            }
+          ]
+        }
+      ],
+      "Environmental Studies": [
+        {
+          "chapterNumber": 1,
+          "title": "Poonam's Day Out (Animal Diversity)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Animal Habitats and Sounds"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "The Plant Fairy (Parts of Plants)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Roots, Stems, Leaves and Types of Trees"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Water O' Water (Water Cycle Basics)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Sources and Conservation of Water"
+            }
+          ]
+        }
+      ]
+    },
+    "4": {
+      "Mathematics": [
+        {
+          "chapterNumber": 1,
+          "title": "Building with Bricks (Floor Patterns & Arch)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Brick Faces, 3D Perspective and Patterns"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Long and Short (Measurement)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Centimetres, Metres and Kilometres Conversion"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "A Trip to Bhopal (Arithmetic Applications)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Word Problems involving Time, Distance and Money"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Tick-Tick-Tick (Time & Calendar)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "12-Hour vs 24-Hour Clock, Elapsed Time"
+            }
+          ]
+        }
+      ],
+      "Science": [
+        {
+          "chapterNumber": 1,
+          "title": "Going to School (Bridges and Transport)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Modes of Travel across Indian Terrains"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Ear to Ear (Animal Classification)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Animals with External Ears and Hair vs Egg-layers"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "A Day with Nandu (Elephant Herd Dynamics)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Group Behaviour in Wildlife"
+            }
+          ]
+        }
+      ],
+      "English": [
+        {
+          "chapterNumber": 1,
+          "title": "Wake Up! & Neha's Alarm Clock",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Past Tense and Daily Routine Vocabulary"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "The Little Fir Tree & Noses",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Prefixes, Suffixes and Rhyming Patterns"
             }
           ]
         }
@@ -345,46 +534,45 @@
       "Mathematics": [
         {
           "chapterNumber": 1,
-          "title": "Numbers and Place Value Operations",
+          "title": "The Fish Tale (Speed, Distance, Large Numbers)",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Large Numbers & Indian/International Systems",
-              "learningOutcomes": [
-                {
-                  "code": "LO-M5-1.1",
-                  "statement": "Read, write, and compare numbers up to 8 digits.",
-                  "taxonomyLevel": "UNDERSTAND"
-                }
-              ]
-            },
-            {
-              "topicNumber": 2,
-              "title": "Four Fundamental Operations with Estimation",
-              "learningOutcomes": [
-                {
-                  "code": "LO-M5-1.2",
-                  "statement": "Apply multi-digit multiplication and division in real-life problems.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "Numbers in Lakhs and Crores, Unitary Method"
             }
           ]
         },
         {
           "chapterNumber": 2,
-          "title": "Fractions and Decimals",
+          "title": "Shapes and Angles (Types of Angles)",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Equivalent Fractions & Simplification",
-              "learningOutcomes": [
-                {
-                  "code": "LO-M5-2.1",
-                  "statement": "Convert between mixed and improper fractions and simplify.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "Right, Acute and Obtuse Angles in Letters and Objects"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "How Many Squares? (Area & Perimeter)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Grid Counting and Irregular Shape Area Estimation"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Parts and Wholes (Fractions)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Equivalent Fractions and Fractional Parts of Groups"
             }
           ]
         }
@@ -392,29 +580,34 @@
       "Science": [
         {
           "chapterNumber": 1,
-          "title": "Human Body and Health",
+          "title": "Super Senses (Vision, Smell, Hearing in Animals)",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Skeletal and Muscular Systems",
-              "learningOutcomes": [
-                {
-                  "code": "LO-S5-1.1",
-                  "statement": "Identify major bones and joints in the human skeleton.",
-                  "taxonomyLevel": "REMEMBER"
-                }
-              ]
-            },
+              "title": "Special Sensory Adaptations in Predators and Prey"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "From Tasting to Digesting (Human Digestive System)",
+          "status": "ACTIVE",
+          "topics": [
             {
-              "topicNumber": 2,
-              "title": "Nutrients and Deficiency Diseases",
-              "learningOutcomes": [
-                {
-                  "code": "LO-S5-1.2",
-                  "statement": "Classify essential food nutrients and explain deficiency symptoms.",
-                  "taxonomyLevel": "UNDERSTAND"
-                }
-              ]
+              "topicNumber": 1,
+              "title": "Taste Buds, Stomach Acid and Proper Nutrition"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Seeds and Seeds (Dispersal Mechanisms)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Wind, Water, Animal and Explosive Seed Dispersal"
             }
           ]
         }
@@ -422,18 +615,163 @@
       "English": [
         {
           "chapterNumber": 1,
-          "title": "Grammar and Vocabulary Foundations",
+          "title": "Ice-Cream Man & Wonderful Waste!",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Parts of Speech & Tenses",
-              "learningOutcomes": [
-                {
-                  "code": "LO-E5-1.1",
-                  "statement": "Identify transitive verbs and correct subject-verb agreement.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "Creative Writing and Compound Words"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Teamwork & Flying Together",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Subject-Verb Concord and Moral Fables"
+            }
+          ]
+        }
+      ]
+    },
+    "6": {
+      "Mathematics": [
+        {
+          "chapterNumber": 1,
+          "title": "Knowing Our Numbers",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Indian & International Numeration Systems"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Whole Numbers",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Number Line and Closure/Associative Properties"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Playing with Numbers",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "HCF, LCM and Divisibility Rules"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Basic Geometrical Ideas",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Points, Lines, Rays, Angles, Curves and Polygons"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 5,
+          "title": "Integers & Fractions",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Addition/Subtraction of Negative Integers & Fractions"
+            }
+          ]
+        }
+      ],
+      "Science": [
+        {
+          "chapterNumber": 1,
+          "title": "Components of Food",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Carbohydrates, Proteins, Fats and Deficiency Diseases"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Sorting Materials into Groups",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Lustre, Hardness, Solubility and Transparency"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Getting to Know Plants",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Herbs, Shrubs, Trees, Venation and Flower Anatomy"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Light, Shadows and Reflections",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Rectilinear Propagation and Pinhole Camera"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 5,
+          "title": "Electricity and Circuits",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Electric Cell, Switch, Closed Circuit and Conductors"
+            }
+          ]
+        }
+      ],
+      "English": [
+        {
+          "chapterNumber": 1,
+          "title": "Who Did Patrick's Homework?",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Theme of Self-Help and Work Ethic"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Taro's Reward & An Indian-American Woman in Space",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Biographical Comprehension and Active Voice"
             }
           ]
         }
@@ -444,62 +782,55 @@
         {
           "chapterNumber": 1,
           "title": "Integers and Rational Numbers",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Operations on Integers & Properties",
-              "learningOutcomes": [
-                {
-                  "code": "LO-M7-1.1",
-                  "statement": "Perform sign rules for multiplication and division of integers.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
-            },
-            {
-              "topicNumber": 2,
-              "title": "Rational Numbers on Number Line",
-              "learningOutcomes": [
-                {
-                  "code": "LO-M7-1.2",
-                  "statement": "Represent and compare rational numbers on a number line.",
-                  "taxonomyLevel": "UNDERSTAND"
-                }
-              ]
+              "title": "Multiplication and Division of Negative Integers"
             }
           ]
         },
         {
           "chapterNumber": 2,
-          "title": "Linear Equations in One Variable",
+          "title": "Fractions and Decimals",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Algebraic Expressions & Transposition Method",
-              "learningOutcomes": [
-                {
-                  "code": "LO-M7-2.1",
-                  "statement": "Solve linear equations with one variable using balancing and transposition.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "Reciprocals and Decimal Division"
             }
           ]
         },
         {
           "chapterNumber": 3,
-          "title": "Lines and Angles & Triangles",
+          "title": "Simple Equations",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Complementary, Supplementary & Vertically Opposite Angles",
-              "learningOutcomes": [
-                {
-                  "code": "LO-M7-3.1",
-                  "statement": "Calculate missing angles using angle relationship theorems.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "Transposition Method for Linear Equations"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Lines and Angles & Triangles",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Angle Sum Property, Exterior Angles and Pythagoras Theorem"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 5,
+          "title": "Comparing Quantities",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Ratios, Percentage Conversion, Profit & Simple Interest"
             }
           ]
         }
@@ -507,63 +838,56 @@
       "Science": [
         {
           "chapterNumber": 1,
-          "title": "Nutrition in Plants and Animals",
+          "title": "Nutrition in Plants & Animals",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Autotrophic Nutrition & Photosynthesis Equation",
-              "learningOutcomes": [
-                {
-                  "code": "LO-S7-1.1",
-                  "statement": "Describe raw materials, chlorophyll function, and chemical equation of photosynthesis.",
-                  "taxonomyLevel": "UNDERSTAND"
-                }
-              ]
-            },
-            {
-              "topicNumber": 2,
-              "title": "Human Digestive System Organs and Enzymes",
-              "learningOutcomes": [
-                {
-                  "code": "LO-S7-1.2",
-                  "statement": "Trace food pathway and role of digestive enzymes from mouth to small intestine.",
-                  "taxonomyLevel": "ANALYZE"
-                }
-              ]
+              "title": "Photosynthesis Chemistry and Human Alimentary Canal"
             }
           ]
         },
         {
           "chapterNumber": 2,
-          "title": "Acids, Bases and Salts",
+          "title": "Heat & Temperature",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Natural and Synthetic Indicators & Neutralization",
-              "learningOutcomes": [
-                {
-                  "code": "LO-S7-2.1",
-                  "statement": "Predict color changes using litmus, phenolphthalein, and turmeric.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "Conduction, Convection, Radiation & Sea Breeze"
             }
           ]
         },
         {
           "chapterNumber": 3,
-          "title": "Motion and Time",
+          "title": "Acids, Bases and Salts",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Uniform vs Non-Uniform Motion & Speed Calculation",
-              "learningOutcomes": [
-                {
-                  "code": "LO-S7-3.1",
-                  "statement": "Calculate speed using s = d/t and interpret distance-time graphs.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "Litmus, Phenolphthalein, Neutralization Reactions"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Physical and Chemical Changes",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Crystallization, Rusting and Chemical Equation Evidence"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 5,
+          "title": "Motion and Time",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Simple Pendulum Periodicity & Distance-Time Graphs"
             }
           ]
         }
@@ -571,29 +895,23 @@
       "English": [
         {
           "chapterNumber": 1,
-          "title": "Advanced Grammar & Mechanics",
+          "title": "Three Questions (Leo Tolstoy)",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Active and Passive Voice Transformation",
-              "learningOutcomes": [
-                {
-                  "code": "LO-E7-1.1",
-                  "statement": "Convert sentences between active and passive voice correctly.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
-            },
+              "title": "Philosophical Inquiry and Moral Reasoning"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "A Gift of Chappals & The Shed",
+          "status": "ACTIVE",
+          "topics": [
             {
-              "topicNumber": 2,
-              "title": "Direct and Indirect Speech",
-              "learningOutcomes": [
-                {
-                  "code": "LO-E7-1.2",
-                  "statement": "Report statements and questions accurately following reporting verb rules.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "topicNumber": 1,
+              "title": "Idiomatic Expressions and Narrative Analysis"
             }
           ]
         }
@@ -603,35 +921,56 @@
       "Mathematics": [
         {
           "chapterNumber": 1,
-          "title": "Exponents and Powers",
+          "title": "Rational Numbers & Operations",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Laws of Exponents with Negative Indices",
-              "learningOutcomes": [
-                {
-                  "code": "LO-M8-1.1",
-                  "statement": "Apply exponent laws: a^m * a^n = a^(m+n) and (a^m)^n = a^(mn).",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "Associativity, Distributivity and Density Property"
             }
           ]
         },
         {
           "chapterNumber": 2,
-          "title": "Linear Equations and Factorization",
+          "title": "Linear Equations in One Variable",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Algebraic Identities & Splitting Middle Term",
-              "learningOutcomes": [
-                {
-                  "code": "LO-M8-2.1",
-                  "statement": "Factorize quadratic expressions using algebraic identities.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "Equations with Variables on Both Sides & Age Problems"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Understanding Quadrilaterals",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Parallelogram Theorems, Rhombus, Rectangle & Trapezium"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Squares, Cubes & Roots",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Prime Factorisation and Long Division Method for Roots"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 5,
+          "title": "Algebraic Expressions and Identities",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Standard Polynomial Identities & Factorisation"
             }
           ]
         }
@@ -639,35 +978,56 @@
       "Science": [
         {
           "chapterNumber": 1,
-          "title": "Cell Structure and Functions",
+          "title": "Crop Production and Management",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Prokaryotic vs Eukaryotic Cells & Organelles",
-              "learningOutcomes": [
-                {
-                  "code": "LO-S8-1.1",
-                  "statement": "Differentiate plant and animal cell organelles and their functions.",
-                  "taxonomyLevel": "ANALYZE"
-                }
-              ]
+              "title": "Modern Irrigation (Drip/Sprinkler) & Nitrogen Cycle"
             }
           ]
         },
         {
           "chapterNumber": 2,
-          "title": "Force, Pressure and Friction",
+          "title": "Microorganisms: Friend and Foe",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Contact vs Non-Contact Forces & Pressure = Force/Area",
-              "learningOutcomes": [
-                {
-                  "code": "LO-S8-2.1",
-                  "statement": "Calculate pressure exerted on surfaces and explain atmospheric pressure.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "Fermentation, Antibiotics, Vaccines and Pathogens"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Force and Pressure",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Contact/Non-Contact Forces & Atmospheric Pressure"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Chemical Effects of Electric Current",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Electroplating Mechanisms and Electrolytes"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 5,
+          "title": "Light: Reflection & Dispersion",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Laws of Reflection, Multiple Images and Human Eye Optics"
             }
           ]
         }
@@ -675,18 +1035,23 @@
       "English": [
         {
           "chapterNumber": 1,
-          "title": "Clause Analysis & Modals",
+          "title": "The Best Christmas Present in the World",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Adverbial and Relative Clauses",
-              "learningOutcomes": [
-                {
-                  "code": "LO-E8-1.1",
-                  "statement": "Combine sentences using relative pronouns and subordinate conjunctions.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "WWI Christmas Truce & Historical Epistolary Prose"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "The Tsunami & Glimpses of the Past",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Natural Disaster Reporting & Indian Freedom Struggle"
             }
           ]
         }
@@ -696,46 +1061,56 @@
       "Mathematics": [
         {
           "chapterNumber": 1,
-          "title": "Number Systems and Polynomials",
+          "title": "Number Systems",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Real Numbers & Rationalization of Denominators",
-              "learningOutcomes": [
-                {
-                  "code": "LO-M9-1.1",
-                  "statement": "Rationalize surd denominators using conjugate binomials.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
-            },
-            {
-              "topicNumber": 2,
-              "title": "Remainder Theorem & Factor Theorem",
-              "learningOutcomes": [
-                {
-                  "code": "LO-M9-1.2",
-                  "statement": "Find factors and zeros of polynomials using the factor theorem.",
-                  "taxonomyLevel": "ANALYZE"
-                }
-              ]
+              "title": "Irrational Numbers, Rationalisation and Real Number Line"
             }
           ]
         },
         {
           "chapterNumber": 2,
-          "title": "Coordinate Geometry & Linear Equations in 2 Variables",
+          "title": "Polynomials",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Cartesian Plane and Graphing ax + by + c = 0",
-              "learningOutcomes": [
-                {
-                  "code": "LO-M9-2.1",
-                  "statement": "Plot linear equations on the coordinate plane and find solutions.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "Remainder and Factor Theorem, Cubic Factorisation"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Coordinate Geometry & Linear Equations",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Cartesian Plane, Quadrants and Graph of ax + by + c = 0"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Lines and Angles & Triangles",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Parallel Line Theorems, Congruence Criteria (SAS, ASA, SSS, RHS)"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 5,
+          "title": "Circles & Heron's Formula",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Angle Subtended by Arcs, Cyclic Quadrilaterals & Triangle Area"
             }
           ]
         }
@@ -743,57 +1118,56 @@
       "Science": [
         {
           "chapterNumber": 1,
-          "title": "Matter in Our Surroundings & Atoms and Molecules",
+          "title": "Matter in Our Surroundings & Solutions",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "States of Matter & Latent Heat",
-              "learningOutcomes": [
-                {
-                  "code": "LO-S9-1.1",
-                  "statement": "Explain phase transitions using kinetic particle theory and latent heat.",
-                  "taxonomyLevel": "UNDERSTAND"
-                }
-              ]
-            },
-            {
-              "topicNumber": 2,
-              "title": "Mole Concept and Chemical Formulae",
-              "learningOutcomes": [
-                {
-                  "code": "LO-S9-1.2",
-                  "statement": "Calculate molecular mass and convert between mass, moles, and Avogadro's number.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "Kinetic Theory, Latent Heat, Evaporation & Colloids"
             }
           ]
         },
         {
           "chapterNumber": 2,
-          "title": "Motion, Force and Laws of Motion",
+          "title": "Atoms and Molecules & Atomic Structure",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Kinematic Equations of Motion: v = u + at, s = ut + 0.5at^2",
-              "learningOutcomes": [
-                {
-                  "code": "LO-S9-2.1",
-                  "statement": "Derive and solve numerical problems using the three equations of motion.",
-                  "taxonomyLevel": "EVALUATE"
-                }
-              ]
-            },
+              "title": "Laws of Chemical Combination, Mole Concept, Bohr Model"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "The Fundamental Unit of Life (Cell)",
+          "status": "ACTIVE",
+          "topics": [
             {
-              "topicNumber": 2,
-              "title": "Newton's Three Laws & Conservation of Momentum",
-              "learningOutcomes": [
-                {
-                  "code": "LO-S9-2.2",
-                  "statement": "Apply F = ma and momentum conservation in collision scenarios.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "topicNumber": 1,
+              "title": "Prokaryotic vs Eukaryotic Cells, Organelles, Osmosis"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Motion & Force Laws",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Equations of Uniformly Accelerated Motion & Newton's 3 Laws"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 5,
+          "title": "Gravitation & Work-Energy",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Universal Gravitation Law, Free Fall, Kinetic/Potential Energy"
             }
           ]
         }
@@ -801,18 +1175,23 @@
       "English": [
         {
           "chapterNumber": 1,
-          "title": "Formal Writing & Analytical Reasoning",
+          "title": "The Fun They Had (Isaac Asimov)",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Analytical Paragraph Writing from Data/Charts",
-              "learningOutcomes": [
-                {
-                  "code": "LO-E9-1.1",
-                  "statement": "Synthesize statistical charts into concise analytical prose.",
-                  "taxonomyLevel": "CREATE"
-                }
-              ]
+              "title": "Futuristic Education & Contrast with Traditional Schools"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "The Sound of Music (Evelyn Glennie)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Overcoming Adversity and Biographical Tone"
             }
           ]
         }
@@ -822,57 +1201,56 @@
       "Mathematics": [
         {
           "chapterNumber": 1,
-          "title": "Real Numbers & Quadratic Equations",
+          "title": "Real Numbers & Polynomials",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Fundamental Theorem of Arithmetic & Irrationality Proofs",
-              "learningOutcomes": [
-                {
-                  "code": "LO-M10-1.1",
-                  "statement": "Prove the irrationality of sqrt(2), sqrt(3), and sqrt(5) by contradiction.",
-                  "taxonomyLevel": "ANALYZE"
-                }
-              ]
-            },
-            {
-              "topicNumber": 2,
-              "title": "Quadratic Formula: x = [-b +- sqrt(b^2 - 4ac)] / 2a",
-              "learningOutcomes": [
-                {
-                  "code": "LO-M10-1.2",
-                  "statement": "Determine discriminant nature of roots and solve real-world quadratic problems.",
-                  "taxonomyLevel": "EVALUATE"
-                }
-              ]
+              "title": "Fundamental Theorem of Arithmetic & Zeroes of Polynomials"
             }
           ]
         },
         {
           "chapterNumber": 2,
-          "title": "Arithmetic Progressions & Trigonometry",
+          "title": "Pair of Linear Equations in Two Variables",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "n-th Term and Sum of n Terms: S_n = n/2 [2a + (n-1)d]",
-              "learningOutcomes": [
-                {
-                  "code": "LO-M10-2.1",
-                  "statement": "Calculate terms and series sums in arithmetic sequences.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
-            },
+              "title": "Graphical, Substitution and Elimination Methods"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Quadratic Equations & Arithmetic Progressions",
+          "status": "ACTIVE",
+          "topics": [
             {
-              "topicNumber": 2,
-              "title": "Trigonometric Ratios & Pythagorean Identities: sin^2 + cos^2 = 1",
-              "learningOutcomes": [
-                {
-                  "code": "LO-M10-2.2",
-                  "statement": "Prove trigonometric identities and solve heights & distances problems.",
-                  "taxonomyLevel": "EVALUATE"
-                }
-              ]
+              "topicNumber": 1,
+              "title": "Quadratic Formula, Discriminant, nth Term and Sum of AP"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Triangles & Coordinate Geometry",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Basic Proportionality Theorem, Section and Distance Formulas"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 5,
+          "title": "Introduction to Trigonometry & Circles",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Trigonometric Identities, Tangents to Circles & Area of Sectors"
             }
           ]
         }
@@ -881,51 +1259,55 @@
         {
           "chapterNumber": 1,
           "title": "Chemical Reactions and Equations",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Balancing Equations & Redox Reactions",
-              "learningOutcomes": [
-                {
-                  "code": "LO-S10-1.1",
-                  "statement": "Balance complex chemical equations and identify oxidizing/reducing agents.",
-                  "taxonomyLevel": "ANALYZE"
-                }
-              ]
+              "title": "Balancing Redox Reactions, Precipitation and Corrosion"
             }
           ]
         },
         {
           "chapterNumber": 2,
-          "title": "Electricity and Magnetic Effects",
+          "title": "Acids, Bases and Salts & Metals",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Ohm's Law, Series and Parallel Resistor Networks",
-              "learningOutcomes": [
-                {
-                  "code": "LO-S10-2.1",
-                  "statement": "Calculate equivalent resistance, current, and Joule's heating (H = I^2 R t).",
-                  "taxonomyLevel": "EVALUATE"
-                }
-              ]
+              "title": "pH Scale, Chlor-Alkali Process, Reactivity Series and Metallurgy"
             }
           ]
         },
         {
           "chapterNumber": 3,
-          "title": "Heredity and Evolution & Life Processes",
+          "title": "Life Processes & Heredity",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Mendelian Genetics: Monohybrid and Dihybrid Crosses",
-              "learningOutcomes": [
-                {
-                  "code": "LO-S10-3.1",
-                  "statement": "Construct Punnett squares for 3:1 and 9:3:3:1 phenotypic ratios.",
-                  "taxonomyLevel": "APPLY"
-                }
-              ]
+              "title": "Double Circulation, Nephron Function and Mendelian Monohybrid Cross"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Light: Reflection, Refraction & Human Eye",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Mirror/Lens Formulas, Refractive Index, Myopia/Hypermetropia"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 5,
+          "title": "Electricity & Magnetic Effects of Current",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Ohm's Law, Joule's Heating, Right-Hand Thumb Rule & Solenoids"
             }
           ]
         }
@@ -933,18 +1315,620 @@
       "English": [
         {
           "chapterNumber": 1,
-          "title": "Discursive Comprehension & Rhetoric",
+          "title": "A Letter to God & Nelson Mandela",
+          "status": "ACTIVE",
           "topics": [
             {
               "topicNumber": 1,
-              "title": "Tone, Inference, and Rhetorical Devices",
-              "learningOutcomes": [
-                {
-                  "code": "LO-E10-1.1",
-                  "statement": "Identify rhetorical devices, tone, and implicit authorial arguments.",
-                  "taxonomyLevel": "EVALUATE"
-                }
-              ]
+              "title": "Faith vs Irony, Anti-Apartheid Rhetoric"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "From the Diary of Anne Frank & Glimpses of India",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Historical Memoir & Cultural Geography"
+            }
+          ]
+        }
+      ]
+    },
+    "11": {
+      "Physics": [
+        {
+          "chapterNumber": 1,
+          "title": "Units, Dimensions & Motion in a Straight Line",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Dimensional Analysis, Relative Velocity and Kinematic Calculus"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Laws of Motion & Work, Energy, Power",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Newton's Laws, Friction, Conservative Forces and Collisions"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Gravitation & Mechanical Properties of Matter",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Kepler's Laws, Escape Velocity, Hooke's Law & Bernoulli Theorem"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Thermodynamics & Kinetic Theory of Gases",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "First & Second Laws of Thermodynamics, Mean Free Path"
+            }
+          ]
+        }
+      ],
+      "Chemistry": [
+        {
+          "chapterNumber": 1,
+          "title": "Basic Concepts & Structure of Atom",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Stoichiometry, Quantum Numbers, Pauli & Hund Rules"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Chemical Bonding and Molecular Structure",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "VSEPR Theory, Hybridisation and Molecular Orbital (MOT)"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Chemical Thermodynamics and Equilibrium",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Enthalpy, Entropy, Gibbs Energy and Le Chatelier's Principle"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Organic Chemistry: Principles & Hydrocarbons",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "IUPAC Nomenclature, Resonance, Inductive Effects and Alkanes"
+            }
+          ]
+        }
+      ],
+      "Mathematics": [
+        {
+          "chapterNumber": 1,
+          "title": "Sets, Relations and Functions",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Set Operations, Cartesian Product, Domain and Range"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Trigonometric Functions & Complex Numbers",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Compound Angles, General Solutions, Argand Plane"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Permutations, Combinations & Binomial Theorem",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Counting Principles, nPr, nCr and General Binomial Term"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Straight Lines & Conic Sections",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Slope-Intercept, Parabola, Ellipse, Hyperbola Standard Equations"
+            }
+          ]
+        }
+      ],
+      "Biology": [
+        {
+          "chapterNumber": 1,
+          "title": "Diversity in Living World & Plant/Animal Kingdoms",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Taxonomic Hierarchy, Algae to Angiosperms, Chordates"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Cell: Unit of Life & Cell Cycle",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Fluid Mosaic Model, Mitosis, Meiosis Stages & Enzymes"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Human Physiology: Digestion to Neural Control",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Cardiovascular System, Action Potential and Endocrine Feedback"
+            }
+          ]
+        }
+      ],
+      "Accountancy": [
+        {
+          "chapterNumber": 1,
+          "title": "Theoretical Base of Accounting & Trial Balance",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Accounting Principles, Double Entry, Ledger and Trial Balance"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Financial Statements of Sole Proprietorship",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Trading and Profit & Loss Account, Balance Sheet with Adjustments"
+            }
+          ]
+        }
+      ],
+      "Business Studies": [
+        {
+          "chapterNumber": 1,
+          "title": "Nature and Purpose of Business",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Classification of Business Activities, Risk and Objectives"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Forms of Business Organisations & Finance Sources",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Sole Proprietorship, Partnership, Joint Stock Company & Equity"
+            }
+          ]
+        }
+      ],
+      "Economics": [
+        {
+          "chapterNumber": 1,
+          "title": "Introductory Microeconomics",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Consumer Equilibrium, Law of Demand, Elasticity & Production Cost"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Statistics for Economics",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Measures of Central Tendency (Mean, Median, Mode) and Dispersion"
+            }
+          ]
+        }
+      ],
+      "English Core": [
+        {
+          "chapterNumber": 1,
+          "title": "The Portrait of a Lady (Khushwant Singh)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Generational Dynamics, Biographical Prose"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "We're Not Afraid to Die... If We Can All Be Together",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Maritime Survival Narrative and Maritime Vocabulary"
+            }
+          ]
+        }
+      ]
+    },
+    "12": {
+      "Physics": [
+        {
+          "chapterNumber": 1,
+          "title": "Electric Charges, Fields & Electrostatic Potential",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Coulomb's Law, Gauss's Theorem, Capacitors with Dielectrics"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Current Electricity & Magnetism",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Kirchhoff's Rules, Wheatstone Bridge, Biot-Savart Law and Ampere's Law"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Electromagnetic Induction & Alternating Current",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Faraday's Law, Lenz's Law, LCR Series Resonance & Transformers"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Optics: Ray and Wave Optics",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Lens Maker Formula, Young's Double Slit Experiment & Diffraction"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 5,
+          "title": "Dual Nature, Atoms, Nuclei & Semiconductor Electronics",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Photoelectric Equation, Bohr Model, p-n Junction Diode Rectifier"
+            }
+          ]
+        }
+      ],
+      "Chemistry": [
+        {
+          "chapterNumber": 1,
+          "title": "Solutions & Electrochemistry",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Raoult's Law, Colligative Properties, Nernst Equation & Kohlrausch's Law"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Chemical Kinetics & Coordination Compounds",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Rate Law, Arrhenius Equation, IUPAC Nomenclature & Crystal Field Theory"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "d- and f-Block Elements",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Transition Metal Properties, Lanthanoid Contraction and Catalysis"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Haloalkanes, Alcohols, Phenols & Ethers",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "SN1 vs SN2 Mechanisms, Lucas Test, Reimer-Tiemann Reaction"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 5,
+          "title": "Aldehydes, Ketones, Amines & Biomolecules",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Aldol Condensation, Cannizzaro Reaction, Gabriel Phthalimide & Proteins"
+            }
+          ]
+        }
+      ],
+      "Mathematics": [
+        {
+          "chapterNumber": 1,
+          "title": "Relations, Functions & Matrices and Determinants",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Equivalence Relations, Invertible Matrices, Cramer's Rule"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Continuity, Differentiability & Derivatives Applications",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Chain Rule, Logarithmic Differentiation, Maxima and Minima"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Integrals & Applications of Integrals",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Integration by Parts, Partial Fractions and Area under Curves"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 4,
+          "title": "Differential Equations & Vector Algebra",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Variable Separable, Linear Differential Equations, Dot & Cross Product"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 5,
+          "title": "Three Dimensional Geometry & Probability",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Shortest Distance between Skew Lines, Bayes' Theorem & Conditional Prob"
+            }
+          ]
+        }
+      ],
+      "Biology": [
+        {
+          "chapterNumber": 1,
+          "title": "Sexual Reproduction in Flowering Plants & Human Reproduction",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Double Fertilisation, Spermatogenesis, Oogenesis & Menstrual Cycle"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Genetics: Inheritance & Molecular Basis",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Chromosomal Theory, DNA Replication, Transcription, Translation, Operon"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Biotechnology & Ecology",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Recombinant DNA, PCR, Gel Electrophoresis, Ecosystem & Biodiversity"
+            }
+          ]
+        }
+      ],
+      "Accountancy": [
+        {
+          "chapterNumber": 1,
+          "title": "Accounting for Partnership: Admission & Retirement",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Sacrificing Ratio, Revaluation of Assets and Capital Adjustment"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Company Accounts: Issue of Shares and Debentures",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Pro-Rata Allotment, Forfeiture and Re-issue of Shares"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "Analysis of Financial Statements & Cash Flow",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Ratio Analysis (Current, Debt-Equity) and Cash Flow Statement (AS-3)"
+            }
+          ]
+        }
+      ],
+      "Business Studies": [
+        {
+          "chapterNumber": 1,
+          "title": "Principles & Functions of Management (POSDC)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Fayol's 14 Principles, Scientific Management, Planning and Staffing"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Financial Management & Marketing Management",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Capital Structure, Working Capital, 4 Ps of Marketing and Consumer Rights"
+            }
+          ]
+        }
+      ],
+      "Economics": [
+        {
+          "chapterNumber": 1,
+          "title": "Introductory Macroeconomics",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "GDP, National Income Measurement, Money Multiplier & Government Budget"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Indian Economic Development (1947–Present)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Five Year Plans, 1991 Economic Reforms, Human Capital & Sustainable Growth"
+            }
+          ]
+        }
+      ],
+      "English Core": [
+        {
+          "chapterNumber": 1,
+          "title": "The Last Lesson (Alphonse Daudet)",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Linguistic Chauvinism, Franco-Prussian War Context"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Lost Spring & Deep Water",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Poverty Analysis (Ragpickers of Seemapuri) & Conquering Fear"
+            }
+          ]
+        },
+        {
+          "chapterNumber": 3,
+          "title": "The Third Level (Jack Finney) & The Enemy",
+          "status": "ACTIVE",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Grand Central Station Time Slip & Medical Ethics during WWII"
             }
           ]
         }

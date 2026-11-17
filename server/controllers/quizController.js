@@ -60,11 +60,19 @@ const getPreTest = async (req, res, next) => {
       combined = [...combined, ...additional];
     }
 
+    // Deduplicate to guarantee zero repeated questions in diagnostic test
+    const seenMap = new Map();
+    combined.forEach(q => {
+      const key = String(q._id || q.id || q.questionText);
+      if (!seenMap.has(key)) seenMap.set(key, q);
+    });
+    const uniqueCombined = Array.from(seenMap.values());
+
     res.status(200).json({
       success: true,
       subject,
-      totalQuestions: combined.length,
-      questions: combined
+      totalQuestions: uniqueCombined.length,
+      questions: uniqueCombined
     });
   } catch (error) {
     next(error);
@@ -89,11 +97,14 @@ const getPracticeQuestion = async (req, res, next) => {
     const calculatedDifficulty = calculateNextDifficulty(parsedHistory, currentDifficulty);
 
     let excludedObjectIds = [];
+    const excludedSet = new Set();
     if (excludeIds) {
-      excludedObjectIds = excludeIds.split(',').filter(id => id.length === 24);
+      const parts = String(excludeIds).split(',').map(s => s.trim()).filter(Boolean);
+      parts.forEach(p => excludedSet.add(p));
+      excludedObjectIds = parts.filter(id => /^[0-9a-fA-F]{24}$/.test(id));
     }
 
-    // Try finding at target difficulty (Approved only)
+    // Try finding at target difficulty in database (Approved only)
     let question = await Question.findOne({
       subject,
       topic,
@@ -105,7 +116,7 @@ const getPracticeQuestion = async (req, res, next) => {
 
     let servedDifficulty = calculatedDifficulty;
 
-    // Fallback 1: Try adjacent difficulty if bucket exhausted
+    // Fallback 1: Try adjacent difficulty if bucket exhausted in DB
     if (!question) {
       const fallbackDifficulty = calculatedDifficulty === 'hard' ? 'medium' : 'easy';
       question = await Question.findOne({
@@ -119,7 +130,7 @@ const getPracticeQuestion = async (req, res, next) => {
       if (question) servedDifficulty = fallbackDifficulty;
     }
 
-    // Fallback 2: Any unseen question in this topic
+    // Fallback 2: Any unseen question in this topic in DB
     if (!question) {
       question = await Question.findOne({
         subject,
@@ -131,7 +142,55 @@ const getPracticeQuestion = async (req, res, next) => {
       if (question) servedDifficulty = question.difficulty;
     }
 
-    // Fallback 3: Recycle least recently answered questions if all exhausted
+    // Fallback 3: Pull from comprehensive questionBankStore.json and multiGradeQuestions.json (NCERT Classes 1-12)
+    if (!question) {
+      try {
+        let allBankQuestions = [];
+        try {
+          const qBank = require('../data/questionBankStore.json');
+          if (Array.isArray(qBank)) allBankQuestions.push(...qBank);
+        } catch (_) {}
+        try {
+          const multiGrade = require('../data/multiGradeQuestions.json');
+          if (Array.isArray(multiGrade)) allBankQuestions.push(...multiGrade);
+        } catch (_) {}
+
+        const userGrade = req.query.grade || req.user?.gradeLevel || req.user?.grade || 7;
+        
+        // Filter out already served questions to guarantee no repetition
+        const candidatePool = allBankQuestions.filter(q => {
+          const qId = String(q.id || q._id || '');
+          if (qId && excludedSet.has(qId)) return false;
+          const qGrade = q.gradeLevel || q.grade;
+          if (userGrade && String(qGrade) !== String(userGrade)) return false;
+          if (subject && q.subject && q.subject.toLowerCase() !== subject.toLowerCase()) return false;
+          return true;
+        });
+
+        // 3a: Exact topic & exact calculated difficulty
+        const topicMatches = candidatePool.filter(q => {
+          const t = (q.topic || q.chapter || '').toLowerCase();
+          return t.includes(topic.toLowerCase()) || topic.toLowerCase().includes(t);
+        });
+
+        const exactDiffTopic = topicMatches.filter(q => (q.difficulty || 'medium').toLowerCase() === calculatedDifficulty);
+        const adjacentDiffTopic = topicMatches.filter(q => (q.difficulty || 'medium').toLowerCase() === (calculatedDifficulty === 'hard' ? 'medium' : 'easy'));
+
+        const chosen = exactDiffTopic[0] || adjacentDiffTopic[0] || topicMatches[0] || candidatePool[0];
+
+        if (chosen) {
+          question = {
+            ...chosen,
+            _id: chosen.id || chosen._id
+          };
+          servedDifficulty = (chosen.difficulty || 'medium').toLowerCase();
+        }
+      } catch (err) {
+        // Continue
+      }
+    }
+
+    // Fallback 4: If literally ALL questions in bank have been answered, recycle least recently answered
     if (!question) {
       question = await Question.findOne({
         subject,
@@ -140,35 +199,6 @@ const getPracticeQuestion = async (req, res, next) => {
         status: 'approved'
       }).select('-correctAnswerIndex -explanation');
       if (question) servedDifficulty = question.difficulty;
-    }
-
-    // Fallback 4: Pull from multi-grade question bank
-    if (!question) {
-      try {
-        const multiGradeQuestions = require('../data/multiGradeQuestions.json');
-        const userGrade = req.query.grade || req.user?.gradeLevel || req.user?.grade || 7;
-        const matching = multiGradeQuestions.filter(q => {
-          const qGrade = q.gradeLevel || q.grade;
-          if (userGrade && String(qGrade) !== String(userGrade)) return false;
-          if (subject && q.subject && q.subject.toLowerCase() !== subject.toLowerCase()) return false;
-          if (excludeIds && excludeIds.split(',').includes(String(q.id || q._id))) return false;
-          return true;
-        });
-
-        const topicMatching = matching.filter(q => q.topic && q.topic.toLowerCase().includes(topic.toLowerCase()));
-        const pool = topicMatching.length > 0 ? topicMatching : matching;
-
-        if (pool.length > 0) {
-          const candidate = pool.find(q => (q.difficulty || '').toLowerCase() === calculatedDifficulty) || pool[0];
-          question = {
-            ...candidate,
-            _id: candidate.id || candidate._id
-          };
-          servedDifficulty = (candidate.difficulty || 'medium').toLowerCase();
-        }
-      } catch (err) {
-        // Continue
-      }
     }
 
     if (!question) {

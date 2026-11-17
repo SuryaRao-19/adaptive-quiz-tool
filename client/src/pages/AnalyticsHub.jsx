@@ -88,26 +88,26 @@ const DIVISION_ANALYTICS = {
           { topic: 'Perimeter & Area Formulas', mastery: 75, status: 'Proficient', classAvg: 75 }
         ],
         students: [
-          { roll: 'APS-07-001', name: 'Aarav Patel', score: 88, bkt: 88, att: 96, status: 'Mastered' },
-          { roll: 'APS-07-002', name: 'Priya Sharma', score: 91, bkt: 91, att: 98, status: 'Mastered' },
-          { roll: 'APS-07-003', name: 'Rohan Gupta', score: 58, bkt: 52, att: 92, status: 'Needs Support', weakTopic: 'Fractions' },
-          { roll: 'APS-07-004', name: 'Ananya Verma', score: 85, bkt: 85, att: 96, status: 'Mastered' },
-          { roll: 'APS-07-005', name: 'Kabir Mehta', score: 58, bkt: 56, att: 90, status: 'Needs Support', weakTopic: 'Linear Equations' },
-          { roll: 'APS-07-006', name: 'Sanya Reddy', score: 88, bkt: 88, att: 100, status: 'Mastered' },
-          { roll: 'APS-07-007', name: 'Devansh Singh', score: 82, bkt: 82, att: 94, status: 'Mastered' },
-          { roll: 'APS-07-008', name: 'Ishita Joshi', score: 76, bkt: 76, att: 94, status: 'Developing' },
-          { roll: 'APS-07-009', name: 'Vivaan Kapoor', score: 89, bkt: 89, att: 98, status: 'Mastered' },
-          { roll: 'APS-07-010', name: 'Diya Nair', score: 84, bkt: 84, att: 96, status: 'Mastered' },
-          { roll: 'APS-07-011', name: 'Ayaan Khan', score: 80, bkt: 80, att: 96, status: 'Mastered' },
-          { roll: 'APS-07-012', name: 'Meera Iyer', score: 92, bkt: 92, att: 100, status: 'Mastered' },
-          { roll: 'APS-07-013', name: 'Arjun Das', score: 74, bkt: 74, att: 92, status: 'Developing' },
-          { roll: 'APS-07-014', name: 'Tanvi Malhotra', score: 86, bkt: 86, att: 96, status: 'Mastered' },
-          { roll: 'APS-07-015', name: 'Aditya Chawla', score: 78, bkt: 78, att: 94, status: 'Developing' },
-          { roll: 'APS-07-016', name: 'Rhea Sen', score: 87, bkt: 87, att: 98, status: 'Mastered' },
-          { roll: 'APS-07-017', name: 'Reyansh Bhatia', score: 81, bkt: 81, att: 94, status: 'Mastered' },
-          { roll: 'APS-07-018', name: 'Kavya Pillai', score: 90, bkt: 90, att: 98, status: 'Mastered' },
-          { roll: 'APS-07-019', name: 'Shaurya Saxena', score: 75, bkt: 75, att: 92, status: 'Developing' },
-          { roll: 'APS-07-020', name: 'Navya Kulkarni', score: 88, bkt: 88, att: 98, status: 'Mastered' }
+          { roll: 'GPS-07-001', name: 'Aarav Patel', score: 88, bkt: 88, att: 96, status: 'Mastered' },
+          { roll: 'GPS-07-002', name: 'Priya Sharma', score: 91, bkt: 91, att: 98, status: 'Mastered' },
+          { roll: 'GPS-07-003', name: 'Rohan Gupta', score: 58, bkt: 52, att: 92, status: 'Needs Support', weakTopic: 'Fractions' },
+          { roll: 'GPS-07-004', name: 'Ananya Verma', score: 85, bkt: 85, att: 96, status: 'Mastered' },
+          { roll: 'GPS-07-005', name: 'Kabir Mehta', score: 58, bkt: 56, att: 90, status: 'Needs Support', weakTopic: 'Linear Equations' },
+          { roll: 'GPS-07-006', name: 'Sanya Reddy', score: 88, bkt: 88, att: 100, status: 'Mastered' },
+          { roll: 'GPS-07-007', name: 'Devansh Singh', score: 82, bkt: 82, att: 94, status: 'Mastered' },
+          { roll: 'GPS-07-008', name: 'Ishita Joshi', score: 76, bkt: 76, att: 94, status: 'Developing' },
+          { roll: 'GPS-07-009', name: 'Vivaan Kapoor', score: 89, bkt: 89, att: 98, status: 'Mastered' },
+          { roll: 'GPS-07-010', name: 'Diya Nair', score: 84, bkt: 84, att: 96, status: 'Mastered' },
+          { roll: 'GPS-07-011', name: 'Ayaan Khan', score: 80, bkt: 80, att: 96, status: 'Mastered' },
+          { roll: 'GPS-07-012', name: 'Meera Iyer', score: 92, bkt: 92, att: 100, status: 'Mastered' },
+          { roll: 'GPS-07-013', name: 'Arjun Das', score: 74, bkt: 74, att: 92, status: 'Developing' },
+          { roll: 'GPS-07-014', name: 'Tanvi Malhotra', score: 86, bkt: 86, att: 96, status: 'Mastered' },
+          { roll: 'GPS-07-015', name: 'Aditya Chawla', score: 78, bkt: 78, att: 94, status: 'Developing' },
+          { roll: 'GPS-07-016', name: 'Rhea Sen', score: 87, bkt: 87, att: 98, status: 'Mastered' },
+          { roll: 'GPS-07-017', name: 'Reyansh Bhatia', score: 81, bkt: 81, att: 94, status: 'Mastered' },
+          { roll: 'GPS-07-018', name: 'Kavya Pillai', score: 90, bkt: 90, att: 98, status: 'Mastered' },
+          { roll: 'GPS-07-019', name: 'Shaurya Saxena', score: 75, bkt: 75, att: 92, status: 'Developing' },
+          { roll: 'GPS-07-020', name: 'Navya Kulkarni', score: 88, bkt: 88, att: 98, status: 'Mastered' }
         ]
       },
       {
@@ -128,9 +128,9 @@ const DIVISION_ANALYTICS = {
           { topic: 'Heat Conduction & Radiation', mastery: 74, status: 'Developing', classAvg: 74 }
         ],
         students: [
-          { roll: 'APS-07-101', name: 'Aarush Bose', score: 86, bkt: 86, att: 96, status: 'Mastered' },
-          { roll: 'APS-07-102', name: 'Tara Sethi', score: 90, bkt: 90, att: 98, status: 'Mastered' },
-          { roll: 'APS-07-103', name: 'Nikhil Roy', score: 56, bkt: 54, att: 90, status: 'Needs Support', weakTopic: 'Acids & Bases' }
+          { roll: 'GPS-07-101', name: 'Aarush Bose', score: 86, bkt: 86, att: 96, status: 'Mastered' },
+          { roll: 'GPS-07-102', name: 'Tara Sethi', score: 90, bkt: 90, att: 98, status: 'Mastered' },
+          { roll: 'GPS-07-103', name: 'Nikhil Roy', score: 56, bkt: 54, att: 90, status: 'Needs Support', weakTopic: 'Acids & Bases' }
         ]
       },
       {
@@ -150,7 +150,7 @@ const DIVISION_ANALYTICS = {
           { topic: 'Linear Equations in One Variable', mastery: 82, status: 'Mastered', classAvg: 82 }
         ],
         students: [
-          { roll: 'APS-08-001', name: 'Dhruv Singhania', score: 94, bkt: 94, att: 100, status: 'Mastered' }
+          { roll: 'GPS-08-001', name: 'Dhruv Singhania', score: 94, bkt: 94, att: 100, status: 'Mastered' }
         ]
       }
     ]
@@ -1065,7 +1065,7 @@ export const AnalyticsHub = () => {
                       <XAxis dataKey="day" textAnchor="middle" />
                       <YAxis />
                       <Tooltip />
-                      <Bar dataKey="hours" fill="#4F46E5" radius={[6, 6, 0, 0]} />
+                      <Bar dataKey="hours" fill="#173E2B" radius={[6, 6, 0, 0]} />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
@@ -1132,7 +1132,7 @@ export const AnalyticsHub = () => {
         isOpen={certificateModalOpen}
         onClose={() => setCertificateModalOpen(false)}
         studentName={user?.fullName || 'Student Learner'}
-        rollNumber={user?.rollNumber || 'APS-07-001'}
+        rollNumber={user?.rollNumber || 'GPS-07-001'}
         subject={activeSubject}
         preScore={preTestOverall}
         postScore={postTestOverall}

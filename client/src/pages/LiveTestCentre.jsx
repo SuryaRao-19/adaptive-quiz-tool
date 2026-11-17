@@ -91,7 +91,7 @@ export const LiveTestCentre = () => {
       },
       students: G7_STUDENT_NAMES.map((name, idx) => ({
         studentId: `stu-${idx + 1}`,
-        rollNumber: `APS-07-${String(idx + 1).padStart(3, '0')}`,
+        rollNumber: `GPS-07-${String(idx + 1).padStart(3, '0')}`,
         name,
         state: 'NOT_STARTED',
         progress: 0,

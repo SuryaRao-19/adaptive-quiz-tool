@@ -113,6 +113,8 @@ app.use('/api/curriculum', require('./routes/curriculumRoutes'));
 app.use('/api/assignments', require('./routes/assignmentRoutes'));
 app.use('/api/attendance', require('./routes/attendanceRoutes'));
 app.use('/api/teacher', require('./routes/teacherAssessmentRoutes'));
+app.use('/api/question-bank', require('./routes/questionBankRoutes'));
+app.use('/api/curriculum-coverage', require('./routes/curriculumCoverageRoutes'));
 
 // Decommissioned AI Routes Graceful Fallback
 app.use('/api/chat', (req, res) => {

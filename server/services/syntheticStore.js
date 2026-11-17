@@ -110,6 +110,41 @@ function getTeacherById(id) {
   return teachers.find(t => t.id === id || t.email === id);
 }
 
+// 1b. Parents
+function getParents() {
+  const store = loadStore();
+  if (!store.parents || store.parents.length === 0) {
+    store.parents = [
+      {
+        id: 'parent-001',
+        name: 'Mr. Vikram Patel',
+        email: 'vikram.patel@greenwoodgurgaon.com',
+        secondaryEmail: 'vikram.patel@asianpublicschool.edu',
+        phone: '+91 98110 54321',
+        role: 'parent',
+        relationship: 'FATHER',
+        linkedStudents: ['GPS-07-001', 'APS-07-001']
+      },
+      {
+        id: 'parent-002',
+        name: 'Mrs. Priya Sharma',
+        email: 'priya.sharma@greenwoodgurgaon.com',
+        secondaryEmail: 'priya.sharma@asianpublicschool.edu',
+        phone: '+91 98110 12345',
+        role: 'parent',
+        relationship: 'MOTHER',
+        linkedStudents: ['GPS-07-002', 'APS-07-002']
+      }
+    ];
+  }
+  return store.parents;
+}
+
+function getParentById(id) {
+  const parents = getParents();
+  return parents.find(p => p.id === id || p.email?.toLowerCase() === String(id).toLowerCase() || p.secondaryEmail?.toLowerCase() === String(id).toLowerCase() || p.phone === id);
+}
+
 // 2. Classrooms
 function getClassrooms() {
   const store = loadStore();
@@ -166,20 +201,28 @@ function getStudentsByClassroom(classroomId) {
 function getAssessments() {
   const store = loadStore();
   const rawAssessments = store.assessments || [];
-  let multiQuestions = null;
+  let multiQuestions = [];
   try {
     multiQuestions = require('../data/multiGradeQuestions.json');
   } catch (_) {
     multiQuestions = [];
   }
-  const qMap = new Map((multiQuestions || []).map(q => [q.id, q]));
+  let bankQuestions = [];
+  try {
+    bankQuestions = require('../data/questionBankStore.json');
+  } catch (_) {
+    bankQuestions = [];
+  }
+  const qMap = new Map();
+  (multiQuestions || []).forEach(q => { if (q && (q.id || q._id)) qMap.set(String(q.id || q._id), q); });
+  (bankQuestions || []).forEach(q => { if (q && (q.id || q._id)) qMap.set(String(q.id || q._id), q); });
 
   return rawAssessments.map(asm => {
     if (asm.questions && Array.isArray(asm.questions) && asm.questions.length > 0) {
       return asm;
     }
     if ((!asm.questions || asm.questions.length === 0) && Array.isArray(asm.questionIds) && asm.questionIds.length > 0) {
-      const resolved = asm.questionIds.map(qid => qMap.get(qid)).filter(Boolean);
+      const resolved = asm.questionIds.map(qid => qMap.get(String(qid))).filter(Boolean);
       return { ...asm, questions: resolved };
     }
     return asm;
@@ -536,6 +579,8 @@ module.exports = {
   getSchool,
   getTeachers,
   getTeacherById,
+  getParents,
+  getParentById,
   getClassrooms,
   getClassroomById,
   addClassroom,

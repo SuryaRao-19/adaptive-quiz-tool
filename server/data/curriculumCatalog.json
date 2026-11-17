@@ -1,0 +1,399 @@
+{
+  "curriculumProfile": {
+    "code": "GPS-CBSE-2026-V2",
+    "name": "Greenwood Public School NCERT/CBSE Academic Framework",
+    "board": "Central Board of Secondary Education (CBSE)",
+    "affiliationNumber": "530649",
+    "schoolCode": "40643",
+    "academicYear": "2026-2027",
+    "version": "2.4.0",
+    "status": "ACTIVE_OFFICIAL",
+    "description": "Updated official syllabus mapping for Term 2",
+    "updatedAt": "2026-11-17T16:04:21.881Z"
+  },
+  "officialSources": {
+    "ncertTextbooks": {
+      "title": "NCERT Official Textbook Repository",
+      "url": "https://ncert.nic.in/textbook.php",
+      "publisher": "National Council of Educational Research and Training (NCERT)",
+      "edition": "2026-2027 Rationalized Edition",
+      "verifiedDate": "2026-11-17"
+    },
+    "ncertSyllabus": {
+      "title": "NCERT Elementary, Secondary & Higher Secondary Syllabus",
+      "url": "https://ncert.nic.in/syllabus.php",
+      "publisher": "NCERT",
+      "verifiedDate": "2026-11-17"
+    },
+    "cbseCurriculum": {
+      "title": "CBSE Secondary & Senior Secondary Curriculum 2026-2027",
+      "url": "https://cbseacademic.nic.in/curriculum_2027.html",
+      "publisher": "Central Board of Secondary Education",
+      "verifiedDate": "2026-11-17"
+    }
+  },
+  "gradeDivisions": {
+    "PRIMARY": {
+      "name": "Primary Level",
+      "grades": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "campus": "Sector-10A Housing Board Colony Campus (Junior Wing)",
+      "description": "Foundational and preparatory learning stage focused on numeracy, literacy, environmental awareness, and experiential inquiry."
+    },
+    "MIDDLE": {
+      "name": "Middle Level",
+      "grades": [
+        6,
+        7,
+        8
+      ],
+      "campus": "Sector-9 Main Campus",
+      "description": "Upper primary cognitive transition focusing on formal mathematical reasoning, experimental science, and social sciences."
+    },
+    "SECONDARY": {
+      "name": "Secondary Level",
+      "grades": [
+        9,
+        10
+      ],
+      "campus": "Sector-9 Main Campus",
+      "description": "CBSE Board certification foundational curriculum preparing students for AISSE examinations."
+    },
+    "SENIOR_SECONDARY": {
+      "name": "Senior Secondary Level",
+      "grades": [
+        11,
+        12
+      ],
+      "campus": "Sector-9 Main Campus",
+      "description": "Pre-university academic specialization divided into Science, Commerce, and Humanities streams."
+    }
+  },
+  "seniorSecondaryStreams": {
+    "SCIENCE": {
+      "name": "Science Stream",
+      "compulsorySubjects": [
+        "English Core",
+        "Physics",
+        "Chemistry"
+      ],
+      "electiveCombinations": [
+        {
+          "name": "PCM + Computer Science",
+          "subjects": [
+            "Mathematics",
+            "Computer Science"
+          ]
+        },
+        {
+          "name": "PCB + Physical Education",
+          "subjects": [
+            "Biology",
+            "Physical Education"
+          ]
+        },
+        {
+          "name": "PCMB (Medical + Math)",
+          "subjects": [
+            "Mathematics",
+            "Biology"
+          ]
+        },
+        {
+          "name": "PCM + Economics",
+          "subjects": [
+            "Mathematics",
+            "Economics"
+          ]
+        }
+      ]
+    },
+    "COMMERCE": {
+      "name": "Commerce Stream",
+      "compulsorySubjects": [
+        "English Core",
+        "Accountancy",
+        "Business Studies",
+        "Economics"
+      ],
+      "electiveCombinations": [
+        {
+          "name": "Commerce with Mathematics",
+          "subjects": [
+            "Applied Mathematics"
+          ]
+        },
+        {
+          "name": "Commerce with Informatics",
+          "subjects": [
+            "Informatics Practices"
+          ]
+        },
+        {
+          "name": "Commerce with Physical Education",
+          "subjects": [
+            "Physical Education"
+          ]
+        }
+      ]
+    },
+    "HUMANITIES": {
+      "name": "Humanities / Arts Stream",
+      "compulsorySubjects": [
+        "English Core",
+        "History",
+        "Political Science"
+      ],
+      "electiveCombinations": [
+        {
+          "name": "Humanities with Psychology & Sociology",
+          "subjects": [
+            "Psychology",
+            "Sociology"
+          ]
+        },
+        {
+          "name": "Humanities with Economics & Geography",
+          "subjects": [
+            "Economics",
+            "Geography"
+          ]
+        },
+        {
+          "name": "Humanities with Fine Arts",
+          "subjects": [
+            "Psychology",
+            "Painting / Fine Arts"
+          ]
+        }
+      ]
+    }
+  },
+  "textbookCitations": [
+    {
+      "gradeLevel": 1,
+      "subject": "Mathematics",
+      "bookTitle": "Joyful Mathematics (Class 1)",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 NEP 2020",
+      "chaptersCount": 13,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 2,
+      "subject": "Mathematics",
+      "bookTitle": "Joyful Mathematics (Class 2)",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 NEP 2020",
+      "chaptersCount": 11,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 3,
+      "subject": "Mathematics",
+      "bookTitle": "Math-Magic Book 3",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 Rationalized",
+      "chaptersCount": 14,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 4,
+      "subject": "Mathematics",
+      "bookTitle": "Math-Magic Book 4",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 Rationalized",
+      "chaptersCount": 14,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 5,
+      "subject": "Mathematics",
+      "bookTitle": "Math-Magic Book 5",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 Rationalized",
+      "chaptersCount": 14,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 6,
+      "subject": "Mathematics",
+      "bookTitle": "Ganita Prakash (Grade 6)",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 NEP 2020",
+      "chaptersCount": 10,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 6,
+      "subject": "Science",
+      "bookTitle": "Curiosity: Textbook of Science for Grade 6",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 NEP 2020",
+      "chaptersCount": 12,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 7,
+      "subject": "Mathematics",
+      "bookTitle": "Mathematics: Textbook for Class VII",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 Rationalized",
+      "chaptersCount": 13,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 7,
+      "subject": "Science",
+      "bookTitle": "Science: Textbook for Class VII",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 Rationalized",
+      "chaptersCount": 13,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 8,
+      "subject": "Mathematics",
+      "bookTitle": "Mathematics: Textbook for Class VIII",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 Rationalized",
+      "chaptersCount": 13,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 8,
+      "subject": "Science",
+      "bookTitle": "Science: Textbook for Class VIII",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 Rationalized",
+      "chaptersCount": 13,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 9,
+      "subject": "Mathematics",
+      "bookTitle": "Mathematics: Textbook for Class IX",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 Rationalized",
+      "chaptersCount": 12,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 9,
+      "subject": "Science",
+      "bookTitle": "Science: Textbook for Class IX",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 Rationalized",
+      "chaptersCount": 12,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 10,
+      "subject": "Mathematics",
+      "bookTitle": "Mathematics: Textbook for Class X",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 Rationalized",
+      "chaptersCount": 14,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 10,
+      "subject": "Science",
+      "bookTitle": "Science: Textbook for Class X",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 Rationalized",
+      "chaptersCount": 13,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 11,
+      "subject": "Physics",
+      "bookTitle": "Physics Part I & II (Class XI)",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 Rationalized",
+      "chaptersCount": 14,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 11,
+      "subject": "Chemistry",
+      "bookTitle": "Chemistry Part I & II (Class XI)",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 Rationalized",
+      "chaptersCount": 9,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 11,
+      "subject": "Mathematics",
+      "bookTitle": "Mathematics: Textbook for Class XI",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 Rationalized",
+      "chaptersCount": 14,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 12,
+      "subject": "Physics",
+      "bookTitle": "Physics Part I & II (Class XII)",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 Rationalized",
+      "chaptersCount": 14,
+      "verificationDate": "2026-11-17"
+    },
+    {
+      "gradeLevel": 12,
+      "subject": "Mathematics",
+      "bookTitle": "Mathematics Part I & II (Class XII)",
+      "publisher": "NCERT",
+      "language": "English",
+      "officialUrl": "https://ncert.nic.in/textbook.php",
+      "edition": "2026-2027 Rationalized",
+      "chaptersCount": 13,
+      "verificationDate": "2026-11-17"
+    }
+  ]
+}

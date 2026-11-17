@@ -34,3 +34,19 @@ export const addQuestion = async (data) => {
   const response = await api.post('/questions', data);
   return response.data;
 };
+
+// Greenwood Centralized Question Bank Endpoints
+export const getQuestionBankCoverage = async () => {
+  const response = await api.get('/question-bank/coverage');
+  return response.data;
+};
+
+export const importQuestionBankItems = async (questions) => {
+  const response = await api.post('/question-bank/import', { questions });
+  return response.data;
+};
+
+export const reviewQuestionBankItem = async (id, reviewData) => {
+  const response = await api.put(`/question-bank/${id}/review`, reviewData);
+  return response.data;
+};

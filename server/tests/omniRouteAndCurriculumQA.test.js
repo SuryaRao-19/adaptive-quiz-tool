@@ -1,6 +1,6 @@
 /**
  * OmniRoute AI Infrastructure, Intent Classifier, and Curriculum Ingestion QA Suite
- * Asian Public School Demonstration Edition
+ * Greenwood Public School Demonstration Edition
  */
 
 const { describe, it } = require('node:test');

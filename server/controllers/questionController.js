@@ -246,11 +246,11 @@ const addQuestion = async (req, res, next) => {
   }
 };
 
-// @desc Get all questions (Filterable by grade, subject, topic, difficulty, status, source)
+// @desc Get all questions (Filterable by grade, subject, topic, difficulty, status, source, excludeIds)
 // @route GET /api/questions
 const getQuestions = async (req, res, next) => {
   try {
-    const { grade, gradeLevel, subject, topic, difficulty, status, source, search } = req.query;
+    const { grade, gradeLevel, subject, topic, difficulty, status, source, search, exclude, excludeIds, limit, count, shuffle } = req.query;
     const filter = { isActive: true };
 
     const targetGrade = gradeLevel || grade;
@@ -271,6 +271,22 @@ const getQuestions = async (req, res, next) => {
       filter.questionText = { $regex: search.trim(), $options: 'i' };
     }
 
+    // Parse exclusion list to ensure questions never repeat
+    const rawExclude = exclude || excludeIds || '';
+    const excludeList = Array.isArray(rawExclude)
+      ? rawExclude.map(String)
+      : typeof rawExclude === 'string' && rawExclude.trim()
+        ? rawExclude.split(',').map(s => s.trim()).filter(Boolean)
+        : [];
+    const excludeSet = new Set(excludeList);
+
+    if (excludeList.length > 0) {
+      const validOids = excludeList.filter(id => /^[0-9a-fA-F]{24}$/.test(id));
+      if (validOids.length > 0) {
+        filter._id = { $nin: validOids };
+      }
+    }
+
     let questions = [];
     try {
       questions = await Question.find(filter).sort({ createdAt: -1 });
@@ -278,11 +294,20 @@ const getQuestions = async (req, res, next) => {
       questions = [];
     }
 
-    // Deterministic fallback to multiGradeQuestions.json and syntheticSchoolData.json if DB query returned 0 items
+    // Deterministic fallback to multiGradeQuestions.json, questionBankStore.json, and syntheticSchoolData.json
     if (!questions || questions.length === 0) {
       try {
-        const multiGradeQuestions = require('../data/multiGradeQuestions.json');
-        let allCandidates = [...multiGradeQuestions];
+        let allCandidates = [];
+        try {
+          const multiGradeQuestions = require('../data/multiGradeQuestions.json');
+          if (Array.isArray(multiGradeQuestions)) allCandidates.push(...multiGradeQuestions);
+        } catch (e) {}
+
+        try {
+          const qBank = require('../data/questionBankStore.json');
+          if (Array.isArray(qBank)) allCandidates.push(...qBank);
+        } catch (e) {}
+
         try {
           const syntheticData = require('../data/syntheticSchoolData.json');
           if (syntheticData.assessments) {
@@ -294,7 +319,18 @@ const getQuestions = async (req, res, next) => {
           }
         } catch (e) {}
 
-        let filtered = allCandidates.filter(q => {
+        // Deduplicate candidates by ID and normalized text
+        const seenTexts = new Set();
+        const seenIds = new Set();
+
+        const filterCandidate = (q, ignoreExclude = false) => {
+          const qId = String(q.id || q._id || '');
+          const qTextNorm = (q.questionText || q.questionStatement || q.text || '').toLowerCase().trim();
+
+          if (!ignoreExclude && qId && excludeSet.has(qId)) return false;
+          if (qId && seenIds.has(qId)) return false;
+          if (qTextNorm && seenTexts.has(qTextNorm)) return false;
+
           const qGrade = q.gradeLevel || q.grade;
           if (targetGrade && targetGrade !== 'All' && String(qGrade) !== String(targetGrade)) return false;
           if (subject && subject !== 'All' && q.subject && q.subject.toLowerCase() !== subject.toLowerCase()) return false;
@@ -306,26 +342,64 @@ const getQuestions = async (req, res, next) => {
             if (!match) return false;
           }
           if (difficulty && difficulty !== 'All' && q.difficulty && q.difficulty.toUpperCase() !== difficulty.toUpperCase()) return false;
-          if (search && search.trim() && q.questionText && !q.questionText.toLowerCase().includes(search.toLowerCase().trim())) return false;
-          return true;
-        });
+          if (search && search.trim() && qTextNorm && !qTextNorm.includes(search.toLowerCase().trim())) return false;
 
-        // If specific topic returned 0, fall back to all questions for subject & grade so student always gets authentic items
+          if (qId) seenIds.add(qId);
+          if (qTextNorm) seenTexts.add(qTextNorm);
+          return true;
+        };
+
+        let filtered = allCandidates.filter(q => filterCandidate(q, false));
+
+        // If exclusion exhausted all topic questions, allow resetting exclusion so student can review
+        if (filtered.length === 0 && excludeSet.size > 0) {
+          seenTexts.clear();
+          seenIds.clear();
+          filtered = allCandidates.filter(q => filterCandidate(q, true));
+        }
+
+        // If specific topic returned 0, fall back to unexcluded questions for subject & grade
         if (filtered.length === 0) {
+          seenTexts.clear();
+          seenIds.clear();
           filtered = allCandidates.filter(q => {
+            const qId = String(q.id || q._id || '');
+            const qTextNorm = (q.questionText || q.questionStatement || q.text || '').toLowerCase().trim();
+            if (qId && seenIds.has(qId)) return false;
+            if (qTextNorm && seenTexts.has(qTextNorm)) return false;
             const qGrade = q.gradeLevel || q.grade;
             if (targetGrade && targetGrade !== 'All' && String(qGrade) !== String(targetGrade)) return false;
             if (subject && subject !== 'All' && q.subject && q.subject.toLowerCase() !== subject.toLowerCase()) return false;
+            if (qId) seenIds.add(qId);
+            if (qTextNorm) seenTexts.add(qTextNorm);
             return true;
           });
         }
 
         // If still 0, fall back to all questions for that grade
         if (filtered.length === 0 && targetGrade && targetGrade !== 'All') {
-          filtered = allCandidates.filter(q => String(q.gradeLevel || q.grade) === String(targetGrade));
+          seenTexts.clear();
+          seenIds.clear();
+          filtered = allCandidates.filter(q => {
+            const qId = String(q.id || q._id || '');
+            if (qId && seenIds.has(qId)) return false;
+            const matches = String(q.gradeLevel || q.grade) === String(targetGrade);
+            if (matches && qId) seenIds.add(qId);
+            return matches;
+          });
         }
 
-        const formatted = filtered.map(q => ({
+        // Fisher-Yates random shuffle to guarantee non-repeating dynamic presentation
+        const shuffledPool = [...filtered];
+        for (let i = shuffledPool.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [shuffledPool[i], shuffledPool[j]] = [shuffledPool[j], shuffledPool[i]];
+        }
+
+        const maxCount = parseInt(limit || count, 10);
+        const finalPool = (!isNaN(maxCount) && maxCount > 0) ? shuffledPool.slice(0, maxCount) : shuffledPool;
+
+        const formatted = finalPool.map(q => ({
           ...q,
           _id: q.id || q._id,
           toObject: () => q,

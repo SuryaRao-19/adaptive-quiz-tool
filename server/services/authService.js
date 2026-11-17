@@ -219,6 +219,36 @@ async function authenticateUser({ identifier, password }) {
     return { success: true, token, user: userPayload };
   }
 
+  // Check parent accounts
+  const parents = syntheticStore.getParents ? syntheticStore.getParents() : [];
+  const parent = parents.find(p => 
+    (p.email && p.email.toLowerCase() === cleanId) || 
+    (p.secondaryEmail && p.secondaryEmail.toLowerCase() === cleanId) ||
+    (p.phone && p.phone.replace(/\s+/g, '') === cleanId.replace(/\s+/g, ''))
+  );
+  if (parent) {
+    let isMatch = true;
+    if (parent.passwordHash) {
+      isMatch = await bcrypt.compare(String(password), parent.passwordHash);
+    } else if (password !== 'parent123' && password !== 'Admin@123') {
+      isMatch = false;
+    }
+    if (!isMatch) {
+      throw new Error('Invalid credentials. Please verify your email and password.');
+    }
+    const userPayload = {
+      id: parent.id,
+      name: parent.name,
+      email: parent.email,
+      role: 'parent',
+      phone: parent.phone,
+      relationship: parent.relationship || 'GUARDIAN',
+      linkedStudents: parent.linkedStudents || ['GPS-07-001']
+    };
+    const token = jwt.sign(userPayload, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
+    return { success: true, token, user: userPayload };
+  }
+
   const students = syntheticStore.getStudents();
   const student = students.find(s => 
     (s.rollNumber && s.rollNumber.toUpperCase() === cleanId.toUpperCase()) ||

@@ -148,7 +148,7 @@ export const StudentDashboard = () => {
               key={s}
               onClick={() => setSearchParams({ subject: s })}
               className={`flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all text-center ${activeSubject === s
-                ? 'bg-white dark:bg-slate-900 text-indigo-700 dark:text-cyan-400 shadow-card'
+                ? 'bg-[#173E2B] text-white shadow-card'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
                 }`}
             >
@@ -160,7 +160,7 @@ export const StudentDashboard = () => {
 
       {loading ? (
         <div className="py-20 flex flex-col items-center justify-center">
-          <div className="w-8 h-8 rounded-full border-2 border-indigo-600 border-t-transparent animate-spin mb-3" />
+          <div className="w-8 h-8 rounded-full border-2 border-[#173E2B] border-t-transparent animate-spin mb-3" />
           <p className="text-xs font-semibold text-slate-500">Loading student analytics...</p>
         </div>
       ) : (
@@ -170,21 +170,21 @@ export const StudentDashboard = () => {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-gradient-to-r from-indigo-50/90 via-sky-50/70 to-teal-50/90 dark:from-slate-900 dark:via-slate-900 dark:to-indigo-950/40 border-2 border-indigo-200/90 dark:border-indigo-800/80 rounded-3xl p-5 sm:p-8 shadow-subtle flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 sm:gap-6"
+              className="bg-gradient-to-r from-emerald-50/90 via-teal-50/70 to-amber-50/90 dark:from-slate-900 dark:via-slate-900 dark:to-emerald-950/40 border-2 border-[#416B50]/60 dark:border-emerald-800/80 rounded-3xl p-5 sm:p-8 shadow-subtle flex flex-col lg:flex-row items-start lg:items-center justify-between gap-5 sm:gap-6"
             >
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center font-black text-sm shadow-md shrink-0">
-                  0%
+                <div className="w-12 h-12 rounded-2xl bg-[#173E2B] text-[#D9A441] flex items-center justify-center font-black text-sm shadow-md shrink-0 border border-[#D9A441]/40">
+                  GPS
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
                     <h2 className="text-[clamp(1.1rem,2.5vw,1.35rem)] font-black text-slate-900 dark:text-white leading-snug">
-                      Welcome to AdaptIQ!
+                      Welcome to Greenwood Digital Learning!
                     </h2>
-                    <Badge variant="cyan" size="sm">New Learner</Badge>
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-[#D9A441] text-[#173E2B]">Grade {displayGrade}</span>
                   </div>
                   <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1 max-w-xl leading-relaxed">
-                    Welcome to AdaptIQ! Complete your first practice session or diagnostic test to see your personalized learning trajectory, strengths, and recommendations.
+                    Welcome to Greenwood Public School's Adaptive Learning System! Complete your practice sessions or diagnostic tests to track your competency benchmarks and NCERT learning outcomes.
                   </p>
                 </div>
               </div>
@@ -194,7 +194,7 @@ export const StudentDashboard = () => {
                   size="sm"
                   variant="primary"
                   iconRight={ArrowRight}
-                  onClick={() => navigate('/test?id=aps-g7-math-diag-2026')}
+                  onClick={() => navigate('/test?id=gps-g7-math-diag-2026')}
                   className="flex-1 sm:flex-initial shadow-subtle font-bold"
                 >
                   Start Diagnostic Test
@@ -239,7 +239,7 @@ export const StudentDashboard = () => {
             </div>
             <button
               type="button"
-              onClick={() => navigate('/test?id=aps-g7-math-diag-2026')}
+              onClick={() => navigate('/test?id=gps-g7-math-diag-2026')}
               className="px-5 py-2.5 rounded-xl bg-white text-indigo-950 hover:bg-indigo-50 font-black text-xs shrink-0 shadow-lg border border-slate-200 flex items-center gap-2 cursor-pointer transition-all hover:scale-105 active:scale-95"
             >
               <span>Start Diagnostic Test</span>
@@ -291,7 +291,7 @@ export const StudentDashboard = () => {
 
           {/* 4 Real Metric Cards: 1 column on mobile, 2 on tablet, 4 on desktop */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            <Card className="p-5 bg-gradient-to-br from-white to-indigo-50/40 dark:from-slate-900 dark:to-indigo-950/30">
+            <Card hoverEffect className="p-5 bg-gradient-to-br from-white to-indigo-50/40 dark:from-slate-900 dark:to-indigo-950/30">
               <div className="flex justify-between items-start mb-2">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Practice Volume</span>
                 <div className="w-8 h-8 rounded-xl bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-cyan-400 flex items-center justify-center font-bold">
@@ -304,7 +304,7 @@ export const StudentDashboard = () => {
               <p className="text-xs text-indigo-700 dark:text-indigo-400 font-semibold mt-2">Questions Answered</p>
             </Card>
 
-            <Card className="p-5 bg-gradient-to-br from-white to-amber-50/40 dark:from-slate-900 dark:to-amber-950/30">
+            <Card hoverEffect className="p-5 bg-gradient-to-br from-white to-amber-50/40 dark:from-slate-900 dark:to-amber-950/30">
               <div className="flex justify-between items-start mb-2">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Consecutive Streak</span>
                 <div className="w-8 h-8 rounded-xl bg-amber-100 dark:bg-amber-950 text-amber-600 dark:text-amber-400 flex items-center justify-center font-bold">
@@ -317,7 +317,7 @@ export const StudentDashboard = () => {
               <p className="text-xs text-amber-700 dark:text-amber-400 font-semibold mt-2">Active correct streak 🔥</p>
             </Card>
 
-            <Card className="p-5 bg-gradient-to-br from-white to-emerald-50/40 dark:from-slate-900 dark:to-emerald-950/30">
+            <Card hoverEffect className="p-5 bg-gradient-to-br from-white to-emerald-50/40 dark:from-slate-900 dark:to-emerald-950/30">
               <div className="flex justify-between items-start mb-2">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Mastery Ratio</span>
                 <div className="w-8 h-8 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
@@ -330,7 +330,7 @@ export const StudentDashboard = () => {
               <p className="text-xs text-emerald-700 dark:text-emerald-400 font-semibold mt-2">Topics Mastered (&ge;80%)</p>
             </Card>
 
-            <Card className="p-5 bg-gradient-to-br from-white to-cyan-50/40 dark:from-slate-900 dark:to-cyan-950/30">
+            <Card hoverEffect className="p-5 bg-gradient-to-br from-white to-cyan-50/40 dark:from-slate-900 dark:to-cyan-950/30">
               <div className="flex justify-between items-start mb-2">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Accuracy</span>
                 <div className="w-8 h-8 rounded-xl bg-cyan-100 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-400 flex items-center justify-center font-bold">

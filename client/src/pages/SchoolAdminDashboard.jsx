@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Building2, 
   Users, 
@@ -20,7 +21,9 @@ import {
   Check,
   Upload,
   RefreshCw,
-  MessageSquare
+  MessageSquare,
+  MapPin,
+  Bookmark
 } from 'lucide-react';
 import { Card } from '../components/ui/Card';
 import { Badge } from '../components/ui/Badge';
@@ -276,6 +279,13 @@ Learning Objectives: Interpret thermometer readings accurately; identify heat tr
           </div>
 
           <div className="flex items-center gap-3">
+            <Link
+              to="/curriculum-coverage"
+              className="px-3.5 py-2 bg-emerald-700 hover:bg-emerald-600 text-white rounded-lg text-xs sm:text-sm font-bold flex items-center gap-2 shadow-md transition-all border border-emerald-500/40"
+            >
+              <BookOpen className="w-4 h-4 text-emerald-200" />
+              Coverage Dashboard (1–12)
+            </Link>
             <Button
               onClick={handleExportCSV}
               variant="outline"
@@ -295,6 +305,8 @@ Learning Objectives: Interpret thermometer readings accurately; identify heat tr
         <div className="flex gap-2 mt-6 pt-4 border-t border-white/10 overflow-x-auto">
           {[
             { id: 'overview', label: 'Institutional KPIs', icon: TrendingUp },
+            { id: 'campuses', label: 'Dual Campuses', icon: MapPin },
+            { id: 'ncert_sources', label: 'NCERT Sources & Versions', icon: Bookmark },
             { id: 'grades', label: 'Grade & Section Cohorts', icon: Layers },
             { id: 'faculty', label: 'Faculty Allocation', icon: Users },
             { id: 'gaps', label: 'Diagnostic Learning Gaps', icon: AlertTriangle },
@@ -324,7 +336,7 @@ Learning Objectives: Interpret thermometer readings accurately; identify heat tr
 
       {/* 2. Key Performance Indicator Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="p-5 border-l-4 border-indigo-500">
+        <Card hoverEffect className="p-5 border-l-4 border-indigo-500">
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">Enrolled Pupils</span>
             <GraduationCap className="w-5 h-5 text-indigo-500" />
@@ -335,7 +347,7 @@ Learning Objectives: Interpret thermometer readings accurately; identify heat tr
           <p className="text-xs text-slate-500 mt-1">Across 10 Section Cohorts</p>
         </Card>
 
-        <Card className="p-5 border-l-4 border-cyan-500">
+        <Card hoverEffect className="p-5 border-l-4 border-cyan-500">
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">Certified Faculty</span>
             <Users className="w-5 h-5 text-cyan-500" />
@@ -346,7 +358,7 @@ Learning Objectives: Interpret thermometer readings accurately; identify heat tr
           <p className="text-xs text-slate-500 mt-1">100% Subject-Allocated</p>
         </Card>
 
-        <Card className="p-5 border-l-4 border-emerald-500">
+        <Card hoverEffect className="p-5 border-l-4 border-emerald-500">
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">Average BKT Mastery</span>
             <Award className="w-5 h-5 text-emerald-500" />
@@ -359,7 +371,7 @@ Learning Objectives: Interpret thermometer readings accurately; identify heat tr
           </p>
         </Card>
 
-        <Card className="p-5 border-l-4 border-amber-500">
+        <Card hoverEffect className="p-5 border-l-4 border-amber-500">
           <div className="flex items-center justify-between">
             <span className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">Hake's Learning Gain (g)</span>
             <TrendingUp className="w-5 h-5 text-amber-500" />
@@ -845,17 +857,175 @@ Learning Objectives: Interpret thermometer readings accurately; identify heat tr
             </div>
 
             {/* Deterministic Adaptive Engine Status */}
-            <div className="p-5 rounded-2xl bg-gradient-to-r from-blue-900 to-indigo-950 text-white space-y-3">
+            <div className="p-5 rounded-2xl bg-[#173E2B] text-white space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <Layers className="w-5 h-5 text-cyan-400" />
-                  <h4 className="font-bold text-sm">AdaptIQ 3.0 Deterministic Adaptive Engine Core</h4>
+                  <Layers className="w-5 h-5 text-emerald-300" />
+                  <h4 className="font-bold text-sm">Greenwood Adaptive Learning — Deterministic Engine Core</h4>
                 </div>
                 <Badge variant="indigo" className="bg-white/20 text-white border-white/30">100% Deterministic (Zero-LLM)</Badge>
               </div>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <p className="text-xs text-slate-200 leading-relaxed">
                 Adaptive calibrations are strictly calculated using Bayesian Knowledge Tracing (BKT), Rasch Item Response Theory (IRT), Hake Normalized Learning Gain, 3-up/2-down streak rules, and Leitner 5-box spaced repetition intervals.
               </p>
+            </div>
+          </Card>
+        </div>
+      )}
+
+      {/* Dual Campus Management Tab */}
+      {activeTab === 'campuses' && (
+        <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Campus 1: Sector-9 Senior Secondary Main Campus */}
+            <Card className="p-6 border-slate-200 dark:border-slate-800 space-y-4">
+              <div className="flex items-start justify-between">
+                <div>
+                  <Badge variant="primary" className="mb-2 bg-[#173E2B] text-white">Main Wing & Senior Secondary</Badge>
+                  <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">Sector-9 Main Campus</h3>
+                  <p className="text-xs text-slate-500 mt-0.5">HUDA Site No. 1, Sector 9, Gurugram, Haryana 122001</p>
+                </div>
+                <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 flex items-center justify-center font-bold">
+                  S-9
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 py-3 border-y border-slate-100 dark:border-slate-800 text-xs">
+                <div>
+                  <span className="text-slate-500">Academic Levels:</span>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">Classes VI–VIII, IX–X, XI–XII</p>
+                </div>
+                <div>
+                  <span className="text-slate-500">Streams Offered:</span>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">Science, Commerce, Humanities</p>
+                </div>
+                <div>
+                  <span className="text-slate-500">Principal & Director:</span>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">Dr. K. S. Raman</p>
+                </div>
+                <div>
+                  <span className="text-slate-500">Active Students:</span>
+                  <p className="font-bold text-[#173E2B] dark:text-emerald-400 mt-0.5">1,240 Pupils</p>
+                </div>
+              </div>
+
+              <div className="space-y-2 text-xs">
+                <div className="flex items-center justify-between text-slate-600 dark:text-slate-400">
+                  <span>Contact: 0124 - 4200807 / 808</span>
+                  <span>Email: info@greenwoodgurgaon.com</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-emerald-600 font-semibold">
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span>CBSE Affiliation Active (530649 &bull; Code: 40643)</span>
+                </div>
+              </div>
+            </Card>
+
+            {/* Campus 2: Sector-10A Housing Board Colony Campus */}
+            <Card className="p-6 border-slate-200 dark:border-slate-800 space-y-4">
+              <div className="flex items-start justify-between">
+                <div>
+                  <Badge variant="warning" className="mb-2">Early Childhood & Junior Wing</Badge>
+                  <h3 className="text-xl font-extrabold text-slate-900 dark:text-white">Sector-10A Junior Wing</h3>
+                  <p className="text-xs text-slate-500 mt-0.5">1589, Housing Board Colony Rd, opp. Community Centre, Sector 10A, Gurugram 122001</p>
+                </div>
+                <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-300 flex items-center justify-center font-bold">
+                  10A
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 py-3 border-y border-slate-100 dark:border-slate-800 text-xs">
+                <div>
+                  <span className="text-slate-500">Academic Levels:</span>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">Pre-Nursery, Nursery, LKG, UKG, Classes I–V</p>
+                </div>
+                <div>
+                  <span className="text-slate-500">Pedagogical Framework:</span>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">NEP 2020 Foundational & Preparatory</p>
+                </div>
+                <div>
+                  <span className="text-slate-500">Headmistress:</span>
+                  <p className="font-bold text-slate-900 dark:text-white mt-0.5">Mrs. Meenakshi S.</p>
+                </div>
+                <div>
+                  <span className="text-slate-500">Active Students:</span>
+                  <p className="font-bold text-amber-600 dark:text-amber-400 mt-0.5">620 Pupils</p>
+                </div>
+              </div>
+
+              <div className="space-y-2 text-xs">
+                <div className="flex items-center justify-between text-slate-600 dark:text-slate-400">
+                  <span>Helpline: +91-9354482819 / 9990395520</span>
+                  <span>Hours: Mon–Sat: 07:30 AM – 03:00 PM</span>
+                </div>
+                <div className="flex items-center gap-1.5 text-emerald-600 font-semibold">
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span>Centralized LMS Database Synchronized</span>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </div>
+      )}
+
+      {/* NCERT Sources & Versioning Tab */}
+      {activeTab === 'ncert_sources' && (
+        <div className="space-y-6">
+          <Card className="p-6 border-slate-200 dark:border-slate-800 space-y-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                  Official NCERT & CBSE Source Reference System
+                </h3>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Verified external curriculum repositories cited according to national educational copyright guidelines.
+                </p>
+              </div>
+              <Badge variant="primary" className="bg-[#173E2B] text-white">Active Version: GPS-CBSE-2026-V2</Badge>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+              <a
+                href="https://ncert.nic.in/textbook.php"
+                target="_blank"
+                rel="noreferrer"
+                className="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:border-[#173E2B] transition-all block"
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-bold text-[#173E2B] dark:text-emerald-400">Official Repository</span>
+                  <ExternalLink className="w-4 h-4 text-slate-400" />
+                </div>
+                <h4 className="font-bold text-sm text-slate-900 dark:text-white">NCERT Textbooks</h4>
+                <p className="text-xs text-slate-500 mt-1">Direct official e-textbooks repository for Classes 1 through 12.</p>
+              </a>
+
+              <a
+                href="https://ncert.nic.in/syllabus.php"
+                target="_blank"
+                rel="noreferrer"
+                className="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:border-[#173E2B] transition-all block"
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-bold text-[#173E2B] dark:text-emerald-400">Curriculum Scope</span>
+                  <ExternalLink className="w-4 h-4 text-slate-400" />
+                </div>
+                <h4 className="font-bold text-sm text-slate-900 dark:text-white">NCERT Official Syllabus</h4>
+                <p className="text-xs text-slate-500 mt-1">Elementary, secondary, and senior secondary national syllabus frameworks.</p>
+              </a>
+
+              <a
+                href="https://cbseacademic.nic.in/curriculum_2027.html"
+                target="_blank"
+                rel="noreferrer"
+                className="p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:border-[#173E2B] transition-all block"
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-bold text-[#173E2B] dark:text-emerald-400">Board Mandate</span>
+                  <ExternalLink className="w-4 h-4 text-slate-400" />
+                </div>
+                <h4 className="font-bold text-sm text-slate-900 dark:text-white">CBSE Curriculum 2026–2027</h4>
+                <p className="text-xs text-slate-500 mt-1">Official CBSE secondary and senior secondary annual examination scheme.</p>
+              </a>
             </div>
           </Card>
         </div>

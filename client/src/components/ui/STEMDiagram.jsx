@@ -35,7 +35,7 @@ export const STEMDiagram = ({
             <path
               key={i}
               d={pathData}
-              fill={isShaded ? 'var(--theme-primary, #4F46E5)' : '#F1F5F9'}
+              fill={isShaded ? 'var(--theme-primary, #173E2B)' : '#F1F5F9'}
               stroke="#0F172A"
               strokeWidth="1.5"
               className="transition-colors duration-200"
@@ -141,8 +141,8 @@ export const STEMDiagram = ({
           <svg viewBox="0 0 240 140" className="w-60 h-36 mx-auto" role="img" aria-label="Photosynthesis process flow diagram">
             <title>Photosynthesis Energy Conversion</title>
             {/* Inputs */}
-            <rect x="10" y="20" width="70" height="30" rx="6" fill="#EFF6FF" stroke="#3B82F6" strokeWidth="1.5" />
-            <text x="18" y="38" fontSize="10" fontWeight="600" fill="#1E3A8A">Light + H₂O</text>
+            <rect x="10" y="20" width="70" height="30" rx="6" fill="#E5ECE4" stroke="#173E2B" strokeWidth="1.5" />
+            <text x="18" y="38" fontSize="10" fontWeight="600" fill="#123021">Light + H₂O</text>
 
             <rect x="10" y="80" width="70" height="30" rx="6" fill="#F1F5F9" stroke="#64748B" strokeWidth="1.5" />
             <text x="24" y="98" fontSize="10" fontWeight="600" fill="#334155">CO₂ Input</text>

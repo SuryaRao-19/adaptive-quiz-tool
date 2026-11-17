@@ -1,7 +1,7 @@
 /**
  * Curriculum Ingestion & Verification Pipeline Service
  * 
- * Supports official curriculum ingestion from school documents (APS Sohna / CBSE Classes I-XII):
+ * Supports official curriculum ingestion from school documents (Greenwood Public School, Gurugram / CBSE Classes I-XII):
  * 1. Document upload / URL retrieval
  * 2. PDF & OCR text extraction
  * 3. Chapter, topic, and learning objective (LO) parsing

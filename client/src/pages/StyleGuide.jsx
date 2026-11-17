@@ -34,9 +34,9 @@ export const StyleGuide = () => {
   const [testDifficulty, setTestDifficulty] = useState('medium');
 
   const colors = [
-    { name: 'Indigo 600 (Primary Brand)', hex: '#4F46E5', bg: 'bg-indigo-600', text: 'text-white' },
-    { name: 'Indigo 900 (Deep Authority)', hex: '#312E81', bg: 'bg-indigo-900', text: 'text-white' },
-    { name: 'Cyan 500 (Accent)', hex: '#06B6D4', bg: 'bg-cyan-500', text: 'text-white' },
+    { name: 'Greenwood Forest 600 (Primary Brand)', hex: '#173E2B', bg: 'bg-greenwood-forest', text: 'text-white' },
+    { name: 'Greenwood Sage 500 (Secondary)', hex: '#416B50', bg: 'bg-greenwood-sage', text: 'text-white' },
+    { name: 'Warm Gold 500 (Accent)', hex: '#D9A441', bg: 'bg-greenwood-gold', text: 'text-slate-900' },
     { name: 'Emerald 500 (Mastery / Success)', hex: '#10B981', bg: 'bg-emerald-500', text: 'text-white' },
     { name: 'Amber 500 (Needs Focus / Warning)', hex: '#F59E0B', bg: 'bg-amber-500', text: 'text-white' },
     { name: 'Rose 500 (Error / Incorrect)', hex: '#F43F5E', bg: 'bg-rose-500', text: 'text-white' },
