@@ -1,5 +1,107 @@
 [
   {
+    "id": "ingest-aps-g07-mwk8wntg",
+    "title": "Asian Public School Class VII Math Syllabus",
+    "schoolCode": "40571",
+    "affiliationNumber": "530587",
+    "sourceUrl": "https://aps-school.in/curriculum.html",
+    "gradeLevel": 7,
+    "gradeRoman": "VII",
+    "subject": "Mathematics",
+    "status": "PUBLISHED",
+    "uploadedBy": "Curriculum Coordinator",
+    "uploadedAt": "2026-11-17T05:22:09.172Z",
+    "reviewedBy": "teacher-ananya",
+    "reviewedAt": "2026-11-17T05:22:09.173Z",
+    "publishedAt": "2026-11-17T05:22:09.174Z",
+    "chaptersCount": 2,
+    "topicsCount": 4,
+    "learningOutcomesCount": 8,
+    "extractedContent": {
+      "chapters": [
+        {
+          "chapterNumber": 1,
+          "title": "Integers and Rational Numbers",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Properties of Integer Addition",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.1",
+                  "statement": "Closure, Commutative, Associative.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Multiplication and Division",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-1.2",
+                  "statement": "Sign rules and distributive property.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.2",
+                  "statement": "Apply commutative property",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-1.2.3",
+                  "statement": "solve integers multi-step equations.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "chapterNumber": 2,
+          "title": "Fractions and Decimals",
+          "topics": [
+            {
+              "topicNumber": 1,
+              "title": "Unlike Fractions",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.1",
+                  "statement": "Finding LCM and common denominators.",
+                  "taxonomyLevel": "APPLY"
+                }
+              ]
+            },
+            {
+              "topicNumber": 2,
+              "title": "Decimal Arithmetic",
+              "learningOutcomes": [
+                {
+                  "code": "LO-MAT7-2.2",
+                  "statement": "Division of decimals by integers.",
+                  "taxonomyLevel": "APPLY"
+                },
+                {
+                  "code": "LO-MAT7-2.2.2",
+                  "statement": "Evaluate operations on fractions",
+                  "taxonomyLevel": "UNDERSTAND"
+                },
+                {
+                  "code": "LO-MAT7-2.2.3",
+                  "statement": "reduce to simplest form.",
+                  "taxonomyLevel": "UNDERSTAND"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "validationScore": 96,
+    "validationNotes": "Extracted and structured via AdaptIQ Ingestion OCR & NLP parser.",
+    "publishedBy": "Curriculum Lead"
+  },
+  {
     "id": "ingest-aps-g07-mwjkvhjk",
     "title": "Asian Public School Class VII Math Syllabus",
     "schoolCode": "40571",

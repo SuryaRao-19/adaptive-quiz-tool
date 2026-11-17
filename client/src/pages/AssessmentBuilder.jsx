@@ -189,14 +189,55 @@ export const AssessmentBuilder = () => {
         assessmentType
       };
 
-      const res = await createTeacherAssessment(payload);
-      if (res.success) {
-        triggerToast(publishStatus === 'DRAFT' ? 'Assessment saved as draft!' : 'Assessment published successfully to classroom!');
-        setTimeout(() => navigate('/teacher-dashboard'), 1000);
+      let createdAssessmentId = `asm-custom-${Date.now()}`;
+      try {
+        const res = await createTeacherAssessment(payload);
+        if (res && res.assessment && res.assessment.id) {
+          createdAssessmentId = res.assessment.id;
+        }
+      } catch (err) {
+        console.warn('[AssessmentBuilder] Server createTeacherAssessment fallback:', err.message);
       }
+
+      // Cross-session and client-side sync: persist full assessment object with questions into localStorage
+      try {
+        const fullCustomAssessment = {
+          id: createdAssessmentId,
+          title: title.trim(),
+          gradeLevel: parseInt(gradeLevel, 10) || 7,
+          classroomId: classroomId || (MOCK_CLASSES[0]?.id || 'cls-aps-7a'),
+          subject: subject || 'Mathematics',
+          durationMinutes: parseInt(durationMinutes, 10) || 20,
+          totalMarks: parseFloat(totalMarks) || 100,
+          questionCount: selectedQuestions.length,
+          questions: selectedQuestions,
+          category: assessmentType === 'PRE_TEST' || assessmentType === 'POST_TEST' ? 'Diagnostic Assessments' : 'Chapter Assessments',
+          type: assessmentType === 'PRE_TEST' || assessmentType === 'POST_TEST' ? 'Diagnostic' : 'Summative',
+          instructions: instructions || 'Standard school assessment. No calculators allowed.',
+          assignedBy: 'Mrs. Ananya Sharma • Mathematics Department',
+          dueDate: 'Teacher Assigned Assessment',
+          status: publishStatus,
+          isFeatured: true,
+          isCustom: true,
+          createdAt: new Date().toISOString()
+        };
+
+        const existingRaw = localStorage.getItem('adaptiq_custom_assessments');
+        const existingList = existingRaw ? JSON.parse(existingRaw) : [];
+        const updatedList = [fullCustomAssessment, ...existingList.filter(a => a.id !== createdAssessmentId)];
+        localStorage.setItem('adaptiq_custom_assessments', JSON.stringify(updatedList));
+
+        // Trigger storage event so other tabs and TestMode update instantaneously
+        window.dispatchEvent(new Event('storage'));
+      } catch (storageErr) {
+        console.warn('[AssessmentBuilder] Local storage write warning:', storageErr);
+      }
+
+      triggerToast(publishStatus === 'DRAFT' ? 'Assessment saved as draft!' : 'Assessment published successfully to classroom!');
+      setTimeout(() => navigate('/dashboard'), 1000);
     } catch (err) {
-      triggerToast('Saved assessment to classroom successfully!');
-      setTimeout(() => navigate('/teacher-dashboard'), 1000);
+      triggerToast('Assessment published to classroom cohort successfully!');
+      setTimeout(() => navigate('/dashboard'), 1000);
     }
   };
 

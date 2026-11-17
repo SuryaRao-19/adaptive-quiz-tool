@@ -45,8 +45,35 @@ export const TestMode = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
-  // Test catalog state
-  const [testsList, setTestsList] = useState(MOCK_TESTS);
+  // Helper: Retrieve client-persisted teacher assessments from localStorage
+  const getStoredCustomAssessments = () => {
+    try {
+      const raw = localStorage.getItem('adaptiq_custom_assessments');
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (Array.isArray(parsed)) return parsed;
+      }
+    } catch (_) {}
+    return [];
+  };
+
+  const normalizeCategory = (assessmentType, category) => {
+    if (assessmentType === 'PRE_TEST' || assessmentType === 'POST_TEST') return 'Diagnostic Assessments';
+    if (assessmentType === 'PRACTICE') return 'Topic Quizzes';
+    if (assessmentType === 'FORMATIVE_TEST') return 'Chapter Assessments';
+    if (category) return category;
+    return 'Classroom Assessments';
+  };
+
+  // Test catalog state - initialized with locally created teacher assessments + standard catalogue
+  const [testsList, setTestsList] = useState(() => {
+    const custom = getStoredCustomAssessments();
+    if (custom.length > 0) {
+      const customIds = new Set(custom.map(c => c.id));
+      return [...custom, ...MOCK_TESTS.filter(t => !customIds.has(t.id))];
+    }
+    return MOCK_TESTS;
+  });
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedSubject, setSelectedSubject] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
@@ -108,8 +135,8 @@ export const TestMode = () => {
               durationMinutes: a.durationMinutes || 20,
               questionCount: a.questions?.length || a.questionCount || a.questionIds?.length || 10,
               totalMarks: a.totalMarks || a.maxScore || 100,
-              category: a.assessmentType || 'Classroom Assessment',
-              type: a.assessmentType || 'Summative',
+              category: normalizeCategory(a.assessmentType, a.category),
+              type: a.assessmentType === 'PRE_TEST' || a.assessmentType === 'POST_TEST' ? 'Diagnostic' : (a.type || 'Summative'),
               instructions: a.instructions || 'Standard school assessment.',
               questions: a.questions || (a.items ? a.items.map(item => item.question) : []),
               isLive: Boolean(a.isLive),
@@ -119,9 +146,24 @@ export const TestMode = () => {
             }));
 
           setTestsList(prev => {
-            const apiIds = new Set(apiTests.map(t => t.id));
-            const remainingDefault = prev.filter(t => !apiIds.has(t.id));
-            return [...apiTests, ...remainingDefault];
+            const custom = getStoredCustomAssessments();
+            const mergedMap = new Map();
+            custom.forEach(t => mergedMap.set(t.id, t));
+            apiTests.forEach(t => {
+              if (mergedMap.has(t.id)) {
+                const existing = mergedMap.get(t.id);
+                mergedMap.set(t.id, {
+                  ...t,
+                  questions: (existing.questions && existing.questions.length > 0) ? existing.questions : t.questions
+                });
+              } else {
+                mergedMap.set(t.id, t);
+              }
+            });
+            prev.forEach(t => {
+              if (!mergedMap.has(t.id)) mergedMap.set(t.id, t);
+            });
+            return Array.from(mergedMap.values());
           });
         }
       } catch (err) {
@@ -131,6 +173,22 @@ export const TestMode = () => {
 
     fetchPublishedAssessments();
     return () => { isMounted = false; };
+  }, []);
+
+  // Real-time synchronization across browser tabs for teacher-authored assessments
+  useEffect(() => {
+    const handleStorageChange = () => {
+      const custom = getStoredCustomAssessments();
+      if (custom.length > 0) {
+        setTestsList(prev => {
+          const customMap = new Map(custom.map(c => [c.id, c]));
+          const remaining = prev.filter(t => !customMap.has(t.id));
+          return [...custom, ...remaining];
+        });
+      }
+    };
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
   }, []);
 
   useEffect(() => {
@@ -1210,6 +1268,7 @@ export const TestMode = () => {
   // ==========================================
   const CATEGORIES = [
     'All',
+    'Classroom Assessments',
     'Diagnostic Assessments',
     'Chapter Assessments',
     'Topic Quizzes',
@@ -1224,11 +1283,18 @@ export const TestMode = () => {
   const studentGrade = user?.gradeLevel || user?.grade || 7;
 
   const filteredTests = testsList.filter((t) => {
-    // Lock tests strictly to student's enrolled grade
-    if (role === 'student' && t.gradeLevel && t.gradeLevel !== studentGrade) {
+    // Lock tests strictly to student's enrolled grade (if grade specified)
+    if (role === 'student' && t.gradeLevel && parseInt(t.gradeLevel, 10) !== parseInt(studentGrade, 10)) {
       return false;
     }
-    const matchesCategory = selectedCategory === 'All' || t.category === selectedCategory || (selectedCategory === 'Diagnostic Assessments' && t.type === 'Diagnostic');
+    const matchesCategory =
+      selectedCategory === 'All' ||
+      t.category === selectedCategory ||
+      (selectedCategory === 'Classroom Assessments' && (t.isCustom || t.assignedBy?.includes('Sharma') || t.status === 'PUBLISHED')) ||
+      (selectedCategory === 'Diagnostic Assessments' && (t.type === 'Diagnostic' || t.category?.includes('Diagnostic') || t.assessmentType === 'PRE_TEST' || t.assessmentType === 'POST_TEST')) ||
+      (selectedCategory === 'Chapter Assessments' && (t.category?.includes('Chapter') || t.assessmentType === 'FORMATIVE_TEST')) ||
+      (selectedCategory === 'Topic Quizzes' && (t.category?.includes('Topic') || t.assessmentType === 'PRACTICE'));
+
     const matchesSubject = selectedSubject === 'All' || (t.subject || '').includes(selectedSubject);
     const textTarget = `${t.title} ${t.description || ''} ${t.subject || ''} ${t.assignedBy || ''}`.toLowerCase();
     const matchesSearch = textTarget.includes(searchQuery.toLowerCase());
@@ -1412,6 +1478,11 @@ export const TestMode = () => {
                   {test.category && (
                     <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700">
                       {test.type || test.category}
+                    </span>
+                  )}
+                  {test.isCustom && (
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
+                      ★ Assigned by Teacher
                     </span>
                   )}
                 </div>

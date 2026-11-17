@@ -136,6 +136,8 @@ export const App = () => {
             />
 
             {/* Teacher Command Centre Dedicated Workspaces */}
+            <Route path="/teacher-dashboard" element={<Navigate to="/dashboard" replace />} />
+            <Route path="/student-dashboard" element={<Navigate to="/dashboard" replace />} />
             <Route
               path="/teacher/assessments"
               element={

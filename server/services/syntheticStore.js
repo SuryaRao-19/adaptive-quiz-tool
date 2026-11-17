@@ -10,6 +10,7 @@ const fs = require('fs');
 const path = require('path');
 
 const DATA_FILE_PATH = path.join(__dirname, '../data/syntheticSchoolData.json');
+const TMP_DATA_FILE_PATH = process.env.VERCEL ? path.join('/tmp', 'syntheticSchoolData.json') : null;
 let inMemoryStore = null;
 
 // Statically required so Vercel / serverless bundlers trace and bundle this JSON file into the Lambda distribution
@@ -22,7 +23,19 @@ try {
 
 function loadStore() {
   if (!inMemoryStore) {
-    if (fs.existsSync(DATA_FILE_PATH)) {
+    // 1. Check writable /tmp partition first if running on Vercel
+    if (TMP_DATA_FILE_PATH && fs.existsSync(TMP_DATA_FILE_PATH)) {
+      try {
+        const raw = fs.readFileSync(TMP_DATA_FILE_PATH, 'utf8');
+        inMemoryStore = JSON.parse(raw);
+      } catch (err) {
+        console.warn('[SyntheticStore] Error reading /tmp store, falling back:', err.message);
+        inMemoryStore = null;
+      }
+    }
+
+    // 2. Read from local repository file path
+    if (!inMemoryStore && fs.existsSync(DATA_FILE_PATH)) {
       try {
         const raw = fs.readFileSync(DATA_FILE_PATH, 'utf8');
         inMemoryStore = JSON.parse(raw);
@@ -32,7 +45,7 @@ function loadStore() {
       }
     }
     
-    // If not loaded from disk, use static seed data (bundled in Lambda)
+    // 3. If not loaded from disk, use static seed data (bundled in Lambda)
     if (!inMemoryStore && staticSeedData) {
       inMemoryStore = JSON.parse(JSON.stringify(staticSeedData));
     }
@@ -69,11 +82,15 @@ function loadStore() {
 
 function persistStore() {
   if (!inMemoryStore) return;
+  const targetPath = (process.env.VERCEL && TMP_DATA_FILE_PATH) ? TMP_DATA_FILE_PATH : DATA_FILE_PATH;
   try {
-    fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(inMemoryStore, null, 2), 'utf8');
+    fs.writeFileSync(targetPath, JSON.stringify(inMemoryStore, null, 2), 'utf8');
   } catch (err) {
-    // In serverless environments (e.g. AWS Lambda / Vercel), disk is read-only.
-    // In-memory mutations remain active for the duration of the warm container.
+    if (TMP_DATA_FILE_PATH && targetPath !== TMP_DATA_FILE_PATH) {
+      try {
+        fs.writeFileSync(TMP_DATA_FILE_PATH, JSON.stringify(inMemoryStore, null, 2), 'utf8');
+      } catch (_) {}
+    }
   }
 }
 

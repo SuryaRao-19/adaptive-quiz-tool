@@ -1,15 +1,15 @@
 {
   "schoolCode": "APS-2026-DEMO",
-  "totalTokensUsed": 146650,
-  "totalCostUsd": 0.0896,
-  "recordsCount": 61,
-  "todayTokensUsed": 22250,
-  "todayCostUsd": 0.0146,
+  "totalTokensUsed": 146850,
+  "totalCostUsd": 0.0898,
+  "recordsCount": 62,
+  "todayTokensUsed": 22450,
+  "todayCostUsd": 0.0148,
   "perModel": {
     "omni-auto": {
-      "calls": 37,
-      "tokens": 72300,
-      "costUsd": 0.0445
+      "calls": 38,
+      "tokens": 72500,
+      "costUsd": 0.0447
     },
     "omni-fast-flash": {
       "calls": 14,
@@ -49,9 +49,9 @@
       "costUsd": 0.0029
     },
     "ai_tutor_chat": {
-      "calls": 19,
-      "tokens": 3800,
-      "costUsd": 0.0034
+      "calls": 20,
+      "tokens": 4000,
+      "costUsd": 0.0036
     }
   },
   "perStudent": {
@@ -76,11 +76,25 @@
     "student-test-01": {
       "name": "Student",
       "grade": 7,
-      "dailyTokens": 3400,
-      "totalTokens": 3400
+      "dailyTokens": 3600,
+      "totalTokens": 3600
     }
   },
   "usageHistory": [
+    {
+      "id": "usg-mwk8wntc",
+      "studentId": "student-test-01",
+      "studentName": "Student",
+      "modelId": "omni-auto",
+      "provider": "omni",
+      "feature": "ai_tutor_chat",
+      "inputTokens": 120,
+      "outputTokens": 80,
+      "totalTokens": 200,
+      "costUsd": 0.00019999999999999998,
+      "durationMs": 0,
+      "timestamp": "2026-11-17T05:22:09.168Z"
+    },
     {
       "id": "usg-mwjkvhje",
       "studentId": "student-test-01",
