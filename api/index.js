@@ -1,20 +1,14 @@
 const app = require('../server/server');
-const connectDB = require('../server/config/db');
-
-let isConnected = false;
 
 /**
  * Serverless Function Handler for Vercel
- * Adapts the Express API for serverless request routing and maintains DB connectivity.
+ * Adapts the Express API for serverless request routing.
+ * Ensures instant non-blocking responses on serverless cold starts.
  */
-module.exports = async (req, res) => {
-  if (!isConnected) {
-    try {
-      await connectDB();
-      isConnected = true;
-    } catch (err) {
-      console.warn('[Vercel Serverless] Database connection notice:', err.message);
-    }
+module.exports = (req, res) => {
+  // Ensure the URL matches Express route prefix (/api/...)
+  if (req.url && !req.url.startsWith('/api')) {
+    req.url = '/api' + (req.url.startsWith('/') ? req.url : '/' + req.url);
   }
   return app(req, res);
 };
