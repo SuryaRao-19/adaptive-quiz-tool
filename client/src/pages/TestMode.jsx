@@ -85,23 +85,105 @@ export const TestMode = () => {
     dueDate: '2026-09-28'
   });
 
+  // Fetch dynamically published teacher assessments from backend
+  useEffect(() => {
+    let isMounted = true;
+    const fetchPublishedAssessments = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        const res = await fetch('/api/assessments', {
+          headers: {
+            ...(token ? { Authorization: `Bearer ${token}` } : {})
+          }
+        });
+        const data = await res.json();
+        if (isMounted && data.success && Array.isArray(data.assessments) && data.assessments.length > 0) {
+          const apiTests = data.assessments
+            .filter(a => a.status !== 'DRAFT')
+            .map(a => ({
+              id: a.id,
+              title: a.title,
+              subject: a.subject || 'Mathematics',
+              gradeLevel: a.gradeLevel || 7,
+              durationMinutes: a.durationMinutes || 20,
+              questionCount: a.questions?.length || a.questionCount || a.questionIds?.length || 10,
+              totalMarks: a.totalMarks || a.maxScore || 100,
+              category: a.assessmentType || 'Classroom Assessment',
+              type: a.assessmentType || 'Summative',
+              instructions: a.instructions || 'Standard school assessment.',
+              questions: a.questions || (a.items ? a.items.map(item => item.question) : []),
+              isLive: Boolean(a.isLive),
+              isFeatured: Boolean(a.isLive || a.assessmentType === 'PRE_TEST'),
+              status: a.status || 'PUBLISHED',
+              assignedBy: a.teacherName || 'Mrs. Ananya Sharma'
+            }));
+
+          setTestsList(prev => {
+            const apiIds = new Set(apiTests.map(t => t.id));
+            const remainingDefault = prev.filter(t => !apiIds.has(t.id));
+            return [...apiTests, ...remainingDefault];
+          });
+        }
+      } catch (err) {
+        console.warn('[TestMode] Error fetching dynamic assessments:', err);
+      }
+    };
+
+    fetchPublishedAssessments();
+    return () => { isMounted = false; };
+  }, []);
+
   useEffect(() => {
     // Only launch test execution when a test id is specified (e.g. /test?id=...)
     if (activeTestId) {
-      const found = testsList.find((t) => t.id === activeTestId) || testsList[0];
-      setTestData(found);
-      const savedAnswers = JSON.parse(localStorage.getItem(`adaptiq_test_answers_${found.id}`) || '{}');
-      setSelectedAnswers(savedAnswers);
-      setSecondsRemaining((found.durationMinutes || 20) * 60);
-      setCurrentQuestionIndex(0);
-      setTestCompleted(false);
-      setTestScore(null);
-      setTestStarted(false);
-      setViolationCount(0);
-      setViolationModalOpen(false);
-      setLastViolationReason('');
-      setIsAutoSubmitted(false);
-      isSubmittingRef.current = false;
+      const found = testsList.find((t) => t.id === activeTestId);
+      if (found) {
+        setTestData(found);
+        const savedAnswers = JSON.parse(localStorage.getItem(`adaptiq_test_answers_${found.id}`) || '{}');
+        setSelectedAnswers(savedAnswers);
+        setSecondsRemaining((found.durationMinutes || 20) * 60);
+        setCurrentQuestionIndex(0);
+        setTestCompleted(false);
+        setTestScore(null);
+        setTestStarted(false);
+        setViolationCount(0);
+        setViolationModalOpen(false);
+        setLastViolationReason('');
+        setIsAutoSubmitted(false);
+        isSubmittingRef.current = false;
+      } else {
+        // Fetch single assessment by id from backend
+        fetch(`/api/assessments/${activeTestId}`)
+          .then(r => r.json())
+          .then(data => {
+            if (data.success && data.assessment) {
+              const a = data.assessment;
+              const formatted = {
+                id: a.id,
+                title: a.title,
+                subject: a.subject || 'Mathematics',
+                gradeLevel: a.gradeLevel || 7,
+                durationMinutes: a.durationMinutes || 20,
+                questionCount: a.questions?.length || a.questionCount || a.questionIds?.length || 10,
+                totalMarks: a.totalMarks || a.maxScore || 100,
+                category: a.assessmentType || 'Classroom Assessment',
+                type: a.assessmentType || 'Summative',
+                instructions: a.instructions || 'Standard school assessment.',
+                questions: a.questions || (a.items ? a.items.map(item => item.question) : []),
+                isLive: Boolean(a.isLive),
+                status: a.status || 'PUBLISHED',
+                assignedBy: a.teacherName || 'Mrs. Ananya Sharma'
+              };
+              setTestData(formatted);
+              setSecondsRemaining((formatted.durationMinutes || 20) * 60);
+              setCurrentQuestionIndex(0);
+              setTestCompleted(false);
+              setTestScore(null);
+              setTestStarted(false);
+            }
+          })
+          .catch(() => {});
+      }
     } else {
       setTestData(null);
       setTestCompleted(false);

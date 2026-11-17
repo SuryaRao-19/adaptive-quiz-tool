@@ -29,7 +29,7 @@
       ],
       "schoolId": "school-aps-001",
       "designation": "Head of Mathematics Department",
-      "passwordHash": "$2a$10$dzkwM65r60kNKSWBf4i47.bQL2pVl84R5kR2JVZLukLqvRPswV7nC",
+      "passwordHash": "$2a$10$ZHA8RE4uxx/2OGQAn1VVqe8fMYF0YTL6dtN7s4FYVTM2G/7BZOmN2",
       "status": "ACTIVE"
     },
     {
@@ -42,7 +42,7 @@
       "grades": [],
       "schoolId": "school-aps-001",
       "designation": "Principal & Academic Director",
-      "passwordHash": "$2a$10$fKAy2c5yFt43nvrHM9Z5W.obFHJV..Y7/9teNxLnvZwosafPBeRea",
+      "passwordHash": "$2a$10$BIrCTNE8czDehauGyHua2uTEHcygC8HQZIcNOnPlBKC8Dj14vwkM.",
       "status": "ACTIVE"
     }
   ],
@@ -60,7 +60,7 @@
       "schoolId": "school-aps-001",
       "capacity": 30,
       "enrolledCount": 20,
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "createdAt": "2026-11-17T04:37:45.937Z"
     }
   ],
   "students": [
@@ -76,8 +76,8 @@
       "isActivated": true,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-002",
@@ -91,8 +91,8 @@
       "isActivated": true,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-003",
@@ -106,8 +106,8 @@
       "isActivated": false,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-004",
@@ -121,8 +121,8 @@
       "isActivated": false,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-005",
@@ -136,8 +136,8 @@
       "isActivated": false,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-006",
@@ -151,8 +151,8 @@
       "isActivated": false,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-007",
@@ -166,8 +166,8 @@
       "isActivated": false,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-008",
@@ -181,8 +181,8 @@
       "isActivated": false,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-009",
@@ -196,8 +196,8 @@
       "isActivated": false,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-010",
@@ -211,8 +211,8 @@
       "isActivated": false,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-011",
@@ -226,8 +226,8 @@
       "isActivated": false,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-012",
@@ -241,8 +241,8 @@
       "isActivated": false,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-013",
@@ -256,8 +256,8 @@
       "isActivated": false,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-014",
@@ -271,8 +271,8 @@
       "isActivated": false,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-015",
@@ -286,8 +286,8 @@
       "isActivated": false,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-016",
@@ -301,8 +301,8 @@
       "isActivated": false,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-017",
@@ -316,8 +316,8 @@
       "isActivated": false,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-018",
@@ -331,8 +331,8 @@
       "isActivated": false,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-019",
@@ -346,8 +346,8 @@
       "isActivated": false,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     },
     {
       "id": "stu-g7-020",
@@ -361,8 +361,8 @@
       "isActivated": false,
       "classroomId": "cls-aps-7a",
       "schoolId": "school-aps-001",
-      "passwordHash": "$2a$10$OV.oHkCQHcpfnq6IHMelAeBQgOF9aQb3wVSKBx.Md4fDcuiG.Hm/.",
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "passwordHash": "$2a$10$p/bCt1BO0FlCQ8XWEMKf/.eO7jAGYR0xvC0Gh43CJi6BwAblTiMSi",
+      "createdAt": "2026-11-17T04:37:45.937Z"
     }
   ],
   "assessments": [
@@ -1246,9 +1246,9 @@
           "misconception": "Using final value instead of initial base value in denominator of percentage change."
         }
       ],
-      "startTime": "2026-11-17T04:14:02.233Z",
+      "startTime": "2026-11-17T04:37:45.937Z",
       "endTime": null,
-      "createdAt": "2026-11-17T04:14:02.233Z"
+      "createdAt": "2026-11-17T04:37:45.937Z"
     }
   ],
   "attempts": [],
@@ -1274,11 +1274,11 @@
           "responderName": "Dr. K. S. Raman",
           "responderRole": "admin",
           "message": "Excellent. I will review the class roster and monitor candidate progress during the 20-minute timed diagnostic tomorrow.",
-          "createdAt": "2026-11-17T04:14:02.234Z"
+          "createdAt": "2026-11-17T04:37:45.937Z"
         }
       ],
-      "createdAt": "2026-11-17T04:14:02.234Z",
-      "updatedAt": "2026-11-17T04:14:02.234Z"
+      "createdAt": "2026-11-17T04:37:45.937Z",
+      "updatedAt": "2026-11-17T04:37:45.937Z"
     }
   ]
 }

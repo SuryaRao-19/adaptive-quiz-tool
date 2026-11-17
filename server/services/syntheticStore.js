@@ -148,7 +148,22 @@ function getStudentsByClassroom(classroomId) {
 // 4. Assessments
 function getAssessments() {
   const store = loadStore();
-  return store.assessments || [];
+  const rawAssessments = store.assessments || [];
+  let multiQuestions = null;
+  try {
+    multiQuestions = require('../data/multiGradeQuestions.json');
+  } catch (_) {
+    multiQuestions = [];
+  }
+  const qMap = new Map((multiQuestions || []).map(q => [q.id, q]));
+
+  return rawAssessments.map(asm => {
+    if ((!asm.questions || asm.questions.length === 0) && Array.isArray(asm.questionIds) && asm.questionIds.length > 0) {
+      const resolved = asm.questionIds.map(qid => qMap.get(qid)).filter(Boolean);
+      return { ...asm, questions: resolved };
+    }
+    return asm;
+  });
 }
 
 function getAssessmentById(id) {
