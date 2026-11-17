@@ -34,7 +34,7 @@ export const DemoSwitcherBar = ({ onMobileMenuClick }) => {
         </div>
         <div className="flex items-center gap-2 truncate">
           <span className="font-extrabold tracking-tight text-white text-xs sm:text-sm truncate">
-            Asian Public School
+            Greenwood Public School
           </span>
           <span className="text-slate-500 font-bold hidden sm:inline">|</span>
           <span className="bg-indigo-500/20 text-indigo-300 border border-indigo-400/40 px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider shrink-0">
@@ -42,11 +42,11 @@ export const DemoSwitcherBar = ({ onMobileMenuClick }) => {
           </span>
           <span className="text-slate-500 font-bold hidden md:inline">|</span>
           <span className="text-slate-300 text-[11px] font-semibold hidden md:inline truncate">
-            Sohna, Gurugram
+            Sector-9, Gurugram
           </span>
           <span className="text-slate-500 font-bold hidden lg:inline">|</span>
           <span className="text-slate-400 text-[11px] font-medium hidden lg:inline">
-            CBSE 530587
+            CBSE 530649
           </span>
         </div>
       </div>

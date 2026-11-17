@@ -27,7 +27,7 @@ const getResources = async (req, res, next) => {
     let resources = await LibraryResource.find(filter).sort({ createdAt: -1 });
 
     if (!resources || resources.length === 0) {
-      // Return verified Asian Public School Grade 7 Mathematics & Science topic-wise theory
+      // Return verified Greenwood Public School Grade 7 Mathematics & Science topic-wise theory
       const DEFAULT_G7_RESOURCES = [
         {
           _id: "res-g7-01",
@@ -239,7 +239,7 @@ const getResources = async (req, res, next) => {
         {
           _id: "res-07",
           id: "res-07",
-          title: "Asian Public School — CBSE Official Curriculum Class VII (2026–2027)",
+          title: "Greenwood Public School — CBSE Official Curriculum Class VII (2026–2027)",
           subject: "All",
           grade: 7,
           gradeLevel: 7,
@@ -249,8 +249,8 @@ const getResources = async (req, res, next) => {
           type: "Curriculum Documents",
           readTime: "Official Syllabus",
           thumbnail: "🏛️",
-          summary: "Official Asian Public School Class 7 CBSE curriculum syllabus overview covering Mathematics, Science, English, Social Science, and Hindi.",
-          body: `# Asian Public School, Sohna, Gurugram\n## Official CBSE Curriculum Structure — Class VII (Session 2026–2027)\nCBSE Affiliation: 530587 | School Code: 40571`
+          summary: "Official Greenwood Public School Class 7 CBSE curriculum syllabus overview covering Mathematics, Science, English, Social Science, and Hindi.",
+          body: `# Greenwood Public School, Sector-9, Gurugram\n## Official CBSE Curriculum Structure — Class VII (Session 2026–2027)\nCBSE Affiliation: 530649 | School Code: 40643`
         }
       ];
 

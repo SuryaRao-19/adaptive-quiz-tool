@@ -384,6 +384,7 @@ async function createTeacherAssessment(userId, data) {
 
   // --- SyntheticStore Fallback ---
   return syntheticStore.addAssessment({
+    id: data.id,
     title: title.trim(),
     gradeLevel: parseInt(gradeLevel, 10) || 7,
     classroomId,
@@ -394,6 +395,7 @@ async function createTeacherAssessment(userId, data) {
     durationMinutes: parseInt(durationMinutes, 10) || 20,
     totalMarks: parseFloat(totalMarks) || 100.0,
     questionIds,
+    questions: data.questions || [],
     difficultyDistribution,
     startTime,
     endTime,

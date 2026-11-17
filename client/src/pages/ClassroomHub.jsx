@@ -278,19 +278,19 @@ export const ClassroomHub = () => {
     gradeLevel: 7,
     section: '7-A',
     subject: 'Mathematics',
-    joinCode: 'APS7AM',
+    joinCode: 'GPS7AM',
     teacherName: 'Mrs. Ananya Sharma',
     studentCount: 28,
     avgMastery: 78
   };
 
-  // Filtered Roster from live backend with fallback to Asian Public School cohort roster
+  // Filtered Roster from live backend with fallback to Greenwood Public School cohort roster
   const baseRoster = (classAnalytics?.roster && classAnalytics.roster.length > 0)
     ? classAnalytics.roster
     : (MOCK_STUDENTS_ROSTER || []).map(s => ({
         id: s.id,
         name: s.name,
-        email: `${s.name.toLowerCase().replace(/\s+/g, '.')}@asianpublicschool.edu`,
+        email: `${s.name.toLowerCase().replace(/\s+/g, '.')}@greenwoodgurgaon.com`,
         roll: s.rollNumber,
         attempts: 18,
         accuracy: s.mastery,
@@ -1891,7 +1891,7 @@ export const ClassroomHub = () => {
         <div className="space-y-4 my-2">
           <div className="p-4 bg-indigo-50/70 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-indigo-950 dark:text-indigo-200">
             <div>
-              <p className="font-bold">Asian Public School CSV Roster Format:</p>
+              <p className="font-bold">Greenwood Public School CSV Roster Format:</p>
               <p className="text-slate-600 dark:text-slate-400 mt-0.5">
                 Headers: <code className="font-mono bg-white dark:bg-slate-800 px-1 py-0.5 rounded">student_name</code>, <code className="font-mono bg-white dark:bg-slate-800 px-1 py-0.5 rounded">grade</code>, <code className="font-mono bg-white dark:bg-slate-800 px-1 py-0.5 rounded">section</code>, <code className="font-mono bg-white dark:bg-slate-800 px-1 py-0.5 rounded">roll_number</code>, <code className="font-mono bg-white dark:bg-slate-800 px-1 py-0.5 rounded">email</code>
               </p>

@@ -44,7 +44,7 @@ import { recordAttempt } from '../services/progressService';
 import { saveOfflineAttempt, syncPendingAttempts } from '../services/offlineStorage';
 import api from '../services/api';
 
-// Multi-Grade CBSE Curricula for Asian Public School
+// Multi-Grade CBSE Curricula for Greenwood Public School
 const GRADE_CURRICULA = {
   3: {
     Mathematics: {
@@ -777,7 +777,7 @@ export const PracticeMode = () => {
             <div className="flex items-center gap-2">
               {renderAgeAdaptedBadge()}
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-                Asian Public School, Sohna
+                Greenwood Public School, Sector-9
               </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 dark:text-white">

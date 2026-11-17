@@ -138,7 +138,7 @@ function buildTutorSystemPrompt({
   if (studentName) {
     contextSnippet += `\n- Student Name: ${studentName}`;
   }
-  contextSnippet += `\n- Curriculum Board: ${curriculum} (Asian Public School, Sohna, Gurugram)`;
+  contextSnippet += `\n- Curriculum Board: ${curriculum} (Greenwood Public School, Sector-9, Gurugram)`;
   if (chapter) {
     contextSnippet += `\n- Current Chapter: ${chapter}`;
   }
@@ -160,7 +160,7 @@ function buildTutorSystemPrompt({
   if (intent === 'GREETING') {
     greetingDirective = `\nSPECIAL INTENT: GREETING DETECTED
 - The student said a greeting / greeted you (e.g. "hi", "hello", "good morning").
-- Respond warmly and courteously! Greet them${studentName ? ` by name (${studentName})` : ''} and introduce yourself as the AdaptIQ AI Tutor for Asian Public School.
+- Respond warmly and courteously! Greet them${studentName ? ` by name (${studentName})` : ''} and introduce yourself as the AdaptIQ AI Tutor for Greenwood Public School.
 - Ask politely what topic, chapter, or homework problem in ${subject} they would like to work on today.
 - DO NOT launch into an unsolicited lecture or question explanation on "${topic}" yet. Wait for the student's question.\n`;
   }

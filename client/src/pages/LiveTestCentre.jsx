@@ -71,7 +71,7 @@ export const LiveTestCentre = () => {
 
     setLiveData({
       assessmentId,
-      title: "Asian Public School — Grade 7 Mathematics Diagnostic Assessment",
+      title: "Greenwood Public School — Grade 7 Mathematics Diagnostic Assessment",
       subject: "Mathematics",
       gradeLevel: 7,
       className: "Grade 7-A (Mathematics Pilot)",

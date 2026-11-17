@@ -31,14 +31,14 @@ function loadBatches() {
     }
   }
 
-  // Pre-populate with official Asian Public School (APS Sohna) curriculum documents (Classes I–XII)
+  // Pre-populate with official Greenwood Public School (GPS Sector-9, Gurugram) curriculum documents (Classes I–XII)
   ingestionBatches = [
     {
-      id: 'ingest-aps-g07-math',
+      id: 'ingest-gps-g07-math',
       title: 'Class VII CBSE Mathematics Syllabus 2026–2027',
-      schoolCode: '40571',
-      affiliationNumber: '530587',
-      sourceUrl: 'https://aps-school.in/curriculum.html',
+      schoolCode: '40643',
+      affiliationNumber: '530649',
+      sourceUrl: 'https://www.greenwoodgurgaon.com',
       gradeLevel: 7,
       gradeRoman: 'VII',
       subject: 'Mathematics',
@@ -98,14 +98,14 @@ function loadBatches() {
         ]
       },
       validationScore: 100,
-      validationNotes: 'Fully verified against CBSE Class VII guidelines from aps-school.in/curriculum.html'
+      validationNotes: 'Fully verified against CBSE Class VII guidelines from greenwoodgurgaon.com'
     },
     {
-      id: 'ingest-aps-g09-sci',
+      id: 'ingest-gps-g09-sci',
       title: 'Class IX CBSE Science (Physics, Chemistry & Biology) Curriculum',
-      schoolCode: '40571',
-      affiliationNumber: '530587',
-      sourceUrl: 'https://aps-school.in/curriculum.html',
+      schoolCode: '40643',
+      affiliationNumber: '530649',
+      sourceUrl: 'https://www.greenwoodgurgaon.com',
       gradeLevel: 9,
       gradeRoman: 'IX',
       subject: 'Science',
@@ -154,11 +154,11 @@ function loadBatches() {
       validationNotes: 'Validated against CBSE Board Class IX curriculum.'
     },
     {
-      id: 'ingest-aps-g10-sci',
+      id: 'ingest-gps-g10-sci',
       title: 'Class X CBSE Board Science Syllabus',
-      schoolCode: '40571',
-      affiliationNumber: '530587',
-      sourceUrl: 'https://aps-school.in/curriculum.html',
+      schoolCode: '40643',
+      affiliationNumber: '530649',
+      sourceUrl: 'https://www.greenwoodgurgaon.com',
       gradeLevel: 10,
       gradeRoman: 'X',
       subject: 'Science',
@@ -193,11 +193,11 @@ function loadBatches() {
       validationNotes: 'Awaiting 1-click publishing into question bank & solutions hub.'
     },
     {
-      id: 'ingest-aps-g05-math',
+      id: 'ingest-gps-g05-math',
       title: 'Class V Primary Wing Mathematics Syllabus',
-      schoolCode: '40571',
-      affiliationNumber: '530587',
-      sourceUrl: 'https://aps-school.in/curriculum.html',
+      schoolCode: '40643',
+      affiliationNumber: '530649',
+      sourceUrl: 'https://www.greenwoodgurgaon.com',
       gradeLevel: 5,
       gradeRoman: 'V',
       subject: 'Mathematics',
@@ -378,7 +378,7 @@ function parseCurriculumText(text, { gradeLevel = 7, subject = 'Mathematics' } =
  */
 function ingestCurriculumDocument({ title, documentName, sourceUrl, gradeLevel, subject, rawText, uploadedBy }) {
   const batches = loadBatches();
-  const id = `ingest-aps-g${String(gradeLevel).padStart(2, '0')}-${Date.now().toString(36)}`;
+  const id = `ingest-gps-g${String(gradeLevel).padStart(2, '0')}-${Date.now().toString(36)}`;
   const g = parseInt(gradeLevel, 10) || 7;
   const subj = subject || 'Mathematics';
   const docTitle = documentName || title || `Class ${g} ${subj} Curriculum Document`;
@@ -396,9 +396,9 @@ function ingestCurriculumDocument({ title, documentName, sourceUrl, gradeLevel, 
   const newBatch = {
     id,
     title: docTitle,
-    schoolCode: '40571',
-    affiliationNumber: '530587',
-    sourceUrl: sourceUrl || 'https://aps-school.in/curriculum.html',
+    schoolCode: '40643',
+    affiliationNumber: '530649',
+    sourceUrl: sourceUrl || 'https://www.greenwoodgurgaon.com',
     gradeLevel: g,
     gradeRoman: ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'][g - 1] || String(g),
     subject: subj,

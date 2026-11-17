@@ -221,7 +221,7 @@ export const StudentDashboard = () => {
             </motion.div>
           )}
 
-          {/* Asian Public School Grade 7 Pilot Diagnostic Assessment Banner */}
+          {/* Greenwood Public School Grade 7 Pilot Diagnostic Assessment Banner */}
           <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-5 sm:p-6 border-2 border-indigo-500/50 shadow-elevated flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <div className="space-y-1.5">
               <div className="flex items-center gap-2">
@@ -231,7 +231,7 @@ export const StudentDashboard = () => {
                 <span className="text-xs text-indigo-200">20 Questions • 20 Minutes</span>
               </div>
               <h3 className="text-base sm:text-lg font-extrabold text-white">
-                Asian Public School — Grade 7 Mathematics Diagnostic Assessment
+                Greenwood Public School — Grade 7 Mathematics Diagnostic Assessment
               </h3>
               <p className="text-xs text-slate-300 max-w-2xl leading-relaxed">
                 Baseline assessment across Integers, Fractions & Decimals, Rational Numbers, Equations, Expressions, Geometry, and Ratios. Results automatically calibrate your personalized adaptive practice.

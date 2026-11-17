@@ -66,7 +66,7 @@ class GoogleBooksService {
     // Standard Curated CBSE Textbook & Reference Books
     return [
       {
-        id: `aps_book_ncert_${grade}_${subject.toLowerCase()}`,
+        id: `gps_book_ncert_${grade}_${subject.toLowerCase()}`,
         title: `NCERT Class ${grade} ${subject} — Official Textbook`,
         authors: ['NCERT Curriculum Panel'],
         publisher: 'NCERT New Delhi',
@@ -78,7 +78,7 @@ class GoogleBooksService {
         infoLink: 'https://ncert.nic.in/textbook.php'
       },
       {
-        id: `aps_book_exemplar_${grade}_${subject.toLowerCase()}`,
+        id: `gps_book_exemplar_${grade}_${subject.toLowerCase()}`,
         title: `NCERT Exemplar Problems — Class ${grade} ${subject}`,
         authors: ['Department of Education in Science and Mathematics'],
         publisher: 'NCERT New Delhi',

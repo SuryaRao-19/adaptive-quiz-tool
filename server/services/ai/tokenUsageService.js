@@ -15,7 +15,7 @@ const path = require('path');
 
 const USAGE_STORE_PATH = path.join(__dirname, '../../data/aiTokenUsageStore.json');
 
-// Default institutional limits for Asian Public School
+// Default institutional limits for Greenwood Public School
 const BUDGET_LIMITS = {
   dailyCostBudgetUsd: parseFloat(process.env.AI_DAILY_BUDGET_USD || '25.00'),
   monthlyCostBudgetUsd: parseFloat(process.env.AI_MONTHLY_BUDGET_USD || '500.00'),
@@ -39,9 +39,9 @@ function loadUsageStore() {
     }
   }
 
-  // Baseline synthetic usage records for Asian Public School demo
+  // Baseline synthetic usage records for Greenwood Public School demo
   inMemoryUsageStore = {
-    schoolCode: 'APS-2026-DEMO',
+    schoolCode: 'GPS-2026-DEMO',
     totalTokensUsed: 142850,
     totalCostUsd: 0.0862,
     recordsCount: 42,
@@ -211,7 +211,7 @@ function getUsageDashboardMetrics() {
   const store = loadUsageStore();
   return {
     success: true,
-    institution: 'Asian Public School — AdaptIQ Demonstration Environment',
+    institution: 'Greenwood Public School — AdaptIQ Demonstration Environment',
     budgetLimits: BUDGET_LIMITS,
     summary: {
       totalTokensUsed: store.totalTokensUsed,

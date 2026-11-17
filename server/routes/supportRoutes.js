@@ -7,7 +7,7 @@ router.get('/config', (req, res) => {
   res.json({
     success: true,
     provider: 'Internal Database Support System',
-    service: 'AdaptIQ Asian Public School Support Gateway'
+    service: 'AdaptIQ Greenwood Public School Support Gateway'
   });
 });
 
@@ -62,7 +62,7 @@ router.post('/tickets', (req, res) => {
     const ticket = syntheticStore.addTicket({
       senderName: senderName || name || 'Anonymous User',
       senderRole: senderRole || role || 'student',
-      senderEmail: senderEmail || email || 'user@asianpublicschool.edu',
+      senderEmail: senderEmail || email || 'user@greenwoodgurgaon.com',
       studentId: studentId || null,
       subject: subject || bugTitle || 'Help & Support Request',
       message: message || description || '',

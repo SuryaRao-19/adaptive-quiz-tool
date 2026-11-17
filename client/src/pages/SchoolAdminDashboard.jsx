@@ -34,11 +34,11 @@ export const SchoolAdminDashboard = () => {
 
   // Curriculum Ingestion State
   const [ingestForm, setIngestForm] = useState({
-    documentName: 'APS Class VII Science CBSE Curriculum 2026-2027',
+    documentName: 'GPS Class VII Science CBSE Curriculum 2026-2027',
     gradeLevel: 7,
     subject: 'Science',
     academicYear: '2026-2027',
-    sourceUrl: 'https://aps-school.in/curriculum.html',
+    sourceUrl: 'https://www.greenwoodgurgaon.com',
     rawText: `Class VII CBSE Science Curriculum
 Chapter 1: Nutrition in Plants
 - Autotrophic Nutrition & Photosynthesis: Chlorophyll, stomata, light reactions, carbon fixation.
@@ -127,13 +127,13 @@ Learning Objectives: Interpret thermometer readings accurately; identify heat tr
     // Fetch metrics from backend API or load local state
     const fetchMetrics = async () => {
       try {
-        const res = await fetch('/api/schools/metrics?code=APS-2026');
+        const res = await fetch('/api/schools/metrics?code=GPS-2026');
         const json = await res.json();
         if (json.success && json.data) {
           setMetrics(json.data);
         }
       } catch (e) {
-        console.warn('Using local fallback metrics for Asian Public School:', e);
+        console.warn('Using local fallback metrics for Greenwood Public School:', e);
       } finally {
         setLoading(false);
       }
@@ -144,19 +144,19 @@ Learning Objectives: Interpret thermometer readings accurately; identify heat tr
   // Demonstration Fallback Data if API is cold
   const data = metrics || {
     school: {
-      name: "Asian Public School",
-      tenantName: "Asian Public School — AdaptIQ Demonstration Environment",
-      code: "APS-2026",
-      schoolCode: "40571",
+      name: "Greenwood Public School",
+      tenantName: "Greenwood Public School — AdaptIQ Demonstration Environment",
+      code: "GPS-2026",
+      schoolCode: "40643",
       board: "CBSE",
-      affiliationNumber: "530587",
-      location: "Sohna, Gurugram, Haryana",
+      affiliationNumber: "530649",
+      location: "Huda Site No.-1, Sector -9, Gurugram, Haryana - 122001",
       city: "Gurugram",
       state: "Haryana",
-      website: "https://aps-school.in/index.html",
-      curriculumUrl: "https://aps-school.in/curriculum.html",
-      contactEmail: "contact@aps-school.in",
-      contactPhone: "+91 124 238 1234"
+      website: "https://www.greenwoodgurgaon.com",
+      curriculumUrl: "https://www.greenwoodgurgaon.com",
+      contactEmail: "info@greenwoodgurgaon.com",
+      contactPhone: "0124 - 4200807 / 808"
     },
     kpis: {
       totalStudents: 150,
@@ -248,7 +248,7 @@ Learning Objectives: Interpret thermometer readings accurately; identify heat tr
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `APS_Institutional_Academic_Report_${Date.now()}.csv`;
+    a.download = `GPS_Institutional_Academic_Report_${Date.now()}.csv`;
     a.click();
   };
 
@@ -263,7 +263,7 @@ Learning Objectives: Interpret thermometer readings accurately; identify heat tr
                 Institutional Administration
               </span>
               <span className="text-xs text-slate-300 font-mono bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700">
-                CBSE Affiliation: {data.school.affiliationNumber || '530587'} &bull; School Code: {data.school.schoolCode || '40571'}
+                CBSE Affiliation: {data.school.affiliationNumber || '530649'} &bull; School Code: {data.school.schoolCode || '40643'}
               </span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white mt-2 flex items-center gap-3">
@@ -271,7 +271,7 @@ Learning Objectives: Interpret thermometer readings accurately; identify heat tr
               {data.school.name}
             </h1>
             <p className="text-slate-300 text-sm mt-1">
-              Academic Session 2026–2027 &middot; Sohna, Gurugram, Haryana &middot; Primary through Senior Secondary (Grades 1–12)
+              Academic Session 2026–2027 &middot; Huda Site No.-1, Sector -9, Gurugram, Haryana &middot; Primary through Senior Secondary (Grades 1–12)
             </p>
           </div>
 
@@ -463,7 +463,7 @@ Learning Objectives: Interpret thermometer readings accurately; identify heat tr
       {activeTab === 'grades' && (
         <Card className="p-6">
           <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">Grade-Wise Enrollment & Section Breakdown</h3>
-          <p className="text-xs text-slate-500 mb-6">Enrollment distribution across Grades 5 through 10 at Asian Public School</p>
+          <p className="text-xs text-slate-500 mb-6">Enrollment distribution across Grades 5 through 10 at Greenwood Public School</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {data.gradeDistribution.map(g => (
@@ -589,17 +589,17 @@ Learning Objectives: Interpret thermometer readings accurately; identify heat tr
                   <Badge variant="primary" size="sm">Classes I–XII</Badge>
                 </div>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                  Ingest, parse, and map learning objectives directly from Asian Public School authorized curriculum syllabus documents.
+                  Ingest, parse, and map learning objectives directly from Greenwood Public School authorized curriculum syllabus documents.
                 </p>
               </div>
 
               <a
-                href="https://aps-school.in/curriculum.html"
+                href="https://www.greenwoodgurgaon.com"
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center gap-1.5 text-xs font-bold text-indigo-600 dark:text-cyan-400 hover:underline bg-indigo-50 dark:bg-slate-800 px-3 py-1.5 rounded-xl border border-indigo-200 dark:border-slate-700"
               >
-                <span>View Official APS Syllabus</span>
+                <span>View Official GPS Syllabus</span>
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </div>
@@ -761,7 +761,7 @@ Learning Objectives: Interpret thermometer readings accurately; identify heat tr
                   <Badge variant="cyan" size="sm">Rule-Based Architecture</Badge>
                 </div>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                  Active educational APIs, classroom synchronization, email dispatch, and monitoring telemetry for Asian Public School.
+                  Active educational APIs, classroom synchronization, email dispatch, and monitoring telemetry for Greenwood Public School.
                 </p>
               </div>
 

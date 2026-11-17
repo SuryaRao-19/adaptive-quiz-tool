@@ -189,10 +189,10 @@ export const ParentPortal = () => {
                 <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
                 Verified Guardian Portal &bull; RBAC Protected
               </span>
-              <span className="text-slate-400 text-xs hidden sm:inline">&bull; CBSE Affiliation 530587</span>
+              <span className="text-slate-400 text-xs hidden sm:inline">&bull; CBSE Affiliation 530649</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-              Asian Public School Parent Connect
+              Greenwood Public School Parent Connect
             </h1>
             <p className="text-slate-300 text-sm mt-1">
               Welcome, <span className="font-semibold text-white">{parent.fullName}</span> &bull; Academic Session 2026–2027
@@ -581,7 +581,7 @@ export const ParentPortal = () => {
                         Parent Advisory Notice
                       </h4>
                       <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
-                        Asian Public School conducts parent-teacher conferences at the conclusion of each diagnostic cycle. You may request an appointment with Mrs. Ananya Sharma through the school office.
+                        Greenwood Public School conducts parent-teacher conferences at the conclusion of each diagnostic cycle. You may request an appointment with Mrs. Ananya Sharma through the school office.
                       </p>
                     </div>
                   </div>
@@ -671,7 +671,7 @@ export const ParentPortal = () => {
             <Badge variant="success">96% Present</Badge>
           </div>
           <p className="text-xs text-slate-500 mb-6">
-            Official records verified from Asian Public School biometric and classroom register. Normalized to UTC midnight.
+            Official records verified from Greenwood Public School biometric and classroom register. Normalized to UTC midnight.
           </p>
           <div className="grid grid-cols-5 sm:grid-cols-10 gap-2">
             {Array.from({ length: 20 }, (_, i) => {
@@ -698,13 +698,13 @@ export const ParentPortal = () => {
         <Card className="p-6 border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 space-y-4">
           <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <Bell className="w-5 h-5 text-indigo-600" />
-            Official Asian Public School Circulars
+            Official Greenwood Public School Circulars
           </h2>
           <div className="space-y-3">
             <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
               <div className="flex items-center justify-between">
                 <span className="font-bold text-sm text-slate-900 dark:text-white">
-                  Circular No. APS/ACAD/2026/08 — Term 1 STEM Diagnostic Window
+                  Circular No. GPS/ACAD/2026/08 — Term 1 STEM Diagnostic Window
                 </span>
                 <span className="text-xs text-slate-500">2026-10-10</span>
               </div>

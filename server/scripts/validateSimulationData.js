@@ -1,6 +1,6 @@
-/**
+﻿/**
  * ADAPTIQ 2.0: SYNTHETIC SIMULATION DATA INTEGRITY & AUDIT VALIDATOR
- * Institutional Demonstration: Asian Public School (APS-2026-DEMO)
+ * Institutional Demonstration: Greenwood Public School (GPS-2026-DEMO)
  * 
  * Verifies Phase 6 requirements:
  * 1. Zero orphan records
@@ -21,8 +21,8 @@ const QUESTIONS_FILE = path.join(__dirname, '../data/multiGradeQuestions.json');
 
 function runDataValidation() {
   console.log('================================================================');
-  console.log('🔍 ADAPTIQ 2.0: PHASE 6 SYNTHETIC DATA INTEGRITY AUDIT');
-  console.log('   Target: Asian Public School — AdaptIQ Demo (APS-2026-DEMO)');
+  console.log('ðŸ” ADAPTIQ 2.0: PHASE 6 SYNTHETIC DATA INTEGRITY AUDIT');
+  console.log('   Target: Greenwood Public School â€” AdaptIQ Demo (GPS-2026-DEMO)');
   console.log('================================================================');
 
   if (!fs.existsSync(DATA_FILE) || !fs.existsSync(QUESTIONS_FILE)) {
@@ -37,11 +37,11 @@ function runDataValidation() {
   let checksPassed = 0;
 
   // 1. School Tenant Check
-  if (!store.school || store.school.code !== 'APS-2026-DEMO') {
+  if (!store.school || store.school.code !== 'GPS-2026-DEMO') {
     issues.push('School tenant record invalid or missing code.');
   } else {
     checksPassed++;
-    console.log('✅ 1. School Tenant Profile Verified: ' + store.school.name);
+    console.log('âœ… 1. School Tenant Profile Verified: ' + store.school.name);
   }
 
   // 2. Student Records & Zero Orphans
@@ -58,7 +58,7 @@ function runDataValidation() {
   });
   if (orphanStudents === 0) {
     checksPassed++;
-    console.log(`✅ 2. Zero Orphan Students: All ${store.students.length} students bound to tenant.`);
+    console.log(`âœ… 2. Zero Orphan Students: All ${store.students.length} students bound to tenant.`);
   } else {
     issues.push(`Found ${orphanStudents} orphan students.`);
   }
@@ -71,7 +71,7 @@ function runDataValidation() {
   });
   if (orphanClassrooms === 0) {
     checksPassed++;
-    console.log(`✅ 3. Zero Orphan Classrooms: All ${store.classrooms.length} cohorts have certified teachers.`);
+    console.log(`âœ… 3. Zero Orphan Classrooms: All ${store.classrooms.length} cohorts have certified teachers.`);
   } else {
     issues.push(`Found ${orphanClassrooms} orphan classrooms.`);
   }
@@ -96,7 +96,7 @@ function runDataValidation() {
 
   if (duplicateAttendance === 0 && orphanAttendance === 0) {
     checksPassed++;
-    console.log(`✅ 4. Attendance Integrity: ${store.attendance.length} records, 0 duplicates, 0 orphans.`);
+    console.log(`âœ… 4. Attendance Integrity: ${store.attendance.length} records, 0 duplicates, 0 orphans.`);
   } else {
     issues.push(`Attendance errors: ${duplicateAttendance} duplicates, ${orphanAttendance} orphans.`);
   }
@@ -123,7 +123,7 @@ function runDataValidation() {
 
   if (brokenQuestions === 0 && invalidAnswerKeys === 0) {
     checksPassed++;
-    console.log(`✅ 5. Assessment References & Answer Keys: All 600 questions valid (0 broken keys).`);
+    console.log(`âœ… 5. Assessment References & Answer Keys: All 600 questions valid (0 broken keys).`);
   } else {
     issues.push(`Questions invalid: ${brokenQuestions} missing refs, ${invalidAnswerKeys} invalid keys.`);
   }
@@ -149,7 +149,7 @@ function runDataValidation() {
 
   if (orphanAttempts === 0 && orphanEvents === 0 && invalidScores === 0) {
     checksPassed++;
-    console.log(`✅ 6. Attempts & Learning Events Consistency: ${store.attempts.length} attempts, ${store.answerEvents.length} events (0 orphans, 0 invalid scores).`);
+    console.log(`âœ… 6. Attempts & Learning Events Consistency: ${store.attempts.length} attempts, ${store.answerEvents.length} events (0 orphans, 0 invalid scores).`);
   } else {
     issues.push(`Attempt integrity: ${orphanAttempts} orphan attempts, ${orphanEvents} orphan events, ${invalidScores} score errors.`);
   }
@@ -166,18 +166,18 @@ function runDataValidation() {
 
   if (invalidTimestamps === 0) {
     checksPassed++;
-    console.log('✅ 7. Realistic Academic Timestamps: All events within 2026 academic calendar.');
+    console.log('âœ… 7. Realistic Academic Timestamps: All events within 2026 academic calendar.');
   } else {
     issues.push(`Found ${invalidTimestamps} invalid timestamps outside 2026.`);
   }
 
   console.log('================================================================');
   if (issues.length === 0) {
-    console.log(`🎉 ALL ${checksPassed}/7 DATA INTEGRITY CRITERIA SATISFIED (100% HEALTHY)`);
+    console.log(`ðŸŽ‰ ALL ${checksPassed}/7 DATA INTEGRITY CRITERIA SATISFIED (100% HEALTHY)`);
     console.log('================================================================');
     return { success: true, checksPassed, issues: [] };
   } else {
-    console.error(`❌ VALIDATION FAILED WITH ${issues.length} ISSUES:`, issues);
+    console.error(`âŒ VALIDATION FAILED WITH ${issues.length} ISSUES:`, issues);
     console.log('================================================================');
     return { success: false, checksPassed, issues };
   }
@@ -189,4 +189,5 @@ if (require.main === module) {
 }
 
 module.exports = { runDataValidation };
+
 

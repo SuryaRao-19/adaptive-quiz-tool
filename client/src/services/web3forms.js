@@ -50,8 +50,8 @@ export const getWeb3FormsConfigStatus = () => {
   return {
     isConfigured: true,
     envVarName: 'INTERNAL_DATABASE_SUPPORT',
-    documentationUrl: 'https://aps-school.in',
-    statusMessage: 'Asian Public School Institutional Support Gateway is active and database-backed.'
+    documentationUrl: 'https://www.greenwoodgurgaon.com',
+    statusMessage: 'Greenwood Public School Institutional Support Gateway is active and database-backed.'
   };
 };
 
@@ -107,7 +107,7 @@ const postToWeb3Forms = async ({
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         senderName: name || 'Student / Visitor',
-        senderEmail: email || 'visitor@asianpublicschool.edu',
+        senderEmail: email || 'visitor@greenwoodgurgaon.com',
         subject: subject || 'Support Request',
         message: message || '',
         category,
@@ -118,7 +118,7 @@ const postToWeb3Forms = async ({
     const internalData = await internalRes.json();
     if (internalRes.ok && internalData.success) {
       lastSubmissionTime = Date.now();
-      const ticketNum = internalData.data?.ticketNumber || 'APS-TK';
+      const ticketNum = internalData.data?.ticketNumber || 'GPS-TK';
       
       // Optional mirror to external Web3Forms if key is present
       const accessKey = getWeb3FormsAccessKey();

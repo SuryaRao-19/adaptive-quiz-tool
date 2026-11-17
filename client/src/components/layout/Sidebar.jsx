@@ -65,7 +65,7 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
   let navItems = [];
   if (isAdmin) {
     navItems = [
-      { label: "Institutional Overview", to: "/dashboard", icon: Home, badge: "APS Admin" },
+      { label: "Institutional Overview", to: "/dashboard", icon: Home, badge: "GPS Admin" },
       { label: "Classrooms & Sections", to: "/classes", icon: Users },
       { label: "Question Bank Manager", to: "/question-bank", icon: Layers, badge: "Grades 1-12" },
       { label: "Schoolwide Analytics", to: "/metrics", icon: BarChart3 },
@@ -147,7 +147,7 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen }) => {
                 </span>
               </div>
               <p className="text-[10px] text-slate-500 dark:text-slate-400 font-semibold truncate mt-0.5">
-                Asian Public School
+                Greenwood Public School
               </p>
             </div>
           </NavLink>

@@ -281,7 +281,7 @@ export const ReferenceLibrary = () => {
             <Badge variant="cyan" size="sm">Grades 1–12</Badge>
           </div>
           <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm mt-0.5">
-            Bite-sized concept guides, formula sheets, NCERT solutions, and official Asian Public School CBSE curriculum documents.
+            Bite-sized concept guides, formula sheets, NCERT solutions, and official Greenwood Public School CBSE curriculum documents.
           </p>
         </div>
 

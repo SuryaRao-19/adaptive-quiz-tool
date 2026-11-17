@@ -1,10 +1,10 @@
 /**
- * Asian Public School — Grade 7 Pilot Demonstration Setup Script
- * Emergency build preparation for November 17, 2026 school demonstration.
+ * Greenwood Public School — Grade 7 Pilot Demonstration Setup Script
+ * Preparation for Greenwood Public School demonstration.
  * 
- * - Purges fabricated 540 attempts and 3600 synthetic attendance logs
+ * - Purges fabricated attempts and synthetic attendance logs
  * - Preserves verified question bank and school infrastructure
- * - Establishes dedicated Grade 7-A Pilot Class (15-20 students with unique roll numbers)
+ * - Establishes dedicated Grade 7-A Pilot Class (20 students with unique roll numbers)
  * - Authors the 20-question CBSE Grade 7 Mathematics Diagnostic Assessment
  * - Assigns the assessment to Grade 7-A
  */
@@ -587,31 +587,31 @@ const GRADE_7_DIAGNOSTIC_QUESTIONS = [
 
 // 20 Dedicated Grade 7 Demonstration Student Accounts
 const GRADE_7_PILOT_STUDENTS = [
-  { id: "stu-g7-001", name: "Aarav Patel", rollNumber: "APS-07-001", grade: 7, gradeLevel: 7, section: "7-A", email: "aarav.patel@asianpublicschool.edu", activationCode: "APS-ACT-7001", isActivated: true },
-  { id: "stu-g7-002", name: "Priya Sharma", rollNumber: "APS-07-002", grade: 7, gradeLevel: 7, section: "7-A", email: "priya.sharma@asianpublicschool.edu", activationCode: "APS-ACT-7002", isActivated: true },
-  { id: "stu-g7-003", name: "Rohan Gupta", rollNumber: "APS-07-003", grade: 7, gradeLevel: 7, section: "7-A", email: "rohan.gupta@asianpublicschool.edu", activationCode: "APS-ACT-7003", isActivated: false },
-  { id: "stu-g7-004", name: "Ananya Verma", rollNumber: "APS-07-004", grade: 7, gradeLevel: 7, section: "7-A", email: "ananya.verma@asianpublicschool.edu", activationCode: "APS-ACT-7004", isActivated: false },
-  { id: "stu-g7-005", name: "Kabir Mehta", rollNumber: "APS-07-005", grade: 7, gradeLevel: 7, section: "7-A", email: "kabir.mehta@asianpublicschool.edu", activationCode: "APS-ACT-7005", isActivated: false },
-  { id: "stu-g7-006", name: "Sanya Reddy", rollNumber: "APS-07-006", grade: 7, gradeLevel: 7, section: "7-A", email: "sanya.reddy@asianpublicschool.edu", activationCode: "APS-ACT-7006", isActivated: false },
-  { id: "stu-g7-007", name: "Devansh Singh", rollNumber: "APS-07-007", grade: 7, gradeLevel: 7, section: "7-A", email: "devansh.singh@asianpublicschool.edu", activationCode: "APS-ACT-7007", isActivated: false },
-  { id: "stu-g7-008", name: "Ishita Joshi", rollNumber: "APS-07-008", grade: 7, gradeLevel: 7, section: "7-A", email: "ishita.joshi@asianpublicschool.edu", activationCode: "APS-ACT-7008", isActivated: false },
-  { id: "stu-g7-009", name: "Aditya Nair", rollNumber: "APS-07-009", grade: 7, gradeLevel: 7, section: "7-A", email: "aditya.nair@asianpublicschool.edu", activationCode: "APS-ACT-7009", isActivated: false },
-  { id: "stu-g7-010", name: "Meera Iyer", rollNumber: "APS-07-010", grade: 7, gradeLevel: 7, section: "7-A", email: "meera.iyer@asianpublicschool.edu", activationCode: "APS-ACT-7010", isActivated: false },
-  { id: "stu-g7-011", name: "Vihaan Rao", rollNumber: "APS-07-011", grade: 7, gradeLevel: 7, section: "7-A", email: "vihaan.rao@asianpublicschool.edu", activationCode: "APS-ACT-7011", isActivated: false },
-  { id: "stu-g7-012", name: "Diya Bansal", rollNumber: "APS-07-012", grade: 7, gradeLevel: 7, section: "7-A", email: "diya.bansal@asianpublicschool.edu", activationCode: "APS-ACT-7012", isActivated: false },
-  { id: "stu-g7-013", name: "Arjun Sen", rollNumber: "APS-07-013", grade: 7, gradeLevel: 7, section: "7-A", email: "arjun.sen@asianpublicschool.edu", activationCode: "APS-ACT-7013", isActivated: false },
-  { id: "stu-g7-014", name: "Tanvi Saxena", rollNumber: "APS-07-014", grade: 7, gradeLevel: 7, section: "7-A", email: "tanvi.saxena@asianpublicschool.edu", activationCode: "APS-ACT-7014", isActivated: false },
-  { id: "stu-g7-015", name: "Kunal Bhatia", rollNumber: "APS-07-015", grade: 7, gradeLevel: 7, section: "7-A", email: "kunal.bhatia@asianpublicschool.edu", activationCode: "APS-ACT-7015", isActivated: false },
-  { id: "stu-g7-016", name: "Rhea Chawla", rollNumber: "APS-07-016", grade: 7, gradeLevel: 7, section: "7-A", email: "rhea.chawla@asianpublicschool.edu", activationCode: "APS-ACT-7016", isActivated: false },
-  { id: "stu-g7-017", name: "Siddharth Das", rollNumber: "APS-07-017", grade: 7, gradeLevel: 7, section: "7-A", email: "siddharth.das@asianpublicschool.edu", activationCode: "APS-ACT-7017", isActivated: false },
-  { id: "stu-g7-018", name: "Pooja Trivedi", rollNumber: "APS-07-018", grade: 7, gradeLevel: 7, section: "7-A", email: "pooja.trivedi@asianpublicschool.edu", activationCode: "APS-ACT-7018", isActivated: false },
-  { id: "stu-g7-019", name: "Varun Malhotra", rollNumber: "APS-07-019", grade: 7, gradeLevel: 7, section: "7-A", email: "varun.malhotra@asianpublicschool.edu", activationCode: "APS-ACT-7019", isActivated: false },
-  { id: "stu-g7-020", name: "Ananya Saxena", rollNumber: "APS-07-020", grade: 7, gradeLevel: 7, section: "7-A", email: "ananya.saxena@asianpublicschool.edu", activationCode: "APS-ACT-7020", isActivated: false }
+  { id: "stu-g7-001", name: "Aarav Patel", rollNumber: "GPS-07-001", grade: 7, gradeLevel: 7, section: "7-A", email: "aarav.patel@greenwoodgurgaon.com", activationCode: "GPS-ACT-7001", isActivated: true },
+  { id: "stu-g7-002", name: "Priya Sharma", rollNumber: "GPS-07-002", grade: 7, gradeLevel: 7, section: "7-A", email: "priya.sharma@greenwoodgurgaon.com", activationCode: "GPS-ACT-7002", isActivated: true },
+  { id: "stu-g7-003", name: "Rohan Gupta", rollNumber: "GPS-07-003", grade: 7, gradeLevel: 7, section: "7-A", email: "rohan.gupta@greenwoodgurgaon.com", activationCode: "GPS-ACT-7003", isActivated: false },
+  { id: "stu-g7-004", name: "Ananya Verma", rollNumber: "GPS-07-004", grade: 7, gradeLevel: 7, section: "7-A", email: "ananya.verma@greenwoodgurgaon.com", activationCode: "GPS-ACT-7004", isActivated: false },
+  { id: "stu-g7-005", name: "Kabir Mehta", rollNumber: "GPS-07-005", grade: 7, gradeLevel: 7, section: "7-A", email: "kabir.mehta@greenwoodgurgaon.com", activationCode: "GPS-ACT-7005", isActivated: false },
+  { id: "stu-g7-006", name: "Sanya Reddy", rollNumber: "GPS-07-006", grade: 7, gradeLevel: 7, section: "7-A", email: "sanya.reddy@greenwoodgurgaon.com", activationCode: "GPS-ACT-7006", isActivated: false },
+  { id: "stu-g7-007", name: "Devansh Singh", rollNumber: "GPS-07-007", grade: 7, gradeLevel: 7, section: "7-A", email: "devansh.singh@greenwoodgurgaon.com", activationCode: "GPS-ACT-7007", isActivated: false },
+  { id: "stu-g7-008", name: "Ishita Joshi", rollNumber: "GPS-07-008", grade: 7, gradeLevel: 7, section: "7-A", email: "ishita.joshi@greenwoodgurgaon.com", activationCode: "GPS-ACT-7008", isActivated: false },
+  { id: "stu-g7-009", name: "Aditya Nair", rollNumber: "GPS-07-009", grade: 7, gradeLevel: 7, section: "7-A", email: "aditya.nair@greenwoodgurgaon.com", activationCode: "GPS-ACT-7009", isActivated: false },
+  { id: "stu-g7-010", name: "Meera Iyer", rollNumber: "GPS-07-010", grade: 7, gradeLevel: 7, section: "7-A", email: "meera.iyer@greenwoodgurgaon.com", activationCode: "GPS-ACT-7010", isActivated: false },
+  { id: "stu-g7-011", name: "Vihaan Rao", rollNumber: "GPS-07-011", grade: 7, gradeLevel: 7, section: "7-A", email: "vihaan.rao@greenwoodgurgaon.com", activationCode: "GPS-ACT-7011", isActivated: false },
+  { id: "stu-g7-012", name: "Diya Bansal", rollNumber: "GPS-07-012", grade: 7, gradeLevel: 7, section: "7-A", email: "diya.bansal@greenwoodgurgaon.com", activationCode: "GPS-ACT-7012", isActivated: false },
+  { id: "stu-g7-013", name: "Arjun Sen", rollNumber: "GPS-07-013", grade: 7, gradeLevel: 7, section: "7-A", email: "arjun.sen@greenwoodgurgaon.com", activationCode: "GPS-ACT-7013", isActivated: false },
+  { id: "stu-g7-014", name: "Tanvi Saxena", rollNumber: "GPS-07-014", grade: 7, gradeLevel: 7, section: "7-A", email: "tanvi.saxena@greenwoodgurgaon.com", activationCode: "GPS-ACT-7014", isActivated: false },
+  { id: "stu-g7-015", name: "Kunal Bhatia", rollNumber: "GPS-07-015", grade: 7, gradeLevel: 7, section: "7-A", email: "kunal.bhatia@greenwoodgurgaon.com", activationCode: "GPS-ACT-7015", isActivated: false },
+  { id: "stu-g7-016", name: "Rhea Chawla", rollNumber: "GPS-07-016", grade: 7, gradeLevel: 7, section: "7-A", email: "rhea.chawla@greenwoodgurgaon.com", activationCode: "GPS-ACT-7016", isActivated: false },
+  { id: "stu-g7-017", name: "Siddharth Das", rollNumber: "GPS-07-017", grade: 7, gradeLevel: 7, section: "7-A", email: "siddharth.das@greenwoodgurgaon.com", activationCode: "GPS-ACT-7017", isActivated: false },
+  { id: "stu-g7-018", name: "Pooja Trivedi", rollNumber: "GPS-07-018", grade: 7, gradeLevel: 7, section: "7-A", email: "pooja.trivedi@greenwoodgurgaon.com", activationCode: "GPS-ACT-7018", isActivated: false },
+  { id: "stu-g7-019", name: "Varun Malhotra", rollNumber: "GPS-07-019", grade: 7, gradeLevel: 7, section: "7-A", email: "varun.malhotra@greenwoodgurgaon.com", activationCode: "GPS-ACT-7019", isActivated: false },
+  { id: "stu-g7-020", name: "Ananya Saxena", rollNumber: "GPS-07-020", grade: 7, gradeLevel: 7, section: "7-A", email: "ananya.saxena@greenwoodgurgaon.com", activationCode: "GPS-ACT-7020", isActivated: false }
 ];
 
 async function setupGrade7Pilot() {
   console.log('========================================================');
-  console.log('🏫 Executing Asian Public School Grade 7 Pilot Setup');
+  console.log('🏫 Executing Greenwood Public School Grade 7 Pilot Setup');
   console.log('========================================================');
 
   // Hash standard default demonstration password "Student@123"
@@ -622,31 +622,35 @@ async function setupGrade7Pilot() {
   // 1. Prepare clean data store
   const storeData = {
     school: {
-      id: "school-aps-001",
-      name: "Asian Public School",
-      tenantName: "Asian Public School — AdaptIQ Demonstration Environment",
-      code: "APS-2026",
-      schoolCode: "40571",
+      id: "school-gps-001",
+      name: "Greenwood Public School",
+      tenantName: "Greenwood Public School — AdaptIQ Demonstration Environment",
+      code: "GPS-2026",
+      schoolCode: "40643",
       board: "CBSE",
-      affiliationNumber: "530587",
-      location: "Sohna, Gurugram, Haryana",
+      affiliationNumber: "530649",
+      location: "Huda Site No.-1, Sector -9, Gurugram, Haryana - 122001",
+      address: "Huda Site No.-1, Sector -9, Gurugram, Haryana - 122001",
       city: "Gurugram",
       state: "Haryana",
-      website: "https://aps-school.in/index.html",
-      curriculumUrl: "https://aps-school.in/curriculum.html",
-      established: 1998,
+      website: "https://www.greenwoodgurgaon.com",
+      curriculumUrl: "https://www.greenwoodgurgaon.com",
+      contactEmail: "info@greenwoodgurgaon.com",
+      contactPhone: "0124 - 4200807 / 808",
+      contactMobile: "+91-9354482819 / 9990395520",
+      established: 2002,
       status: "ACTIVE"
     },
     teachers: [
       {
         id: "t-01",
         name: "Mrs. Ananya Sharma",
-        email: "sharma.math@asianpublicschool.edu",
+        email: "sharma.math@greenwoodgurgaon.com",
         role: "TEACHER",
         subject: "Mathematics",
         gradeLevel: 7,
         grades: [7, 8],
-        schoolId: "school-aps-001",
+        schoolId: "school-gps-001",
         designation: "Head of Mathematics Department",
         passwordHash: teacherPasswordHash,
         status: "ACTIVE"
@@ -654,12 +658,12 @@ async function setupGrade7Pilot() {
       {
         id: "t-admin",
         name: "Dr. K. S. Raman",
-        email: "principal@asianpublicschool.edu",
+        email: "principal@greenwoodgurgaon.com",
         role: "ADMIN",
         subject: "Administration",
         gradeLevel: null,
         grades: [],
-        schoolId: "school-aps-001",
+        schoolId: "school-gps-001",
         designation: "Principal & Academic Director",
         passwordHash: principalPasswordHash,
         status: "ACTIVE"
@@ -667,16 +671,16 @@ async function setupGrade7Pilot() {
     ],
     classrooms: [
       {
-        id: "cls-aps-7a",
-        _id: "cls-aps-7a",
+        id: "cls-gps-7a",
+        _id: "cls-gps-7a",
         name: "Grade 7-A Mathematics (Pilot)",
         subject: "Mathematics",
         gradeLevel: 7,
         section: "7-A",
-        joinCode: "APS7M",
+        joinCode: "GPS7M",
         teacherId: "t-01",
         teacherName: "Mrs. Ananya Sharma",
-        schoolId: "school-aps-001",
+        schoolId: "school-gps-001",
         capacity: 30,
         enrolledCount: GRADE_7_PILOT_STUDENTS.length,
         createdAt: new Date().toISOString()
@@ -684,16 +688,16 @@ async function setupGrade7Pilot() {
     ],
     students: GRADE_7_PILOT_STUDENTS.map(s => ({
       ...s,
-      classroomId: "cls-aps-7a",
-      schoolId: "school-aps-001",
+      classroomId: "cls-gps-7a",
+      schoolId: "school-gps-001",
       passwordHash: defaultPasswordHash,
       createdAt: new Date().toISOString()
     })),
     // 20-Question Verified Diagnostic Assessment
     assessments: [
       {
-        id: "aps-g7-math-diag-2026",
-        title: "Asian Public School — Grade 7 Mathematics Diagnostic Assessment",
+        id: "gps-g7-math-diag-2026",
+        title: "Greenwood Public School — Grade 7 Mathematics Diagnostic Assessment",
         gradeLevel: 7,
         subject: "Mathematics",
         assessmentType: "PRE_TEST",
@@ -704,7 +708,7 @@ async function setupGrade7Pilot() {
         totalMarks: 20,
         questionCount: 20,
         questionIds: GRADE_7_DIAGNOSTIC_QUESTIONS.map(q => q.id),
-        classroomId: "cls-aps-7a",
+        classroomId: "cls-gps-7a",
         teacherId: "t-01",
         teacherName: "Mrs. Ananya Sharma",
         instructions: "Read each question carefully. Choose the single best answer. 20 questions, 20 minutes. No calculators permitted.",
@@ -721,13 +725,13 @@ async function setupGrade7Pilot() {
     tickets: [
       {
         id: "TICK-2026-001",
-        ticketNumber: "APS-TK-001",
+        ticketNumber: "GPS-TK-001",
         senderName: "Mrs. Ananya Sharma",
         senderRole: "teacher",
-        senderEmail: "sharma.math@asianpublicschool.edu",
+        senderEmail: "sharma.math@greenwoodgurgaon.com",
         studentId: null,
         subject: "Grade 7 Pilot Classroom Setup Confirmation",
-        message: "The 20 student accounts for Class 7-A Mathematics have been provisioned with login credentials and activation codes for tomorrow's pilot demonstration.",
+        message: "The 20 student accounts for Class 7-A Mathematics have been provisioned with login credentials and activation codes for the Greenwood Public School demonstration.",
         category: "CURRICULUM",
         priority: "MEDIUM",
         status: "Open",
@@ -737,7 +741,7 @@ async function setupGrade7Pilot() {
             id: "resp-01",
             responderName: "Dr. K. S. Raman",
             responderRole: "admin",
-            message: "Excellent. I will review the class roster and monitor candidate progress during the 20-minute timed diagnostic tomorrow.",
+            message: "Excellent. I will review the class roster and monitor candidate progress during the 20-minute timed diagnostic.",
             createdAt: new Date().toISOString()
           }
         ],
@@ -750,11 +754,11 @@ async function setupGrade7Pilot() {
   // Write to syntheticSchoolData.json
   fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(storeData, null, 2), 'utf8');
   console.log(`✅ Saved clean Grade 7 Pilot baseline to: ${DATA_FILE_PATH}`);
-  console.log(`- Enrolled Students: ${storeData.students.length} (Roll Nos: APS-07-001 to APS-07-020)`);
+  console.log(`- Enrolled Students: ${storeData.students.length} (Roll Nos: GPS-07-001 to GPS-07-020)`);
   console.log(`- Fabricated Attempts Removed: 0 attempts recorded (Clean Slate)`);
   console.log(`- Fabricated Attendance Removed: 0 logs recorded (Clean Slate)`);
   console.log(`- Assessment Provisioned: "${storeData.assessments[0].title}" (${storeData.assessments[0].questionCount} Questions)`);
-  console.log(`- Support Ticket System: Initialized with Ticket APS-TK-001`);
+  console.log(`- Support Ticket System: Initialized with Ticket GPS-TK-001`);
   console.log('========================================================');
 }
 

@@ -12,8 +12,8 @@
 class BrevoEmailService {
   constructor() {
     this.apiKey = process.env.BREVO_API_KEY || null;
-    this.senderEmail = process.env.BREVO_SENDER_EMAIL || 'notifications@aps-school.in';
-    this.senderName = process.env.BREVO_SENDER_NAME || 'Asian Public School — AdaptIQ';
+    this.senderEmail = process.env.BREVO_SENDER_EMAIL || 'notifications@greenwoodgurgaon.com';
+    this.senderName = process.env.BREVO_SENDER_NAME || 'Greenwood Public School — AdaptIQ';
     this.isConfigured = Boolean(this.apiKey);
     this.sentLog = [];
   }
@@ -95,7 +95,7 @@ class BrevoEmailService {
   async sendAssessmentResultsNotification({ studentEmail, studentName, assessmentTitle, scorePercentage, rankOrBand }) {
     const html = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;">
-        <h2 style="color: #1e3a8a;">Asian Public School — Academic Evaluation</h2>
+        <h2 style="color: #1e3a8a;">Greenwood Public School — Academic Evaluation</h2>
         <p>Dear <strong>${studentName}</strong>,</p>
         <p>Your assessment results for <strong>${assessmentTitle}</strong> have been finalized.</p>
         <div style="background: #f8fafc; padding: 15px; border-radius: 6px; margin: 15px 0;">
@@ -104,7 +104,7 @@ class BrevoEmailService {
         </div>
         <p>Log in to AdaptIQ to review step-by-step solutions and targeted revision recommendations.</p>
         <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
-        <p style="font-size: 12px; color: #64748b;">Asian Public School, Sohna, Gurugram | Affiliation: 530587</p>
+        <p style="font-size: 12px; color: #64748b;">Greenwood Public School, Sector-9, Gurugram | Affiliation: 530649</p>
       </div>
     `;
 

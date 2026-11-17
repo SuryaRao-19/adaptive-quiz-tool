@@ -340,10 +340,10 @@ const submitAssessmentHandler = async (req, res, next) => {
 
     const attempt = syntheticStore.addAttempt({
       assessmentId: id,
-      assessmentTitle: assessment?.title || 'Asian Public School — Grade 7 Mathematics Diagnostic Assessment',
+      assessmentTitle: assessment?.title || 'Greenwood Public School — Grade 7 Mathematics Diagnostic Assessment',
       studentId: studentId || req.user?.id || req.user?._id || 'stu-g7-001',
       studentName: studentName || req.user?.name || req.user?.fullName || 'Aarav Patel',
-      rollNumber: rollNumber || req.user?.rollNumber || 'APS-07-001',
+      rollNumber: rollNumber || req.user?.rollNumber || 'GPS-07-001',
       gradeLevel: assessment?.gradeLevel || 7,
       score: finalCorrect,
       totalScore: finalCorrect,

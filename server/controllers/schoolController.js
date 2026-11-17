@@ -10,7 +10,7 @@ const syntheticStore = require('../services/syntheticStore');
 
 async function getSchoolProfileHandler(req, res) {
   try {
-    const schoolCode = req.query.code || req.params.code || 'APS-2026';
+    const schoolCode = req.query.code || req.params.code || 'GPS-2026';
     const profile = await schoolService.getSchoolProfile(schoolCode);
     return res.status(200).json({
       success: true,
@@ -27,7 +27,7 @@ async function getSchoolProfileHandler(req, res) {
 
 async function getSchoolAdminMetricsHandler(req, res) {
   try {
-    const schoolCode = req.query.code || req.params.code || 'APS-2026';
+    const schoolCode = req.query.code || req.params.code || 'GPS-2026';
     const metrics = await schoolService.getSchoolAdminMetrics(schoolCode);
     return res.status(200).json({
       success: true,
@@ -91,11 +91,11 @@ async function resetDemoEnvironmentHandler(req, res) {
     }
     return res.status(200).json({
       success: true,
-      message: 'Asian Public School demonstration environment reset to pristine baseline.',
+      message: 'Greenwood Public School demonstration environment reset to pristine baseline.',
       tenant: {
-        name: 'Asian Public School — AdaptIQ Demonstration Environment',
-        affiliation: '530587',
-        schoolCode: '40571',
+        name: 'Greenwood Public School — AdaptIQ Demonstration Environment',
+        affiliation: '530649',
+        schoolCode: '40643',
         session: '2026-2027'
       }
     });

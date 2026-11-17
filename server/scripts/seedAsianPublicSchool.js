@@ -1,5 +1,5 @@
-/**
- * Asian Public School (APS) Dedicated Demonstration Seeder
+﻿/**
+ * Greenwood Public School (APS) Dedicated Demonstration Seeder
  * Populates 150 students, 10 teachers, 10 classrooms, Grades 1-12 curriculum,
  * realistic assignments, assessments, and historical attempt analytics.
  */
@@ -11,7 +11,7 @@ const multiGradeQuestions = require('../data/multiGradeQuestions.json');
 
 async function seedAsianPublicSchool() {
   console.log('========================================================');
-  console.log('🏫 Seeding Asian Public School (APS) Demonstration Edition');
+  console.log('ðŸ« Seeding Greenwood Public School (APS) Demonstration Edition');
   console.log('========================================================');
 
   const connection = await verifyDatabaseConnection();
@@ -23,17 +23,17 @@ async function seedAsianPublicSchool() {
 
   // 1. School Information
   const schoolData = {
-    name: 'Asian Public School',
-    code: 'APS-2026',
-    schoolCode: '40571',
+    name: 'Greenwood Public School',
+    code: 'GPS-2026',
+    schoolCode: '40643',
     board: 'CBSE',
-    affiliationNumber: '530587',
-    address: 'Sohna, Gurugram',
+    affiliationNumber: '530649',
+    address: 'Huda Site No.-1, Sector -9, Gurugram, Haryana - 122001',
     city: 'Gurugram',
     state: 'Haryana',
     country: 'India',
-    website: 'https://aps-school.in/index.html',
-    contactEmail: 'contact@aps-school.in',
+    website: 'https://GPS-school.in/index.html',
+    contactEmail: 'contact@GPS-school.in',
     contactPhone: '+91 124 238 1234'
   };
 
@@ -41,7 +41,7 @@ async function seedAsianPublicSchool() {
   const demoAccounts = {
     admin: {
       name: 'Dr. K. S. Raman',
-      email: 'principal@asianpublicschool.edu',
+      email: 'principal@greenwoodgurgaon.com',
       role: 'ADMIN',
       avatar: 'avatar-4',
       designation: 'Principal & Academic Director',
@@ -49,7 +49,7 @@ async function seedAsianPublicSchool() {
     },
     teacher: {
       name: 'Mrs. Ananya Sharma',
-      email: 'sharma.math@asianpublicschool.edu',
+      email: 'sharma.math@greenwoodgurgaon.com',
       role: 'TEACHER',
       avatar: 'avatar-5',
       gradeLevel: 7,
@@ -59,8 +59,8 @@ async function seedAsianPublicSchool() {
     },
     student: {
       name: 'Aarav Patel',
-      email: 'student.aps.01@asianpublicschool.edu',
-      rollNumber: 'APS-07-001',
+      email: 'student.aps.01@greenwoodgurgaon.com',
+      rollNumber: 'GPS-07-001',
       pin: '1234',
       grade: 7,
       section: '7-A',
@@ -68,8 +68,8 @@ async function seedAsianPublicSchool() {
     },
     studentG3: {
       name: 'Alex Rivera',
-      email: 'alex.rivera@asianpublicschool.edu',
-      rollNumber: 'APS-03-014',
+      email: 'alex.rivera@greenwoodgurgaon.com',
+      rollNumber: 'GPS-03-014',
       pin: '1234',
       grade: 3,
       section: '3-A',
@@ -77,8 +77,8 @@ async function seedAsianPublicSchool() {
     },
     studentG10: {
       name: 'Diya Sharma',
-      email: 'diya.sharma@asianpublicschool.edu',
-      rollNumber: 'APS-10-008',
+      email: 'diya.sharma@greenwoodgurgaon.com',
+      rollNumber: 'GPS-10-008',
       pin: '1234',
       grade: 10,
       section: '10-A',
@@ -88,16 +88,16 @@ async function seedAsianPublicSchool() {
 
   // 3. 10 Teachers
   const teacherRoster = [
-    { name: 'Mrs. Ananya Sharma', email: 'sharma.math@asianpublicschool.edu', subject: 'Mathematics', empId: 'EMP-01', grades: [7, 8] },
-    { name: 'Dr. Rajesh Verma', email: 'verma.physics@asianpublicschool.edu', subject: 'Science', empId: 'EMP-02', grades: [9, 10] },
-    { name: 'Ms. Sunita Rao', email: 'rao.biology@asianpublicschool.edu', subject: 'Science', empId: 'EMP-03', grades: [7, 8] },
-    { name: 'Mr. David Paul', email: 'paul.english@asianpublicschool.edu', subject: 'English', empId: 'EMP-04', grades: [7, 8, 9] },
-    { name: 'Mrs. Kavita Iyer', email: 'iyer.math@asianpublicschool.edu', subject: 'Mathematics', empId: 'EMP-05', grades: [5, 6] },
-    { name: 'Mr. Arvind Saxena', email: 'saxena.cs@asianpublicschool.edu', subject: 'Science', empId: 'EMP-06', grades: [8, 9, 10] },
-    { name: 'Ms. Neha Gupta', email: 'gupta.sci@asianpublicschool.edu', subject: 'Science', empId: 'EMP-07', grades: [5, 6] },
-    { name: 'Mrs. Meenakshi Joshi', email: 'joshi.eng@asianpublicschool.edu', subject: 'English', empId: 'EMP-08', grades: [5, 6] },
-    { name: 'Mr. Vikram Sen', email: 'sen.ss@asianpublicschool.edu', subject: 'English', empId: 'EMP-09', grades: [7, 8] },
-    { name: 'Dr. Preeti Nair', email: 'nair.math@asianpublicschool.edu', subject: 'Mathematics', empId: 'EMP-10', grades: [9, 10] }
+    { name: 'Mrs. Ananya Sharma', email: 'sharma.math@greenwoodgurgaon.com', subject: 'Mathematics', empId: 'EMP-01', grades: [7, 8] },
+    { name: 'Dr. Rajesh Verma', email: 'verma.physics@greenwoodgurgaon.com', subject: 'Science', empId: 'EMP-02', grades: [9, 10] },
+    { name: 'Ms. Sunita Rao', email: 'rao.biology@greenwoodgurgaon.com', subject: 'Science', empId: 'EMP-03', grades: [7, 8] },
+    { name: 'Mr. David Paul', email: 'paul.english@greenwoodgurgaon.com', subject: 'English', empId: 'EMP-04', grades: [7, 8, 9] },
+    { name: 'Mrs. Kavita Iyer', email: 'iyer.math@greenwoodgurgaon.com', subject: 'Mathematics', empId: 'EMP-05', grades: [5, 6] },
+    { name: 'Mr. Arvind Saxena', email: 'saxena.cs@greenwoodgurgaon.com', subject: 'Science', empId: 'EMP-06', grades: [8, 9, 10] },
+    { name: 'Ms. Neha Gupta', email: 'gupta.sci@greenwoodgurgaon.com', subject: 'Science', empId: 'EMP-07', grades: [5, 6] },
+    { name: 'Mrs. Meenakshi Joshi', email: 'joshi.eng@greenwoodgurgaon.com', subject: 'English', empId: 'EMP-08', grades: [5, 6] },
+    { name: 'Mr. Vikram Sen', email: 'sen.ss@greenwoodgurgaon.com', subject: 'English', empId: 'EMP-09', grades: [7, 8] },
+    { name: 'Dr. Preeti Nair', email: 'nair.math@greenwoodgurgaon.com', subject: 'Mathematics', empId: 'EMP-10', grades: [9, 10] }
   ];
 
   // 4. Classrooms
@@ -114,7 +114,7 @@ async function seedAsianPublicSchool() {
     { name: 'Grade 10-A Mathematics', subject: 'Mathematics', gradeLevel: 10, joinCode: 'APS10M' }
   ];
 
-  console.log(`[Seed Setup] Initializing Asian Public School Demo Environment:`);
+  console.log(`[Seed Setup] Initializing Greenwood Public School Demo Environment:`);
   console.log(`  - School: ${schoolData.name} (${schoolData.board})`);
   console.log(`  - Supported Grades: 1 to 12 (Populated cohorts: Grades 5, 7, 8, 9, 10)`);
   console.log(`  - Synthetic Faculty: ${teacherRoster.length} certified teachers`);
@@ -171,9 +171,9 @@ async function seedAsianPublicSchool() {
   }
 
   console.log('========================================================');
-  console.log('✅ Demonstration Seed Completed Successfully!');
+  console.log('âœ… Demonstration Seed Completed Successfully!');
   console.log('========================================================');
-  console.log('Instant Demonstration Credentials for Asian Public School:');
+  console.log('Instant Demonstration Credentials for Greenwood Public School:');
   console.log('1. School Administrator (Principal):');
   console.log(`   Email: ${demoAccounts.admin.email} | Password: ${demoAccounts.admin.password}`);
   console.log('2. Senior Teacher (Math Head):');
@@ -193,4 +193,5 @@ if (require.main === module) {
 }
 
 module.exports = seedAsianPublicSchool;
+
 

@@ -33,14 +33,14 @@ export const AuthScreen = () => {
 
   // Student Form
   const [studentGrade, setStudentGrade] = useState(7);
-  const [studentRoll, setStudentRoll] = useState('APS-07-001');
+  const [studentRoll, setStudentRoll] = useState('GPS-07-001');
   const [studentPassword, setStudentPassword] = useState('Student@123');
-  const [activationCode, setActivationCode] = useState('APS-ACT-7001');
+  const [activationCode, setActivationCode] = useState('GPS-ACT-7001');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
   // Staff Form
-  const [staffEmail, setStaffEmail] = useState('sharma.math@asianpublicschool.edu');
+  const [staffEmail, setStaffEmail] = useState('sharma.math@greenwoodgurgaon.com');
   const [staffPassword, setStaffPassword] = useState('teacher123');
 
   // Status & Feedback
@@ -154,10 +154,10 @@ export const AuthScreen = () => {
           <School className="w-8 h-8" />
         </div>
         <h1 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">
-          Asian Public School
+          Greenwood Public School
         </h1>
         <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider">
-          Sohna, Gurugram &bull; CBSE Affiliation No: 530587 &bull; School Code: 40571
+          Sector-9, Gurugram &bull; CBSE Affiliation No: 530649 &bull; School Code: 40643
         </p>
       </div>
 
@@ -409,7 +409,7 @@ export const AuthScreen = () => {
                 </label>
                 <Input
                   type="email"
-                  placeholder="e.g. sharma.math@asianpublicschool.edu"
+                  placeholder="e.g. sharma.math@greenwoodgurgaon.com"
                   value={staffEmail}
                   onChange={(e) => setStaffEmail(e.target.value)}
                   required
@@ -445,14 +445,14 @@ export const AuthScreen = () => {
                 <div className="flex flex-col gap-1.5">
                   <button
                     type="button"
-                    onClick={() => { setStaffEmail('sharma.math@asianpublicschool.edu'); setStaffPassword('teacher123'); }}
+                    onClick={() => { setStaffEmail('sharma.math@greenwoodgurgaon.com'); setStaffPassword('teacher123'); }}
                     className="p-1.5 rounded bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 font-mono text-[10px] font-bold border border-indigo-200 text-left"
                   >
                     Mrs. Ananya Sharma (Grade 7 Math Head)
                   </button>
                   <button
                     type="button"
-                    onClick={() => { setStaffEmail('principal@asianpublicschool.edu'); setStaffPassword('admin123'); }}
+                    onClick={() => { setStaffEmail('principal@greenwoodgurgaon.com'); setStaffPassword('admin123'); }}
                     className="p-1.5 rounded bg-purple-50 dark:bg-purple-950 text-purple-700 dark:text-purple-300 font-mono text-[10px] font-bold border border-purple-200 text-left"
                   >
                     Dr. K. S. Raman (Principal & Director)

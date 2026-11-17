@@ -63,6 +63,76 @@ export const ContactSupportPage = () => {
           </p>
         </div>
 
+        {/* Institutional Contact Information Card */}
+        <div className="max-w-3xl mx-auto bg-gradient-to-br from-indigo-900 to-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-elevated border border-indigo-700/50 space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-indigo-800/60 pb-4">
+            <div>
+              <div className="flex items-center gap-2 mb-1">
+                <span className="w-8 h-8 rounded-xl bg-indigo-600 flex items-center justify-center font-black text-white text-xs">
+                  GPS
+                </span>
+                <h2 className="text-xl font-black tracking-tight text-white">
+                  Greenwood Public School
+                </h2>
+              </div>
+              <p className="text-xs text-cyan-300 font-mono">
+                CBSE Affiliation No. 530649 • School Code: 40643 • Established 2002
+              </p>
+            </div>
+            <a
+              href="https://www.greenwoodgurgaon.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold text-white transition-all w-fit"
+            >
+              <span>Visit Official Website</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+            <div className="space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-indigo-300 font-bold block">
+                Campus Address
+              </span>
+              <p className="text-slate-200 leading-relaxed">
+                Huda Site No.-1, Sector -9, Gurugram, Haryana - 122001
+              </p>
+            </div>
+
+            <div className="space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-indigo-300 font-bold block">
+                Office Hours
+              </span>
+              <p className="text-slate-200 leading-relaxed">
+                Mon – Sat: 07:30 A.M – 03:00 P.M <br />
+                <span className="text-rose-300 font-medium">Sunday: Closed</span>
+              </p>
+            </div>
+
+            <div className="space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-indigo-300 font-bold block">
+                Telephone & Mobile
+              </span>
+              <p className="text-slate-200 font-mono leading-relaxed">
+                0124 - 4200807 / 808 <br />
+                +91-9354482819 / 9990395520
+              </p>
+            </div>
+
+            <div className="space-y-1">
+              <span className="text-[10px] uppercase tracking-wider text-indigo-300 font-bold block">
+                Official Email
+              </span>
+              <p className="text-slate-200 font-mono leading-relaxed">
+                <a href="mailto:info@greenwoodgurgaon.com" className="text-cyan-300 hover:underline">
+                  info@greenwoodgurgaon.com
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Notice if Web3Forms key is missing */}
         {!configured && (
           <div className="p-4 rounded-3xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 flex items-start gap-3 text-xs text-amber-800 dark:text-amber-300 max-w-3xl mx-auto">

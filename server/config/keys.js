@@ -29,8 +29,8 @@ module.exports = {
 
   // Brevo (Sendinblue) Transactional Email
   BREVO_API_KEY: process.env.BREVO_API_KEY || '',
-  BREVO_SENDER_EMAIL: process.env.BREVO_SENDER_EMAIL || 'notifications@aps-school.in',
-  BREVO_SENDER_NAME: process.env.BREVO_SENDER_NAME || 'Asian Public School — AdaptIQ',
+  BREVO_SENDER_EMAIL: process.env.BREVO_SENDER_EMAIL || 'notifications@greenwoodgurgaon.com',
+  BREVO_SENDER_NAME: process.env.BREVO_SENDER_NAME || 'Greenwood Public School — AdaptIQ',
 
   // Sentry Telemetry
   SENTRY_DSN: process.env.SENTRY_DSN || '',

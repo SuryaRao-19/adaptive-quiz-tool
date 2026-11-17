@@ -362,8 +362,9 @@ async function activateStudentAccount({ grade, rollNumber, activationCode, newPa
     throw new Error('Student account not found with this Grade and Roll Number.');
   }
 
-  const expectedCode = String(student.activationCode || `APS-ACT-${cleanRoll.replace(/\D/g, '')}`).toUpperCase();
-  if (cleanCode !== expectedCode && cleanCode !== 'APS-ACT-PILOT' && cleanCode !== '1234') {
+  const expectedCodeGPS = String(student.activationCode || `GPS-ACT-${cleanRoll.replace(/\D/g, '')}`).toUpperCase();
+  const expectedCodeAPS = String(student.activationCode || `APS-ACT-${cleanRoll.replace(/\D/g, '')}`).toUpperCase();
+  if (cleanCode !== expectedCodeGPS && cleanCode !== expectedCodeAPS && cleanCode !== 'GPS-ACT-PILOT' && cleanCode !== 'APS-ACT-PILOT' && cleanCode !== '1234') {
     throw new Error('Invalid activation code. Please check the code provided by your school administrator.');
   }
 
@@ -390,7 +391,7 @@ async function activateStudentAccount({ grade, rollNumber, activationCode, newPa
 
   return {
     success: true,
-    message: 'Student account activated successfully. Welcome to Asian Public School AdaptIQ!',
+    message: 'Student account activated successfully. Welcome to Greenwood Public School AdaptIQ!',
     token,
     user: userPayload
   };

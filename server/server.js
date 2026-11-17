@@ -69,7 +69,7 @@ app.get('/api/health', async (req, res) => {
 
   res.status(isHealthy ? 200 : 503).json({
     status: isHealthy ? 'OK' : 'DEGRADED',
-    institution: 'Asian Public School, Sohna, Gurugram (Affiliation: 530587)',
+    institution: 'Greenwood Public School, Sector-9, Gurugram (Affiliation: 530649)',
     mode: process.env.GATEWAY_MODE === 'true' ? 'classroom_gateway' : 'cloud',
     message: 'AdaptIQ 3.0 Deterministic Rule-Based Adaptive Learning & Assessment API is active.',
     adaptiveEngine: {
@@ -85,7 +85,7 @@ app.get('/api/health', async (req, res) => {
       mongoError: mongoErr
     },
     database: pgStatus.ok ? 'connected' : (isMongoConnected ? 'connected_mongo_fallback' : 'disconnected'),
-    contentBundleVersion: process.env.CONTENT_BUNDLE_VERSION || '3.0.0-cbse-aps',
+    contentBundleVersion: process.env.CONTENT_BUNDLE_VERSION || '3.0.0-cbse-gps',
     timestamp: new Date().toISOString()
   });
 });
@@ -140,7 +140,7 @@ const rootApiHandler = (req, res) => {
       <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AdaptIQ 3.0 API &bull; Asian Public School</title>
+        <title>AdaptIQ 3.0 API &bull; Greenwood Public School</title>
         <style>
           body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #f8fafc; padding: 2rem; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
           .card { background: #1e293b; border: 1px solid #334155; border-radius: 1rem; padding: 2rem; max-width: 580px; width: 100%; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); }
@@ -155,7 +155,7 @@ const rootApiHandler = (req, res) => {
       </head>
       <body>
         <div class="card">
-          <div class="badge">Asian Public School &bull; CBSE 530587</div>
+          <div class="badge">Greenwood Public School &bull; CBSE 530649</div>
           <h1>AdaptIQ 3.0 &bull; Backend API Server</h1>
           <p>The AdaptIQ deterministic rule-based adaptive learning server is active on Port 5000. Launch the student, teacher, or administrative interface on Port 5173.</p>
           <div class="links">
@@ -174,7 +174,7 @@ const rootApiHandler = (req, res) => {
 
   return res.status(200).json({
     success: true,
-    institution: 'Asian Public School, Sohna, Gurugram (CBSE Affiliation: 530587, School Code: 40571)',
+    institution: 'Greenwood Public School, Sector-9, Gurugram (CBSE Affiliation: 530649, School Code: 40643)',
     platform: 'AdaptIQ 3.0 — Multi-Grade Adaptive Learning & Assessment Platform',
     status: 'ONLINE',
     port: process.env.PORT || 5000,
@@ -249,7 +249,7 @@ async function startServer() {
   app.listen(PORT, () => {
     console.log(`=============================================`);
     console.log(`🚀 AdaptIQ 3.0 Server running on port ${PORT}`);
-    console.log(`🏫 Institution: Asian Public School, Sohna (CBSE: 530587)`);
+    console.log(`🏫 Institution: Greenwood Public School, Sector-9, Gurugram (CBSE: 530649)`);
     console.log(`📡 Environment: ${process.env.NODE_ENV || 'development'}`);
     console.log(`🐘 PostgreSQL Status: ${pgStatus.status}`);
     console.log(`🧠 Adaptive Engine: Deterministic Rule-Based (BKT, Rasch IRT, Leitner, Hake)`);

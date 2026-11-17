@@ -28,7 +28,7 @@ export const MyLearning = () => {
 
   const gradeLevel = user?.gradeLevel || user?.grade || 10;
 
-  // Curriculum Units aligned with Asian Public School CBSE Class 7 standards
+  // Curriculum Units aligned with Greenwood Public School CBSE Class 7 standards
   const curriculumData = {
     Mathematics: [
       {
@@ -174,7 +174,7 @@ export const MyLearning = () => {
           <div>
             <div className="flex items-center gap-2 mb-2">
               <Badge variant="indigo" className="bg-indigo-500/20 text-indigo-300 border-indigo-500/30">
-                Asian Public School, Sohna
+                Greenwood Public School, Sector-9
               </Badge>
               <Badge variant="neutral" className="bg-white/10 text-white border-white/20">
                 Grade {gradeLevel} CBSE

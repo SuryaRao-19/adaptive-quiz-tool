@@ -6,14 +6,14 @@ const curriculumService = require('../services/curriculumService');
 const assignmentService = require('../services/assignmentService');
 const { buildTutorSystemPrompt, getGradePedagogyDirectives } = require('../services/ai/services/tutoringService');
 
-describe('AdaptIQ 2.0 — Multi-Grade School Intelligence & Asian Public School Architecture', () => {
+describe('AdaptIQ 2.0 — Multi-Grade School Intelligence & Greenwood Public School Architecture', () => {
 
-  it('1. School Profile & Asian Public School Admin Metrics', async () => {
-    const profile = await schoolService.getSchoolProfile('APS-2026');
-    assert.strictEqual(profile.name, 'Asian Public School');
+  it('1. School Profile & Greenwood Public School Admin Metrics', async () => {
+    const profile = await schoolService.getSchoolProfile('GPS-2026');
+    assert.strictEqual(profile.name, 'Greenwood Public School');
     assert.strictEqual(profile.board, 'CBSE');
 
-    const metrics = await schoolService.getSchoolAdminMetrics('APS-2026');
+    const metrics = await schoolService.getSchoolAdminMetrics('GPS-2026');
     assert.ok(metrics.kpis.totalStudents >= 100, 'Should track institutional enrollment');
     assert.ok(metrics.gradeDistribution.length >= 5, 'Should track multiple grade cohorts');
     assert.ok(metrics.subjectPerformance.some(s => s.subject === 'Mathematics'));

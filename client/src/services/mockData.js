@@ -1,12 +1,12 @@
-// Rich Mock Data Store for Asian Public School Demonstration Edition
+// Rich Mock Data Store for Greenwood Public School Demonstration Edition
 
 export const MOCK_ADMIN = {
   id: "admin_demo_01",
   fullName: "Dr. K. S. Raman",
-  email: "principal@asianpublicschool.edu",
+  email: "principal@greenwoodgurgaon.com",
   role: "admin",
   designation: "Principal & Academic Director",
-  school: "Asian Public School (CBSE)",
+  school: "Greenwood Public School (CBSE)",
   avatarUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
   board: "CBSE"
 };
@@ -14,17 +14,17 @@ export const MOCK_ADMIN = {
 export const MOCK_STUDENT_G3 = {
   id: "student_g3_01",
   fullName: "Alex Rivera",
-  rollNumber: "APS-03-042",
+  rollNumber: "GPS-03-042",
   grade: 3,
   gradeLevel: 3,
   section: "3-A",
-  school: "Asian Public School",
+  school: "Greenwood Public School",
   educationalStage: "Primary",
   subjects: ["Mathematics", "English", "EVS"],
-  email: "alex.rivera.03@asianpublicschool.edu",
+  email: "alex.rivera.03@greenwoodgurgaon.com",
   avatarUrl: "https://images.unsplash.com/photo-1544717305-2782549b5136?w=150&auto=format&fit=crop&q=80",
   role: "student",
-  joinedClasses: ["APS3AM", "APS3AE", "APS3AV"],
+  joinedClasses: ["GPS3AM", "GPS3AE", "GPS3AV"],
   bktMastery: 82.0,
   streakDays: 4,
   overdueReviews: 1
@@ -33,17 +33,17 @@ export const MOCK_STUDENT_G3 = {
 export const MOCK_STUDENT_G7 = {
   id: "student_g7_01",
   fullName: "Aarav Patel",
-  rollNumber: "APS-07-001",
+  rollNumber: "GPS-07-001",
   grade: 7,
   gradeLevel: 7,
   section: "7-A",
-  school: "Asian Public School",
+  school: "Greenwood Public School",
   educationalStage: "Middle",
   subjects: ["Mathematics", "Science", "English"],
-  email: "aarav.patel.07@asianpublicschool.edu",
+  email: "aarav.patel.07@greenwoodgurgaon.com",
   avatarUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
   role: "student",
-  joinedClasses: ["APS7AM", "APS7AS", "APS7BE"],
+  joinedClasses: ["GPS7AM", "GPS7AS", "GPS7BE"],
   bktMastery: 76.5,
   streakDays: 6,
   overdueReviews: 2
@@ -52,17 +52,17 @@ export const MOCK_STUDENT_G7 = {
 export const MOCK_STUDENT_G10 = {
   id: "student_g10_01",
   fullName: "Diya Sharma",
-  rollNumber: "APS-10-015",
+  rollNumber: "GPS-10-015",
   grade: 10,
   gradeLevel: 10,
   section: "10-A",
-  school: "Asian Public School",
+  school: "Greenwood Public School",
   educationalStage: "Secondary",
   subjects: ["Mathematics", "Science", "English"],
-  email: "diya.sharma.10@asianpublicschool.edu",
+  email: "diya.sharma.10@greenwoodgurgaon.com",
   avatarUrl: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80",
   role: "student",
-  joinedClasses: ["APS10M", "APS10S", "APS10E"],
+  joinedClasses: ["GPS10M", "GPS10S", "GPS10E"],
   bktMastery: 85.4,
   streakDays: 9,
   overdueReviews: 0
@@ -79,27 +79,27 @@ export const MOCK_STUDENT = MOCK_STUDENT_G7;
 export const MOCK_TEACHER = {
   id: "teacher_demo_01",
   fullName: "Mrs. Ananya Sharma",
-  email: "sharma.math@asianpublicschool.edu",
+  email: "sharma.math@greenwoodgurgaon.com",
   role: "teacher",
   designation: "Head of Mathematics Department",
-  school: "Asian Public School (CBSE)",
-  createdClasses: ["APS7AM", "APS8AM", "APS9AM"],
+  school: "Greenwood Public School (CBSE)",
+  createdClasses: ["GPS7AM", "GPS8AM", "GPS9AM"],
   avatarUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80"
 };
 
 export const MOCK_PARENT = {
   id: "parent_demo_01",
   fullName: "Mr. Vikram Patel",
-  email: "vikram.patel@asianpublicschool.edu",
+  email: "vikram.patel@greenwoodgurgaon.com",
   role: "parent",
   designation: "Verified Parent / Guardian",
-  school: "Asian Public School (CBSE)",
+  school: "Greenwood Public School (CBSE)",
   phone: "+91 98110 54321",
   linkedChildren: [
     {
       studentId: "student_demo_01",
       fullName: "Aarav Patel",
-      rollNumber: "APS-07-001",
+      rollNumber: "GPS-07-001",
       grade: 7,
       section: "7-A",
       attendanceRate: 96,
@@ -129,7 +129,7 @@ export const MOCK_CLASSES = [
     subject: "Mathematics",
     grade: 7,
     section: "7-A",
-    joinCode: "APS7M",
+    joinCode: "GPS7M",
     teacherName: "Mrs. Ananya Sharma",
     studentCount: 20,
     activeAssignments: 2,
@@ -139,26 +139,26 @@ export const MOCK_CLASSES = [
 ];
 
 export const MOCK_STUDENTS_ROSTER = [
-  { id: "s-1", rollNumber: "APS-07-001", name: "Aarav Patel", pin: "1234", grade: 7, section: "7-A", mastery: 84, status: "Active" },
-  { id: "s-2", rollNumber: "APS-07-002", name: "Priya Sharma", pin: "4321", grade: 7, section: "7-A", mastery: 91, status: "Active" },
-  { id: "s-3", rollNumber: "APS-07-003", name: "Rohan Gupta", pin: "5678", grade: 7, section: "7-A", mastery: 72, status: "Active" },
-  { id: "s-4", rollNumber: "APS-07-004", name: "Ananya Verma", pin: "8765", grade: 7, section: "7-A", mastery: 85, status: "Active" },
-  { id: "s-5", rollNumber: "APS-07-005", name: "Kabir Mehta", pin: "9012", grade: 7, section: "7-A", mastery: 70, status: "Active" },
-  { id: "s-6", rollNumber: "APS-07-006", name: "Sanya Reddy", pin: "2109", grade: 7, section: "7-A", mastery: 88, status: "Active" },
-  { id: "s-7", rollNumber: "APS-07-007", name: "Devansh Singh", pin: "3456", grade: 7, section: "7-A", mastery: 82, status: "Active" },
-  { id: "s-8", rollNumber: "APS-07-008", name: "Ishita Joshi", pin: "6543", grade: 7, section: "7-A", mastery: 76, status: "Active" },
-  { id: "s-9", rollNumber: "APS-07-009", name: "Vivaan Kapoor", pin: "7890", grade: 7, section: "7-A", mastery: 89, status: "Active" },
-  { id: "s-10", rollNumber: "APS-07-010", name: "Diya Mukherjee", pin: "0987", grade: 7, section: "7-A", mastery: 92, status: "Active" },
-  { id: "s-11", rollNumber: "APS-07-011", name: "Arjun Nair", pin: "1122", grade: 7, section: "7-A", mastery: 79, status: "Active" },
-  { id: "s-12", rollNumber: "APS-07-012", name: "Meera Iyer", pin: "2233", grade: 7, section: "7-A", mastery: 86, status: "Active" },
-  { id: "s-13", rollNumber: "APS-07-013", name: "Siddharth Rao", pin: "3344", grade: 7, section: "7-A", mastery: 80, status: "Active" },
-  { id: "s-14", rollNumber: "APS-07-014", name: "Tanvi Bhatia", pin: "4455", grade: 7, section: "7-A", mastery: 94, status: "Active" },
-  { id: "s-15", rollNumber: "APS-07-015", name: "Aditya Sen", pin: "5566", grade: 7, section: "7-A", mastery: 74, status: "Active" },
-  { id: "s-16", rollNumber: "APS-07-016", name: "Riya Chawla", pin: "6677", grade: 7, section: "7-A", mastery: 87, status: "Active" },
-  { id: "s-17", rollNumber: "APS-07-017", name: "Varun Kulkarni", pin: "7788", grade: 7, section: "7-A", mastery: 81, status: "Active" },
-  { id: "s-18", rollNumber: "APS-07-018", name: "Sneha Pillai", pin: "8899", grade: 7, section: "7-A", mastery: 90, status: "Active" },
-  { id: "s-19", rollNumber: "APS-07-019", name: "Pranav Mishra", pin: "9900", grade: 7, section: "7-A", mastery: 78, status: "Active" },
-  { id: "s-20", rollNumber: "APS-07-020", name: "Kavya Saxena", pin: "1010", grade: 7, section: "7-A", mastery: 85, status: "Active" }
+  { id: "s-1", rollNumber: "GPS-07-001", name: "Aarav Patel", pin: "1234", grade: 7, section: "7-A", mastery: 84, status: "Active" },
+  { id: "s-2", rollNumber: "GPS-07-002", name: "Priya Sharma", pin: "4321", grade: 7, section: "7-A", mastery: 91, status: "Active" },
+  { id: "s-3", rollNumber: "GPS-07-003", name: "Rohan Gupta", pin: "5678", grade: 7, section: "7-A", mastery: 72, status: "Active" },
+  { id: "s-4", rollNumber: "GPS-07-004", name: "Ananya Verma", pin: "8765", grade: 7, section: "7-A", mastery: 85, status: "Active" },
+  { id: "s-5", rollNumber: "GPS-07-005", name: "Kabir Mehta", pin: "9012", grade: 7, section: "7-A", mastery: 70, status: "Active" },
+  { id: "s-6", rollNumber: "GPS-07-006", name: "Sanya Reddy", pin: "2109", grade: 7, section: "7-A", mastery: 88, status: "Active" },
+  { id: "s-7", rollNumber: "GPS-07-007", name: "Devansh Singh", pin: "3456", grade: 7, section: "7-A", mastery: 82, status: "Active" },
+  { id: "s-8", rollNumber: "GPS-07-008", name: "Ishita Joshi", pin: "6543", grade: 7, section: "7-A", mastery: 76, status: "Active" },
+  { id: "s-9", rollNumber: "GPS-07-009", name: "Vivaan Kapoor", pin: "7890", grade: 7, section: "7-A", mastery: 89, status: "Active" },
+  { id: "s-10", rollNumber: "GPS-07-010", name: "Diya Mukherjee", pin: "0987", grade: 7, section: "7-A", mastery: 92, status: "Active" },
+  { id: "s-11", rollNumber: "GPS-07-011", name: "Arjun Nair", pin: "1122", grade: 7, section: "7-A", mastery: 79, status: "Active" },
+  { id: "s-12", rollNumber: "GPS-07-012", name: "Meera Iyer", pin: "2233", grade: 7, section: "7-A", mastery: 86, status: "Active" },
+  { id: "s-13", rollNumber: "GPS-07-013", name: "Siddharth Rao", pin: "3344", grade: 7, section: "7-A", mastery: 80, status: "Active" },
+  { id: "s-14", rollNumber: "GPS-07-014", name: "Tanvi Bhatia", pin: "4455", grade: 7, section: "7-A", mastery: 94, status: "Active" },
+  { id: "s-15", rollNumber: "GPS-07-015", name: "Aditya Sen", pin: "5566", grade: 7, section: "7-A", mastery: 74, status: "Active" },
+  { id: "s-16", rollNumber: "GPS-07-016", name: "Riya Chawla", pin: "6677", grade: 7, section: "7-A", mastery: 87, status: "Active" },
+  { id: "s-17", rollNumber: "GPS-07-017", name: "Varun Kulkarni", pin: "7788", grade: 7, section: "7-A", mastery: 81, status: "Active" },
+  { id: "s-18", rollNumber: "GPS-07-018", name: "Sneha Pillai", pin: "8899", grade: 7, section: "7-A", mastery: 90, status: "Active" },
+  { id: "s-19", rollNumber: "GPS-07-019", name: "Pranav Mishra", pin: "9900", grade: 7, section: "7-A", mastery: 78, status: "Active" },
+  { id: "s-20", rollNumber: "GPS-07-020", name: "Kavya Saxena", pin: "1010", grade: 7, section: "7-A", mastery: 85, status: "Active" }
 ];
 
 export const MOCK_TOPICS_MATH = [
@@ -215,7 +215,7 @@ export const MOCK_RECENT_ACTIVITY = [
 export const MOCK_TESTS = [
   {
   "id": "aps-g7-math-diag-2026",
-  "title": "Asian Public School — Grade 7 Mathematics Diagnostic Assessment",
+  "title": "Greenwood Public School — Grade 7 Mathematics Diagnostic Assessment",
   "type": "Diagnostic",
   "category": "Diagnostic Assessments",
   "gradeLevel": 7,
@@ -873,12 +873,12 @@ export const MOCK_TESTS = [
 },
   {
     id: "aps-g7-diagnostic-pre",
-    title: "Asian Public School — Grade 7 STEM Diagnostic Pre-Test",
+    title: "Greenwood Public School — Grade 7 STEM Diagnostic Pre-Test",
     type: "Diagnostic",
     category: "Diagnostic Assessments",
     gradeLevel: 7,
     subject: "STEM (Math & Science)",
-    assignedBy: "Academic Directorate, Asian Public School",
+    assignedBy: "Academic Directorate, Greenwood Public School",
     classId: "APS-7A",
     questionCount: 12,
     durationMinutes: 25,
@@ -1035,12 +1035,12 @@ export const MOCK_TESTS = [
   },
   {
     id: "aps-g7-growth-post",
-    title: "Asian Public School — Grade 7 STEM Summative Growth Post-Test",
+    title: "Greenwood Public School — Grade 7 STEM Summative Growth Post-Test",
     type: "Diagnostic",
     category: "Diagnostic Assessments",
     gradeLevel: 7,
     subject: "STEM (Math & Science)",
-    assignedBy: "Academic Directorate, Asian Public School",
+    assignedBy: "Academic Directorate, Greenwood Public School",
     classId: "APS-7A",
     questionCount: 12,
     durationMinutes: 25,
@@ -1294,7 +1294,7 @@ export const MOCK_TESTS = [
     category: "Periodic Assessments",
     gradeLevel: 7,
     subject: "STEM",
-    assignedBy: "Curriculum Cell, Asian Public School",
+    assignedBy: "Curriculum Cell, Greenwood Public School",
     classId: "APS-7A",
     questionCount: 8,
     durationMinutes: 20,
@@ -1309,7 +1309,7 @@ export const MOCK_TESTS = [
     category: "Half-Yearly Examinations",
     gradeLevel: 7,
     subject: "Math",
-    assignedBy: "Academic Controller, Asian Public School",
+    assignedBy: "Academic Controller, Greenwood Public School",
     classId: "APS-7A",
     questionCount: 15,
     durationMinutes: 45,
@@ -1324,7 +1324,7 @@ export const MOCK_TESTS = [
     category: "Annual Examinations",
     gradeLevel: 7,
     subject: "STEM",
-    assignedBy: "Academic Council, Asian Public School",
+    assignedBy: "Academic Council, Greenwood Public School",
     classId: "APS-7A",
     questionCount: 20,
     durationMinutes: 60,
@@ -1364,12 +1364,12 @@ export const MOCK_TESTS = [
   },
   {
   "id": "aps-g3-diagnostic-pre",
-  "title": "Asian Public School — Grade 3 Primary Wing Diagnostic Pre-Test",
+  "title": "Greenwood Public School — Grade 3 Primary Wing Diagnostic Pre-Test",
   "type": "Diagnostic",
   "category": "Diagnostic Assessments",
   "gradeLevel": 3,
   "subject": "Primary (Math, English & EVS)",
-  "assignedBy": "Primary Wing Directorate, Asian Public School",
+  "assignedBy": "Primary Wing Directorate, Greenwood Public School",
   "classId": "APS-3A",
   "questionCount": 12,
   "durationMinutes": 20,
@@ -1634,12 +1634,12 @@ export const MOCK_TESTS = [
 },
   {
   "id": "aps-g10-diagnostic-pre",
-  "title": "Asian Public School — Grade 10 Secondary STEM Pre-Board Diagnostic",
+  "title": "Greenwood Public School — Grade 10 Secondary STEM Pre-Board Diagnostic",
   "type": "Diagnostic",
   "category": "Diagnostic Assessments",
   "gradeLevel": 10,
   "subject": "STEM (Mathematics & Science)",
-  "assignedBy": "Senior Secondary Directorate, Asian Public School",
+  "assignedBy": "Senior Secondary Directorate, Greenwood Public School",
   "classId": "APS-10A",
   "questionCount": 12,
   "durationMinutes": 30,
@@ -2475,7 +2475,7 @@ export const MOCK_TESTS = [
     category: "Board / Pre-Board Mock Exams",
     gradeLevel: 10,
     subject: "Math",
-    assignedBy: "Senior Secondary Board, Asian Public School",
+    assignedBy: "Senior Secondary Board, Greenwood Public School",
     classId: "APS-10A",
     questionCount: 20,
     durationMinutes: 60,
@@ -3077,7 +3077,7 @@ $$A = \\frac{22}{7} \\times 14 \\times 14 = 22 \\times 2 \\times 14 = 616\\text{
   },
   {
     id: "res-07",
-    title: "Asian Public School — CBSE Official Curriculum Class VII (2026–2027)",
+    title: "Greenwood Public School — CBSE Official Curriculum Class VII (2026–2027)",
     subject: "All",
     grade: 7,
     gradeLevel: 7,
@@ -3087,10 +3087,10 @@ $$A = \\frac{22}{7} \\times 14 \\times 14 = 22 \\times 2 \\times 14 = 616\\text{
     type: "Curriculum Documents",
     readTime: "Official Syllabus",
     thumbnail: "🏛️",
-    summary: "Official Asian Public School Class 7 CBSE curriculum syllabus overview covering Mathematics, Science, English, Social Science, and Hindi.",
-    body: `# Asian Public School, Sohna, Gurugram
+    summary: "Official Greenwood Public School Class 7 CBSE curriculum syllabus overview covering Mathematics, Science, English, Social Science, and Hindi.",
+    body: `# Greenwood Public School, Sector-9, Gurugram
 ## Official CBSE Curriculum Structure — Class VII (Session 2026–2027)
-**CBSE Affiliation No:** 530587 | **School Code:** 40571 | **Source:** https://aps-school.in/curriculum.html
+**CBSE Affiliation No:** 530649 | **School Code:** 40643 | **Source:** https://www.greenwoodgurgaon.com
 
 ### 1. Mathematics Competencies
 - Integers: Properties of addition and subtraction, multiplication and division of integers.

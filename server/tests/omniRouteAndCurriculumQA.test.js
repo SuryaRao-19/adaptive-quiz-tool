@@ -136,13 +136,13 @@ describe('OmniRoute & Adaptive Intelligence QA Suite', () => {
       `;
 
       const result = await curriculumIngestionService.ingestDocument({
-        schoolId: 'APS-2026',
-        documentName: 'Asian Public School Class VII Math Syllabus',
+        schoolId: 'GPS-2026',
+        documentName: 'Greenwood Public School Class VII Math Syllabus',
         gradeLevel: 7,
         subject: 'Mathematics',
         academicYear: '2026-2027',
         rawText,
-        sourceUrl: 'https://aps-school.in/curriculum.html'
+        sourceUrl: 'https://www.greenwoodgurgaon.com'
       });
 
       assert.strictEqual(result.success, true);

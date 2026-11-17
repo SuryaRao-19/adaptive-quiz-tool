@@ -1,28 +1,31 @@
 /**
  * School Management & Multi-Tenant Service
  * Provides institutional administration, grade-wise metrics, teacher allocation,
- * and multi-grade school intelligence for Asian Public School.
+ * and multi-grade school intelligence for Greenwood Public School.
  */
 
 const { prisma, getDatabaseStatus } = require('../config/prisma');
 const curriculumData = require('../data/curriculumData.json');
 
-const ASIAN_PUBLIC_SCHOOL_DEFAULT = {
-  id: 'school-aps-001',
-  name: 'Asian Public School',
-  tenantName: 'Asian Public School — AdaptIQ Demonstration Environment',
-  code: 'APS-2026',
-  officialSchoolCode: '40571',
+const GREENWOOD_PUBLIC_SCHOOL_DEFAULT = {
+  id: 'school-gps-001',
+  name: 'Greenwood Public School',
+  tenantName: 'Greenwood Public School — AdaptIQ Demonstration Environment',
+  code: 'GPS-2026',
+  officialSchoolCode: '40643',
   board: 'CBSE',
-  affiliationNumber: '530587',
-  schoolCode: '40571',
-  address: 'Sohna, Gurugram',
+  affiliationNumber: '530649',
+  schoolCode: '40643',
+  address: 'Huda Site No.-1, Sector -9, Gurugram, Haryana - 122001',
   city: 'Gurugram',
   state: 'Haryana',
   country: 'India',
-  pinCode: '122103',
-  website: 'https://aps-school.in/index.html',
-  curriculumUrl: 'https://aps-school.in/curriculum.html',
+  pinCode: '122001',
+  website: 'https://www.greenwoodgurgaon.com',
+  curriculumUrl: 'https://www.greenwoodgurgaon.com',
+  established: 2002,
+  aboutUs: 'Greenwood Public School, founded in 2002, is a premium school which is affiliated with the Central Board of Secondary Education (CBSE), has an educational strategy that is dynamic in approach and in conformity with the evolving demands of society.',
+  openingHours: 'Mon - Sat : 07:30 A.M - 03:00 P.M, Sun : Closed',
   levels: {
     prePrimary: 'Pre-Nursery, Nursery, LKG, UKG',
     primary: 'Grades 1–5',
@@ -37,8 +40,8 @@ const ASIAN_PUBLIC_SCHOOL_DEFAULT = {
   },
   competitiveExamPrep: ['JEE Main / Advanced', 'NEET-UG', 'CUET', 'NDA', 'CLAT'],
   schedule: {
-    summer: 'Monday–Saturday, 8:00 AM – 2:00 PM',
-    winter: 'Monday–Saturday, 8:30 AM – 2:30 PM'
+    summer: 'Monday–Saturday, 7:30 AM – 3:00 PM',
+    winter: 'Monday–Saturday, 7:30 AM – 3:00 PM'
   },
   houseSystem: [
     { name: 'Tagore House', color: '#dc2626', motto: 'Knowledge is Freedom' },
@@ -48,20 +51,24 @@ const ASIAN_PUBLIC_SCHOOL_DEFAULT = {
   ],
   coCurricular: ['Robotics & STEM Lab', 'Vocal & Instrumental Music', 'Classical Dance', 'Debate & Model UN', 'Visual Arts & Pottery'],
   sports: ['Cricket', 'Football', 'Basketball', 'Badminton', 'Table Tennis', 'Athletics & Track', 'Taekwondo'],
-  contactEmail: 'contact@aps-school.in',
-  contactPhone: '+91 124 238 1234',
+  contactEmail: 'info@greenwoodgurgaon.com',
+  contactPhone: '0124 - 4200807 / 808',
+  contactMobile: '+91-9354482819 / 9990395520',
   academicYear: '2026-2027',
   isCurrentYear: true
 };
 
+const ASIAN_PUBLIC_SCHOOL_DEFAULT = GREENWOOD_PUBLIC_SCHOOL_DEFAULT;
+
 /**
- * Fetch or initialize the Asian Public School institutional profile
+ * Fetch or initialize the Greenwood Public School institutional profile
  */
-async function getSchoolProfile(schoolCode = 'APS-2026') {
+async function getSchoolProfile(schoolCode = 'GPS-2026') {
   if (getDatabaseStatus() === 'connected') {
     try {
-      const school = await prisma.school.findUnique({
-        where: { code: schoolCode },
+      const codeToSearch = (schoolCode === 'APS-2026') ? 'GPS-2026' : schoolCode;
+      const school = await prisma.school.findFirst({
+        where: { OR: [{ code: codeToSearch }, { code: schoolCode }] },
         include: {
           academicYears: { where: { isCurrent: true } },
           grades: { orderBy: { level: 'asc' } }
@@ -75,7 +82,7 @@ async function getSchoolProfile(schoolCode = 'APS-2026') {
 
   // Demonstration Fallback Object
   return {
-    ...ASIAN_PUBLIC_SCHOOL_DEFAULT,
+    ...GREENWOOD_PUBLIC_SCHOOL_DEFAULT,
     grades: curriculumData.grades,
     curriculumProfile: curriculumData.curriculumProfile,
     totalEnrolledStudents: 150,
@@ -191,6 +198,7 @@ async function getSchoolAdminMetrics(schoolCode = 'APS-2026') {
 module.exports = {
   getSchoolProfile,
   getSchoolAdminMetrics,
+  GREENWOOD_PUBLIC_SCHOOL_DEFAULT,
   ASIAN_PUBLIC_SCHOOL_DEFAULT
 };
 

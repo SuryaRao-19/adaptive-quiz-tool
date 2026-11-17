@@ -1,8 +1,8 @@
-/**
- * ADAPTIQ 2.0 — COMPREHENSIVE SYNTHETIC SCHOOL GENERATOR & SIMULATION SUITE
+﻿/**
+ * ADAPTIQ 2.0 â€” COMPREHENSIVE SYNTHETIC SCHOOL GENERATOR & SIMULATION SUITE
  * 
  * Generates an isolated, ultra-realistic institutional demonstration environment:
- * - Tenant: Asian Public School — AdaptIQ Demo (Code: APS-2026-DEMO, CBSE Affiliation 2130089)
+ * - Tenant: Greenwood Public School â€” AdaptIQ Demo (Code: GPS-2026-DEMO, CBSE Affiliation 2130089)
  * - 180 Synthetic Students (30 per grade across Grades 5-10, with realistic Indian names & roll numbers)
  * - 10 Synthetic Certified Teachers (Mathematics, Science, English with empIds)
  * - 12 Classroom Cohorts (5-A, 5-B, 6-A, 6-B, 7-A, 7-B, 8-A, 8-B, 9-A, 9-B, 10-A, 10-B)
@@ -20,34 +20,34 @@ const fs = require('fs');
 const path = require('path');
 
 console.log('================================================================');
-console.log('🏫 ADAPTIQ 2.0: SYNTHETIC SCHOOL DATA GENERATOR & SIMULATOR');
-console.log('   Target Institution: Asian Public School — AdaptIQ Demo');
+console.log('ðŸ« ADAPTIQ 2.0: SYNTHETIC SCHOOL DATA GENERATOR & SIMULATOR');
+console.log('   Target Institution: Greenwood Public School â€” AdaptIQ Demo');
 console.log('================================================================');
 
 // 1. Core Tenant Definition (Official Institutional Profile)
 const SCHOOL_TENANT = {
-  id: 'school-aps-demo-001',
-  name: 'Asian Public School — AdaptIQ Demonstration Environment',
-  shortName: 'Asian Public School',
-  code: 'APS-2026-DEMO',
-  officialSchoolCode: '40571',
+  id: 'school-GPS-demo-001',
+  name: 'Greenwood Public School â€” AdaptIQ Demonstration Environment',
+  shortName: 'Greenwood Public School',
+  code: 'GPS-2026-DEMO',
+  officialSchoolCode: '40643',
   board: 'CBSE',
-  affiliationNumber: '530587',
-  schoolCode: '40571',
-  address: 'Sohna, Gurugram',
+  affiliationNumber: '530649',
+  schoolCode: '40643',
+  address: 'Huda Site No.-1, Sector -9, Gurugram, Haryana - 122001',
   city: 'Gurugram',
   state: 'Haryana',
   country: 'India',
   pinCode: '122103',
-  website: 'https://aps-school.in/index.html',
-  curriculumUrl: 'https://aps-school.in/curriculum.html',
+  website: 'https://GPS-school.in/index.html',
+  curriculumUrl: 'https://GPS-school.in/curriculum.html',
   levels: {
     prePrimary: 'Pre-Primary through Grade 2',
-    primary: 'Grades 3–5',
-    middleWing: 'Grades 6–8',
-    seniorSecondary: 'Grades 9–12'
+    primary: 'Grades 3â€“5',
+    middleWing: 'Grades 6â€“8',
+    seniorSecondary: 'Grades 9â€“12'
   },
-  contactEmail: 'contact@aps-school.in',
+  contactEmail: 'contact@GPS-school.in',
   contactPhone: '+91 124 238 1234',
   academicYear: '2026-2027',
   isSynthetic: true,
@@ -59,7 +59,7 @@ const DEMO_ACCOUNTS = {
   admin: {
     id: 'user-admin-01',
     name: 'Dr. K. S. Raman',
-    email: 'principal@asianpublicschool.edu',
+    email: 'principal@greenwoodgurgaon.com',
     role: 'ADMIN',
     designation: 'Principal & Academic Director',
     schoolId: SCHOOL_TENANT.id,
@@ -68,7 +68,7 @@ const DEMO_ACCOUNTS = {
   leadTeacher: {
     id: 'user-teacher-01',
     name: 'Mrs. Ananya Sharma',
-    email: 'sharma.math@asianpublicschool.edu',
+    email: 'sharma.math@greenwoodgurgaon.com',
     role: 'TEACHER',
     designation: 'Head of Mathematics Department',
     subject: 'Mathematics',
@@ -79,9 +79,9 @@ const DEMO_ACCOUNTS = {
   demoStudent: {
     id: 'user-student-01',
     name: 'Aarav Patel',
-    email: 'student.aps.01@asianpublicschool.edu',
+    email: 'student.aps.01@greenwoodgurgaon.com',
     role: 'STUDENT',
-    rollNumber: 'APS-07-001',
+    rollNumber: 'GPS-07-001',
     pin: '1234',
     grade: 7,
     section: '7-A',
@@ -92,16 +92,16 @@ const DEMO_ACCOUNTS = {
 
 // 3. 10 Synthetic Certified Teachers
 const TEACHER_ROSTER = [
-  { id: 't-01', name: 'Mrs. Ananya Sharma', email: 'sharma.math@asianpublicschool.edu', subject: 'Mathematics', empId: 'APS-T-01', grades: [7, 8], designation: 'Head of Mathematics' },
-  { id: 't-02', name: 'Dr. Rajesh Verma', email: 'verma.physics@asianpublicschool.edu', subject: 'Science', empId: 'APS-T-02', grades: [9, 10], designation: 'Senior Physics Lecturer' },
-  { id: 't-03', name: 'Ms. Sunita Rao', email: 'rao.biology@asianpublicschool.edu', subject: 'Science', empId: 'APS-T-03', grades: [7, 8], designation: 'Biology Specialist' },
-  { id: 't-04', name: 'Mr. David Paul', email: 'paul.english@asianpublicschool.edu', subject: 'English', empId: 'APS-T-04', grades: [7, 8, 9], designation: 'Head of English' },
-  { id: 't-05', name: 'Mrs. Kavita Iyer', email: 'iyer.math@asianpublicschool.edu', subject: 'Mathematics', empId: 'APS-T-05', grades: [5, 6], designation: 'Primary Mathematics Head' },
-  { id: 't-06', name: 'Mr. Arvind Saxena', email: 'saxena.cs@asianpublicschool.edu', subject: 'Science', empId: 'APS-T-06', grades: [8, 9, 10], designation: 'Chemistry & Tech Coordinator' },
-  { id: 't-07', name: 'Ms. Neha Gupta', email: 'gupta.sci@asianpublicschool.edu', subject: 'Science', empId: 'APS-T-07', grades: [5, 6], designation: 'Primary Science Lead' },
-  { id: 't-08', name: 'Mrs. Meenakshi Joshi', email: 'joshi.eng@asianpublicschool.edu', subject: 'English', empId: 'APS-T-08', grades: [5, 6], designation: 'Primary English Teacher' },
-  { id: 't-09', name: 'Mr. Vikram Sen', email: 'sen.ss@asianpublicschool.edu', subject: 'English', empId: 'APS-T-09', grades: [7, 8], designation: 'Senior English Educator' },
-  { id: 't-10', name: 'Dr. Preeti Nair', email: 'nair.math@asianpublicschool.edu', subject: 'Mathematics', empId: 'APS-T-10', grades: [9, 10], designation: 'Senior Secondary Math Specialist' }
+  { id: 't-01', name: 'Mrs. Ananya Sharma', email: 'sharma.math@greenwoodgurgaon.com', subject: 'Mathematics', empId: 'GPS-T-01', grades: [7, 8], designation: 'Head of Mathematics' },
+  { id: 't-02', name: 'Dr. Rajesh Verma', email: 'verma.physics@greenwoodgurgaon.com', subject: 'Science', empId: 'GPS-T-02', grades: [9, 10], designation: 'Senior Physics Lecturer' },
+  { id: 't-03', name: 'Ms. Sunita Rao', email: 'rao.biology@greenwoodgurgaon.com', subject: 'Science', empId: 'GPS-T-03', grades: [7, 8], designation: 'Biology Specialist' },
+  { id: 't-04', name: 'Mr. David Paul', email: 'paul.english@greenwoodgurgaon.com', subject: 'English', empId: 'GPS-T-04', grades: [7, 8, 9], designation: 'Head of English' },
+  { id: 't-05', name: 'Mrs. Kavita Iyer', email: 'iyer.math@greenwoodgurgaon.com', subject: 'Mathematics', empId: 'GPS-T-05', grades: [5, 6], designation: 'Primary Mathematics Head' },
+  { id: 't-06', name: 'Mr. Arvind Saxena', email: 'saxena.cs@greenwoodgurgaon.com', subject: 'Science', empId: 'GPS-T-06', grades: [8, 9, 10], designation: 'Chemistry & Tech Coordinator' },
+  { id: 't-07', name: 'Ms. Neha Gupta', email: 'gupta.sci@greenwoodgurgaon.com', subject: 'Science', empId: 'GPS-T-07', grades: [5, 6], designation: 'Primary Science Lead' },
+  { id: 't-08', name: 'Mrs. Meenakshi Joshi', email: 'joshi.eng@greenwoodgurgaon.com', subject: 'English', empId: 'GPS-T-08', grades: [5, 6], designation: 'Primary English Teacher' },
+  { id: 't-09', name: 'Mr. Vikram Sen', email: 'sen.ss@greenwoodgurgaon.com', subject: 'English', empId: 'GPS-T-09', grades: [7, 8], designation: 'Senior English Educator' },
+  { id: 't-10', name: 'Dr. Preeti Nair', email: 'nair.math@greenwoodgurgaon.com', subject: 'Mathematics', empId: 'GPS-T-10', grades: [9, 10], designation: 'Senior Secondary Math Specialist' }
 ].map(t => ({ ...t, schoolId: SCHOOL_TENANT.id, isSynthetic: true }));
 
 // 4. 12 Classroom Sections across Grades 5-10
@@ -148,7 +148,7 @@ for (let g = 5; g <= 10; g++) {
   const gradeStr = String(g).padStart(2, '0');
   for (let s = 1; s <= 30; s++) {
     const sId = `std-${gradeStr}-${String(s).padStart(3, '0')}`;
-    const roll = `APS-${gradeStr}-${String(s).padStart(3, '0')}`;
+    const roll = `GPS-${gradeStr}-${String(s).padStart(3, '0')}`;
     const firstName = INDIAN_FIRST_NAMES[(s - 1) % INDIAN_FIRST_NAMES.length];
     const lastName = INDIAN_LAST_NAMES[(g * 3 + s - 1) % INDIAN_LAST_NAMES.length];
     const fullName = `${firstName} ${lastName}`;
@@ -181,7 +181,7 @@ for (let g = 5; g <= 10; g++) {
       name: fullName,
       firstName,
       lastName,
-      email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}.${gradeStr}@asianpublicschool.edu`,
+      email: `${firstName.toLowerCase()}.${lastName.toLowerCase()}.${gradeStr}@greenwoodgurgaon.com`,
       rollNumber: roll,
       pin,
       gradeLevel: g,
@@ -214,7 +214,7 @@ const CURRICULUM_BLUEPRINTS = {
     ],
     sci: [
       { topic: 'Plant Reproduction', chapter: 'Living Organisms', tmpl: (i) => ({ q: `Which part of a plant is primarily responsible for photosynthesis?`, ans: 'Leaf chloroplasts', opts: ['Leaf chloroplasts', 'Root xylem', 'Stem pith', 'Flower petals'], exp: 'Leaves contain chlorophyll in chloroplasts where sunlight is converted into chemical energy.', misc: 'Roots absorb water but do not perform photosynthesis.' }) },
-      { topic: 'Matter States', chapter: 'Matter & Materials', tmpl: (i) => ({ q: `Water changing directly into water vapour at room temperature is called:`, ans: 'Evaporation', opts: ['Evaporation', 'Sublimation', 'Condensation', 'Melting'], exp: 'Evaporation is the transition of a liquid into vapour occurring at any temperature below boiling.', misc: 'Boiling occurs only at 100°C; evaporation occurs at all temperatures.' }) }
+      { topic: 'Matter States', chapter: 'Matter & Materials', tmpl: (i) => ({ q: `Water changing directly into water vapour at room temperature is called:`, ans: 'Evaporation', opts: ['Evaporation', 'Sublimation', 'Condensation', 'Melting'], exp: 'Evaporation is the transition of a liquid into vapour occurring at any temperature below boiling.', misc: 'Boiling occurs only at 100Â°C; evaporation occurs at all temperatures.' }) }
     ],
     eng: [
       { topic: 'Subject-Verb Concord', chapter: 'Grammar Foundations', tmpl: (i) => ({ q: `Choose the correct verb: "The flock of birds ________ flying south."`, ans: 'is', opts: ['is', 'are', 'were', 'have'], exp: 'A collective noun like "flock" is treated as singular in standard concord.', misc: 'Do not be misled by the plural noun "birds" inside the prepositional phrase.' }) }
@@ -237,7 +237,7 @@ const CURRICULUM_BLUEPRINTS = {
     math: [
       { topic: 'Rational Numbers', chapter: 'Rational Numbers', tmpl: (i) => ({ q: `Simplify the rational subtraction: (-${i + 2}/5) - (-${i + 7}/5):`, ans: '1', opts: ['1', '-1', `-${2 * i + 9}/5`, `${2 * i + 9}/5`], exp: 'Subtracting a negative fraction is mathematically identical to adding its additive inverse: -a - (-b) = -a + b.', misc: 'Subtracting a negative does not yield a double negative.' }) },
       { topic: 'Simple Equations', chapter: 'Algebraic Equations', tmpl: (i) => ({ q: `Solve for x: ${i + 3}x - 7 = ${i + 3} * 3 - 7:`, ans: '3', opts: ['3', '7', `${i + 3}`, '0'], exp: 'Subtract -7 from both sides, then divide by the coefficient.', misc: 'Transposing terms across an equality inverts their mathematical sign.' }) },
-      { topic: 'Lines and Angles', chapter: 'Geometry', tmpl: (i) => ({ q: `Two supplementary angles have measures (x + ${10 + i})° and (x - ${10 + i})°. Find x:`, ans: '90°', opts: ['90°', '180°', '45°', '100°'], exp: 'Supplementary angles sum to exactly 180°: (x + c) + (x - c) = 2x = 180° => x = 90°.', misc: 'Do not confuse complementary (90°) with supplementary (180°).' }) }
+      { topic: 'Lines and Angles', chapter: 'Geometry', tmpl: (i) => ({ q: `Two supplementary angles have measures (x + ${10 + i})Â° and (x - ${10 + i})Â°. Find x:`, ans: '90Â°', opts: ['90Â°', '180Â°', '45Â°', '100Â°'], exp: 'Supplementary angles sum to exactly 180Â°: (x + c) + (x - c) = 2x = 180Â° => x = 90Â°.', misc: 'Do not confuse complementary (90Â°) with supplementary (180Â°).' }) }
     ],
     sci: [
       { topic: 'Nutrition in Plants', chapter: 'Plant Physiology', tmpl: (i) => ({ q: `Which specialized cells regulate the opening and closing of stomata?`, ans: 'Guard cells', opts: ['Guard cells', 'Epidermal cells', 'Xylem vessels', 'Phloem tubes'], exp: 'Turgor pressure variations in kidney-shaped guard cells control the stomatal aperture.', misc: 'Chloroplasts perform photosynthesis within the guard cell but are organelles, not cells.' }) },
@@ -253,7 +253,7 @@ const CURRICULUM_BLUEPRINTS = {
       { topic: 'Exponents and Powers', chapter: 'Exponents', tmpl: (i) => ({ q: `Simplify: (3^-${i + 1}) * (3^${i + 3}):`, ans: '9', opts: ['9', '27', '3', '1/9'], exp: 'Apply product rule of powers: a^m * a^n = a^(m+n) => 3^(-k + k + 2) = 3^2 = 9.', misc: 'Adding negative and positive exponents obeys algebraic addition rules.' }) }
     ],
     sci: [
-      { topic: 'Force and Pressure', chapter: 'Mechanics', tmpl: (i) => ({ q: `If a force of ${20 + i * 10} N acts over an area of 2 m², what is the pressure?`, ans: `${10 + i * 5} Pa`, opts: [`${10 + i * 5} Pa`, `${40 + i * 20} Pa`, `${20 + i * 10} Pa`, `${5 + i} Pa`], exp: 'Pressure is defined as Force per unit Area (P = F / A).', misc: 'Pressure units are Pascals (N/m²), not Joules or Newtons.' }) },
+      { topic: 'Force and Pressure', chapter: 'Mechanics', tmpl: (i) => ({ q: `If a force of ${20 + i * 10} N acts over an area of 2 mÂ², what is the pressure?`, ans: `${10 + i * 5} Pa`, opts: [`${10 + i * 5} Pa`, `${40 + i * 20} Pa`, `${20 + i * 10} Pa`, `${5 + i} Pa`], exp: 'Pressure is defined as Force per unit Area (P = F / A).', misc: 'Pressure units are Pascals (N/mÂ²), not Joules or Newtons.' }) },
       { topic: 'Metals and Non-Metals', chapter: 'Chemical Elements', tmpl: (i) => ({ q: `Which non-metal is liquid at room temperature?`, ans: 'Bromine', opts: ['Bromine', 'Mercury', 'Chlorine', 'Phosphorus'], exp: 'Bromine (Br) is the only liquid non-metallic element under standard temperature and pressure.', misc: 'Mercury is a metal, not a non-metal.' }) }
     ],
     eng: [
@@ -262,11 +262,11 @@ const CURRICULUM_BLUEPRINTS = {
   },
   9: {
     math: [
-      { topic: 'Polynomials', chapter: 'Polynomials & Factoring', tmpl: (i) => ({ q: `Find the remainder when p(x) = x³ - 3x² + 4x - 5 is divided by (x - 2):`, ans: '-1', opts: ['-1', '3', '5', '-5'], exp: 'By the Remainder Theorem, the remainder equals p(2) = 2³ - 3(2²) + 4(2) - 5 = 8 - 12 + 8 - 5 = -1.', misc: 'Substitute root +2, not the divisor sign -2.' }) },
+      { topic: 'Polynomials', chapter: 'Polynomials & Factoring', tmpl: (i) => ({ q: `Find the remainder when p(x) = xÂ³ - 3xÂ² + 4x - 5 is divided by (x - 2):`, ans: '-1', opts: ['-1', '3', '5', '-5'], exp: 'By the Remainder Theorem, the remainder equals p(2) = 2Â³ - 3(2Â²) + 4(2) - 5 = 8 - 12 + 8 - 5 = -1.', misc: 'Substitute root +2, not the divisor sign -2.' }) },
       { topic: 'Coordinate Geometry', chapter: 'Cartesian Plane', tmpl: (i) => ({ q: `In which quadrant does the point (-${i + 3}, -${i + 5}) lie?`, ans: 'Quadrant III', opts: ['Quadrant III', 'Quadrant II', 'Quadrant IV', 'Quadrant I'], exp: 'When both abscissa (x) and ordinate (y) are negative, the point is located in Quadrant III.', misc: 'Quadrant II has negative x and positive y.' }) }
     ],
     sci: [
-      { topic: 'Laws of Motion', chapter: 'Dynamics', tmpl: (i) => ({ q: `Calculate the force needed to accelerate a 5 kg mass at ${i + 2} m/s²:`, ans: `${5 * (i + 2)} N`, opts: [`${5 * (i + 2)} N`, `${5 + i + 2} N`, `${(i + 2) / 5} N`, `${10 * (i + 2)} N`], exp: 'Newton\'s Second Law: Force = mass × acceleration (F = m * a).', misc: 'Momentum is mass times velocity; force is mass times acceleration.' }) },
+      { topic: 'Laws of Motion', chapter: 'Dynamics', tmpl: (i) => ({ q: `Calculate the force needed to accelerate a 5 kg mass at ${i + 2} m/sÂ²:`, ans: `${5 * (i + 2)} N`, opts: [`${5 * (i + 2)} N`, `${5 + i + 2} N`, `${(i + 2) / 5} N`, `${10 * (i + 2)} N`], exp: 'Newton\'s Second Law: Force = mass Ã— acceleration (F = m * a).', misc: 'Momentum is mass times velocity; force is mass times acceleration.' }) },
       { topic: 'Atomic Structure', chapter: 'Atoms and Molecules', tmpl: (i) => ({ q: `The isotope Carbon-14 contains how many neutrons?`, ans: '8', opts: ['8', '6', '14', '12'], exp: 'Number of neutrons = Mass number (14) - Atomic number (6) = 8 neutrons.', misc: 'Mass number is total nucleons (protons + neutrons), not neutron count alone.' }) }
     ],
     eng: [
@@ -275,11 +275,11 @@ const CURRICULUM_BLUEPRINTS = {
   },
   10: {
     math: [
-      { topic: 'Quadratic Equations', chapter: 'Quadratics', tmpl: (i) => ({ q: `Calculate the discriminant of the quadratic equation 2x² - 4x + 3 = 0:`, ans: '-8', opts: ['-8', '8', '40', '-40'], exp: 'Discriminant D = b² - 4ac = (-4)² - 4(2)(3) = 16 - 24 = -8. Roots are non-real complex.', misc: 'Square of negative number (-4)² is positive 16, not -16.' }) },
-      { topic: 'Trigonometry', chapter: 'Trigonometric Ratios', tmpl: (i) => ({ q: `If sin θ = 3/5, what is the value of cos θ in the first quadrant?`, ans: '4/5', opts: ['4/5', '5/3', '3/4', '1/5'], exp: 'Using fundamental identity sin²θ + cos²θ = 1: cos θ = √(1 - 9/25) = 4/5.', misc: 'cos θ is adjacent over hypotenuse, not opposite over adjacent.' }) }
+      { topic: 'Quadratic Equations', chapter: 'Quadratics', tmpl: (i) => ({ q: `Calculate the discriminant of the quadratic equation 2xÂ² - 4x + 3 = 0:`, ans: '-8', opts: ['-8', '8', '40', '-40'], exp: 'Discriminant D = bÂ² - 4ac = (-4)Â² - 4(2)(3) = 16 - 24 = -8. Roots are non-real complex.', misc: 'Square of negative number (-4)Â² is positive 16, not -16.' }) },
+      { topic: 'Trigonometry', chapter: 'Trigonometric Ratios', tmpl: (i) => ({ q: `If sin Î¸ = 3/5, what is the value of cos Î¸ in the first quadrant?`, ans: '4/5', opts: ['4/5', '5/3', '3/4', '1/5'], exp: 'Using fundamental identity sinÂ²Î¸ + cosÂ²Î¸ = 1: cos Î¸ = âˆš(1 - 9/25) = 4/5.', misc: 'cos Î¸ is adjacent over hypotenuse, not opposite over adjacent.' }) }
     ],
     sci: [
-      { topic: 'Chemical Reactions', chapter: 'Chemical Equations', tmpl: (i) => ({ q: `The reaction 2Mg + O₂ → 2MgO is an example of which reaction type?`, ans: 'Combination reaction', opts: ['Combination reaction', 'Decomposition reaction', 'Displacement reaction', 'Double displacement'], exp: 'Two or more reactants combine to form a single product in a synthesis/combination reaction.', misc: 'Decomposition breaks a single compound into multiple products.' }) },
+      { topic: 'Chemical Reactions', chapter: 'Chemical Equations', tmpl: (i) => ({ q: `The reaction 2Mg + Oâ‚‚ â†’ 2MgO is an example of which reaction type?`, ans: 'Combination reaction', opts: ['Combination reaction', 'Decomposition reaction', 'Displacement reaction', 'Double displacement'], exp: 'Two or more reactants combine to form a single product in a synthesis/combination reaction.', misc: 'Decomposition breaks a single compound into multiple products.' }) },
       { topic: 'Life Processes', chapter: 'Biology Foundations', tmpl: (i) => ({ q: `In human kidneys, the structural and functional filtration unit is the:`, ans: 'Nephron', opts: ['Nephron', 'Neuron', 'Alveolus', 'Villus'], exp: 'Each kidney contains approximately one million nephrons performing ultrafiltration and selective reabsorption.', misc: 'Neuron is the nervous system unit; nephron is the renal unit.' }) }
     ],
     eng: [
@@ -675,13 +675,14 @@ const syntheticSchoolPayload = {
 
 const syntheticDataPath = path.join(DATA_DIR, 'syntheticSchoolData.json');
 fs.writeFileSync(syntheticDataPath, JSON.stringify(syntheticSchoolPayload, null, 2), 'utf8');
-console.log(`✅ Saved synthetic school simulation store -> ${syntheticDataPath}`);
+console.log(`âœ… Saved synthetic school simulation store -> ${syntheticDataPath}`);
 
 // Write multiGradeQuestions.json with all 600 questions
 const questionsPath = path.join(DATA_DIR, 'multiGradeQuestions.json');
 fs.writeFileSync(questionsPath, JSON.stringify(QUESTIONS, null, 2), 'utf8');
-console.log(`✅ Saved complete 600-question multi-grade question bank -> ${questionsPath}`);
+console.log(`âœ… Saved complete 600-question multi-grade question bank -> ${questionsPath}`);
 
 console.log('================================================================');
-console.log('🎉 Synthetic School Data Generation & Validation COMPLETE');
+console.log('ðŸŽ‰ Synthetic School Data Generation & Validation COMPLETE');
 console.log('================================================================');
+

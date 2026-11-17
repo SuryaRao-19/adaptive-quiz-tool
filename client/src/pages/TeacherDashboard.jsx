@@ -38,26 +38,26 @@ import { getClassAnalytics } from '../services/progressService';
 import { MOCK_CLASSES } from '../services/mockData';
 
 const DEMO_STUDENT_NAMES = [
-  { name: 'Aarav Patel', roll: 'APS-07-001', email: 'aarav.p@asianpublicschool.edu', attempts: 12, accuracy: 88, mastery: 85, status: 'on_track' },
-  { name: 'Priya Sharma', roll: 'APS-07-002', email: 'priya.s@asianpublicschool.edu', attempts: 14, accuracy: 92, mastery: 90, status: 'on_track' },
-  { name: 'Rohan Gupta', roll: 'APS-07-003', email: 'rohan.g@asianpublicschool.edu', attempts: 10, accuracy: 72, mastery: 70, status: 'on_track' },
-  { name: 'Ananya Verma', roll: 'APS-07-004', email: 'ananya.v@asianpublicschool.edu', attempts: 15, accuracy: 85, mastery: 82, status: 'on_track' },
-  { name: 'Kabir Mehta', roll: 'APS-07-005', email: 'kabir.m@asianpublicschool.edu', attempts: 11, accuracy: 70, mastery: 68, status: 'on_track' },
-  { name: 'Sanya Reddy', roll: 'APS-07-006', email: 'sanya.r@asianpublicschool.edu', attempts: 13, accuracy: 88, mastery: 86, status: 'on_track' },
-  { name: 'Devansh Singh', roll: 'APS-07-007', email: 'devansh.s@asianpublicschool.edu', attempts: 12, accuracy: 82, mastery: 80, status: 'on_track' },
-  { name: 'Ishita Joshi', roll: 'APS-07-008', email: 'ishita.j@asianpublicschool.edu', attempts: 9, accuracy: 76, mastery: 74, status: 'on_track' },
-  { name: 'Vivaan Kapoor', roll: 'APS-07-009', email: 'vivaan.k@asianpublicschool.edu', attempts: 14, accuracy: 89, mastery: 87, status: 'on_track' },
-  { name: 'Diya Mukherjee', roll: 'APS-07-010', email: 'diya.m@asianpublicschool.edu', attempts: 16, accuracy: 92, mastery: 90, status: 'on_track' },
-  { name: 'Arjun Nair', roll: 'APS-07-011', email: 'arjun.n@asianpublicschool.edu', attempts: 11, accuracy: 79, mastery: 76, status: 'on_track' },
-  { name: 'Meera Iyer', roll: 'APS-07-012', email: 'meera.i@asianpublicschool.edu', attempts: 13, accuracy: 86, mastery: 84, status: 'on_track' },
-  { name: 'Siddharth Rao', roll: 'APS-07-013', email: 'siddharth.r@asianpublicschool.edu', attempts: 10, accuracy: 80, mastery: 78, status: 'on_track' },
-  { name: 'Tanvi Bhatia', roll: 'APS-07-014', email: 'tanvi.b@asianpublicschool.edu', attempts: 15, accuracy: 94, mastery: 92, status: 'on_track' },
-  { name: 'Aditya Sen', roll: 'APS-07-015', email: 'aditya.s@asianpublicschool.edu', attempts: 10, accuracy: 74, mastery: 72, status: 'on_track' },
-  { name: 'Riya Chawla', roll: 'APS-07-016', email: 'riya.c@asianpublicschool.edu', attempts: 12, accuracy: 87, mastery: 85, status: 'on_track' },
-  { name: 'Varun Kulkarni', roll: 'APS-07-017', email: 'varun.k@asianpublicschool.edu', attempts: 11, accuracy: 81, mastery: 79, status: 'on_track' },
-  { name: 'Sneha Pillai', roll: 'APS-07-018', email: 'sneha.p@asianpublicschool.edu', attempts: 14, accuracy: 90, mastery: 88, status: 'on_track' },
-  { name: 'Pranav Mishra', roll: 'APS-07-019', email: 'pranav.m@asianpublicschool.edu', attempts: 10, accuracy: 78, mastery: 75, status: 'on_track' },
-  { name: 'Kavya Saxena', roll: 'APS-07-020', email: 'kavya.s@asianpublicschool.edu', attempts: 12, accuracy: 85, mastery: 83, status: 'on_track' }
+  { name: 'Aarav Patel', roll: 'GPS-07-001', email: 'aarav.p@greenwoodgurgaon.com', attempts: 12, accuracy: 88, mastery: 85, status: 'on_track' },
+  { name: 'Priya Sharma', roll: 'GPS-07-002', email: 'priya.s@greenwoodgurgaon.com', attempts: 14, accuracy: 92, mastery: 90, status: 'on_track' },
+  { name: 'Rohan Gupta', roll: 'GPS-07-003', email: 'rohan.g@greenwoodgurgaon.com', attempts: 10, accuracy: 72, mastery: 70, status: 'on_track' },
+  { name: 'Ananya Verma', roll: 'GPS-07-004', email: 'ananya.v@greenwoodgurgaon.com', attempts: 15, accuracy: 85, mastery: 82, status: 'on_track' },
+  { name: 'Kabir Mehta', roll: 'GPS-07-005', email: 'kabir.m@greenwoodgurgaon.com', attempts: 11, accuracy: 70, mastery: 68, status: 'on_track' },
+  { name: 'Sanya Reddy', roll: 'GPS-07-006', email: 'sanya.r@greenwoodgurgaon.com', attempts: 13, accuracy: 88, mastery: 86, status: 'on_track' },
+  { name: 'Devansh Singh', roll: 'GPS-07-007', email: 'devansh.s@greenwoodgurgaon.com', attempts: 12, accuracy: 82, mastery: 80, status: 'on_track' },
+  { name: 'Ishita Joshi', roll: 'GPS-07-008', email: 'ishita.j@greenwoodgurgaon.com', attempts: 9, accuracy: 76, mastery: 74, status: 'on_track' },
+  { name: 'Vivaan Kapoor', roll: 'GPS-07-009', email: 'vivaan.k@greenwoodgurgaon.com', attempts: 14, accuracy: 89, mastery: 87, status: 'on_track' },
+  { name: 'Diya Mukherjee', roll: 'GPS-07-010', email: 'diya.m@greenwoodgurgaon.com', attempts: 16, accuracy: 92, mastery: 90, status: 'on_track' },
+  { name: 'Arjun Nair', roll: 'GPS-07-011', email: 'arjun.n@greenwoodgurgaon.com', attempts: 11, accuracy: 79, mastery: 76, status: 'on_track' },
+  { name: 'Meera Iyer', roll: 'GPS-07-012', email: 'meera.i@greenwoodgurgaon.com', attempts: 13, accuracy: 86, mastery: 84, status: 'on_track' },
+  { name: 'Siddharth Rao', roll: 'GPS-07-013', email: 'siddharth.r@greenwoodgurgaon.com', attempts: 10, accuracy: 80, mastery: 78, status: 'on_track' },
+  { name: 'Tanvi Bhatia', roll: 'GPS-07-014', email: 'tanvi.b@greenwoodgurgaon.com', attempts: 15, accuracy: 94, mastery: 92, status: 'on_track' },
+  { name: 'Aditya Sen', roll: 'GPS-07-015', email: 'aditya.s@greenwoodgurgaon.com', attempts: 10, accuracy: 74, mastery: 72, status: 'on_track' },
+  { name: 'Riya Chawla', roll: 'GPS-07-016', email: 'riya.c@greenwoodgurgaon.com', attempts: 12, accuracy: 87, mastery: 85, status: 'on_track' },
+  { name: 'Varun Kulkarni', roll: 'GPS-07-017', email: 'varun.k@greenwoodgurgaon.com', attempts: 11, accuracy: 81, mastery: 79, status: 'on_track' },
+  { name: 'Sneha Pillai', roll: 'GPS-07-018', email: 'sneha.p@greenwoodgurgaon.com', attempts: 14, accuracy: 90, mastery: 88, status: 'on_track' },
+  { name: 'Pranav Mishra', roll: 'GPS-07-019', email: 'pranav.m@greenwoodgurgaon.com', attempts: 10, accuracy: 78, mastery: 75, status: 'on_track' },
+  { name: 'Kavya Saxena', roll: 'GPS-07-020', email: 'kavya.s@greenwoodgurgaon.com', attempts: 12, accuracy: 85, mastery: 83, status: 'on_track' }
 ];
 
 export const TeacherDashboard = () => {
@@ -149,11 +149,11 @@ export const TeacherDashboard = () => {
       } else {
         setClassAnalytics({
           success: true,
-          joinCode: currentClass?.joinCode || 'APS7AM',
+          joinCode: currentClass?.joinCode || 'GPS7AM',
           className: currentClass?.name || 'Grade 7-A Mathematics',
           avgMastery: currentClass?.avgMastery || 76,
           roster: DEMO_STUDENT_NAMES.map((s, idx) => ({
-            id: `aps-stu-${idx + 1}`,
+            id: `gps-stu-${idx + 1}`,
             name: s.name,
             rollNumber: s.roll,
             email: s.email,
@@ -167,11 +167,11 @@ export const TeacherDashboard = () => {
     }).catch(() => {
       setClassAnalytics({
         success: true,
-        joinCode: currentClass?.joinCode || 'APS7AM',
+        joinCode: currentClass?.joinCode || 'GPS7AM',
         className: currentClass?.name || 'Grade 7-A Mathematics',
         avgMastery: currentClass?.avgMastery || 76,
         roster: DEMO_STUDENT_NAMES.map((s, idx) => ({
-          id: `aps-stu-${idx + 1}`,
+          id: `gps-stu-${idx + 1}`,
           name: s.name,
           rollNumber: s.roll,
           email: s.email,
@@ -258,7 +258,7 @@ export const TeacherDashboard = () => {
               Teacher Command Centre
             </h1>
             <Badge variant="purple" size="sm" className="font-bold">
-              Asian Public School
+              Greenwood Public School
             </Badge>
           </div>
           <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm mt-1">
@@ -336,7 +336,7 @@ export const TeacherDashboard = () => {
                 <span className="text-[10px] font-extrabold uppercase tracking-widest px-2 py-0.5 rounded-full bg-rose-500/30 text-rose-300 border border-rose-500/40">
                   Live Examination In Progress
                 </span>
-                <span className="text-xs text-indigo-200 font-mono">Room: Grade 7-A (Join: APS7M)</span>
+                <span className="text-xs text-indigo-200 font-mono">Room: Grade 7-A (Join: GPS7M)</span>
               </div>
               <h3 className="font-extrabold text-sm sm:text-base text-white mt-0.5">
                 Unit 3: Fractions, Rational Numbers & Decimals Timed Diagnostic
@@ -617,7 +617,7 @@ export const TeacherDashboard = () => {
                 {filteredRoster.map((s) => (
                   <tr key={s.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/40">
                     <td className="py-3.5 px-4 font-mono font-bold text-slate-700 dark:text-slate-300">
-                      {s.rollNumber || 'APS-07-001'}
+                      {s.rollNumber || 'GPS-07-001'}
                     </td>
                     <td className="py-3.5 px-4 font-bold text-slate-900 dark:text-white">
                       {s.name}

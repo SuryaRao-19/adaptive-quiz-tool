@@ -1,7 +1,7 @@
 /**
  * Synthetic School Data Store Manager
  * Provides thread-safe, transactional in-memory and persistent JSON data access
- * for the Asian Public School simulation environment.
+ * for the Greenwood Public School simulation environment.
  * Ensures genuine persistence for attendance, assessments, live invigilation,
  * descriptive grading, and analytics when running in standalone/demonstration mode.
  */
@@ -65,7 +65,7 @@ function loadStore() {
 
     if (!inMemoryStore) {
       inMemoryStore = {
-        school: { name: 'Asian Public School — AdaptIQ Demo', code: 'APS-2026-DEMO' },
+        school: { name: 'Greenwood Public School — AdaptIQ Demo', code: 'GPS-2026-DEMO' },
         teachers: [],
         classrooms: [],
         students: [],
@@ -131,10 +131,10 @@ function addClassroom(classroomData) {
     subject: classroomData.subject || 'Mathematics',
     gradeLevel: parseInt(classroomData.gradeLevel, 10) || 7,
     section: classroomData.section || `${classroomData.gradeLevel || 7}-A`,
-    joinCode: classroomData.joinCode || `APS${classroomData.gradeLevel || 7}${classroomData.subject ? classroomData.subject[0].toUpperCase() : 'M'}`,
+    joinCode: classroomData.joinCode || `GPS${classroomData.gradeLevel || 7}${classroomData.subject ? classroomData.subject[0].toUpperCase() : 'M'}`,
     teacherId: classroomData.teacherId || 't-01',
     teacherName: classroomData.teacherName || 'Mrs. Ananya Sharma',
-    schoolId: store.school?.id || 'school-aps-demo-001',
+    schoolId: store.school?.id || 'school-gps-demo-001',
     capacity: 35,
     isSynthetic: true,
     createdAt: new Date().toISOString()
@@ -175,6 +175,9 @@ function getAssessments() {
   const qMap = new Map((multiQuestions || []).map(q => [q.id, q]));
 
   return rawAssessments.map(asm => {
+    if (asm.questions && Array.isArray(asm.questions) && asm.questions.length > 0) {
+      return asm;
+    }
     if ((!asm.questions || asm.questions.length === 0) && Array.isArray(asm.questionIds) && asm.questionIds.length > 0) {
       const resolved = asm.questionIds.map(qid => qMap.get(qid)).filter(Boolean);
       return { ...asm, questions: resolved };
@@ -203,13 +206,14 @@ function addAssessment(data) {
     timeExtendedMinutes: 0,
     durationMinutes: parseInt(data.durationMinutes, 10) || 20,
     totalMarks: parseInt(data.totalMarks, 10) || 24,
-    questionCount: data.questionIds?.length || 12,
+    questionCount: data.questions?.length || data.questionIds?.length || 12,
     questionIds: data.questionIds || [],
+    questions: data.questions || [],
     randomizeOrder: Boolean(data.randomizeOrder),
     instructions: data.instructions || 'Standard School Assessment.',
     startTime: data.startTime || null,
     endTime: data.endTime || null,
-    schoolId: store.school?.id || 'school-aps-demo-001',
+    schoolId: store.school?.id || 'school-gps-demo-001',
     createdAt: new Date().toISOString(),
     isSynthetic: true
   };
@@ -255,7 +259,7 @@ function addAttempt(attemptData) {
   const newAttempt = {
     id,
     assessmentId: attemptData.assessmentId,
-    assessmentTitle: attemptData.assessmentTitle || 'Asian Public School — Grade 7 Mathematics Diagnostic Assessment',
+    assessmentTitle: attemptData.assessmentTitle || 'Greenwood Public School — Grade 7 Mathematics Diagnostic Assessment',
     studentId: attemptData.studentId,
     studentName: attemptData.studentName,
     rollNumber: attemptData.rollNumber,
@@ -275,7 +279,7 @@ function addAttempt(attemptData) {
     violationReason: attemptData.violationReason || null,
     startTime: attemptData.startTime || new Date().toISOString(),
     endTime: attemptData.endTime || new Date().toISOString(),
-    schoolId: store.school?.id || 'school-aps-001',
+    schoolId: store.school?.id || 'school-gps-001',
     isSynthetic: false
   };
 
@@ -381,11 +385,23 @@ function saveAttendanceBatch(records) {
 function findStudentByGradeAndRoll(grade, rollNumber) {
   const store = loadStore();
   const g = parseInt(grade, 10);
-  const cleanRoll = String(rollNumber || '').trim().toUpperCase();
-  return (store.students || []).find(
-    s => (parseInt(s.grade, 10) === g || parseInt(s.gradeLevel, 10) === g || !s.grade) && 
-         String(s.rollNumber || '').trim().toUpperCase() === cleanRoll
-  );
+  const rawRoll = String(rollNumber || '').trim().toUpperCase();
+  const rollsToMatch = new Set([
+    rawRoll,
+    rawRoll.replace(/^GPS-/, 'APS-'),
+    rawRoll.replace(/^APS-/, 'GPS-'),
+    rawRoll.replace(/^(GPS|APS)-0?/, '')
+  ]);
+
+  return (store.students || []).find(s => {
+    const studentGrade = parseInt(s.grade, 10) || parseInt(s.gradeLevel, 10);
+    if (g && studentGrade && studentGrade !== g) return false;
+    const sRoll = String(s.rollNumber || '').trim().toUpperCase();
+    return rollsToMatch.has(sRoll) ||
+           rollsToMatch.has(sRoll.replace(/^GPS-/, 'APS-')) ||
+           rollsToMatch.has(sRoll.replace(/^APS-/, 'GPS-')) ||
+           rollsToMatch.has(sRoll.replace(/^(GPS|APS)-0?/, ''));
+  });
 }
 
 function updateStudent(id, updates) {
@@ -410,10 +426,10 @@ function addStudent(studentData) {
     grade: parseInt(studentData.grade || studentData.gradeLevel, 10) || 7,
     gradeLevel: parseInt(studentData.grade || studentData.gradeLevel, 10) || 7,
     section: studentData.section || '7-A',
-    email: studentData.email || `${(studentData.name || 'student').toLowerCase().replace(/\s+/g, '.')}@asianpublicschool.edu`,
-    classroomId: studentData.classroomId || 'cls-aps-7a',
-    schoolId: store.school?.id || 'school-aps-001',
-    activationCode: studentData.activationCode || `APS-ACT-${Math.floor(1000 + Math.random() * 9000)}`,
+    email: studentData.email || `${(studentData.name || 'student').toLowerCase().replace(/\s+/g, '.')}@greenwoodgurgaon.com`,
+    classroomId: studentData.classroomId || 'cls-gps-7a',
+    schoolId: store.school?.id || 'school-gps-001',
+    activationCode: studentData.activationCode || `GPS-ACT-${Math.floor(1000 + Math.random() * 9000)}`,
     isActivated: Boolean(studentData.isActivated),
     passwordHash: studentData.passwordHash || null,
     createdAt: new Date().toISOString()
@@ -452,10 +468,10 @@ function addTicket(ticketData) {
   const id = ticketData.id || `TICK-${Date.now()}`;
   const newTicket = {
     id,
-    ticketNumber: ticketData.ticketNumber || `APS-TK-${numStr}`,
+    ticketNumber: ticketData.ticketNumber || `GPS-TK-${numStr}`,
     senderName: ticketData.senderName || ticketData.name || 'Anonymous User',
     senderRole: ticketData.senderRole || ticketData.role || 'student',
-    senderEmail: ticketData.senderEmail || ticketData.email || 'user@asianpublicschool.edu',
+    senderEmail: ticketData.senderEmail || ticketData.email || 'user@greenwoodgurgaon.com',
     studentId: ticketData.studentId || null,
     subject: ticketData.subject || ticketData.bugTitle || 'Support Enquiry',
     message: ticketData.message || ticketData.description || '',

@@ -101,7 +101,7 @@ export const SolutionsHub = () => {
             </Badge>
           </div>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-            Canonical worked-example repository for Asian Public School with formal proofs, verification, and pedagogical step-by-step verification.
+            Canonical worked-example repository for Greenwood Public School with formal proofs, verification, and pedagogical step-by-step verification.
           </p>
         </div>
 

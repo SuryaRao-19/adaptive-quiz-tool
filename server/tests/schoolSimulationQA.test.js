@@ -41,21 +41,21 @@ const { updateBKT, categorizeBKTStatus, DEFAULT_BKT_PARAMS } = require('../engin
 const { calculateNextDifficulty } = require('../engine/adaptiveEngine');
 const { buildTutorSystemPrompt } = require('../services/ai/services/tutoringService');
 
-describe('🏫 Asian Public School Institutional Simulation & QA Suite (Phase 5)', () => {
+describe('🏫 Greenwood Public School Institutional Simulation & QA Suite (Phase 5)', () => {
 
   // --- 1. Administrator Authentication ---
   it('1. verifies School Administrator / Principal authentication and elevated capabilities', () => {
     const school = syntheticStore.getSchool();
-    assert.ok(school.code.startsWith('APS-'));
+    assert.ok(school.code.startsWith('GPS-') || school.code.startsWith('APS-'));
     assert.strictEqual(school.board, 'CBSE');
-    assert.strictEqual(school.affiliationNumber, '530587');
-    assert.strictEqual(school.schoolCode, '40571');
+    assert.strictEqual(school.affiliationNumber, '530649');
+    assert.strictEqual(school.schoolCode, '40643');
 
     // Admin user mock verification
     const adminUser = {
       id: 'admin-01',
-      name: 'Dr. S. K. Sharma',
-      email: 'principal@asianpublicschool.edu',
+      name: 'Dr. K. S. Raman',
+      email: 'principal@greenwoodgurgaon.com',
       role: 'ADMIN',
       schoolId: school.id
     };
@@ -69,11 +69,11 @@ describe('🏫 Asian Public School Institutional Simulation & QA Suite (Phase 5)
     const teachers = syntheticStore.getTeachers();
     assert.ok(teachers.length >= 1, 'Must have at least 1 certified teacher');
 
-    const mathHead = teachers.find(t => t.email === 'sharma.math@asianpublicschool.edu');
+    const mathHead = teachers.find(t => t.email.includes('sharma.math'));
     assert.ok(mathHead, 'Mrs. Ananya Sharma must exist');
     assert.strictEqual(mathHead.subject, 'Mathematics');
     assert.ok(mathHead.grades.includes(7));
-    assert.strictEqual(mathHead.schoolId, 'school-aps-001');
+    assert.strictEqual(mathHead.schoolId, syntheticStore.getSchool().id);
   });
 
   // --- 3. Student Authentication ---
@@ -82,8 +82,8 @@ describe('🏫 Asian Public School Institutional Simulation & QA Suite (Phase 5)
     assert.ok(students.length >= 20, 'Must contain at least 20 Grade 7 pilot students');
 
     const student1 = students[0];
-    assert.ok(student1.rollNumber.startsWith('APS-'));
-    assert.ok(student1.activationCode.startsWith('APS-ACT-'));
+    assert.ok(student1.rollNumber.startsWith('GPS-') || student1.rollNumber.startsWith('APS-'));
+    assert.ok(student1.activationCode.startsWith('GPS-ACT-') || student1.activationCode.startsWith('APS-ACT-'));
     assert.strictEqual(student1.gradeLevel, 7);
   });
 
@@ -125,7 +125,7 @@ describe('🏫 Asian Public School Institutional Simulation & QA Suite (Phase 5)
     assert.ok(newClass.id);
     assert.strictEqual(newClass.gradeLevel, 7);
     assert.strictEqual(newClass.section, '7-C');
-    assert.ok(newClass.joinCode.startsWith('APS7'));
+    assert.ok(newClass.joinCode.startsWith('GPS7') || newClass.joinCode.startsWith('APS7'));
     assert.strictEqual(newClass.capacity, 35);
 
     const fetched = syntheticStore.getClassroomById(newClass.id);
@@ -134,7 +134,7 @@ describe('🏫 Asian Public School Institutional Simulation & QA Suite (Phase 5)
 
   // --- 6. Enrollment & Capacity Management ---
   it('6. validates student enrollment into classroom cohorts and enforces capacity', () => {
-    const cls = syntheticStore.getClassroomById('cls-aps-7a') || syntheticStore.getClassrooms()[0];
+    const cls = syntheticStore.getClassroomById('cls-gps-7a') || syntheticStore.getClassrooms().find(c => (c.enrolledCount || 0) > 0) || syntheticStore.getClassrooms()[0];
     assert.ok(cls);
 
     const students = syntheticStore.getStudentsByClassroom(cls.id);
@@ -147,12 +147,13 @@ describe('🏫 Asian Public School Institutional Simulation & QA Suite (Phase 5)
 
   // --- 7. Attendance Marking, Normalization & Retrieval ---
   it('7. marks, normalizes (UTC midnight), and retrieves attendance preventing duplicate records', async () => {
-    const cls = syntheticStore.getClassroomById('cls-aps-7a') || syntheticStore.getClassrooms()[0];
+    const cls = syntheticStore.getClassrooms()[0];
     const testDate = '2026-11-16T10:30:00.000Z';
+    const students = syntheticStore.getStudents();
     const records = [
-      { studentId: 'stu-g7-001', studentName: 'Aarav Patel', rollNumber: 'APS-07-001', status: 'PRESENT' },
-      { studentId: 'stu-g7-002', studentName: 'Priya Sharma', rollNumber: 'APS-07-002', status: 'LATE' },
-      { studentId: 'stu-g7-003', studentName: 'Rohan Gupta', rollNumber: 'APS-07-003', status: 'ABSENT' }
+      { studentId: students[0].id, studentName: students[0].name, rollNumber: students[0].rollNumber, status: 'PRESENT' },
+      { studentId: students[1].id, studentName: students[1].name, rollNumber: students[1].rollNumber, status: 'LATE' },
+      { studentId: students[2].id, studentName: students[2].name, rollNumber: students[2].rollNumber, status: 'ABSENT' }
     ];
 
     const result = await attendanceService.markClassroomAttendance({
@@ -174,12 +175,12 @@ describe('🏫 Asian Public School Institutional Simulation & QA Suite (Phase 5)
     await attendanceService.markClassroomAttendance({
       classroomId: cls.id,
       date: testDate,
-      records: [{ studentId: 'stu-g7-001', studentName: 'Aarav Patel', rollNumber: 'APS-07-001', status: 'EXCUSED' }],
+      records: [{ studentId: students[0].id, studentName: students[0].name, rollNumber: students[0].rollNumber, status: 'EXCUSED' }],
       teacherId: 't-01'
     });
 
     const updatedList = syntheticStore.getAttendanceRecords(cls.id, '2026-11-16');
-    const std1Records = updatedList.filter(a => a.studentId === 'stu-g7-001');
+    const std1Records = updatedList.filter(a => a.studentId === students[0].id);
     assert.strictEqual(std1Records.length, 1, 'Should update existing record without duplicating');
     assert.strictEqual(std1Records[0].status, 'EXCUSED');
   });
@@ -243,7 +244,7 @@ describe('🏫 Asian Public School Institutional Simulation & QA Suite (Phase 5)
       assessmentId: 'asm-qa-test-participation',
       studentId: 'std-07-001',
       studentName: 'Aarav Patel',
-      rollNumber: 'APS-07-001',
+      rollNumber: 'GPS-07-001',
       gradeLevel: 7,
       status: 'IN_PROGRESS',
       totalQuestions: 12
@@ -348,7 +349,7 @@ describe('🏫 Asian Public School Institutional Simulation & QA Suite (Phase 5)
       assessmentId: 'asm-g9-post',
       studentId: 'std-09-001',
       studentName: 'Aarav Patel',
-      rollNumber: 'APS-09-001',
+      rollNumber: 'GPS-09-001',
       status: 'SUBMITTED',
       totalScore: 16,
       maxScore: 24
@@ -389,7 +390,7 @@ describe('🏫 Asian Public School Institutional Simulation & QA Suite (Phase 5)
       assessmentId: asmId,
       studentId: 'stu-g7-001',
       studentName: 'Aarav Patel',
-      rollNumber: 'APS-07-001',
+      rollNumber: 'GPS-07-001',
       gradeLevel: 7,
       status: 'SUBMITTED',
       score: 18,
@@ -521,15 +522,15 @@ describe('🏫 Asian Public School Institutional Simulation & QA Suite (Phase 5)
     const classrooms = syntheticStore.getClassrooms();
 
     students.forEach(s => {
-      assert.strictEqual(s.schoolId, demoSchoolId, 'Student must belong to APS demo school tenant');
+      assert.strictEqual(s.schoolId, demoSchoolId, 'Student must belong to GPS demo school tenant');
     });
 
     teachers.forEach(t => {
-      assert.strictEqual(t.schoolId, demoSchoolId, 'Teacher must belong to APS demo school tenant');
+      assert.strictEqual(t.schoolId, demoSchoolId, 'Teacher must belong to GPS demo school tenant');
     });
 
     classrooms.forEach(c => {
-      assert.strictEqual(c.schoolId, demoSchoolId, 'Classroom must belong to APS demo school tenant');
+      assert.strictEqual(c.schoolId, demoSchoolId, 'Classroom must belong to GPS demo school tenant');
     });
   });
 

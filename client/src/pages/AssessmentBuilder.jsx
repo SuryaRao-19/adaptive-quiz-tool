@@ -180,6 +180,7 @@ export const AssessmentBuilder = () => {
         durationMinutes: parseInt(durationMinutes, 10),
         totalMarks: parseFloat(totalMarks),
         questionIds: selectedQuestions.map(q => q.id || q._id),
+        questions: selectedQuestions,
         pointsPerQuestion,
         startTime: startTime ? new Date(startTime).toISOString() : null,
         endTime: endTime ? new Date(endTime).toISOString() : null,
@@ -205,7 +206,7 @@ export const AssessmentBuilder = () => {
           id: createdAssessmentId,
           title: title.trim(),
           gradeLevel: parseInt(gradeLevel, 10) || 7,
-          classroomId: classroomId || (MOCK_CLASSES[0]?.id || 'cls-aps-7a'),
+          classroomId: classroomId || (MOCK_CLASSES[0]?.id || 'cls-gps-7a'),
           subject: subject || 'Mathematics',
           durationMinutes: parseInt(durationMinutes, 10) || 20,
           totalMarks: parseFloat(totalMarks) || 100,
@@ -701,10 +702,10 @@ export const AssessmentBuilder = () => {
             {/* Formal Institutional School Header */}
             <div className="text-center pb-4 border-b-2 border-slate-400 dark:border-slate-600 space-y-1">
               <h1 className="text-xl font-black uppercase tracking-wider">
-                Asian Public School, Sohna, Gurugram
+                Greenwood Public School, Sector-9, Gurugram
               </h1>
               <p className="text-xs font-sans text-slate-600 dark:text-slate-400">
-                Affiliated to CBSE, New Delhi &bull; Affiliation No: 530587 &bull; School Code: 40571
+                Affiliated to CBSE, New Delhi &bull; Affiliation No: 530649 &bull; School Code: 40643
               </p>
               <h2 className="text-base font-bold uppercase pt-1">
                 Periodic Assessment / Diagnostic Examination &bull; Session 2026–2027
@@ -799,7 +800,7 @@ export const AssessmentBuilder = () => {
               </div>
               <div className="p-3 bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 text-xs leading-relaxed">
                 <p className="font-semibold text-slate-800 dark:text-slate-200 mb-1.5">
-                  <strong>Case Context:</strong> Asian Public School's Eco-Club conducted a photosynthesis experiment by measuring oxygen bubbling rate in an aquatic plant (Hydrilla) placed at varying distances from a light source (10 cm, 20 cm, 40 cm).
+                  <strong>Case Context:</strong> Greenwood Public School's Eco-Club conducted a photosynthesis experiment by measuring oxygen bubbling rate in an aquatic plant (Hydrilla) placed at varying distances from a light source (10 cm, 20 cm, 40 cm).
                 </p>
                 <p className="font-bold mt-2">Questions:</p>
                 <p className="text-[11px] text-slate-600 dark:text-slate-400 mt-0.5">
@@ -898,7 +899,7 @@ export const AssessmentBuilder = () => {
           <div className="border border-slate-300 dark:border-slate-700 rounded-xl p-6 sm:p-8 bg-white dark:bg-slate-900 space-y-6">
             <div className="text-center pb-4 border-b border-slate-200 dark:border-slate-800">
               <h2 className="font-black text-lg text-slate-900 dark:text-white uppercase tracking-wider">
-                Asian Public School &bull; Student Practice Worksheet
+                Greenwood Public School &bull; Student Practice Worksheet
               </h2>
               <p className="text-xs text-slate-500 mt-0.5">
                 Topic: Rational Number Operations & Equations &bull; Grade 7
@@ -1078,7 +1079,7 @@ export const AssessmentBuilder = () => {
       >
         <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-1">
           <p className="text-xs text-slate-500">
-            Curated items aligned to NCERT & CBSE standards for Asian Public School. Review and approve before inclusion in this assessment.
+            Curated items aligned to NCERT & CBSE standards for Greenwood Public School. Review and approve before inclusion in this assessment.
           </p>
 
           {aiGenerating ? (

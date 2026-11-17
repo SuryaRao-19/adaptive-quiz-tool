@@ -573,14 +573,14 @@ export const TestMode = () => {
         <div className="max-w-4xl mx-auto w-full flex items-center justify-between border-b border-slate-800 pb-4">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-indigo-600 flex items-center justify-center font-black text-white text-base shadow-glow-primary">
-              APS
+              GPS
             </div>
             <div>
               <h1 className="text-sm sm:text-base font-extrabold tracking-tight text-white">
-                Asian Public School, Sohna
+                Greenwood Public School, Gurugram
               </h1>
               <p className="text-[11px] font-mono text-cyan-300">
-                CBSE Affiliation No. 530587 • Digital Examination Center
+                CBSE Affiliation No. 530649 • Digital Examination Center
               </p>
             </div>
           </div>
@@ -677,7 +677,7 @@ export const TestMode = () => {
 
         {/* Footer */}
         <div className="max-w-4xl mx-auto w-full text-center text-[11px] text-slate-500 border-t border-slate-800 pt-3">
-          Asian Public School, Sohna, Gurugram • Institutional CBT Security Engine • Zero External APIs
+          Greenwood Public School, Sector-9, Gurugram • Institutional CBT Security Engine • Zero External APIs
         </div>
       </div>
     );
@@ -1320,7 +1320,7 @@ export const TestMode = () => {
             </Badge>
           </div>
           <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-            Standardized evaluations for Asian Public School across Diagnostic, Chapter, Periodic, Board Mocks, and Olympiad tiers.
+            Standardized evaluations for Greenwood Public School across Diagnostic, Chapter, Periodic, Board Mocks, and Olympiad tiers.
           </p>
         </div>
 

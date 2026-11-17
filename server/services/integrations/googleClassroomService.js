@@ -44,36 +44,36 @@ class GoogleClassroomService {
       }
     }
 
-    // Curated Asian Public School Classroom fallbacks
+    // Curated Greenwood Public School Classroom fallbacks
     return [
       {
-        id: 'aps_classroom_g10_math',
+        id: 'gps_classroom_g10_math',
         name: 'Grade 10-A Mathematics (2026-27)',
         section: '10-A',
         descriptionHeading: 'CBSE Standard Mathematics',
         room: 'Room 204',
-        enrollmentCode: 'APS10MTH',
-        alternateLink: 'https://classroom.google.com/c/aps_classroom_g10_math',
+        enrollmentCode: 'GPS10MTH',
+        alternateLink: 'https://classroom.google.com/c/gps_classroom_g10_math',
         courseState: 'ACTIVE'
       },
       {
-        id: 'aps_classroom_g10_sci',
+        id: 'gps_classroom_g10_sci',
         name: 'Grade 10-A Science & Tech (2026-27)',
         section: '10-A',
         descriptionHeading: 'Physics, Chemistry & Biology',
         room: 'Lab 1',
-        enrollmentCode: 'APS10SCI',
-        alternateLink: 'https://classroom.google.com/c/aps_classroom_g10_sci',
+        enrollmentCode: 'GPS10SCI',
+        alternateLink: 'https://classroom.google.com/c/gps_classroom_g10_sci',
         courseState: 'ACTIVE'
       },
       {
-        id: 'aps_classroom_g9_math',
+        id: 'gps_classroom_g9_math',
         name: 'Grade 9-B Mathematics (2026-27)',
         section: '9-B',
         descriptionHeading: 'CBSE Foundation Mathematics',
         room: 'Room 108',
-        enrollmentCode: 'APS09MTH',
-        alternateLink: 'https://classroom.google.com/c/aps_classroom_g9_math',
+        enrollmentCode: 'GPS09MTH',
+        alternateLink: 'https://classroom.google.com/c/gps_classroom_g9_math',
         courseState: 'ACTIVE'
       }
     ];
@@ -101,9 +101,9 @@ class GoogleClassroomService {
     }
 
     return [
-      { userId: 'aps_std_101', profile: { name: { fullName: 'Aarav Sharma' }, emailAddress: 'aarav.sharma@aps-school.in' } },
-      { userId: 'aps_std_102', profile: { name: { fullName: 'Diya Patel' }, emailAddress: 'diya.patel@aps-school.in' } },
-      { userId: 'aps_std_103', profile: { name: { fullName: 'Ishaan Verma' }, emailAddress: 'ishaan.verma@aps-school.in' } }
+      { userId: 'gps_std_101', profile: { name: { fullName: 'Aarav Sharma' }, emailAddress: 'aarav.sharma@greenwoodgurgaon.com' } },
+      { userId: 'gps_std_102', profile: { name: { fullName: 'Diya Patel' }, emailAddress: 'diya.patel@greenwoodgurgaon.com' } },
+      { userId: 'gps_std_103', profile: { name: { fullName: 'Ishaan Verma' }, emailAddress: 'ishaan.verma@greenwoodgurgaon.com' } }
     ];
   }
 
@@ -123,7 +123,7 @@ class GoogleClassroomService {
             title: assignmentData.title,
             description: assignmentData.description || 'AdaptIQ Adaptive Assessment',
             materials: [
-              { link: { url: assignmentData.url || 'https://adaptiq.aps-school.in' } }
+              { link: { url: assignmentData.url || 'https://adaptiq.greenwoodgurgaon.com' } }
             ],
             state: 'PUBLISHED',
             workType: 'ASSIGNMENT'

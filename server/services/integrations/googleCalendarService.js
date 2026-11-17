@@ -77,7 +77,7 @@ class GoogleCalendarService {
 
     // Generate RFC 5545 iCalendar format string
     const icsContent = this.generateIcsString({
-      uid: `adaptiq_evt_${Date.now()}@aps-school.in`,
+      uid: `adaptiq_evt_${Date.now()}@greenwoodgurgaon.com`,
       title: eventDetails.title,
       description: eventDetails.description,
       start,
@@ -104,7 +104,7 @@ class GoogleCalendarService {
     return [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
-      'PRODID:-//Asian Public School//AdaptIQ 3.0 Assessment Calendar//EN',
+      'PRODID:-//Greenwood Public School//AdaptIQ 3.0 Assessment Calendar//EN',
       'CALSCALE:GREGORIAN',
       'METHOD:PUBLISH',
       'BEGIN:VEVENT',

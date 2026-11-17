@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [enrolledClasses, setEnrolledClasses] = useState(["APS7AM", "APS7AS", "APS7BE"]);
+  const [enrolledClasses, setEnrolledClasses] = useState(["GPS7AM", "GPS7AS", "GPS7BE"]);
   const [selectedGrade, setSelectedGrade] = useState(7);
 
   useEffect(() => {
@@ -107,7 +107,7 @@ export const AuthProvider = ({ children }) => {
     return newUser;
   };
 
-  // Instant Persona Switcher for Asian Public School Demonstration
+  // Instant Persona Switcher for Greenwood Public School Demonstration
   const switchRole = (newRole, studentKey = null) => {
     let target = MOCK_STUDENT_G7;
     if (newRole === 'admin') target = MOCK_ADMIN;

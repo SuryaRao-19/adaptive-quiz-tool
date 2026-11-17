@@ -35,7 +35,7 @@ export const ContactSupportModal = ({
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      title="Asian Public School Help & Support"
+      title="Greenwood Public School Help & Support"
       subtitle="Integrated Academic Helpdesk • Connected to Teacher & Admin Portals"
       maxWidth="max-w-xl"
     >

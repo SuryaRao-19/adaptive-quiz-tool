@@ -1,7 +1,7 @@
 /**
  * Curriculum & Academic Structure Service
  * Manages Grades 1-12, Subjects, Chapters, Topics, and Learning Outcomes
- * for Asian Public School demonstration and multi-grade intelligence.
+ * for Greenwood Public School demonstration and multi-grade intelligence.
  */
 
 const curriculumData = require('../data/curriculumData.json');

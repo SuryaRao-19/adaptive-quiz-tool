@@ -159,7 +159,7 @@ export const ClassResults = () => {
               Class Results & Longitudinal Analytics
             </h1>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-              Asian Public School • Grade 7 Mathematics Diagnostic Assessment Results
+              Greenwood Public School • Grade 7 Mathematics Diagnostic Assessment Results
             </p>
           </div>
         </div>

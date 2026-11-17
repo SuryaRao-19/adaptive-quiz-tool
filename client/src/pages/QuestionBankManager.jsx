@@ -989,7 +989,7 @@ export const QuestionBankManager = () => {
         isOpen={generateModalOpen}
         onClose={() => !isGenerating && setGenerateModalOpen(false)}
         title="Compose Curriculum Assessment Items"
-        subtitle="Generate syllabus-aligned items with verified student distractors for Asian Public School"
+        subtitle="Generate syllabus-aligned items with verified student distractors for Greenwood Public School"
         maxWidth="max-w-xl"
       >
         <form onSubmit={handleGenerate} className="space-y-4 mt-2">
