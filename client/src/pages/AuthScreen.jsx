@@ -63,12 +63,11 @@ export const AuthScreen = () => {
       });
 
       if (res.data.success && res.data.token) {
-        localStorage.setItem('token', res.data.token);
-        localStorage.setItem('user', JSON.stringify(res.data.user));
+        login(res.data.token, res.data.user);
         setSuccessMsg(`Welcome, ${res.data.user.name}! Redirecting to student dashboard...`);
         setTimeout(() => {
-          window.location.href = '/dashboard';
-        }, 800);
+          navigate('/dashboard');
+        }, 600);
       }
     } catch (err) {
       const resp = err.response?.data;
@@ -108,12 +107,11 @@ export const AuthScreen = () => {
       });
 
       if (res.data.success && res.data.token) {
-        localStorage.setItem('token', res.data.token);
-        localStorage.setItem('user', JSON.stringify(res.data.user));
+        login(res.data.token, res.data.user);
         setSuccessMsg('Account activated successfully! Redirecting...');
         setTimeout(() => {
-          window.location.href = '/dashboard';
-        }, 800);
+          navigate('/dashboard');
+        }, 600);
       }
     } catch (err) {
       setErrorMsg(err.response?.data?.message || 'Activation failed. Please check your activation code.');
@@ -136,12 +134,11 @@ export const AuthScreen = () => {
       });
 
       if (res.data.success && res.data.token) {
-        localStorage.setItem('token', res.data.token);
-        localStorage.setItem('user', JSON.stringify(res.data.user));
+        login(res.data.token, res.data.user);
         setSuccessMsg(`Authenticated as ${res.data.user.name}. Redirecting...`);
         setTimeout(() => {
-          window.location.href = '/dashboard';
-        }, 800);
+          navigate('/dashboard');
+        }, 600);
       }
     } catch (err) {
       setErrorMsg(err.response?.data?.message || 'Invalid institutional email or password.');
