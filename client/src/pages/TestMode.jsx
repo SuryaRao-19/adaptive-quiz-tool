@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Clock, 
-  AlertTriangle, 
-  CheckCircle2, 
+import {
+  Clock,
+  AlertTriangle,
+  CheckCircle2,
   XCircle,
-  ArrowRight, 
-  ArrowLeft, 
-  ShieldAlert, 
-  FileText, 
-  Calendar, 
+  ArrowRight,
+  ArrowLeft,
+  ShieldAlert,
+  FileText,
+  Calendar,
   PlusCircle,
   HelpCircle,
   BookOpen,
@@ -182,7 +182,7 @@ export const TestMode = () => {
               setTestStarted(false);
             }
           })
-          .catch(() => {});
+          .catch(() => { });
       }
     } else {
       setTestData(null);
@@ -229,7 +229,7 @@ export const TestMode = () => {
     if (testData?.id) {
       try {
         localStorage.setItem(`adaptiq_test_answers_${testData.id}`, JSON.stringify(updated));
-      } catch (_) {}
+      } catch (_) { }
     }
   };
 
@@ -267,7 +267,7 @@ export const TestMode = () => {
     if (typeof document !== 'undefined' && document.fullscreenElement) {
       try {
         await document.exitFullscreen();
-      } catch (_) {}
+      } catch (_) { }
     }
 
     await calculateScore({
@@ -281,7 +281,7 @@ export const TestMode = () => {
     if (typeof document !== 'undefined' && document.fullscreenElement) {
       try {
         await document.exitFullscreen();
-      } catch (_) {}
+      } catch (_) { }
     }
 
     const questions = testData?.questions || testsList[0]?.questions || [];
@@ -313,7 +313,7 @@ export const TestMode = () => {
           topic: q.topic || 'Assessment',
           difficulty: q.difficulty || 'medium',
           timeSpentSeconds: avgTimePerQuestion
-        }).catch(() => {});
+        }).catch(() => { });
       }
     });
 
@@ -355,7 +355,7 @@ export const TestMode = () => {
     if (testData?.id) {
       try {
         localStorage.removeItem(`adaptiq_test_answers_${testData.id}`);
-      } catch (_) {}
+      } catch (_) { }
     }
 
     // Submit attempt to server
@@ -655,13 +655,12 @@ export const TestMode = () => {
             {/* Right side controls: Proctoring Status & Countdown Clock */}
             <div className="flex items-center gap-3">
               {/* Proctoring Status Pill */}
-              <div className={`hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold border transition-colors ${
-                violationCount === 0
+              <div className={`hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold border transition-colors ${violationCount === 0
                   ? 'bg-emerald-950/70 text-emerald-300 border-emerald-600/60'
                   : violationCount === 1
-                  ? 'bg-amber-950/80 text-amber-300 border-amber-500 animate-pulse'
-                  : 'bg-rose-950 text-rose-300 border-rose-500 animate-pulse'
-              }`}>
+                    ? 'bg-amber-950/80 text-amber-300 border-amber-500 animate-pulse'
+                    : 'bg-rose-950 text-rose-300 border-rose-500 animate-pulse'
+                }`}>
                 {violationCount === 0 ? (
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                 ) : (
@@ -675,11 +674,10 @@ export const TestMode = () => {
               </div>
 
               {/* Countdown Clock Display */}
-              <div className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl font-mono text-sm font-bold border ${
-                secondsRemaining < 180
+              <div className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl font-mono text-sm font-bold border ${secondsRemaining < 180
                   ? 'bg-rose-950 text-rose-300 border-rose-600 animate-pulse'
                   : 'bg-slate-800 text-white border-slate-700'
-              }`}>
+                }`}>
                 <Clock className="w-4 h-4 text-amber-400" />
                 <span>{formatCountdown(secondsRemaining)}</span>
               </div>
@@ -710,7 +708,7 @@ export const TestMode = () => {
             <div className="flex justify-between items-center text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 pb-3 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2">
                 <span>Section: {currentQ.topic || 'Assessment'}</span>
-                <SpeechButton 
+                <SpeechButton
                   text={`Question ${currentQuestionIndex + 1}. ${currentQ?.questionText || ''}. Options: ${(currentQ?.options || []).map((o, i) => `Option ${String.fromCharCode(65 + i)}: ${o}`).join('. ')}`}
                   label="Listen to question"
                 />
@@ -738,11 +736,10 @@ export const TestMode = () => {
                     whileHover={{ scale: 1.012 }}
                     whileTap={{ scale: 0.985 }}
                     onClick={() => handleSelectOption(currentQ.id, idx)}
-                    className={`w-full text-left p-4 sm:p-5 rounded-2xl border-2 transition-all flex items-center justify-between text-base sm:text-lg min-h-[58px] ${
-                      isSelected
+                    className={`w-full text-left p-4 sm:p-5 rounded-2xl border-2 transition-all flex items-center justify-between text-base sm:text-lg min-h-[58px] ${isSelected
                         ? 'border-indigo-600 dark:border-cyan-400 bg-indigo-50/70 dark:bg-indigo-950/50 text-indigo-950 dark:text-cyan-200 font-bold ring-2 ring-indigo-600/30'
                         : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-slate-300 dark:hover:border-slate-600 text-slate-800 dark:text-slate-200'
-                    }`}
+                      }`}
                   >
                     <div className="flex items-center gap-4">
                       <span className="w-8 h-8 rounded-xl border border-current flex items-center justify-center font-bold text-sm shrink-0">
@@ -858,9 +855,8 @@ export const TestMode = () => {
                 <div className="p-2 rounded-xl text-center text-xs font-bold bg-rose-500 text-white shadow">
                   Strike 1 ⚠️
                 </div>
-                <div className={`p-2 rounded-xl text-center text-xs font-bold ${
-                  violationCount >= 2 ? 'bg-rose-500 text-white shadow' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 border border-slate-200 dark:border-slate-700'
-                }`}>
+                <div className={`p-2 rounded-xl text-center text-xs font-bold ${violationCount >= 2 ? 'bg-rose-500 text-white shadow' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 border border-slate-200 dark:border-slate-700'
+                  }`}>
                   Strike 2 🚨
                 </div>
                 <div className="p-2 rounded-xl text-center text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-400 border border-slate-200 dark:border-slate-700">
@@ -871,7 +867,7 @@ export const TestMode = () => {
               <div className="p-3.5 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 text-xs text-rose-900 dark:text-rose-200 space-y-1.5">
                 <p className="font-bold">Incident Detected: {lastViolationReason}</p>
                 <p className="text-[11px] leading-relaxed">
-                  {violationCount === 1 
+                  {violationCount === 1
                     ? 'Leaving the examination window or exiting full-screen mode is strictly recorded by the assessment server. Please return to fullscreen immediately.'
                     : 'You have committed 2 out of 3 allowed infractions. Any further attempt to switch tabs, minimize the window, or lose focus will IMMEDIATELY auto-submit your exam.'}
                 </p>
@@ -903,7 +899,7 @@ export const TestMode = () => {
 
     return (
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8 animate-fadeIn">
-        
+
         {/* Academic Integrity Infraction Alert (If auto-submitted due to 3 violations) */}
         {testScore.autoSubmitted && (
           <div className="bg-gradient-to-r from-rose-900 via-rose-950 to-slate-900 border-2 border-rose-500 text-white rounded-3xl p-6 sm:p-7 shadow-xl space-y-2 text-left">
@@ -934,13 +930,13 @@ export const TestMode = () => {
           <Badge variant={testScore.autoSubmitted ? "danger" : "primary"} size="md" className="mb-2">
             {testScore.autoSubmitted ? 'Auto-Submitted • Proctoring Lock' : 'Official Timed Assessment Results'}
           </Badge>
-          
+
           <h1 className="text-3xl font-extrabold text-slate-900 dark:text-white">
             {testScore.autoSubmitted
               ? 'Assessment Locked & Auto-Submitted'
               : testScore.percentage >= 70
-              ? 'Proficiency Milestone Achieved!'
-              : 'Assessment Complete - Learning Gaps Identified'}
+                ? 'Proficiency Milestone Achieved!'
+                : 'Assessment Complete - Learning Gaps Identified'}
           </h1>
           <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm mt-1 mb-6">
             {testData?.title} • Standardized across Easy, Medium, Hard, and Very Hard questions.
@@ -955,11 +951,10 @@ export const TestMode = () => {
               <span className="text-[10px] uppercase font-bold text-slate-400 block">Correct</span>
               <span className="text-3xl font-extrabold text-slate-900 dark:text-white">{testScore.correct} / {testScore.total}</span>
             </div>
-            <div className={`p-4 rounded-2xl border ${
-              testScore.autoSubmitted
+            <div className={`p-4 rounded-2xl border ${testScore.autoSubmitted
                 ? 'bg-rose-50 dark:bg-rose-950/60 border-rose-200 dark:border-rose-800 text-rose-600'
                 : 'bg-emerald-50 dark:bg-emerald-950/60 border-emerald-200 dark:border-emerald-800 text-emerald-600'
-            }`}>
+              }`}>
               <span className="text-[10px] uppercase font-bold block">Status</span>
               <span className="text-xl sm:text-2xl font-extrabold">
                 {testScore.autoSubmitted ? 'VIOLATION' : testScore.percentage >= 70 ? 'PASS' : 'RETRY'}
@@ -1029,7 +1024,7 @@ export const TestMode = () => {
         {/* INTERACTIVE QUESTION-BY-QUESTION REVIEW TABS */}
         {/* ========================================================================= */}
         <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-8 shadow-card space-y-6">
-          
+
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-slate-800">
             <div>
               <h2 className="text-xl font-extrabold text-slate-900 dark:text-white">
@@ -1057,11 +1052,10 @@ export const TestMode = () => {
                   onClick={() => {
                     setReviewQuestionIdx(idx);
                   }}
-                  className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-2 border transition-all shrink-0 ${
-                    isCurrent
+                  className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-2 border transition-all shrink-0 ${isCurrent
                       ? 'border-indigo-600 bg-indigo-50 dark:bg-slate-800 text-indigo-900 dark:text-cyan-300 ring-2 ring-indigo-500/20'
                       : 'border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'
-                  }`}
+                    }`}
                 >
                   <span>Q{idx + 1}</span>
                   {qCorrect ? (
@@ -1084,7 +1078,7 @@ export const TestMode = () => {
                 <span className="font-bold text-slate-500 dark:text-slate-400">
                   Question #{reviewQuestionIdx + 1} • {currentReviewQ.topic}
                 </span>
-                <SpeechButton 
+                <SpeechButton
                   text={`Review Question ${reviewQuestionIdx + 1}. ${currentReviewQ.questionText}. Correct answer: ${currentReviewQ.options[currentReviewQ.correctIndex]}. Explanation: ${currentReviewQ.explanation || ''}`}
                   label="Listen to solution"
                 />
@@ -1098,11 +1092,10 @@ export const TestMode = () => {
 
             {/* Answer Comparison Chip */}
             <div className="pt-2 flex flex-wrap items-center gap-3 text-xs">
-              <span className={`px-2.5 py-1 rounded-lg font-bold flex items-center gap-1.5 ${
-                isCorrect 
-                  ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300' 
+              <span className={`px-2.5 py-1 rounded-lg font-bold flex items-center gap-1.5 ${isCorrect
+                  ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
                   : 'bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300'
-              }`}>
+                }`}>
                 {isCorrect ? <CheckCircle2 className="w-3.5 h-3.5" /> : <XCircle className="w-3.5 h-3.5" />}
                 Your Answer: {userSelectedIdx !== undefined ? currentReviewQ.options[userSelectedIdx] : 'None'}
               </span>
@@ -1119,16 +1112,15 @@ export const TestMode = () => {
           {/* THE 2 SUB-TABS: Solved Steps | Concept Explanation */}
           {/* =================================================================== */}
           <div className="space-y-4 pt-2">
-            
+
             {/* Tab Selector Bar */}
             <div className="flex border-b border-slate-200 dark:border-slate-800 gap-6 text-xs font-bold">
               <button
                 onClick={() => setReviewActiveTab('steps')}
-                className={`pb-3 flex items-center gap-2 border-b-2 transition-all ${
-                  reviewActiveTab === 'steps'
+                className={`pb-3 flex items-center gap-2 border-b-2 transition-all ${reviewActiveTab === 'steps'
                     ? 'border-[var(--theme-primary,#4F46E5)] text-[var(--theme-primary,#4F46E5)] dark:text-cyan-400'
                     : 'border-transparent text-slate-500 hover:text-slate-900 dark:hover:text-white'
-                }`}
+                  }`}
               >
                 <Layers className="w-4 h-4" />
                 <span>1. Solved Step-by-Step ({currentReviewQ.steps?.length || 3} Steps)</span>
@@ -1136,11 +1128,10 @@ export const TestMode = () => {
 
               <button
                 onClick={() => setReviewActiveTab('explanation')}
-                className={`pb-3 flex items-center gap-2 border-b-2 transition-all ${
-                  reviewActiveTab === 'explanation'
+                className={`pb-3 flex items-center gap-2 border-b-2 transition-all ${reviewActiveTab === 'explanation'
                     ? 'border-[var(--theme-primary,#4F46E5)] text-[var(--theme-primary,#4F46E5)] dark:text-cyan-400'
                     : 'border-transparent text-slate-500 hover:text-slate-900 dark:hover:text-white'
-                }`}
+                  }`}
               >
                 <BookOpen className="w-4 h-4" />
                 <span>2. Concept & Misconception Notes</span>
@@ -1244,9 +1235,9 @@ export const TestMode = () => {
     return matchesCategory && matchesSubject && matchesSearch;
   });
 
-  const featuredTest = testsList.find(t => t.gradeLevel === studentGrade && t.isFeatured) 
-    || testsList.find(t => t.gradeLevel === studentGrade) 
-    || testsList.find(t => t.id === 'aps-g7-diagnostic-pre') 
+  const featuredTest = testsList.find(t => t.gradeLevel === studentGrade && t.isFeatured)
+    || testsList.find(t => t.gradeLevel === studentGrade)
+    || testsList.find(t => t.id === 'aps-g7-diagnostic-pre')
     || testsList[0];
 
   return (
@@ -1377,11 +1368,10 @@ export const TestMode = () => {
               <button
                 key={subj}
                 onClick={() => setSelectedSubject(subj)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                  selectedSubject === subj
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${selectedSubject === subj
                     ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-white shadow-subtle'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
-                }`}
+                  }`}
               >
                 {subj}
               </button>
@@ -1397,11 +1387,10 @@ export const TestMode = () => {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all border ${
-                  isSelected
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all border ${isSelected
                     ? 'bg-indigo-600 text-white border-indigo-600 shadow-subtle'
                     : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:border-slate-300'
-                }`}
+                  }`}
               >
                 {cat}
               </button>
