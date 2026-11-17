@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const path = require('path');
+const fs = require('fs');
 const dotenv = require('dotenv');
 dotenv.config({ path: path.join(__dirname, '.env') });
 dotenv.config();
@@ -193,7 +194,17 @@ const rootApiHandler = (req, res) => {
 app.get('/', rootApiHandler);
 app.get('/api', rootApiHandler);
 
-// 404 Handler
+// Serve Client Production SPA if available
+const clientDistPath = path.join(__dirname, '../client/dist');
+if (fs.existsSync(clientDistPath)) {
+  app.use(express.static(clientDistPath));
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api')) return next();
+    res.sendFile(path.join(clientDistPath, 'index.html'));
+  });
+}
+
+// 404 Handler for API endpoints
 app.use('*', (req, res) => {
   res.status(404).json({
     success: false,
